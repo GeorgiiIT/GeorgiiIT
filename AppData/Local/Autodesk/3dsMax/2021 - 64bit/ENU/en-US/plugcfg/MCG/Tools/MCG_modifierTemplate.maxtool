@@ -1,0 +1,21 @@
+<graph version="0.50" uuid="ef21b7da-f8e7-4311-af41-3a306b59a8a4">
+    <meta_info>
+        <graph_version guid="71ba40e0-5df4-473c-ba27-771dea45bd0c" number="0.0.2" />
+		<identifier></identifier>
+        <displayName></displayName>
+        <graph_editor_UI>true</graph_editor_UI>
+    </meta_info>
+    <nodes>
+        <node operator="Modifier: TriMesh" id="0" position="40:80" size="140:91" />
+        <node operator="Parameter: Vector3" id="1" name="offset" min_value="[-1000000,-1000000,-1000000]" max_value="[1000000,1000000,1000000]" default_value="[0,0,0]" position="40:180" size="140:175" />
+        <node operator="TransformMesh" id="2" position="460:140" size="140:133" />
+        <node operator="TranslationMatrix" id="3" position="240:180" size="140:112" />
+        <node operator="Output: modifier" id="4" position="640:200" size="140:70" />
+    </nodes>
+    <connections>
+        <connection sourcenode="0" sourceport="0" destnode="2" destport="0" />
+        <connection sourcenode="3" sourceport="0" destnode="2" destport="1" />
+        <connection sourcenode="1" sourceport="0" destnode="3" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="4" destport="0" />
+    </connections>
+</graph>

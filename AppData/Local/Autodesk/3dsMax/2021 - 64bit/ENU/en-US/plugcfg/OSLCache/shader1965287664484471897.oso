@@ -1,0 +1,495 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader UberBitmap2	%meta{string,help,"All-in-one shader for loading a bitmap via OpenImageIO.<br>Includes UVW channels and transforms in a monolithic version."} %meta{string,label,"Uber Bitmap"} %meta{string,version,"2.0"} 
+param	int	UVSet	1		%meta{string,label,"Map Channel"} %meta{string,help,"The 3ds max Map channel to look up"} %meta{int,min,0} %meta{int,max,99}  %read{4,15} %write{2147483647,-1} %derivs
+param	float	Scale	1		%meta{string,help,"The overall Scale. Larger number = bigger."}  %read{79,79} %write{2147483647,-1} %derivs
+param	vector	Tiling	1 1 1		%meta{string,help,"A per-axis dividing scale, to subdivide the values. Larger number = smaller."}  %read{77,77} %write{2147483647,-1} %derivs
+param	vector	Offset	0 0 0		%meta{string,help,"Moves the UVW coordinates around"}  %read{21,21} %write{2147483647,-1} %derivs
+param	int	RealWorld	0		%meta{string,widget,"checkBox"} %meta{int,connectable,0} %meta{string,help,"Enable Real-World Scaling"}  %read{19,19} %write{2147483647,-1}
+param	float	RealWidth	0.200000003		%meta{int,worldunits,1} %meta{string,help,"Real Width of one unit of texture space"}  %read{20,20} %write{2147483647,-1} %derivs
+param	float	RealHeight	0.200000003		%meta{int,worldunits,1} %meta{string,help,"Real Height of one unit of texture space"}  %read{20,20} %write{2147483647,-1} %derivs
+param	float	Rotate	0		%meta{string,help,"A rotation angle in <i>degrees</i>."}  %read{24,24} %write{2147483647,-1} %derivs
+param	point	RotCenter	0.5 0.5 0		%meta{string,label,"Rotation Center"} %meta{string,help,"The center of rotation in UVW space"}  %read{25,76} %write{2147483647,-1} %derivs
+param	vector	RotAxis	0 0 1		%meta{string,label,"Rotation Axis"} %meta{string,help,"An axis around which the rotation occurs."}  %read{25,25} %write{2147483647,-1} %derivs
+param	string	Filename	""		%meta{string,widget,"filename"} %meta{string,label,"File name"} %meta{string,help,"The name of the texture to look up"}  %read{0,148} %write{2147483647,-1}
+param	string	Filename_UDIMList	""		%meta{string,widget,"null"} %meta{string,label,"Viewport UDIM List"} %meta{string,help,"The list of UDIM items to load into the viewport. If empty, will be deduced from the file system automatically. "}  %read{2147483647,-1} %write{2147483647,-1}
+param	string	LoadUDIM	"Load UDIM..."		%meta{string,widget,"max:actionButton"} %meta{string,actionID,"loadUDIM(\"Filename\")"} %meta{string,help,"Select a set of files to load as an UDIM."} %meta{int,connectable,0}  %read{2147483647,-1} %write{2147483647,-1}
+param	int	UDIM	0		%meta{string,widget,"checkBox"} %meta{string,label,"UDIM-compatible lookup"} %meta{int,connectable,0} %meta{string,help,"Modifies the UV coordinate so that UDIM's are looked up similar to the max MultiTile map"}  %read{83,83} %write{2147483647,-1}
+param	string	WrapMode	"periodic"		%meta{string,widget,"popup"} %meta{string,options,"default|black|clamp|periodic|mirror"} %meta{string,label,"Wrap Mode"} %meta{string,help,"How the texture wraps: (black, clamp, periodic or mirror)."}  %read{90,95} %write{2147483647,-1}
+param	int	AutoGamma	1		%meta{string,widget,"checkBox"} %meta{int,connectable,0}  %read{119,119} %write{2147483647,-1}
+param	float	ManualGamma	1		%meta{string,label,"Manual Gamma"}  %read{154,156} %write{2147483647,-1}
+oparam	color	Col	0 0 0		%meta{string,label,"Col (RGB)"}  %read{153,160} %write{90,156}
+oparam	float	R	0		%read{161,161} %write{157,157}
+oparam	float	G	0		%read{161,161} %write{158,158}
+oparam	float	B	0		%read{162,162} %write{159,159}
+oparam	float	A	1		%read{2147483647,-1} %write{90,118}
+oparam	float	Luminance	0		%read{2147483647,-1} %write{160,160}
+oparam	float	Average	0		%read{2147483647,-1} %write{163,163}
+global	float	u	%read{3,11} %write{2147483647,-1} %derivs
+global	float	v	%read{3,11} %write{2147483647,-1} %derivs
+local	vector	___252_axis	%read{31,33} %write{28,28} %derivs
+local	float	___252_cosang	%read{30,71} %write{29,29} %derivs
+local	float	___252_sinang	%read{41,66} %write{29,29} %derivs
+local	float	___252_cosang1	%read{40,65} %write{30,30} %derivs
+local	float	___252_x	%read{34,66} %write{31,31} %derivs
+local	float	___252_y	%read{39,64} %write{32,32} %derivs
+local	float	___252_z	%read{41,69} %write{33,33} %derivs
+local	matrix	___252_M	%read{75,75} %write{73,73} %derivs
+local	point	UVW	%read{21,21} %write{3,17} %derivs
+local	float	___325_w	%read{17,17} %write{8,16} %derivs
+local	vector	worldScale	%read{78,78} %write{18,20} %derivs
+local	point	p	%read{80,113} %write{79,79} %derivs
+local	float	ulookup	%read{90,90} %write{80,80} %derivs
+local	float	vlookup	%read{90,90} %write{82,89} %derivs
+local	float	___328_vfloor	%read{87,89} %write{85,85} %derivs
+local	float	___328_vfrac	%read{88,88} %write{87,87} %derivs
+local	int	channels	%read{92,92} %write{91,91}
+const	string	$const1	""		%read{0,0} %write{2147483647,-1}
+temp	int	$tmp1	%read{1,1} %write{0,0}
+const	int	$const2	0		%read{6,157} %write{2147483647,-1}
+const	float	$const3	0		%read{3,118} %write{2147483647,-1}
+temp	int	$tmp2	%read{6,6} %write{5,5}
+temp	string	$tmp3	%read{5,5} %write{4,4} %derivs
+const	string	$const4	"UV%d"		%read{4,4} %write{2147483647,-1}
+temp	int	$tmp4	%read{7,7} %write{6,6}
+const	int	$const5	1		%read{9,158} %write{2147483647,-1}
+temp	int	$tmp5	%read{10,10} %write{9,9}
+temp	int	$tmp6	%read{2147483647,-1} %write{12,12}
+const	string	$const6	"w"		%read{12,12} %write{2147483647,-1}
+temp	int	$tmp7	%read{2147483647,-1} %write{14,14}
+temp	string	$tmp8	%read{14,14} %write{13,13} %derivs
+const	string	$const7	"uv_%d"		%read{13,13} %write{2147483647,-1}
+temp	int	$tmp9	%read{2147483647,-1} %write{16,16}
+temp	string	$tmp10	%read{16,16} %write{15,15} %derivs
+const	string	$const8	"w_%d"		%read{15,15} %write{2147483647,-1}
+const	int	$const9	2		%read{17,159} %write{2147483647,-1}
+const	float	$const10	1		%read{18,154} %write{2147483647,-1}
+temp	point	$tmp11	%read{77,77} %write{76,76} %derivs
+temp	point	$tmp12	%read{74,74} %write{21,21} %derivs
+temp	float	$tmp13	%read{29,29} %write{24,24} %derivs
+const	string	$const11	"radians"		%read{22,22} %write{2147483647,-1}
+const	float	$const12	3.14159274		%read{23,23} %write{2147483647,-1}
+const	float	$const13	180		%read{23,23} %write{2147483647,-1}
+temp	float	$tmp14	%read{24,24} %write{23,23} %derivs
+temp	point	$tmp15	%read{27,27} %write{25,25} %derivs
+const	string	$const14	"rotate"		%read{26,26} %write{2147483647,-1}
+temp	vector	$tmp16	%read{28,28} %write{27,27} %derivs
+temp	float	$tmp17	%read{38,38} %write{34,34} %derivs
+temp	float	$tmp18	%read{36,36} %write{35,35} %derivs
+temp	float	$tmp19	%read{37,37} %write{36,36} %derivs
+temp	float	$tmp20	%read{38,38} %write{37,37} %derivs
+temp	float	$tmp21	%read{73,73} %write{38,38} %derivs
+temp	float	$tmp22	%read{40,40} %write{39,39} %derivs
+temp	float	$tmp23	%read{42,42} %write{40,40} %derivs
+temp	float	$tmp24	%read{42,42} %write{41,41} %derivs
+temp	float	$tmp25	%read{73,73} %write{42,42} %derivs
+temp	float	$tmp26	%read{44,44} %write{43,43} %derivs
+temp	float	$tmp27	%read{46,46} %write{44,44} %derivs
+temp	float	$tmp28	%read{46,46} %write{45,45} %derivs
+temp	float	$tmp29	%read{73,73} %write{46,46} %derivs
+temp	float	$tmp30	%read{48,48} %write{47,47} %derivs
+temp	float	$tmp31	%read{50,50} %write{48,48} %derivs
+temp	float	$tmp32	%read{50,50} %write{49,49} %derivs
+temp	float	$tmp33	%read{73,73} %write{50,50} %derivs
+temp	float	$tmp34	%read{55,55} %write{51,51} %derivs
+temp	float	$tmp35	%read{53,53} %write{52,52} %derivs
+temp	float	$tmp36	%read{54,54} %write{53,53} %derivs
+temp	float	$tmp37	%read{55,55} %write{54,54} %derivs
+temp	float	$tmp38	%read{73,73} %write{55,55} %derivs
+temp	float	$tmp39	%read{57,57} %write{56,56} %derivs
+temp	float	$tmp40	%read{59,59} %write{57,57} %derivs
+temp	float	$tmp41	%read{59,59} %write{58,58} %derivs
+temp	float	$tmp42	%read{73,73} %write{59,59} %derivs
+temp	float	$tmp43	%read{61,61} %write{60,60} %derivs
+temp	float	$tmp44	%read{63,63} %write{61,61} %derivs
+temp	float	$tmp45	%read{63,63} %write{62,62} %derivs
+temp	float	$tmp46	%read{73,73} %write{63,63} %derivs
+temp	float	$tmp47	%read{65,65} %write{64,64} %derivs
+temp	float	$tmp48	%read{67,67} %write{65,65} %derivs
+temp	float	$tmp49	%read{67,67} %write{66,66} %derivs
+temp	float	$tmp50	%read{73,73} %write{67,67} %derivs
+temp	float	$tmp51	%read{72,72} %write{68,68} %derivs
+temp	float	$tmp52	%read{70,70} %write{69,69} %derivs
+temp	float	$tmp53	%read{71,71} %write{70,70} %derivs
+temp	float	$tmp54	%read{72,72} %write{71,71} %derivs
+temp	float	$tmp55	%read{73,73} %write{72,72} %derivs
+temp	vector	$tmp56	%read{76,76} %write{75,75} %derivs
+temp	vector	$tmp57	%read{75,75} %write{74,74} %derivs
+temp	point	$tmp58	%read{78,78} %write{77,77} %derivs
+temp	point	$tmp59	%read{79,79} %write{78,78} %derivs
+temp	float	$tmp60	%read{82,82} %write{81,81} %derivs
+temp	float	$tmp61	%read{85,85} %write{84,84} %derivs
+temp	float	$tmp62	%read{87,87} %write{86,86} %derivs
+temp	float	$tmp63	%read{89,89} %write{88,88} %derivs
+const	string	$const15	"wrap"		%read{90,90} %write{2147483647,-1}
+const	string	$const16	"alpha"		%read{90,90} %write{2147483647,-1}
+temp	int	$tmp64	%read{2147483647,-1} %write{91,91}
+const	string	$const17	"channels"		%read{91,91} %write{2147483647,-1}
+const	int	$const18	4		%read{92,92} %write{2147483647,-1}
+temp	int	$tmp65	%read{93,93} %write{92,92}
+const	string	$const19	"black"		%read{95,95} %write{2147483647,-1}
+temp	int	$tmp66	%read{96,96} %write{95,95}
+temp	float	$tmp67	%read{98,98} %write{97,97}
+temp	int	$tmp68	%read{99,99} %write{98,98}
+temp	int	$tmp69	%read{100,105} %write{99,104}
+temp	float	$tmp70	%read{102,102} %write{101,101}
+temp	int	$tmp71	%read{103,103} %write{102,102}
+temp	int	$tmp72	%read{104,104} %write{103,103}
+temp	int	$tmp73	%read{106,111} %write{105,110}
+temp	float	$tmp74	%read{108,108} %write{107,107}
+temp	int	$tmp75	%read{109,109} %write{108,108}
+temp	int	$tmp76	%read{110,110} %write{109,109}
+temp	int	$tmp77	%read{112,117} %write{111,116}
+temp	float	$tmp78	%read{114,114} %write{113,113}
+temp	int	$tmp79	%read{115,115} %write{114,114}
+temp	int	$tmp80	%read{116,116} %write{115,115}
+temp	int	$tmp81	%read{121,121} %write{120,120}
+const	string	$const20	".exr"		%read{120,120} %write{2147483647,-1}
+temp	int	$tmp82	%read{122,122} %write{121,121}
+temp	int	$tmp83	%read{123,128} %write{122,127}
+temp	int	$tmp84	%read{125,125} %write{124,124}
+const	string	$const21	".EXR"		%read{124,124} %write{2147483647,-1}
+temp	int	$tmp85	%read{126,126} %write{125,125}
+temp	int	$tmp86	%read{127,127} %write{126,126}
+temp	int	$tmp87	%read{129,134} %write{128,133}
+temp	int	$tmp88	%read{131,131} %write{130,130}
+const	string	$const22	".hdr"		%read{130,130} %write{2147483647,-1}
+temp	int	$tmp89	%read{132,132} %write{131,131}
+temp	int	$tmp90	%read{133,133} %write{132,132}
+temp	int	$tmp91	%read{135,140} %write{134,139}
+temp	int	$tmp92	%read{137,137} %write{136,136}
+const	string	$const23	".HDR"		%read{136,136} %write{2147483647,-1}
+temp	int	$tmp93	%read{138,138} %write{137,137}
+temp	int	$tmp94	%read{139,139} %write{138,138}
+temp	int	$tmp95	%read{141,146} %write{140,145}
+temp	int	$tmp96	%read{143,143} %write{142,142}
+const	string	$const24	".tx"		%read{142,142} %write{2147483647,-1}
+temp	int	$tmp97	%read{144,144} %write{143,143}
+temp	int	$tmp98	%read{145,145} %write{144,144}
+temp	int	$tmp99	%read{147,152} %write{146,151}
+temp	int	$tmp100	%read{149,149} %write{148,148}
+const	string	$const25	".TX"		%read{148,148} %write{2147483647,-1}
+temp	int	$tmp101	%read{150,150} %write{149,149}
+temp	int	$tmp102	%read{151,151} %write{150,150}
+const	float	$const26	2.20000005		%read{153,153} %write{2147483647,-1}
+temp	int	$tmp103	%read{155,155} %write{154,154}
+temp	float	$tmp104	%read{162,162} %write{161,161}
+temp	float	$tmp105	%read{163,163} %write{162,162}
+const	float	$const27	3		%read{163,163} %write{2147483647,-1}
+code ___main___
+# OSL\UberBitmap.osl:85
+# 		return;
+	eq		$tmp1 Filename $const1 	%filename{"OSL\UberBitmap.osl"} %line{85} %argrw{"wrr"}
+	if		$tmp1 3 3 	%argrw{"r"}
+# OSL\UberBitmap.osl:86
+# 		
+	exit	%line{86}
+# OSL\UberBitmap.osl:88
+# 
+	point		UVW u v $const3 	%line{88} %argrw{"wrrr"}
+# OSL\UberBitmap.osl:91
+# 	{
+	format		$tmp3 $const4 UVSet 	%line{91} %argrw{"wrr"}
+	getattribute	$tmp2 $tmp3 UVW 	%argrw{"wrw"}
+	eq		$tmp4 $tmp2 $const2 	%argrw{"wrr"}
+	if		$tmp4 18 18 	%argrw{"r"}
+# OSL\UberBitmap.osl:94
+# 		
+	assign		___325_w $const3 	%line{94} %argrw{"wr"}
+# OSL\UberBitmap.osl:98
+# 		{
+	eq		$tmp5 UVSet $const5 	%line{98} %argrw{"wrr"}
+	if		$tmp5 13 17 	%argrw{"r"}
+# OSL\UberBitmap.osl:100
+# 			getattribute("w",  w);
+	vector		UVW u v $const3 	%line{100} %argrw{"wrrr"}
+# OSL\UberBitmap.osl:101
+# 		}
+	getattribute	$tmp6 $const6 ___325_w 	%line{101} %argrw{"wrw"}
+# OSL\UberBitmap.osl:105
+# 			getattribute(format("w_%d", UVSet), w);
+	format		$tmp8 $const7 UVSet 	%line{105} %argrw{"wrr"}
+	getattribute	$tmp7 $tmp8 UVW 	%argrw{"wrw"}
+# OSL\UberBitmap.osl:106
+# 		}
+	format		$tmp10 $const8 UVSet 	%line{106} %argrw{"wrr"}
+	getattribute	$tmp9 $tmp10 ___325_w 	%argrw{"wrw"}
+# OSL\UberBitmap.osl:109
+# 	}
+	compassign	UVW $const9 ___325_w 	%line{109} %argrw{"wrr"}
+# OSL\UberBitmap.osl:112
+# 	
+	assign		worldScale $const10 	%line{112} %argrw{"wr"}
+# OSL\UberBitmap.osl:114
+# 		worldScale = vector(RealWidth, RealHeight, 1.0);
+	if		RealWorld 21 21 	%line{114} %argrw{"r"}
+# OSL\UberBitmap.osl:115
+# 
+	vector		worldScale RealWidth RealHeight $const10 	%line{115} %argrw{"wrrr"}
+# OSL\UberBitmap.osl:118
+# 
+	sub		$tmp12 UVW Offset 	%line{118} %argrw{"wrr"}
+	functioncall	$const11 25 	%argrw{"r"}
+# OSL\stdosl.h:88
+# float  radians (float x)  { return x*(M_PI/180.0); }
+	div		$tmp14 $const12 $const13 	%filename{"OSL\stdosl.h"} %line{88} %argrw{"wrr"}
+	mul		$tmp13 Rotate $tmp14 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:118
+# 
+	add		$tmp15 RotCenter RotAxis 	%filename{"OSL\UberBitmap.osl"} %line{118} %argrw{"wrr"}
+	functioncall	$const14 77 	%argrw{"r"}
+# OSL\stdosl.h:292
+#     vector axis = normalize (b - a);
+	sub		$tmp16 $tmp15 RotCenter 	%filename{"OSL\stdosl.h"} %line{292} %argrw{"wrr"}
+	normalize	___252_axis $tmp16 	%argrw{"wr"}
+# OSL\stdosl.h:294
+#     sincos (angle, sinang, cosang);
+	sincos		$tmp13 ___252_sinang ___252_cosang 	%line{294} %argrw{"rww"}
+# OSL\stdosl.h:295
+#     float cosang1 = 1.0 - cosang;
+	sub		___252_cosang1 $const10 ___252_cosang 	%line{295} %argrw{"wrr"}
+# OSL\stdosl.h:296
+#     float x = axis[0], y = axis[1], z = axis[2];
+	compref		___252_x ___252_axis $const2 	%line{296} %argrw{"wrr"}
+	compref		___252_y ___252_axis $const5 	%argrw{"wrr"}
+	compref		___252_z ___252_axis $const9 	%argrw{"wrr"}
+# OSL\stdosl.h:297
+#     matrix M = matrix (x * x + (1.0 - x * x) * cosang,
+	mul		$tmp17 ___252_x ___252_x 	%line{297} %argrw{"wrr"}
+	mul		$tmp18 ___252_x ___252_x 	%argrw{"wrr"}
+	sub		$tmp19 $const10 $tmp18 	%argrw{"wrr"}
+	mul		$tmp20 $tmp19 ___252_cosang 	%argrw{"wrr"}
+	add		$tmp21 $tmp17 $tmp20 	%argrw{"wrr"}
+# OSL\stdosl.h:298
+#                        x * y * cosang1 + z * sinang,
+	mul		$tmp22 ___252_x ___252_y 	%line{298} %argrw{"wrr"}
+	mul		$tmp23 $tmp22 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp24 ___252_z ___252_sinang 	%argrw{"wrr"}
+	add		$tmp25 $tmp23 $tmp24 	%argrw{"wrr"}
+# OSL\stdosl.h:299
+#                        x * z * cosang1 - y * sinang,
+	mul		$tmp26 ___252_x ___252_z 	%line{299} %argrw{"wrr"}
+	mul		$tmp27 $tmp26 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp28 ___252_y ___252_sinang 	%argrw{"wrr"}
+	sub		$tmp29 $tmp27 $tmp28 	%argrw{"wrr"}
+# OSL\stdosl.h:301
+#                        x * y * cosang1 - z * sinang,
+	mul		$tmp30 ___252_x ___252_y 	%line{301} %argrw{"wrr"}
+	mul		$tmp31 $tmp30 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp32 ___252_z ___252_sinang 	%argrw{"wrr"}
+	sub		$tmp33 $tmp31 $tmp32 	%argrw{"wrr"}
+# OSL\stdosl.h:302
+#                        y * y + (1.0 - y * y) * cosang,
+	mul		$tmp34 ___252_y ___252_y 	%line{302} %argrw{"wrr"}
+	mul		$tmp35 ___252_y ___252_y 	%argrw{"wrr"}
+	sub		$tmp36 $const10 $tmp35 	%argrw{"wrr"}
+	mul		$tmp37 $tmp36 ___252_cosang 	%argrw{"wrr"}
+	add		$tmp38 $tmp34 $tmp37 	%argrw{"wrr"}
+# OSL\stdosl.h:303
+#                        y * z * cosang1 + x * sinang,
+	mul		$tmp39 ___252_y ___252_z 	%line{303} %argrw{"wrr"}
+	mul		$tmp40 $tmp39 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp41 ___252_x ___252_sinang 	%argrw{"wrr"}
+	add		$tmp42 $tmp40 $tmp41 	%argrw{"wrr"}
+# OSL\stdosl.h:305
+#                        x * z * cosang1 + y * sinang,
+	mul		$tmp43 ___252_x ___252_z 	%line{305} %argrw{"wrr"}
+	mul		$tmp44 $tmp43 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp45 ___252_y ___252_sinang 	%argrw{"wrr"}
+	add		$tmp46 $tmp44 $tmp45 	%argrw{"wrr"}
+# OSL\stdosl.h:306
+#                        y * z * cosang1 - x * sinang,
+	mul		$tmp47 ___252_y ___252_z 	%line{306} %argrw{"wrr"}
+	mul		$tmp48 $tmp47 ___252_cosang1 	%argrw{"wrr"}
+	mul		$tmp49 ___252_x ___252_sinang 	%argrw{"wrr"}
+	sub		$tmp50 $tmp48 $tmp49 	%argrw{"wrr"}
+# OSL\stdosl.h:307
+#                        z * z + (1.0 - z * z) * cosang,
+	mul		$tmp51 ___252_z ___252_z 	%line{307} %argrw{"wrr"}
+	mul		$tmp52 ___252_z ___252_z 	%argrw{"wrr"}
+	sub		$tmp53 $const10 $tmp52 	%argrw{"wrr"}
+	mul		$tmp54 $tmp53 ___252_cosang 	%argrw{"wrr"}
+	add		$tmp55 $tmp51 $tmp54 	%argrw{"wrr"}
+# OSL\stdosl.h:297
+#     matrix M = matrix (x * x + (1.0 - x * x) * cosang,
+	matrix		___252_M $tmp21 $tmp25 $tmp29 $const3 $tmp33 $tmp38 $tmp42 $const3 $tmp46 $tmp50 $tmp55 $const3 $const3 $const3 $const3 $const10 	%line{297} %argrw{"wrrrrrrrrrrrrrrrr"}
+# OSL\stdosl.h:310
+#     return transform (M, p-a) + a;
+	sub		$tmp57 $tmp12 RotCenter 	%line{310} %argrw{"wrr"}
+	transformv	$tmp56 ___252_M $tmp57 	%argrw{"wrr"}
+	add		$tmp11 $tmp56 RotCenter 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:118
+# 
+	mul		$tmp58 $tmp11 Tiling 	%filename{"OSL\UberBitmap.osl"} %line{118} %argrw{"wrr"}
+	div		$tmp59 $tmp58 worldScale 	%argrw{"wrr"}
+	div		p $tmp59 Scale 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:121
+# 	float vlookup = 1.0 - p[1];
+	compref		ulookup p $const2 	%line{121} %argrw{"wrr"}
+# OSL\UberBitmap.osl:122
+# 	
+	compref		$tmp60 p $const5 	%line{122} %argrw{"wrr"}
+	sub		vlookup $const10 $tmp60 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:126
+# 	{
+	if		UDIM 90 90 	%line{126} %argrw{"r"}
+# OSL\UberBitmap.osl:128
+# 		float vfrac   = p[1] - vfloor;
+	compref		$tmp61 p $const5 	%line{128} %argrw{"wrr"}
+	floor		___328_vfloor $tmp61 	%argrw{"wr"}
+# OSL\UberBitmap.osl:129
+# 		vlookup = vfloor + (1.0 - vfrac);
+	compref		$tmp62 p $const5 	%line{129} %argrw{"wrr"}
+	sub		___328_vfrac $tmp62 ___328_vfloor 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:130
+# 	}
+	sub		$tmp63 $const10 ___328_vfrac 	%line{130} %argrw{"wrr"}
+	add		vlookup ___328_vfloor $tmp63 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:133
+# 		
+	texture		Col Filename ulookup vlookup $const15 WrapMode $const16 A 	%line{133} %argrw{"wrrrrrrw"} %argderivs{2,3}
+# OSL\UberBitmap.osl:136
+# 	if (channels < 4) // No alpha? Set it to opaque
+	gettextureinfo	$tmp64 Filename $const17 channels 	%line{136} %argrw{"wrrw"}
+# OSL\UberBitmap.osl:137
+# 	{
+	lt		$tmp65 channels $const18 	%line{137} %argrw{"wrr"}
+	if		$tmp65 119 119 	%argrw{"r"}
+# OSL\UberBitmap.osl:139
+# 
+	assign		A $const10 	%line{139} %argrw{"wr"}
+# OSL\UberBitmap.osl:141
+# 		{
+	eq		$tmp66 WrapMode $const19 	%line{141} %argrw{"wrr"}
+	if		$tmp66 119 119 	%argrw{"r"}
+# OSL\UberBitmap.osl:143
+# 			    p[1] < 0.0 || p[1] > 1.0)
+	compref		$tmp67 p $const2 	%line{143} %argrw{"wrr"}
+	lt		$tmp68 $tmp67 $const3 	%argrw{"wrr"}
+	neq		$tmp69 $tmp68 $const2 	%argrw{"wrr"}
+	if		$tmp69 101 105 	%argrw{"r"}
+	compref		$tmp70 p $const2 	%argrw{"wrr"}
+	gt		$tmp71 $tmp70 $const10 	%argrw{"wrr"}
+	neq		$tmp72 $tmp71 $const2 	%argrw{"wrr"}
+	assign		$tmp69 $tmp72 	%argrw{"wr"}
+	neq		$tmp73 $tmp69 $const2 	%argrw{"wrr"}
+	if		$tmp73 107 111 	%argrw{"r"}
+# OSL\UberBitmap.osl:144
+# 			    A = 0.0;
+	compref		$tmp74 p $const5 	%line{144} %argrw{"wrr"}
+	lt		$tmp75 $tmp74 $const3 	%argrw{"wrr"}
+	neq		$tmp76 $tmp75 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:143
+# 			    p[1] < 0.0 || p[1] > 1.0)
+	assign		$tmp73 $tmp76 	%line{143} %argrw{"wr"}
+	neq		$tmp77 $tmp73 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:144
+# 			    A = 0.0;
+	if		$tmp77 113 117 	%line{144} %argrw{"r"}
+	compref		$tmp78 p $const5 	%argrw{"wrr"}
+	gt		$tmp79 $tmp78 $const10 	%argrw{"wrr"}
+	neq		$tmp80 $tmp79 $const2 	%argrw{"wrr"}
+	assign		$tmp77 $tmp80 	%argrw{"wr"}
+# OSL\UberBitmap.osl:143
+# 			    p[1] < 0.0 || p[1] > 1.0)
+	if		$tmp77 119 119 	%line{143} %argrw{"r"}
+# OSL\UberBitmap.osl:145
+# 		}
+	assign		A $const3 	%line{145} %argrw{"wr"}
+# OSL\UberBitmap.osl:150
+# 	{
+	if		AutoGamma 154 157 	%line{150} %argrw{"r"}
+# OSL\UberBitmap.osl:152
+# 			!endswith(Filename, ".EXR") &&
+	endswith	$tmp81 Filename $const20 	%line{152} %argrw{"wrr"}
+	eq		$tmp82 $tmp81 $const2 	%argrw{"wrr"}
+	neq		$tmp83 $tmp82 $const2 	%argrw{"wrr"}
+	if		$tmp83 128 128 	%argrw{"r"}
+# OSL\UberBitmap.osl:153
+# 			!endswith(Filename, ".hdr") &&
+	endswith	$tmp84 Filename $const21 	%line{153} %argrw{"wrr"}
+	eq		$tmp85 $tmp84 $const2 	%argrw{"wrr"}
+	neq		$tmp86 $tmp85 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:152
+# 			!endswith(Filename, ".EXR") &&
+	assign		$tmp83 $tmp86 	%line{152} %argrw{"wr"}
+	neq		$tmp87 $tmp83 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:153
+# 			!endswith(Filename, ".hdr") &&
+	if		$tmp87 134 134 	%line{153} %argrw{"r"}
+# OSL\UberBitmap.osl:154
+# 			!endswith(Filename, ".HDR") &&
+	endswith	$tmp88 Filename $const22 	%line{154} %argrw{"wrr"}
+	eq		$tmp89 $tmp88 $const2 	%argrw{"wrr"}
+	neq		$tmp90 $tmp89 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:153
+# 			!endswith(Filename, ".hdr") &&
+	assign		$tmp87 $tmp90 	%line{153} %argrw{"wr"}
+	neq		$tmp91 $tmp87 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:154
+# 			!endswith(Filename, ".HDR") &&
+	if		$tmp91 140 140 	%line{154} %argrw{"r"}
+# OSL\UberBitmap.osl:155
+# 			!endswith(Filename, ".tx") &&
+	endswith	$tmp92 Filename $const23 	%line{155} %argrw{"wrr"}
+	eq		$tmp93 $tmp92 $const2 	%argrw{"wrr"}
+	neq		$tmp94 $tmp93 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:154
+# 			!endswith(Filename, ".HDR") &&
+	assign		$tmp91 $tmp94 	%line{154} %argrw{"wr"}
+	neq		$tmp95 $tmp91 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:155
+# 			!endswith(Filename, ".tx") &&
+	if		$tmp95 146 146 	%line{155} %argrw{"r"}
+# OSL\UberBitmap.osl:156
+# 			!endswith(Filename, ".TX"))
+	endswith	$tmp96 Filename $const24 	%line{156} %argrw{"wrr"}
+	eq		$tmp97 $tmp96 $const2 	%argrw{"wrr"}
+	neq		$tmp98 $tmp97 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:155
+# 			!endswith(Filename, ".tx") &&
+	assign		$tmp95 $tmp98 	%line{155} %argrw{"wr"}
+	neq		$tmp99 $tmp95 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:156
+# 			!endswith(Filename, ".TX"))
+	if		$tmp99 152 152 	%line{156} %argrw{"r"}
+# OSL\UberBitmap.osl:157
+# 		{
+	endswith	$tmp100 Filename $const25 	%line{157} %argrw{"wrr"}
+	eq		$tmp101 $tmp100 $const2 	%argrw{"wrr"}
+	neq		$tmp102 $tmp101 $const2 	%argrw{"wrr"}
+# OSL\UberBitmap.osl:156
+# 			!endswith(Filename, ".TX"))
+	assign		$tmp99 $tmp102 	%line{156} %argrw{"wr"}
+# OSL\UberBitmap.osl:152
+# 			!endswith(Filename, ".EXR") &&
+	if		$tmp99 154 154 	%line{152} %argrw{"r"}
+# OSL\UberBitmap.osl:160
+# 		}
+	pow		Col Col $const26 	%line{160} %argrw{"wrr"}
+# OSL\UberBitmap.osl:165
+# 			Col = pow(Col, ManualGamma);
+	neq		$tmp103 ManualGamma $const10 	%line{165} %argrw{"wrr"}
+	if		$tmp103 157 157 	%argrw{"r"}
+# OSL\UberBitmap.osl:166
+# 	}
+	pow		Col Col ManualGamma 	%line{166} %argrw{"wrr"}
+# OSL\UberBitmap.osl:169
+# 	G = Col[1];
+	compref		R Col $const2 	%line{169} %argrw{"wrr"}
+# OSL\UberBitmap.osl:170
+# 	B = Col[2];
+	compref		G Col $const5 	%line{170} %argrw{"wrr"}
+# OSL\UberBitmap.osl:171
+# 	Luminance = luminance(Col);
+	compref		B Col $const9 	%line{171} %argrw{"wrr"}
+# OSL\UberBitmap.osl:172
+# 	Average   = (R + G + B) / 3.0;
+	luminance	Luminance Col 	%line{172} %argrw{"wr"}
+# OSL\UberBitmap.osl:173
+# }
+	add		$tmp104 R G 	%line{173} %argrw{"wrr"}
+	add		$tmp105 $tmp104 B 	%argrw{"wrr"}
+	div		Average $tmp105 $const27 	%argrw{"wrr"}
+	end

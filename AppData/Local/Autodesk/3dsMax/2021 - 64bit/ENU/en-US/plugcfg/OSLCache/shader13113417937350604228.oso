@@ -1,0 +1,594 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader ColorCurveGrad	%meta{string,label,"Curve (color gradient)"} %meta{string,help,"<h3>Curve (color gradient)</h3> Transform an single input value into a color gradient using curves.<br> Can be mapped  horizontally (U), vertically (V) or driven by an external value "} %meta{string,version,"1.0"} 
+param	int[]	interpolation	2 2 2		%meta{string,widget,"max:ramp0"} %meta{string,interpolation,"interpolation"} %meta{string,position,"position"} %meta{string,values,"colors"} %meta{int,connectable,0}  %read{53,53} %write{2147483647,-1}
+param	color[]	colors	0 1 0 0.300000012 0.200000003 1 1 0 0		%meta{string,widget,"null"} %meta{int,connectable,0}  %read{21,215} %write{2147483647,-1}
+param	float[]	position	0 0.5 1		%meta{string,widget,"null"} %meta{int,connectable,0}  %read{16,125} %write{2147483647,-1}
+param	vector	Input	0 0 0		%read{2,12} %write{0,0} %initexpr
+param	int	Mode	0		%meta{string,widget,"mapper"} %meta{string,options,"UV Input (Horizontal Gradient):0|UV Input (Vertical Gradient):1|Mono Input (Intensity Gradient):2"} %meta{int,connectable,0}  %read{3,9} %write{2147483647,-1}
+oparam	color	Out	0 0 0		%read{217,219} %write{21,216}
+oparam	float	R	0		%read{2147483647,-1} %write{217,217}
+oparam	float	G	0		%read{2147483647,-1} %write{218,218}
+oparam	float	B	0		%read{2147483647,-1} %write{219,219}
+global	float	u	%read{0,0} %write{2147483647,-1}
+global	float	v	%read{0,0} %write{2147483647,-1}
+local	int	___325_l	%read{17,17} %write{16,16}
+local	int	___325_last	%read{25,211} %write{17,17}
+local	int	___325_i	%read{25,48} %write{24,39}
+local	int	___325_i0	%read{85,211} %write{45,45}
+local	int	___325_i1	%read{51,214} %write{46,46}
+local	int	___325_i2	%read{50,215} %write{47,47}
+local	int	___325_i3	%read{88,211} %write{49,49}
+local	float	___325_delta	%read{54,65} %write{52,52}
+local	int	___325_interp	%read{57,114} %write{53,53}
+local	float	___325_along	%read{70,216} %write{65,65}
+local	float	___328_M12	%read{89,89} %write{74,74}
+local	float	___328_M21	%read{90,90} %write{75,75}
+local	float	___328_M23	%read{91,91} %write{76,76}
+local	float	___328_M31	%read{93,93} %write{77,77}
+local	float	___328_M32	%read{94,94} %write{78,78}
+local	float	___328_M33	%read{96,96} %write{79,79}
+local	float	___328_M34	%read{98,98} %write{80,80}
+local	float	___328_M41	%read{100,100} %write{81,81}
+local	float	___328_M42	%read{101,101} %write{82,82}
+local	float	___328_M43	%read{103,103} %write{83,83}
+local	float	___328_M44	%read{105,105} %write{84,84}
+local	color	___328_v0	%read{90,100} %write{85,85}
+local	color	___328_v1	%read{89,101} %write{86,86}
+local	color	___328_v2	%read{91,103} %write{87,87}
+local	color	___328_v3	%read{98,105} %write{88,88}
+local	color	___328_c1	%read{112,112} %write{89,89}
+local	color	___328_c2	%read{110,110} %write{92,92}
+local	color	___328_c3	%read{108,108} %write{99,99}
+local	color	___328_c4	%read{107,107} %write{106,106}
+local	float	___329_i1_tangent	%read{130,211} %write{116,211}
+local	float	___329_i2_tangent	%read{130,211} %write{117,211}
+local	float	___329_i0_interval	%read{130,211} %write{120,120}
+local	float	___329_i1_interval	%read{130,211} %write{123,123}
+local	float	___329_i2_interval	%read{130,211} %write{126,126}
+local	color	___329_ret	%read{212,212} %write{127,211}
+local	int	___330_c	%read{130,211} %write{129,211}
+local	float	___331_i0_delta	%read{130,211} %write{130,211}
+local	float	___331_i1_delta	%read{130,211} %write{130,211}
+local	float	___331_i2_delta	%read{130,211} %write{130,211}
+local	float	___331_invint	%read{130,211} %write{130,211}
+local	float	___331_si	%read{130,211} %write{130,211}
+local	float	___331_ci	%read{130,211} %write{130,211}
+local	float	___331_di	%read{130,211} %write{130,211}
+local	float	___331_t	%read{130,211} %write{130,211}
+local	float	___331_t2	%read{130,211} %write{130,211}
+local	float	___331_t3	%read{130,211} %write{130,211}
+local	float	in	%read{19,64} %write{2,14}
+const	int	$const1	0		%read{3,217} %write{2147483647,-1}
+const	float	$const2	0		%read{0,172} %write{2147483647,-1}
+const	float	$const3	0.333330005		%read{1,1} %write{2147483647,-1}
+temp	vector	$tmp1	%read{2,2} %write{1,1}
+temp	int	$tmp2	%read{4,4} %write{3,3}
+temp	float	$tmp3	%read{8,8} %write{5,5}
+temp	float	$tmp4	%read{8,8} %write{7,7}
+temp	float	$tmp5	%read{7,7} %write{6,6}
+const	int	$const4	1		%read{9,218} %write{2147483647,-1}
+temp	int	$tmp6	%read{10,10} %write{9,9}
+temp	float	$tmp7	%read{14,14} %write{11,11}
+temp	float	$tmp8	%read{14,14} %write{13,13}
+temp	float	$tmp9	%read{13,13} %write{12,12}
+const	string	$const5	"interpolate"		%read{15,15} %write{2147483647,-1}
+temp	float	$tmp10	%read{19,19} %write{18,18}
+temp	int	$tmp11	%read{20,20} %write{19,19}
+temp	int	$tmp12	%read{25,39} %write{25,39}
+temp	int	$tmp13	%read{23,39} %write{24,39}
+temp	float	$tmp14	%read{25,39} %write{25,39}
+temp	int	$tmp15	%read{25,39} %write{25,39}
+temp	int	$tmp16	%read{25,39} %write{25,39}
+temp	int	$tmp17	%read{25,39} %write{25,39}
+temp	float	$tmp18	%read{25,39} %write{25,39}
+temp	int	$tmp19	%read{25,39} %write{25,39}
+temp	int	$tmp20	%read{25,39} %write{25,39}
+temp	int	$tmp21	%read{2147483647,-1} %write{25,39}
+temp	int	$tmp22	%read{41,41} %write{40,40}
+temp	int	$tmp23	%read{45,45} %write{44,44}
+const	int	$const6	2		%read{48,219} %write{2147483647,-1}
+temp	int	$tmp24	%read{49,49} %write{48,48}
+temp	float	$tmp25	%read{52,52} %write{50,50}
+temp	float	$tmp26	%read{52,52} %write{51,51}
+temp	int	$tmp27	%read{55,55} %write{54,54}
+temp	int	$tmp28	%read{56,60} %write{55,59}
+temp	int	$tmp29	%read{58,58} %write{57,57}
+temp	int	$tmp30	%read{59,59} %write{58,58}
+temp	float	$tmp31	%read{64,64} %write{63,63}
+temp	float	$tmp32	%read{65,65} %write{64,64}
+temp	int	$tmp33	%read{67,67} %write{66,66}
+temp	color	$tmp34	%read{70,70} %write{68,68}
+temp	color	$tmp35	%read{70,70} %write{69,69}
+temp	int	$tmp36	%read{73,73} %write{72,72}
+const	float	$const7	1		%read{74,186} %write{2147483647,-1}
+const	float	$const8	-0.5		%read{75,81} %write{2147483647,-1}
+const	float	$const9	0.5		%read{76,84} %write{2147483647,-1}
+const	float	$const10	-2.5		%read{78,78} %write{2147483647,-1}
+const	float	$const11	2		%read{79,194} %write{2147483647,-1}
+const	float	$const12	1.5		%read{82,82} %write{2147483647,-1}
+const	float	$const13	-1.5		%read{83,83} %write{2147483647,-1}
+temp	color	$tmp37	%read{92,92} %write{90,90}
+temp	color	$tmp38	%read{92,92} %write{91,91}
+temp	color	$tmp39	%read{95,95} %write{93,93}
+temp	color	$tmp40	%read{95,95} %write{94,94}
+temp	color	$tmp41	%read{97,97} %write{95,95}
+temp	color	$tmp42	%read{97,97} %write{96,96}
+temp	color	$tmp43	%read{99,99} %write{97,97}
+temp	color	$tmp44	%read{99,99} %write{98,98}
+temp	color	$tmp45	%read{102,102} %write{100,100}
+temp	color	$tmp46	%read{102,102} %write{101,101}
+temp	color	$tmp47	%read{104,104} %write{102,102}
+temp	color	$tmp48	%read{104,104} %write{103,103}
+temp	color	$tmp49	%read{106,106} %write{104,104}
+temp	color	$tmp50	%read{106,106} %write{105,105}
+temp	color	$tmp51	%read{108,108} %write{107,107}
+temp	color	$tmp52	%read{109,109} %write{108,108}
+temp	color	$tmp53	%read{110,110} %write{109,109}
+temp	color	$tmp54	%read{111,111} %write{110,110}
+temp	color	$tmp55	%read{112,112} %write{111,111}
+const	int	$const14	3		%read{114,130} %write{2147483647,-1}
+temp	int	$tmp56	%read{115,115} %write{114,114}
+temp	float	$tmp57	%read{120,120} %write{118,118}
+temp	float	$tmp58	%read{120,120} %write{119,119}
+temp	float	$tmp59	%read{123,123} %write{121,121}
+temp	float	$tmp60	%read{123,123} %write{122,122}
+temp	float	$tmp61	%read{126,126} %write{124,124}
+temp	float	$tmp62	%read{126,126} %write{125,125}
+temp	int	$tmp63	%read{130,211} %write{130,211}
+temp	int	$tmp64	%read{128,211} %write{129,211}
+temp	float	$tmp65	%read{130,211} %write{130,211}
+temp	color	$tmp66	%read{130,211} %write{130,211}
+temp	float	$tmp67	%read{130,211} %write{130,211}
+temp	color	$tmp68	%read{130,211} %write{130,211}
+temp	float	$tmp69	%read{130,211} %write{130,211}
+temp	float	$tmp70	%read{130,211} %write{130,211}
+temp	color	$tmp71	%read{130,211} %write{130,211}
+temp	float	$tmp72	%read{130,211} %write{130,211}
+temp	color	$tmp73	%read{130,211} %write{130,211}
+temp	float	$tmp74	%read{130,211} %write{130,211}
+temp	float	$tmp75	%read{130,211} %write{130,211}
+temp	color	$tmp76	%read{130,211} %write{130,211}
+temp	float	$tmp77	%read{130,211} %write{130,211}
+temp	color	$tmp78	%read{130,211} %write{130,211}
+temp	float	$tmp79	%read{130,211} %write{130,211}
+temp	int	$tmp80	%read{130,211} %write{130,211}
+temp	int	$tmp81	%read{130,211} %write{130,211}
+temp	float	$tmp82	%read{130,211} %write{130,211}
+temp	int	$tmp83	%read{130,211} %write{130,211}
+temp	int	$tmp84	%read{130,211} %write{130,211}
+const	float	$const15	3		%read{159,188} %write{2147483647,-1}
+temp	float	$tmp85	%read{130,211} %write{130,211}
+temp	float	$tmp86	%read{130,211} %write{130,211}
+temp	float	$tmp87	%read{130,211} %write{130,211}
+temp	float	$tmp88	%read{130,211} %write{130,211}
+temp	float	$tmp89	%read{130,211} %write{130,211}
+temp	float	$tmp90	%read{130,211} %write{130,211}
+temp	float	$tmp91	%read{130,211} %write{130,211}
+temp	float	$tmp92	%read{130,211} %write{130,211}
+temp	float	$tmp93	%read{130,211} %write{130,211}
+temp	int	$tmp94	%read{130,211} %write{130,211}
+temp	int	$tmp95	%read{130,211} %write{130,211}
+temp	float	$tmp96	%read{130,211} %write{130,211}
+temp	int	$tmp97	%read{130,211} %write{130,211}
+temp	int	$tmp98	%read{130,211} %write{130,211}
+temp	float	$tmp99	%read{130,211} %write{130,211}
+temp	float	$tmp100	%read{130,211} %write{130,211}
+temp	float	$tmp101	%read{130,211} %write{130,211}
+temp	float	$tmp102	%read{130,211} %write{130,211}
+temp	float	$tmp103	%read{130,211} %write{130,211}
+temp	float	$tmp104	%read{130,211} %write{130,211}
+temp	float	$tmp105	%read{130,211} %write{130,211}
+temp	float	$tmp106	%read{130,211} %write{130,211}
+temp	float	$tmp107	%read{130,211} %write{130,211}
+temp	float	$tmp108	%read{130,211} %write{130,211}
+temp	float	$tmp109	%read{130,211} %write{130,211}
+temp	float	$tmp110	%read{130,211} %write{130,211}
+temp	float	$tmp111	%read{130,211} %write{130,211}
+temp	float	$tmp112	%read{130,211} %write{130,211}
+temp	float	$tmp113	%read{130,211} %write{130,211}
+temp	float	$tmp114	%read{130,211} %write{130,211}
+temp	float	$tmp115	%read{130,211} %write{130,211}
+temp	float	$tmp116	%read{130,211} %write{130,211}
+temp	color	$tmp117	%read{130,211} %write{130,211}
+temp	float	$tmp118	%read{130,211} %write{130,211}
+temp	float	$tmp119	%read{130,211} %write{130,211}
+temp	float	$tmp120	%read{130,211} %write{130,211}
+temp	float	$tmp121	%read{130,211} %write{130,211}
+temp	float	$tmp122	%read{130,211} %write{130,211}
+temp	float	$tmp123	%read{130,211} %write{130,211}
+temp	int	$tmp124	%read{2147483647,-1} %write{130,211}
+temp	color	$tmp125	%read{216,216} %write{214,214}
+temp	color	$tmp126	%read{216,216} %write{215,215}
+code Input
+# OSL\ColorCurveGrad.osl:158
+# 
+	vector		Input u v $const2 	%filename{"OSL\ColorCurveGrad.osl"} %line{158} %argrw{"wrrr"}
+code ___main___
+# OSL\ColorCurveGrad.osl:176
+# 	
+	assign		$tmp1 $const3 	%filename{"OSL\ColorCurveGrad.osl"} %line{176} %argrw{"wr"}
+	dot		in Input $tmp1 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:178
+# 		in = Input[0] - floor(Input[0]);
+	eq		$tmp2 Mode $const1 	%line{178} %argrw{"wrr"}
+	if		$tmp2 9 15 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:179
+# 	else if (Mode == 1)
+	compref		$tmp3 Input $const1 	%line{179} %argrw{"wrr"}
+	compref		$tmp5 Input $const1 	%argrw{"wrr"}
+	floor		$tmp4 $tmp5 	%argrw{"wr"}
+	sub		in $tmp3 $tmp4 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:180
+# 		in = Input[1] - floor(Input[1]);
+	eq		$tmp6 Mode $const4 	%line{180} %argrw{"wrr"}
+	if		$tmp6 15 15 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:181
+# 	
+	compref		$tmp7 Input $const4 	%line{181} %argrw{"wrr"}
+	compref		$tmp9 Input $const4 	%argrw{"wrr"}
+	floor		$tmp8 $tmp9 	%argrw{"wr"}
+	sub		in $tmp7 $tmp8 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:183
+# 	// Get RGB values
+	functioncall	$const5 217 	%line{183} %argrw{"r"}
+# OSL\ColorCurveGrad.osl:10
+# 	int last = l-1;
+	arraylength	___325_l position 	%line{10} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:11
+# 
+	sub		___325_last ___325_l $const4 	%line{11} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:14
+# 		return values[0];
+	aref		$tmp10 position $const1 	%line{14} %argrw{"wrr"}
+	lt		$tmp11 in $tmp10 	%argrw{"wrr"}
+	if		$tmp11 23 23 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:15
+# 
+	aref		Out colors $const1 	%line{15} %argrw{"wrr"}
+	return
+# OSL\ColorCurveGrad.osl:19
+# 	{
+	for		$tmp13 25 27 38 40 	%line{19} %argrw{"r"}
+	assign		___325_i $const1 	%argrw{"wr"}
+	lt		$tmp12 ___325_i ___325_last 	%argrw{"wrr"}
+	neq		$tmp13 $tmp12 $const1 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:21
+# 			break;
+	aref		$tmp14 position ___325_i 	%line{21} %argrw{"wrr"}
+	ge		$tmp15 in $tmp14 	%argrw{"wrr"}
+	neq		$tmp16 $tmp15 $const1 	%argrw{"wrr"}
+	if		$tmp16 36 36 	%argrw{"r"}
+	add		$tmp17 ___325_i $const4 	%argrw{"wrr"}
+	aref		$tmp18 position $tmp17 	%argrw{"wrr"}
+	lt		$tmp19 in $tmp18 	%argrw{"wrr"}
+	neq		$tmp20 $tmp19 $const1 	%argrw{"wrr"}
+	assign		$tmp16 $tmp20 	%argrw{"wr"}
+	if		$tmp16 38 38 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:22
+# 	}
+	break	%line{22}
+# OSL\ColorCurveGrad.osl:19
+# 	{
+	assign		$tmp21 ___325_i 	%line{19} %argrw{"wr"}
+	add		___325_i ___325_i $const4 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:26
+# 		return values[last];
+	ge		$tmp22 ___325_i ___325_last 	%line{26} %argrw{"wrr"}
+	if		$tmp22 44 44 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:27
+# 		
+	aref		Out colors ___325_last 	%line{27} %argrw{"wrr"}
+	return
+# OSL\ColorCurveGrad.osl:29
+# 	int i1 = i;
+	sub		$tmp23 ___325_i $const4 	%line{29} %argrw{"wrr"}
+	max		___325_i0 $const1 $tmp23 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:30
+# 	int i2 = i+1;
+	assign		___325_i1 ___325_i 	%line{30} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:31
+# 	int i3 = min(last, i+2);
+	add		___325_i2 ___325_i $const4 	%line{31} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:32
+# 	
+	add		$tmp24 ___325_i $const6 	%line{32} %argrw{"wrr"}
+	min		___325_i3 ___325_last $tmp24 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:34
+# 
+	aref		$tmp25 position ___325_i2 	%line{34} %argrw{"wrr"}
+	aref		$tmp26 position ___325_i1 	%argrw{"wrr"}
+	sub		___325_delta $tmp25 $tmp26 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:37
+# 
+	aref		___325_interp interpolation ___325_i1 	%line{37} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:40
+# 		return values[i1];
+	le		$tmp27 ___325_delta $const2 	%line{40} %argrw{"wrr"}
+	neq		$tmp28 $tmp27 $const1 	%argrw{"wrr"}
+	if		$tmp28 57 60 	%argrw{"r"}
+	eq		$tmp29 ___325_interp $const1 	%argrw{"wrr"}
+	neq		$tmp30 $tmp29 $const1 	%argrw{"wrr"}
+	assign		$tmp28 $tmp30 	%argrw{"wr"}
+	if		$tmp28 63 63 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:41
+# 
+	aref		Out colors ___325_i1 	%line{41} %argrw{"wrr"}
+	return
+# OSL\ColorCurveGrad.osl:44
+# 
+	aref		$tmp31 position ___325_i1 	%line{44} %argrw{"wrr"}
+	sub		$tmp32 in $tmp31 	%argrw{"wrr"}
+	div		___325_along $tmp32 ___325_delta 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:47
+# 		return mix(values[i1], values[i2], along);	
+	eq		$tmp33 ___325_interp $const4 	%line{47} %argrw{"wrr"}
+	if		$tmp33 72 72 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:48
+# 		
+	aref		$tmp34 colors ___325_i1 	%line{48} %argrw{"wrr"}
+	aref		$tmp35 colors ___325_i2 	%argrw{"wrr"}
+	mix		Out $tmp34 $tmp35 ___325_along 	%argrw{"wrrr"}
+	return
+# OSL\ColorCurveGrad.osl:51
+# 	{
+	eq		$tmp36 ___325_interp $const6 	%line{51} %argrw{"wrr"}
+	if		$tmp36 114 114 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:60
+# 		float M21 = -0.5;
+	assign		___328_M12 $const7 	%line{60} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:61
+# 		float M23 =  0.5;
+	assign		___328_M21 $const8 	%line{61} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:62
+# 		float M31 =  1.0;
+	assign		___328_M23 $const9 	%line{62} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:63
+# 		float M32 = -2.5;
+	assign		___328_M31 $const7 	%line{63} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:64
+# 		float M33 =  2.0;
+	assign		___328_M32 $const10 	%line{64} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:65
+# 		float M34 = -0.5;
+	assign		___328_M33 $const11 	%line{65} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:66
+# 		float M41 = -0.5;
+	assign		___328_M34 $const8 	%line{66} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:67
+# 		float M42 =  1.5;
+	assign		___328_M41 $const8 	%line{67} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:68
+# 		float M43 = -1.5;
+	assign		___328_M42 $const12 	%line{68} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:69
+# 		float M44 =  0.5;
+	assign		___328_M43 $const13 	%line{69} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:70
+# 
+	assign		___328_M44 $const9 	%line{70} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:72
+# 		color v1 = values[i1];
+	aref		___328_v0 colors ___325_i0 	%line{72} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:73
+# 		color v2 = values[i2];
+	aref		___328_v1 colors ___325_i1 	%line{73} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:74
+# 		color v3 = values[i3];
+	aref		___328_v2 colors ___325_i2 	%line{74} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:75
+# 
+	aref		___328_v3 colors ___325_i3 	%line{75} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:77
+# 		color c2 = M21 * v0 + M23 * v2;
+	mul		___328_c1 ___328_M12 ___328_v1 	%line{77} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:78
+# 		color c3 = M31 * v0 + M32 * v1 + M33 * v2 + M34 * v3;
+	mul		$tmp37 ___328_M21 ___328_v0 	%line{78} %argrw{"wrr"}
+	mul		$tmp38 ___328_M23 ___328_v2 	%argrw{"wrr"}
+	add		___328_c2 $tmp37 $tmp38 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:79
+# 		color c4 = M41 * v0 + M42 * v1 + M43 * v2 + M44 * v3;
+	mul		$tmp39 ___328_M31 ___328_v0 	%line{79} %argrw{"wrr"}
+	mul		$tmp40 ___328_M32 ___328_v1 	%argrw{"wrr"}
+	add		$tmp41 $tmp39 $tmp40 	%argrw{"wrr"}
+	mul		$tmp42 ___328_M33 ___328_v2 	%argrw{"wrr"}
+	add		$tmp43 $tmp41 $tmp42 	%argrw{"wrr"}
+	mul		$tmp44 ___328_M34 ___328_v3 	%argrw{"wrr"}
+	add		___328_c3 $tmp43 $tmp44 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:80
+# 
+	mul		$tmp45 ___328_M41 ___328_v0 	%line{80} %argrw{"wrr"}
+	mul		$tmp46 ___328_M42 ___328_v1 	%argrw{"wrr"}
+	add		$tmp47 $tmp45 $tmp46 	%argrw{"wrr"}
+	mul		$tmp48 ___328_M43 ___328_v2 	%argrw{"wrr"}
+	add		$tmp49 $tmp47 $tmp48 	%argrw{"wrr"}
+	mul		$tmp50 ___328_M44 ___328_v3 	%argrw{"wrr"}
+	add		___328_c4 $tmp49 $tmp50 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:82
+# 	}
+	mul		$tmp51 ___328_c4 ___325_along 	%line{82} %argrw{"wrr"}
+	add		$tmp52 $tmp51 ___328_c3 	%argrw{"wrr"}
+	mul		$tmp53 $tmp52 ___325_along 	%argrw{"wrr"}
+	add		$tmp54 $tmp53 ___328_c2 	%argrw{"wrr"}
+	mul		$tmp55 $tmp54 ___325_along 	%argrw{"wrr"}
+	add		Out $tmp55 ___328_c1 	%argrw{"wrr"}
+	return
+# OSL\ColorCurveGrad.osl:84
+# 	{
+	eq		$tmp56 ___325_interp $const14 	%line{84} %argrw{"wrr"}
+	if		$tmp56 214 214 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:86
+# 		float i2_tangent = 0;
+	assign		___329_i1_tangent $const1 	%line{86} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:87
+# 
+	assign		___329_i2_tangent $const1 	%line{87} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:89
+# 		float i1_interval = position[i2] - position[i1];
+	aref		$tmp57 position ___325_i1 	%line{89} %argrw{"wrr"}
+	aref		$tmp58 position ___325_i0 	%argrw{"wrr"}
+	sub		___329_i0_interval $tmp57 $tmp58 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:90
+# 		float i2_interval = position[i3] - position[i2];
+	aref		$tmp59 position ___325_i2 	%line{90} %argrw{"wrr"}
+	aref		$tmp60 position ___325_i1 	%argrw{"wrr"}
+	sub		___329_i1_interval $tmp59 $tmp60 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:91
+# 
+	aref		$tmp61 position ___325_i3 	%line{91} %argrw{"wrr"}
+	aref		$tmp62 position ___325_i2 	%argrw{"wrr"}
+	sub		___329_i2_interval $tmp61 $tmp62 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:95
+# 		
+	assign		___329_ret $const2 	%line{95} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:97
+# 		{
+	for		$tmp64 130 132 210 212 	%line{97} %argrw{"r"}
+	assign		___330_c $const1 	%argrw{"wr"}
+	lt		$tmp63 ___330_c $const14 	%argrw{"wrr"}
+	neq		$tmp64 $tmp63 $const1 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:99
+# 			float i1_delta = (values[i2][c] - values[i1][c]) / i1_interval;		
+	aref		$tmp66 colors ___325_i1 	%line{99} %argrw{"wrr"}
+	compref		$tmp65 $tmp66 ___330_c 	%argrw{"wrr"}
+	aref		$tmp68 colors ___325_i0 	%argrw{"wrr"}
+	compref		$tmp67 $tmp68 ___330_c 	%argrw{"wrr"}
+	sub		$tmp69 $tmp65 $tmp67 	%argrw{"wrr"}
+	div		___331_i0_delta $tmp69 ___329_i0_interval 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:100
+# 			float i2_delta = (values[i3][c] - values[i2][c]) / i2_interval;		
+	aref		$tmp71 colors ___325_i2 	%line{100} %argrw{"wrr"}
+	compref		$tmp70 $tmp71 ___330_c 	%argrw{"wrr"}
+	aref		$tmp73 colors ___325_i1 	%argrw{"wrr"}
+	compref		$tmp72 $tmp73 ___330_c 	%argrw{"wrr"}
+	sub		$tmp74 $tmp70 $tmp72 	%argrw{"wrr"}
+	div		___331_i1_delta $tmp74 ___329_i1_interval 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:101
+# 			
+	aref		$tmp76 colors ___325_i3 	%line{101} %argrw{"wrr"}
+	compref		$tmp75 $tmp76 ___330_c 	%argrw{"wrr"}
+	aref		$tmp78 colors ___325_i2 	%argrw{"wrr"}
+	compref		$tmp77 $tmp78 ___330_c 	%argrw{"wrr"}
+	sub		$tmp79 $tmp75 $tmp77 	%argrw{"wrr"}
+	div		___331_i2_delta $tmp79 ___329_i2_interval 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:104
+# 				i1_tangent = 3.0 * (i0_interval + i1_interval)
+	gt		$tmp80 ___325_i1 $const1 	%line{104} %argrw{"wrr"}
+	neq		$tmp81 $tmp80 $const1 	%argrw{"wrr"}
+	if		$tmp81 157 157 	%argrw{"r"}
+	mul		$tmp82 ___331_i1_delta ___331_i0_delta 	%argrw{"wrr"}
+	ge		$tmp83 $tmp82 $const2 	%argrw{"wrr"}
+	neq		$tmp84 $tmp83 $const1 	%argrw{"wrr"}
+	assign		$tmp81 $tmp84 	%argrw{"wr"}
+	if		$tmp81 168 168 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:105
+# 							/ ((2.0 * i1_interval + i0_interval) / i0_delta
+	add		$tmp85 ___329_i0_interval ___329_i1_interval 	%line{105} %argrw{"wrr"}
+	mul		$tmp86 $const15 $tmp85 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:106
+# 							+ (i1_interval + 2.0  * i0_interval) / i1_delta);
+	mul		$tmp87 $const11 ___329_i1_interval 	%line{106} %argrw{"wrr"}
+	add		$tmp88 $tmp87 ___329_i0_interval 	%argrw{"wrr"}
+	div		$tmp89 $tmp88 ___331_i0_delta 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:107
+# 			}
+	mul		$tmp90 $const11 ___329_i0_interval 	%line{107} %argrw{"wrr"}
+	add		$tmp91 ___329_i1_interval $tmp90 	%argrw{"wrr"}
+	div		$tmp92 $tmp91 ___331_i1_delta 	%argrw{"wrr"}
+	add		$tmp93 $tmp89 $tmp92 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:106
+# 							+ (i1_interval + 2.0  * i0_interval) / i1_delta);
+	div		___329_i1_tangent $tmp86 $tmp93 	%line{106} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:110
+# 							i2_tangent = 3.0 * (i1_interval + i2_interval)
+	lt		$tmp94 ___325_i2 ___325_last 	%line{110} %argrw{"wrr"}
+	neq		$tmp95 $tmp94 $const1 	%argrw{"wrr"}
+	if		$tmp95 175 175 	%argrw{"r"}
+	mul		$tmp96 ___331_i2_delta ___331_i1_delta 	%argrw{"wrr"}
+	ge		$tmp97 $tmp96 $const2 	%argrw{"wrr"}
+	neq		$tmp98 $tmp97 $const1 	%argrw{"wrr"}
+	assign		$tmp95 $tmp98 	%argrw{"wr"}
+	if		$tmp95 186 186 	%argrw{"r"}
+# OSL\ColorCurveGrad.osl:111
+# 							/ ((2.0 * i2_interval + i1_interval) / i1_delta
+	add		$tmp99 ___329_i1_interval ___329_i2_interval 	%line{111} %argrw{"wrr"}
+	mul		$tmp100 $const15 $tmp99 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:112
+# 							+ (i2_interval + 2.0 * i1_interval) / i2_delta);
+	mul		$tmp101 $const11 ___329_i2_interval 	%line{112} %argrw{"wrr"}
+	add		$tmp102 $tmp101 ___329_i1_interval 	%argrw{"wrr"}
+	div		$tmp103 $tmp102 ___331_i1_delta 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:113
+# 			}
+	mul		$tmp104 $const11 ___329_i1_interval 	%line{113} %argrw{"wrr"}
+	add		$tmp105 ___329_i2_interval $tmp104 	%argrw{"wrr"}
+	div		$tmp106 $tmp105 ___331_i2_delta 	%argrw{"wrr"}
+	add		$tmp107 $tmp103 $tmp106 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:112
+# 							+ (i2_interval + 2.0 * i1_interval) / i2_delta);
+	div		___329_i2_tangent $tmp100 $tmp107 	%line{112} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:116
+# 			float si = i1_delta;
+	div		___331_invint $const7 ___329_i1_interval 	%line{116} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:117
+# 			float ci = (3.0 * si - 2.0 * i1_tangent - i2_tangent) * invint;
+	assign		___331_si ___331_i1_delta 	%line{117} %argrw{"wr"}
+# OSL\ColorCurveGrad.osl:118
+# 			float di = (i1_tangent + i2_tangent - 2.0 * si) * invint * invint;
+	mul		$tmp108 $const15 ___331_si 	%line{118} %argrw{"wrr"}
+	mul		$tmp109 $const11 ___329_i1_tangent 	%argrw{"wrr"}
+	sub		$tmp110 $tmp108 $tmp109 	%argrw{"wrr"}
+	sub		$tmp111 $tmp110 ___329_i2_tangent 	%argrw{"wrr"}
+	mul		___331_ci $tmp111 ___331_invint 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:119
+# 	
+	add		$tmp112 ___329_i1_tangent ___329_i2_tangent 	%line{119} %argrw{"wrr"}
+	mul		$tmp113 $const11 ___331_si 	%argrw{"wrr"}
+	sub		$tmp114 $tmp112 $tmp113 	%argrw{"wrr"}
+	mul		$tmp115 $tmp114 ___331_invint 	%argrw{"wrr"}
+	mul		___331_di $tmp115 ___331_invint 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:121
+# 			float t2 = t * t;
+	mul		___331_t ___325_along ___329_i1_interval 	%line{121} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:122
+# 			float t3 = t * t2;
+	mul		___331_t2 ___331_t ___331_t 	%line{122} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:123
+# 			ret[c] = values[i1][c] + i1_tangent * t + ci * t2 + di * t3;
+	mul		___331_t3 ___331_t ___331_t2 	%line{123} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:124
+# 		}
+	aref		$tmp117 colors ___325_i1 	%line{124} %argrw{"wrr"}
+	compref		$tmp116 $tmp117 ___330_c 	%argrw{"wrr"}
+	mul		$tmp118 ___329_i1_tangent ___331_t 	%argrw{"wrr"}
+	add		$tmp119 $tmp116 $tmp118 	%argrw{"wrr"}
+	mul		$tmp120 ___331_ci ___331_t2 	%argrw{"wrr"}
+	add		$tmp121 $tmp119 $tmp120 	%argrw{"wrr"}
+	mul		$tmp122 ___331_di ___331_t3 	%argrw{"wrr"}
+	add		$tmp123 $tmp121 $tmp122 	%argrw{"wrr"}
+	compassign	___329_ret ___330_c $tmp123 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:97
+# 		{
+	assign		$tmp124 ___330_c 	%line{97} %argrw{"wr"}
+	add		___330_c ___330_c $const4 	%argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:127
+# 	}
+	assign		Out ___329_ret 	%line{127} %argrw{"wr"}
+	return
+# OSL\ColorCurveGrad.osl:131
+# }
+	aref		$tmp125 colors ___325_i1 	%line{131} %argrw{"wrr"}
+	aref		$tmp126 colors ___325_i2 	%argrw{"wrr"}
+	mix		Out $tmp125 $tmp126 ___325_along 	%argrw{"wrrr"}
+# OSL\ColorCurveGrad.osl:185
+# 	G = Out[1];
+	compref		R Out $const1 	%line{185} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:186
+# 	B = Out[2];		
+	compref		G Out $const4 	%line{186} %argrw{"wrr"}
+# OSL\ColorCurveGrad.osl:187
+# } 
+	compref		B Out $const6 	%line{187} %argrw{"wrr"}
+	end

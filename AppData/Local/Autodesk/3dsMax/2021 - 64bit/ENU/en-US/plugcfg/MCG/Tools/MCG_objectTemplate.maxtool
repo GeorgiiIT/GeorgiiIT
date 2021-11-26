@@ -1,0 +1,19 @@
+<graph version="0.50" uuid="87a77da4-38ba-484b-af79-f410b113fc4d">
+    <meta_info>
+        <graph_version guid="06e55d0e-3249-4461-aa75-1660832b50e8" number="0.0.3" />
+		<identifier></identifier>
+        <displayName></displayName>
+        <graph_editor_UI>true</graph_editor_UI>
+    </meta_info>
+    <nodes>
+        <node operator="Output: geometry" id="0" position="440:220" size="140:70" />
+        <node operator="CreateBox" id="1" position="240:140" size="140:154" />
+        <node operator="Parameter: Single" id="2" name="Size" min_value="0" max_value="100" default_value="10" system_units_value="false" position="20:80" size="140:196" />
+    </nodes>
+    <connections>
+        <connection sourcenode="1" sourceport="0" destnode="0" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="0" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="1" />
+        <connection sourcenode="2" sourceport="0" destnode="1" destport="2" />
+    </connections>
+</graph>

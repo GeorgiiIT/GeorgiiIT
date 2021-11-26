@@ -1,0 +1,19 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader ColorClamp	%meta{string,help,"Clamps a color"} %meta{string,label,"Clamp (color)"} %meta{string,category,"Math Color"} 
+param	color	Input	0 0 0		%read{1,1} %write{2147483647,-1}
+param	color	Min	0 0 0		%read{2,2} %write{2147483647,-1}
+param	color	Max	1 1 1		%read{1,1} %write{2147483647,-1}
+oparam	color	Out	0 0 0		%read{2147483647,-1} %write{2,2}
+const	string	$const1	"clamp"		%read{0,0} %write{2147483647,-1}
+temp	color	$tmp1	%read{2,2} %write{1,1}
+code ___main___
+# OSL\ColorClamp.osl:19
+# }
+	functioncall	$const1 3 	%filename{"OSL\ColorClamp.osl"} %line{19} %argrw{"r"}
+# OSL\stdosl.h:162
+# color  clamp (color x, color minval, color maxval) { return max(min(x,maxval),minval); }
+	min		$tmp1 Input Max 	%filename{"OSL\stdosl.h"} %line{162} %argrw{"wrr"}
+	max		Out $tmp1 Min 	%argrw{"wrr"}
+	end

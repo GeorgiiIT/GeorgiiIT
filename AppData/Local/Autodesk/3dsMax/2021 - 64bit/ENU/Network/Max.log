@@ -1,0 +1,1333 @@
+
+------------    3ds Max Log File   -------------
+
+2021/11/17 14:28:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 14:28:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 14:28:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 14:28:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 14:28:44 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg D:/3DS MAX/SUPPORT/Models/3dsky_renderstudio/SIEMENS_HB76G1560S_furna/aluminum_round_sticker-p217122788453096124b2o35_400.jpg D:/Miro/project/Rosi_modus/textures/aluminum_round_sticker-p2171227884530961...
+2021/11/17 14:32:09 INF: [14420] [14680] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/17 14:32:12 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 14:32:12 INF: [14420] [14680] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/17 14:32:12 INF: [14420] [14680] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/17 14:33:22 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 14:33:22 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 14:33:22 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625920
+2021/11/17 14:33:22 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625902
+2021/11/17 14:33:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 14:33:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 14:33:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 14:33:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 14:33:33 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg D:/3DS MAX/SUPPORT/Models/3dsky_renderstudio/SIEMENS_HB76G1560S_furna/aluminum_round_sticker-p217122788453096124b2o35_400.jpg D:/Miro/project/Rosi_modus/textures/aluminum_round_sticker-p2171227884530961...
+2021/11/17 14:34:24 INF: [14420] [14680] creating file D:\?????\1 ???????.max.sv$
+2021/11/17 14:34:28 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 14:34:29 INF: [14420] [14680] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 14:34:29 INF: [14420] [14680] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 14:34:29 INF: [14420] [14680] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/17 14:34:36 INF: [14420] [14680] CORONA : Parsing scene
+2021/11/17 14:34:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 14:34:37 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 14:34:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625920
+2021/11/17 14:34:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625902
+2021/11/17 14:34:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 14:34:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 14:34:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 14:34:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 14:34:48 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg D:/3DS MAX/SUPPORT/Models/3dsky_renderstudio/SIEMENS_HB76G1560S_furna/aluminum_round_sticker-p217122788453096124b2o35_400.jpg D:/Miro/project/Rosi_modus/textures/aluminum_round_sticker-p2171227884530961...
+2021/11/17 14:34:49 INF: [14420] [14680] CORONA : Calculating displacement
+2021/11/17 14:34:49 INF: [14420] [14680] CORONA : Preparing geometry
+2021/11/17 14:34:57 INF: [14420] [14680] CORONA : Preparing lights
+2021/11/17 14:34:57 INF: [14420] [14680] CORONA : Computing sec. GI
+2021/11/17 14:35:07 INF: [14420] [14680] CORONA : Rendering initial pass
+2021/11/17 14:39:20 INF: [14420] [14680] CORONA : Rendering pass 2
+2021/11/17 14:44:23 INF: [14420] [14680] CORONA : Rendering pass 3
+2021/11/17 14:49:07 INF: [14420] [14680] CORONA : Rendering pass 4
+2021/11/17 14:53:48 INF: [14420] [14680] CORONA : Rendering pass 5
+2021/11/17 14:58:35 INF: [14420] [14680] CORONA : Rendering pass 6
+2021/11/17 15:33:18 INF: [14420] [14680] CORONA : Rendering pass 7
+2021/11/17 15:38:28 INF: [14420] [14680] CORONA : Denoising
+2021/11/17 15:40:10 INF: [14420] [14680] CORONA : Cleaning up
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:45:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:46:05 INF: [14420] [14680] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/17 15:46:07 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:46:08 INF: [14420] [14680] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/17 15:46:08 INF: [14420] [14680] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/17 15:47:58 INF: [14420] [14680] creating file D:\?????\1 ???????.max.sv$
+2021/11/17 15:48:01 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:48:02 INF: [14420] [14680] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 15:48:02 INF: [14420] [14680] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 15:48:02 INF: [14420] [14680] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/17 15:49:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 15:49:23 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 15:49:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625920
+2021/11/17 15:49:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625902
+2021/11/17 15:49:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 15:49:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 15:49:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 15:49:23 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 15:49:34 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg D:/3DS MAX/SUPPORT/Models/3dsky_renderstudio/SIEMENS_HB76G1560S_furna/aluminum_round_sticker-p217122788453096124b2o35_400.jpg D:/Miro/project/Rosi_modus/textures/aluminum_round_sticker-p2171227884530961...
+2021/11/17 15:53:11 INF: [14420] [14680] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/17 15:53:14 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:53:14 INF: [14420] [14680] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/17 15:53:14 INF: [14420] [14680] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/17 15:53:46 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 15:53:46 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 15:53:46 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625920
+2021/11/17 15:53:46 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625902
+2021/11/17 15:53:46 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 15:53:46 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 15:53:46 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 15:53:46 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 15:53:46 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/Carpet_001_bump_01.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/ki26_...
+2021/11/17 15:54:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 15:54:37 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 15:54:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625920
+2021/11/17 15:54:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625902
+2021/11/17 15:54:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 15:54:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 15:54:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 15:54:37 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 15:54:38 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/Carpet_001_bump_01.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/ki26_...
+2021/11/17 15:55:33 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 15:55:33 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 15:55:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625920
+2021/11/17 15:55:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625902
+2021/11/17 15:55:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 15:55:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 15:55:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 15:55:34 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 15:55:34 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/Carpet_001_bump_01.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/ki26_...
+2021/11/17 15:56:29 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:56:29 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:56:29 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:56:29 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:56:29 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:56:30 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:56:30 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:56:30 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:56:30 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:56:30 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:57:45 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 15:57:45 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 15:57:45 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625920
+2021/11/17 15:57:45 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625902
+2021/11/17 15:57:45 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 15:57:45 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 15:57:45 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 15:57:45 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 15:57:46 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/Carpet_001_bump_01.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/ki26_...
+2021/11/17 15:58:20 INF: [14420] [14680] creating file D:\?????\1 ???????.max.sv$
+2021/11/17 15:58:24 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 15:58:25 INF: [14420] [14680] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 15:58:25 INF: [14420] [14680] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 15:58:25 INF: [14420] [14680] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/17 15:59:06 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 15:59:06 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 15:59:06 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625920
+2021/11/17 15:59:06 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625902
+2021/11/17 15:59:06 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 15:59:06 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 15:59:06 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 15:59:06 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 15:59:06 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/Carpet_001_bump_01.jpg D:/3DS MAX/SUPPORT/Models/3dsky_renderstudio/SIEMENS_HB76G1560S_furna/aluminum_round_sticker...
+2021/11/17 16:01:59 INF: [14420] [14680] creating file D:\?????\1 ???????.max.sv$
+2021/11/17 16:02:03 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:02:03 INF: [14420] [14680] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 16:02:03 INF: [14420] [14680] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 16:02:04 INF: [14420] [14680] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/17 16:07:28 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 16:07:28 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 16:07:28 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625920
+2021/11/17 16:07:28 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625902
+2021/11/17 16:07:29 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625940
+2021/11/17 16:07:29 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625855
+2021/11/17 16:07:29 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625888
+2021/11/17 16:07:29 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138625903
+2021/11/17 16:07:29 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/17 16:07:29 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/Carpet_001_bump_01.jpg D:/3DS MAX/SUPPORT/Models/3dsky_renderstudio/SIEMENS_HB76G1560S_furna/aluminum_round_sticker...
+2021/11/17 16:07:53 INF: [14420] [14680] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/17 16:07:56 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:07:56 INF: [14420] [14680] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/17 16:07:56 INF: [14420] [14680] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/17 16:08:49 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 16:08:49 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 16:08:49 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/17 16:08:50 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/Toon Project/Desktop/Inesa/2/Nourison Desert Skies/Nourison Desert Skies/maps/Carpet_001_bump_01.jpg D:/3DS MAX/SUPPORT/Models/3dsky_renderstudio/SIEMENS_HB76G1560S_furna/aluminum_round_sticker...
+2021/11/17 16:09:11 INF: [14420] [14680] creating file D:\?????\1 ???????.max.sv$
+2021/11/17 16:09:14 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:09:16 INF: [14420] [14680] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 16:09:16 INF: [14420] [14680] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 16:09:16 INF: [14420] [14680] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/17 16:14:27 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 16:14:27 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 16:14:27 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/17 16:14:28 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/17 16:14:50 INF: [14420] [14680] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/17 16:14:55 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:14:55 INF: [14420] [14680] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/17 16:14:55 INF: [14420] [14680] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/17 16:18:51 INF: [14420] [14680] creating file D:\?????\1 ???????.max.sv$
+2021/11/17 16:18:55 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:18:56 INF: [14420] [14680] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 16:18:56 INF: [14420] [14680] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 16:18:56 INF: [14420] [14680] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/17 16:20:02 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:02 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:02 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:02 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:02 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:03 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:03 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:03 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:03 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:03 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:28 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 16:20:28 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 16:20:28 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/17 16:20:30 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/17 16:20:52 INF: [14420] [14680] creating file D:\?????\1 ???????.max.sv$
+2021/11/17 16:20:55 ERR: [14420] [14680] Could not read/write file type: D:\?????\images.jfif
+2021/11/17 16:20:56 INF: [14420] [14680] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 16:20:57 INF: [14420] [14680] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/17 16:20:57 INF: [14420] [14680] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/17 16:21:04 INF: [14420] [14680] CORONA : Parsing scene
+2021/11/17 16:21:04 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/17 16:21:04 WRN: [14420] [14680] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/17 16:21:04 INF: [14420] [14680] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/17 16:21:05 WRN: [14420] [14680] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/17 16:21:06 INF: [14420] [14680] CORONA : Calculating displacement
+2021/11/17 16:21:06 INF: [14420] [14680] CORONA : Preparing geometry
+2021/11/17 16:21:12 INF: [14420] [14680] CORONA : Preparing lights
+2021/11/17 16:21:12 INF: [14420] [14680] CORONA : Computing sec. GI
+2021/11/17 16:21:24 INF: [14420] [14680] CORONA : Rendering initial pass
+2021/11/17 16:25:04 INF: [14420] [14680] CORONA : Rendering pass 2
+2021/11/17 16:29:25 INF: [14420] [14680] CORONA : Rendering pass 3
+2021/11/17 16:33:21 INF: [14420] [14680] CORONA : Rendering pass 4
+2021/11/17 16:37:17 INF: [14420] [14680] CORONA : Rendering pass 5
+2021/11/17 16:41:18 INF: [14420] [14680] CORONA : Rendering pass 6
+2021/11/17 16:49:52 INF: [14420] [14680] CORONA : Rendering pass 7
+2021/11/17 16:58:30 INF: [14420] [14680] CORONA : Rendering pass 8
+2021/11/17 17:07:07 INF: [14420] [14680] CORONA : Rendering pass 9
+2021/11/17 17:09:32 INF: [14420] [14680] CORONA : Denoising
+2021/11/17 17:11:23 INF: [14420] [14680] CORONA : Cleaning up
+2021/11/17 17:17:45 DBG: [14420] [14680] Stop network
+2021/11/17 17:17:47 INF: [14420] [14680] [V-Ray] ============================================================
+2021/11/17 17:17:47 INF: [14420] [14680] [V-Ray] Console closed normally
+2021/11/17 17:17:47 INF: [14420] [14680] [V-Ray] ============================================================
+2021/11/18 22:57:38 INF: [20712] [13976] Authorize for license 3DSMAX2021 successful
+2021/11/18 22:57:38 INF: [20712] [13976] License Success
+2021/11/18 22:57:38 INF: [20712] [13976] Application started with secure mode state 'OFF'
+2021/11/18 22:57:38 INF: [20712] [13976] Python version: 3
+2021/11/18 22:57:38 INF: [20712] [13976] Product version: 3ds Max 2021.3 Update  (23.3.0.3201)
+2021/11/18 22:57:38 DBG: [20712] [13976] ADP Initialize: Done
+2021/11/18 22:57:38 INF: [20712] [13976] Data collection and use is 'ON'. Change your participation anytime in the Help menu of 3ds Max.
+2021/11/18 22:57:39 DBG: [20712] [13976] Could not find the specified file in DefaultSettingsParser::parse()
+2021/11/18 22:57:42 INF: [20712] [13976] Successfully loaded plugin package - Name: capholes - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\capholes\
+2021/11/18 22:57:42 INF: [20712] [13976] Successfully loaded plugin package - Name: BooleanObject - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\booleanobject\
+2021/11/18 22:57:42 INF: [20712] [13976] Successfully loaded plugin package - Name: Alembic - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\alembic\
+2021/11/18 22:57:42 INF: [20712] [13976] Successfully loaded plugin package - Name: Autodesk 3ds Max Security Tools - Company: Autodesk, Inc. - Version: 1.3.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\
+2021/11/18 22:57:42 INF: [20712] [13976] Successfully loaded plugin package - Name: Autodesk MaxToA - Company: Autodesk, Inc. - Version: 4.2.1.4 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxtoa\
+2021/11/18 22:57:42 INF: [20712] [13976] Successfully loaded plugin package - Name: MaxFluids - Company: Autodesk - Version: 0.0.1 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxfluid\
+2021/11/18 22:57:45 DBG: [20712] [13976] Is GPU present : Yes
+2021/11/18 22:57:45 DBG: [20712] [13976] Graphics driver requested by the user : Nitrous
+2021/11/18 22:57:45 DBG: [20712] [13976] Graphics driver actually created in the viewports : Nitrous DX11
+2021/11/18 22:57:47 INF: [20712] [13976] Autodesk 3ds Max Security Tools is active via configuration settings
+2021/11/18 22:57:54 DBG: [20712] [13976] At Nitrous init, the OGS graphics device requested is : Nitrous DX11
+2021/11/18 22:57:54 DBG: [20712] [13976] At Nitrous init, the OGS graphic device actually created is : Nitrous (Direct3D 11.0 Feature Level 11 - NVIDIA GeForce GTX 1650 Ti)
+2021/11/18 22:57:56 DBG: [20712] [13976] Starting network
+2021/11/18 22:57:57 INF: [20712] [13976] StartupTemplate factoryTemplateFolder: C:\Program Files\Autodesk\3ds Max 2021\en-US\StartupTemplates
+2021/11/18 22:57:57 INF: [20712] [13976] StartupTemplate userTemplateFolder: C:\Users\????????? ??????????\Documents\3ds Max 2021\startuptemplates
+2021/11/18 22:57:57 INF: [20712] [13976] StartupTemplate appdataTemplateFolder: C:\Users\????????? ??????????\AppData\Local\Autodesk\3dsMax\2021 - 64bit\ENU\en-US\StartupTemplates
+2021/11/18 22:57:57 DBG: [20712] [13976] Graphics driver requested by the user : Nitrous
+2021/11/18 22:57:57 DBG: [20712] [13976] Graphics driver actually created in the viewports : Nitrous
+2021/11/18 22:57:57 DBG: [20712] [13976] Graphics driver requested by the user : Nitrous
+2021/11/18 22:57:57 DBG: [20712] [13976] Graphics driver actually created in the viewports : Nitrous
+2021/11/18 22:57:57 DBG: [20712] [13976] Graphics driver requested by the user : Nitrous
+2021/11/18 22:57:57 DBG: [20712] [13976] Graphics driver actually created in the viewports : Nitrous
+2021/11/18 22:58:25 INF: [20712] [13976] ALC Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC_SecurityTool.ms)
+2021/11/18 22:58:25 INF: [20712] [13976] ALC2 Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC2_SecurityTool.ms)
+2021/11/18 22:58:25 INF: [20712] [13976] CRP Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\CRP_SecurityTool.ms)
+2021/11/18 22:58:25 INF: [20712] [13976] ADSL Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ADSL_SecurityTool.ms)
+2021/11/18 22:58:25 INF: [20712] [13976] PhysXPluginMfx Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx_SecurityTool.ms)
+2021/11/18 22:58:25 INF: [20712] [13976] PhysXPluginMfx2 Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx2_SecurityTool.ms)
+2021/11/18 22:58:27 DBG: [20712] [13976] Interface8::LoadFromFile(D:\?????\1 ???????.max)
+2021/11/18 22:58:27 INF: [20712] [13976] Starting to load file: D:\?????\1 ???????.max
+2021/11/18 22:58:28 INF: [20712] [13976] [V-Ray] ============================================================
+2021/11/18 22:58:28 INF: [20712] [13976] [V-Ray] Console created, V-Ray 4.30.02 for x64 from Apr  8 2020, 23:24:25
+2021/11/18 22:58:28 INF: [20712] [13976] [V-Ray] ============================================================
+2021/11/18 22:58:28 INF: [20712] [13976] [V-Ray] Compiled with Microsoft Visual C++ compiler, version 19,12
+2021/11/18 22:58:28 INF: [20712] [13976] [V-Ray] Host is 3ds Max, version 23
+2021/11/18 22:58:28 INF: [20712] [13976] [V-Ray] V-Ray DLL version is 4.30.02
+2021/11/18 23:02:34 ERR: [20712] [13976] Error loading file D:\?????\1 ???????.max
+2021/11/18 23:02:46 DBG: [20712] [13976] Stop network
+2021/11/18 23:02:47 INF: [20712] [13976] [V-Ray] ============================================================
+2021/11/18 23:02:47 INF: [20712] [13976] [V-Ray] Console closed normally
+2021/11/18 23:02:47 INF: [20712] [13976] [V-Ray] ============================================================
+2021/11/18 23:02:57 INF: [18908] [20760] Authorize for license 3DSMAX2021 successful
+2021/11/18 23:02:58 INF: [18908] [20760] License Success
+2021/11/18 23:02:58 INF: [18908] [20760] Application started with secure mode state 'OFF'
+2021/11/18 23:02:58 INF: [18908] [20760] Python version: 3
+2021/11/18 23:02:58 INF: [18908] [20760] Product version: 3ds Max 2021.3 Update  (23.3.0.3201)
+2021/11/18 23:02:58 DBG: [18908] [20760] ADP Initialize: Done
+2021/11/18 23:02:58 INF: [18908] [20760] Data collection and use is 'ON'. Change your participation anytime in the Help menu of 3ds Max.
+2021/11/18 23:02:58 DBG: [18908] [20760] Could not find the specified file in DefaultSettingsParser::parse()
+2021/11/18 23:03:00 INF: [18908] [20760] Successfully loaded plugin package - Name: capholes - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\capholes\
+2021/11/18 23:03:00 INF: [18908] [20760] Successfully loaded plugin package - Name: BooleanObject - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\booleanobject\
+2021/11/18 23:03:00 INF: [18908] [20760] Successfully loaded plugin package - Name: Alembic - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\alembic\
+2021/11/18 23:03:00 INF: [18908] [20760] Successfully loaded plugin package - Name: Autodesk 3ds Max Security Tools - Company: Autodesk, Inc. - Version: 1.3.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\
+2021/11/18 23:03:00 INF: [18908] [20760] Successfully loaded plugin package - Name: Autodesk MaxToA - Company: Autodesk, Inc. - Version: 4.2.1.4 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxtoa\
+2021/11/18 23:03:00 INF: [18908] [20760] Successfully loaded plugin package - Name: MaxFluids - Company: Autodesk - Version: 0.0.1 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxfluid\
+2021/11/18 23:03:02 DBG: [18908] [20760] Is GPU present : Yes
+2021/11/18 23:03:02 DBG: [18908] [20760] Graphics driver requested by the user : Nitrous
+2021/11/18 23:03:02 DBG: [18908] [20760] Graphics driver actually created in the viewports : Nitrous DX11
+2021/11/18 23:03:03 INF: [18908] [20760] Autodesk 3ds Max Security Tools is active via configuration settings
+2021/11/18 23:03:09 DBG: [18908] [20760] At Nitrous init, the OGS graphics device requested is : Nitrous DX11
+2021/11/18 23:03:09 DBG: [18908] [20760] At Nitrous init, the OGS graphic device actually created is : Nitrous (Direct3D 11.0 Feature Level 11 - NVIDIA GeForce GTX 1650 Ti)
+2021/11/18 23:03:11 DBG: [18908] [20760] Starting network
+2021/11/18 23:03:11 INF: [18908] [20760] StartupTemplate factoryTemplateFolder: C:\Program Files\Autodesk\3ds Max 2021\en-US\StartupTemplates
+2021/11/18 23:03:11 INF: [18908] [20760] StartupTemplate userTemplateFolder: C:\Users\????????? ??????????\Documents\3ds Max 2021\startuptemplates
+2021/11/18 23:03:11 INF: [18908] [20760] StartupTemplate appdataTemplateFolder: C:\Users\????????? ??????????\AppData\Local\Autodesk\3dsMax\2021 - 64bit\ENU\en-US\StartupTemplates
+2021/11/18 23:03:11 DBG: [18908] [20760] Graphics driver requested by the user : Nitrous
+2021/11/18 23:03:11 DBG: [18908] [20760] Graphics driver actually created in the viewports : Nitrous
+2021/11/18 23:03:12 DBG: [18908] [20760] Graphics driver requested by the user : Nitrous
+2021/11/18 23:03:12 DBG: [18908] [20760] Graphics driver actually created in the viewports : Nitrous
+2021/11/18 23:03:12 DBG: [18908] [20760] Graphics driver requested by the user : Nitrous
+2021/11/18 23:03:12 DBG: [18908] [20760] Graphics driver actually created in the viewports : Nitrous
+2021/11/18 23:03:40 INF: [18908] [20760] ALC Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC_SecurityTool.ms)
+2021/11/18 23:03:40 INF: [18908] [20760] ALC2 Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC2_SecurityTool.ms)
+2021/11/18 23:03:40 INF: [18908] [20760] CRP Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\CRP_SecurityTool.ms)
+2021/11/18 23:03:40 INF: [18908] [20760] ADSL Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ADSL_SecurityTool.ms)
+2021/11/18 23:03:40 INF: [18908] [20760] PhysXPluginMfx Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx_SecurityTool.ms)
+2021/11/18 23:03:40 INF: [18908] [20760] PhysXPluginMfx2 Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx2_SecurityTool.ms)
+2021/11/18 23:03:42 DBG: [18908] [20760] Interface8::LoadFromFile(D:\?????\1 ???????.max)
+2021/11/18 23:03:42 INF: [18908] [20760] Starting to load file: D:\?????\1 ???????.max
+2021/11/18 23:03:42 INF: [18908] [20760] [V-Ray] ============================================================
+2021/11/18 23:03:42 INF: [18908] [20760] [V-Ray] Console created, V-Ray 4.30.02 for x64 from Apr  8 2020, 23:24:25
+2021/11/18 23:03:42 INF: [18908] [20760] [V-Ray] ============================================================
+2021/11/18 23:03:42 INF: [18908] [20760] [V-Ray] Compiled with Microsoft Visual C++ compiler, version 19,12
+2021/11/18 23:03:42 INF: [18908] [20760] [V-Ray] Host is 3ds Max, version 23
+2021/11/18 23:03:42 INF: [18908] [20760] [V-Ray] V-Ray DLL version is 4.30.02
+2021/11/18 23:03:50 INF: [18908] [20760] CORONA: Corona is up and running. Corona version: 6 (Hotfix 2), netrender mode: off, slave mode: off, quiet mode: off, Max gamma (display/input/output): 2.2000000476837158/2.2000000476837158/2.2000000476837158
+2021/11/18 23:03:50 DBG: [18908] [20760] WARNING: The Populate data is missing on your system.
+2021/11/18 23:04:36 INF: [18908] [20760] Done loading file:  D:\?????\1 ???????.max 
+2021/11/18 23:08:03 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:08:03 WRN: [18908] [20760] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/18 23:08:03 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:08:03 INF: [18908] [20760] CORONA : Material type 'VRayBlendMtl' is not supported. Offending material: vray_chrome
+2021/11/18 23:08:05 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:08:34 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:08:34 WRN: [18908] [20760] CORONA ERROR: Layered materials should not be used with empty 'base material' slot. Offending material: Jem: Swarovski
+2021/11/18 23:08:34 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:10:19 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/18 23:10:26 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:10:26 INF: [18908] [20760] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/18 23:10:26 INF: [18908] [20760] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/18 23:15:28 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/18 23:15:31 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:15:32 INF: [18908] [20760] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/18 23:15:32 INF: [18908] [20760] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/18 23:21:42 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/18 23:21:45 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:21:46 INF: [18908] [20760] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/18 23:21:46 INF: [18908] [20760] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/18 23:23:59 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:24:00 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:24:00 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:27:13 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:13 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:13 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:13 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:13 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:14 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:14 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:14 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:14 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:14 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:27:58 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:27:58 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:27:59 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:28:01 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/18 23:28:06 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:28:07 INF: [18908] [20760] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/18 23:28:07 INF: [18908] [20760] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/18 23:32:38 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:32:38 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:32:39 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:33:11 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/18 23:33:14 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:33:14 INF: [18908] [20760] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/18 23:33:14 INF: [18908] [20760] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:35:54 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:36:07 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:36:07 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:36:08 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:37:27 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:37:27 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:37:28 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:38:15 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/18 23:38:18 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:38:19 INF: [18908] [20760] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/18 23:38:19 INF: [18908] [20760] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/18 23:38:29 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:38:29 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:38:30 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:39:22 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:41:17 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:41:17 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:41:18 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:43:20 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/18 23:43:23 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:43:24 INF: [18908] [20760] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/18 23:43:24 INF: [18908] [20760] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/18 23:44:55 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:45:00 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:45:00 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:45:00 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #83592
+2021/11/18 23:45:00 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2070298345
+2021/11/18 23:45:00 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2070298360
+2021/11/18 23:45:01 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:48:27 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/18 23:48:30 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:48:31 INF: [18908] [20760] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/18 23:48:31 INF: [18908] [20760] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/18 23:49:50 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:49:50 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:49:51 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:53:52 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/18 23:55:34 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:55:34 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:55:35 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:02 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:56:28 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:57:00 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:57:00 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:57:00 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:58:14 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:15 INF: [18908] [20760] CORONA : Parsing scene
+2021/11/18 23:58:15 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:58:15 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:58:16 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:58:17 INF: [18908] [20760] CORONA : Calculating displacement
+2021/11/18 23:58:17 INF: [18908] [20760] CORONA : Preparing geometry
+2021/11/18 23:58:23 INF: [18908] [20760] CORONA : Preparing lights
+2021/11/18 23:58:23 INF: [18908] [20760] CORONA : Cleaning up
+2021/11/18 23:58:25 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:58:25 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:58:26 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/18 23:58:50 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:50 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:50 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:50 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:50 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:51 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:51 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:51 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:51 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:58:51 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:59:03 INF: [18908] [20760] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/18 23:59:06 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/18 23:59:06 INF: [18908] [20760] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/18 23:59:06 INF: [18908] [20760] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/18 23:59:20 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/18 23:59:20 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/18 23:59:20 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 00:01:00 INF: [18908] [20760] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 00:01:04 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 00:01:06 INF: [18908] [20760] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 00:01:06 INF: [18908] [20760] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 00:01:06 INF: [18908] [20760] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 00:01:10 INF: [18908] [20760] CORONA : Parsing scene
+2021/11/19 00:01:11 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 00:01:11 INF: [18908] [20760] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 00:01:12 WRN: [18908] [20760] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 00:01:13 INF: [18908] [20760] CORONA : Calculating displacement
+2021/11/19 00:01:13 INF: [18908] [20760] CORONA : Preparing geometry
+2021/11/19 00:01:18 INF: [18908] [20760] CORONA : Preparing lights
+2021/11/19 00:01:18 INF: [18908] [20760] CORONA : Computing sec. GI
+2021/11/19 00:01:28 INF: [18908] [20760] CORONA : Rendering initial pass
+2021/11/19 00:03:48 INF: [18908] [20760] CORONA : Rendering pass 2
+2021/11/19 00:06:09 INF: [18908] [20760] CORONA : Rendering pass 3
+2021/11/19 00:08:34 INF: [18908] [20760] CORONA : Rendering pass 4
+2021/11/19 00:11:03 INF: [18908] [20760] CORONA : Rendering pass 5
+2021/11/19 00:13:32 INF: [18908] [20760] CORONA : Rendering pass 6
+2021/11/19 00:16:06 INF: [18908] [20760] CORONA : Rendering pass 7
+2021/11/19 00:18:38 INF: [18908] [20760] CORONA : Rendering pass 8
+2021/11/19 00:21:17 INF: [18908] [20760] CORONA : Rendering pass 9
+2021/11/19 00:23:48 INF: [18908] [20760] CORONA : Rendering pass 10
+2021/11/19 00:26:17 INF: [18908] [20760] CORONA : Rendering pass 11
+2021/11/19 00:29:02 INF: [18908] [20760] CORONA : Rendering pass 12
+2021/11/19 00:31:45 INF: [18908] [20760] CORONA : Rendering pass 13
+2021/11/19 00:34:18 INF: [18908] [20760] CORONA : Rendering pass 14
+2021/11/19 00:36:44 INF: [18908] [20760] CORONA : Rendering pass 15
+2021/11/19 00:39:25 INF: [18908] [20760] CORONA : Rendering pass 16
+2021/11/19 00:42:09 INF: [18908] [20760] CORONA : Rendering pass 17
+2021/11/19 00:43:26 INF: [18908] [20760] CORONA : Denoising
+2021/11/19 00:45:16 INF: [18908] [20760] CORONA : Cleaning up
+2021/11/19 00:45:47 INF: [18908] [20760] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 00:45:50 ERR: [18908] [20760] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 00:45:54 INF: [18908] [20760] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 00:45:54 INF: [18908] [20760] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 00:45:54 INF: [18908] [20760] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 00:46:18 DBG: [18908] [20760] Stop network
+2021/11/19 00:46:19 INF: [18908] [20760] [V-Ray] ============================================================
+2021/11/19 00:46:19 INF: [18908] [20760] [V-Ray] Console closed normally
+2021/11/19 00:46:19 INF: [18908] [20760] [V-Ray] ============================================================
+2021/11/19 11:16:08 INF: [14692] [03252] Authorize for license 3DSMAX2021 successful
+2021/11/19 11:16:08 INF: [14692] [03252] License Success
+2021/11/19 11:16:08 INF: [14692] [03252] Application started with secure mode state 'OFF'
+2021/11/19 11:16:08 INF: [14692] [03252] Python version: 3
+2021/11/19 11:16:08 INF: [14692] [03252] Product version: 3ds Max 2021.3 Update  (23.3.0.3201)
+2021/11/19 11:16:08 DBG: [14692] [03252] ADP Initialize: Done
+2021/11/19 11:16:08 INF: [14692] [03252] Data collection and use is 'ON'. Change your participation anytime in the Help menu of 3ds Max.
+2021/11/19 11:16:09 DBG: [14692] [03252] Could not find the specified file in DefaultSettingsParser::parse()
+2021/11/19 11:16:12 INF: [14692] [03252] Successfully loaded plugin package - Name: capholes - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\capholes\
+2021/11/19 11:16:12 INF: [14692] [03252] Successfully loaded plugin package - Name: BooleanObject - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\booleanobject\
+2021/11/19 11:16:12 INF: [14692] [03252] Successfully loaded plugin package - Name: Alembic - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\alembic\
+2021/11/19 11:16:12 INF: [14692] [03252] Successfully loaded plugin package - Name: Autodesk 3ds Max Security Tools - Company: Autodesk, Inc. - Version: 1.3.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\
+2021/11/19 11:16:12 INF: [14692] [03252] Successfully loaded plugin package - Name: Autodesk MaxToA - Company: Autodesk, Inc. - Version: 4.2.1.4 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxtoa\
+2021/11/19 11:16:12 INF: [14692] [03252] Successfully loaded plugin package - Name: MaxFluids - Company: Autodesk - Version: 0.0.1 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxfluid\
+2021/11/19 11:16:15 DBG: [14692] [03252] Is GPU present : Yes
+2021/11/19 11:16:15 DBG: [14692] [03252] Graphics driver requested by the user : Nitrous
+2021/11/19 11:16:15 DBG: [14692] [03252] Graphics driver actually created in the viewports : Nitrous DX11
+2021/11/19 11:16:18 INF: [14692] [03252] Autodesk 3ds Max Security Tools is active via configuration settings
+2021/11/19 11:16:24 DBG: [14692] [03252] At Nitrous init, the OGS graphics device requested is : Nitrous DX11
+2021/11/19 11:16:24 DBG: [14692] [03252] At Nitrous init, the OGS graphic device actually created is : Nitrous (Direct3D 11.0 Feature Level 11 - NVIDIA GeForce GTX 1650 Ti)
+2021/11/19 11:16:26 DBG: [14692] [03252] Starting network
+2021/11/19 11:16:27 INF: [14692] [03252] StartupTemplate factoryTemplateFolder: C:\Program Files\Autodesk\3ds Max 2021\en-US\StartupTemplates
+2021/11/19 11:16:27 INF: [14692] [03252] StartupTemplate userTemplateFolder: C:\Users\????????? ??????????\Documents\3ds Max 2021\startuptemplates
+2021/11/19 11:16:27 INF: [14692] [03252] StartupTemplate appdataTemplateFolder: C:\Users\????????? ??????????\AppData\Local\Autodesk\3dsMax\2021 - 64bit\ENU\en-US\StartupTemplates
+2021/11/19 11:16:27 DBG: [14692] [03252] Graphics driver requested by the user : Nitrous
+2021/11/19 11:16:27 DBG: [14692] [03252] Graphics driver actually created in the viewports : Nitrous
+2021/11/19 11:16:27 DBG: [14692] [03252] Graphics driver requested by the user : Nitrous
+2021/11/19 11:16:27 DBG: [14692] [03252] Graphics driver actually created in the viewports : Nitrous
+2021/11/19 11:16:27 DBG: [14692] [03252] Graphics driver requested by the user : Nitrous
+2021/11/19 11:16:27 DBG: [14692] [03252] Graphics driver actually created in the viewports : Nitrous
+2021/11/19 11:16:55 INF: [14692] [03252] ALC Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC_SecurityTool.ms)
+2021/11/19 11:16:55 INF: [14692] [03252] ALC2 Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC2_SecurityTool.ms)
+2021/11/19 11:16:55 INF: [14692] [03252] CRP Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\CRP_SecurityTool.ms)
+2021/11/19 11:16:55 INF: [14692] [03252] ADSL Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ADSL_SecurityTool.ms)
+2021/11/19 11:16:55 INF: [14692] [03252] PhysXPluginMfx Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx_SecurityTool.ms)
+2021/11/19 11:16:55 INF: [14692] [03252] PhysXPluginMfx2 Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx2_SecurityTool.ms)
+2021/11/19 11:16:57 DBG: [14692] [03252] Interface8::LoadFromFile(D:\?????\1 ???????.max)
+2021/11/19 11:16:57 INF: [14692] [03252] Starting to load file: D:\?????\1 ???????.max
+2021/11/19 11:16:58 INF: [14692] [03252] [V-Ray] ============================================================
+2021/11/19 11:16:58 INF: [14692] [03252] [V-Ray] Console created, V-Ray 4.30.02 for x64 from Apr  8 2020, 23:24:25
+2021/11/19 11:16:58 INF: [14692] [03252] [V-Ray] ============================================================
+2021/11/19 11:16:58 INF: [14692] [03252] [V-Ray] Compiled with Microsoft Visual C++ compiler, version 19,12
+2021/11/19 11:16:58 INF: [14692] [03252] [V-Ray] Host is 3ds Max, version 23
+2021/11/19 11:16:58 INF: [14692] [03252] [V-Ray] V-Ray DLL version is 4.30.02
+2021/11/19 11:18:09 INF: [14692] [03252] CORONA: Corona is up and running. Corona version: 6 (Hotfix 2), netrender mode: off, slave mode: off, quiet mode: off, Max gamma (display/input/output): 2.2000000476837158/2.2000000476837158/2.2000000476837158
+2021/11/19 11:18:09 DBG: [14692] [03252] WARNING: The Populate data is missing on your system.
+2021/11/19 11:19:42 INF: [14692] [03252] Done loading file:  D:\?????\1 ???????.max 
+2021/11/19 11:19:47 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:38 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:38 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:38 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:38 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:38 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:39 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:39 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:39 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:39 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:20:39 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:24:51 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 11:24:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:24:54 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 11:24:54 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 11:25:35 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 11:25:39 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:25:41 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 11:25:41 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 11:25:41 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 11:25:49 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 11:25:49 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 11:25:50 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:26 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:27:47 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 11:27:47 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 11:27:48 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 11:31:01 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 11:31:04 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:31:05 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 11:31:05 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 11:35:22 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 11:35:22 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 11:35:23 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 11:36:06 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/19 11:36:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:36:13 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 11:36:13 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 11:36:19 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:36:19 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:36:19 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:36:19 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:36:20 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:36:20 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:36:20 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:36:20 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:36:20 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:41:13 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 11:41:16 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:41:17 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 11:41:17 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 11:42:24 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 11:42:24 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 11:42:25 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 11:46:19 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 11:46:22 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:46:22 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 11:46:22 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 11:46:38 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 11:46:38 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 11:46:39 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 11:49:39 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 11:49:43 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:49:44 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 11:49:44 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 11:49:44 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 11:50:06 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 11:50:06 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 11:50:07 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 11:50:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:50:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:50:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:50:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:50:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:50:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:50:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:50:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:50:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:54:45 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/19 11:54:51 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:54:52 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 11:54:52 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 11:57:02 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 11:57:07 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 11:57:07 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 11:57:07 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 11:57:08 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 12:07:09 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 12:07:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:07:13 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 12:07:13 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:09:01 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:12:15 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 12:12:18 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:12:18 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 12:12:18 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 12:23:29 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 12:23:29 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 12:23:29 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 12:26:35 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/19 12:26:38 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:26:38 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 12:26:38 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 12:27:41 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 12:27:41 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 12:27:42 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:27:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:30:50 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 12:30:50 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 12:30:51 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 12:31:39 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 12:31:45 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:31:45 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 12:31:45 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:32:56 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:34:39 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 12:34:39 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 12:34:40 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 12:36:47 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 12:36:52 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:36:53 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 12:36:53 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 12:37:15 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 12:37:15 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 12:37:15 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 12:41:17 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 12:41:17 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 12:41:17 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 12:41:55 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/19 12:42:00 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:42:00 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 12:42:00 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 12:47:07 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 12:47:09 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:47:10 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 12:47:10 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 12:47:55 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 12:47:55 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 12:47:55 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 12:52:11 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 12:52:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:52:16 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 12:52:16 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 12:56:40 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 12:56:40 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 12:56:41 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 12:57:17 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/19 12:57:20 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:57:20 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 12:57:20 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 12:58:07 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 12:58:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 12:58:13 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 12:58:13 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 12:58:14 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 13:02:06 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 13:02:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:02:11 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 13:02:11 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 13:02:11 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 13:03:09 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 13:03:09 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 13:03:10 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 13:03:47 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 13:03:47 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 13:03:47 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 13:03:48 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 13:03:49 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 13:03:49 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 13:03:56 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 13:03:56 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 13:05:38 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 13:05:41 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:05:42 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 13:05:42 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 13:05:42 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 13:06:58 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 13:06:58 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 13:06:59 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 13:08:31 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 13:08:37 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:08:38 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 13:08:38 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 13:08:38 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:10:12 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:11:21 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 13:11:21 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 13:11:22 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:12:10 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:13:37 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 13:13:37 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 13:13:38 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 13:13:39 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 13:13:43 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:13:43 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 13:13:43 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 13:19:00 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 13:19:03 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:04 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 13:19:04 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 13:19:27 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:27 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:27 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:27 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:27 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:28 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:28 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:28 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:28 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:19:28 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:23:46 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 13:23:46 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 13:23:52 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 13:24:04 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/19 13:24:09 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:24:10 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 13:24:10 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 13:25:49 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 13:25:53 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:25:54 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 13:25:54 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 13:25:54 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 13:25:58 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 13:25:58 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 13:25:59 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 13:26:00 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 13:26:00 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 13:26:00 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 13:26:07 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 13:26:07 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 13:26:20 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 13:29:13 INF: [14692] [03252] CORONA : Rendering pass 2
+2021/11/19 13:32:39 INF: [14692] [03252] CORONA : Rendering pass 3
+2021/11/19 13:36:13 INF: [14692] [03252] CORONA : Rendering pass 4
+2021/11/19 13:39:33 INF: [14692] [03252] CORONA : Rendering pass 5
+2021/11/19 13:42:55 INF: [14692] [03252] CORONA : Rendering pass 6
+2021/11/19 13:46:20 INF: [14692] [03252] CORONA : Rendering pass 7
+2021/11/19 13:48:26 INF: [14692] [03252] CORONA : Denoising
+2021/11/19 13:50:06 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 13:55:21 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 13:55:24 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 13:55:25 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 13:55:25 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 14:00:26 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 14:00:29 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:00:30 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 14:00:30 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 14:01:43 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 14:01:43 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 14:01:44 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 14:05:31 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/19 14:05:34 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:05:35 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 14:05:35 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 14:11:20 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 14:11:23 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:11:23 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 14:11:23 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 14:12:19 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 14:12:19 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 14:12:20 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 14:16:24 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 14:16:31 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:16:32 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 14:16:32 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:18:54 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:19:28 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 14:19:28 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 14:19:29 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 14:20:21 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:21 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:21 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:21 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:21 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:22 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:22 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:22 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:22 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:22 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:20:54 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 14:20:59 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:21:00 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 14:21:00 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 14:21:00 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 14:21:05 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 14:21:05 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 14:21:05 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 14:21:07 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 14:21:07 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 14:21:07 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 14:21:14 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 14:21:14 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 14:21:26 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 14:24:10 INF: [14692] [03252] CORONA : Rendering pass 2
+2021/11/19 14:25:43 INF: [14692] [03252] CORONA : You need to render at least 2 passes to use the currently selected denoiser.
+2021/11/19 14:25:43 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 14:25:59 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 14:25:59 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 14:25:59 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 14:26:00 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 14:26:00 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 14:26:00 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 14:26:07 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 14:26:07 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 14:26:19 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 14:27:31 INF: [14692] [03252] CORONA : You need to render at least 2 passes to use the currently selected denoiser.
+2021/11/19 14:27:31 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 14:27:50 INF: [14692] [03252] creating file D:\?????\1 ???????.max.sv$
+2021/11/19 14:27:55 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 14:27:56 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 14:27:56 INF: [14692] [03252] renaming D:\?????\1 ???????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 14:27:56 INF: [14692] [03252] renaming D:\?????\1 ???????.max.sv$ to D:\?????\1 ???????.max
+2021/11/19 14:28:17 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 14:28:17 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 14:28:17 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 14:28:18 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 14:28:18 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 14:28:18 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 14:28:25 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 14:28:25 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 14:28:37 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 14:31:06 INF: [14692] [03252] CORONA : Rendering pass 2
+2021/11/19 14:34:03 INF: [14692] [03252] CORONA : Rendering pass 3
+2021/11/19 14:36:57 INF: [14692] [03252] CORONA : Rendering pass 4
+2021/11/19 14:39:32 INF: [14692] [03252] CORONA : Rendering pass 5
+2021/11/19 14:42:24 INF: [14692] [03252] CORONA : Rendering pass 6
+2021/11/19 14:45:35 INF: [14692] [03252] CORONA : Rendering pass 7
+2021/11/19 14:48:42 INF: [14692] [03252] CORONA : Rendering pass 8
+2021/11/19 14:51:40 INF: [14692] [03252] CORONA : Rendering pass 9
+2021/11/19 14:54:39 INF: [14692] [03252] CORONA : Rendering pass 10
+2021/11/19 14:57:36 INF: [14692] [03252] CORONA : Rendering pass 11
+2021/11/19 15:00:49 INF: [14692] [03252] CORONA : Rendering pass 12
+2021/11/19 15:04:03 INF: [14692] [03252] CORONA : Rendering pass 13
+2021/11/19 15:07:02 INF: [14692] [03252] CORONA : Rendering pass 14
+2021/11/19 15:10:05 INF: [14692] [03252] CORONA : Rendering pass 15
+2021/11/19 15:13:16 INF: [14692] [03252] CORONA : Rendering pass 16
+2021/11/19 15:16:17 INF: [14692] [03252] CORONA : Rendering pass 17
+2021/11/19 15:19:22 INF: [14692] [03252] CORONA : Rendering pass 18
+2021/11/19 15:22:26 INF: [14692] [03252] CORONA : Rendering pass 19
+2021/11/19 15:25:33 INF: [14692] [03252] CORONA : Rendering pass 20
+2021/11/19 15:28:43 INF: [14692] [03252] CORONA : Rendering pass 21
+2021/11/19 15:31:53 INF: [14692] [03252] CORONA : Rendering pass 22
+2021/11/19 15:35:08 INF: [14692] [03252] CORONA : Rendering pass 23
+2021/11/19 15:38:19 INF: [14692] [03252] CORONA : Rendering pass 24
+2021/11/19 15:41:21 INF: [14692] [03252] CORONA : Rendering pass 25
+2021/11/19 15:44:32 INF: [14692] [03252] CORONA : Rendering pass 26
+2021/11/19 15:47:38 INF: [14692] [03252] CORONA : Rendering pass 27
+2021/11/19 15:50:38 INF: [14692] [03252] CORONA : Rendering pass 28
+2021/11/19 15:53:39 INF: [14692] [03252] CORONA : Rendering pass 29
+2021/11/19 15:56:41 INF: [14692] [03252] CORONA : Rendering pass 30
+2021/11/19 15:59:49 INF: [14692] [03252] CORONA : Rendering pass 31
+2021/11/19 16:03:03 INF: [14692] [03252] CORONA : Rendering pass 32
+2021/11/19 16:06:17 INF: [14692] [03252] CORONA : Rendering pass 33
+2021/11/19 16:09:31 INF: [14692] [03252] CORONA : Rendering pass 34
+2021/11/19 16:12:44 INF: [14692] [03252] CORONA : Rendering pass 35
+2021/11/19 16:15:59 INF: [14692] [03252] CORONA : Rendering pass 36
+2021/11/19 16:19:10 INF: [14692] [03252] CORONA : Rendering pass 37
+2021/11/19 16:22:17 INF: [14692] [03252] CORONA : Rendering pass 38
+2021/11/19 16:24:41 INF: [14692] [03252] CORONA : Denoising
+2021/11/19 16:26:29 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 16:31:22 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 16:31:22 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 16:31:23 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 16:31:31 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/19 16:31:37 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:31:37 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 16:31:38 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 16:33:00 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\scenes\1 ??????? 2 ?????.max.sv$
+2021/11/19 16:33:03 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:33:04 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\scenes\1 ??????? 2 ?????.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\scenes\1 ??????? 2 ?????.max
+2021/11/19 16:33:26 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 16:33:26 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 16:33:27 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: Acc2.jpg C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/16_K_3_y.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 11...
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:15 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:36:21 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 16:36:21 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 16:36:23 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: Acc2.jpg C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/16_K_3_y.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 11...
+2021/11/19 16:36:46 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 16:36:46 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 16:37:14 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 16:37:14 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 16:37:15 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 16:37:16 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: Acc2.jpg C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/16_K_3_y.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 11...
+2021/11/19 16:37:16 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 16:37:17 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 16:37:24 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 16:37:24 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 16:37:25 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 16:37:30 INF: [14692] [03252] CORONA : You need to render at least 2 passes to use the currently selected denoiser.
+2021/11/19 16:37:30 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 16:37:33 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 16:37:34 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 16:37:34 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 16:37:35 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: Acc2.jpg C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/16_K_3_y.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 11...
+2021/11/19 16:37:35 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 16:37:35 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 16:37:42 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 16:37:42 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 16:37:48 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 16:38:26 INF: [14692] [03252] CORONA : You need to render at least 2 passes to use the currently selected denoiser.
+2021/11/19 16:38:26 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 16:38:35 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 16:38:35 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 16:38:35 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 16:38:36 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: Acc2.jpg C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/16_K_3_y.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 11...
+2021/11/19 16:38:36 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 16:38:36 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 16:38:43 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 16:38:43 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 16:38:49 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 16:40:56 INF: [14692] [03252] CORONA : Rendering pass 2
+2021/11/19 16:43:09 INF: [14692] [03252] CORONA : Rendering pass 3
+2021/11/19 16:45:20 INF: [14692] [03252] CORONA : Rendering pass 4
+2021/11/19 16:47:41 INF: [14692] [03252] CORONA : Rendering pass 5
+2021/11/19 16:50:02 INF: [14692] [03252] CORONA : Rendering pass 6
+2021/11/19 16:51:58 INF: [14692] [03252] CORONA : Denoising
+2021/11/19 16:52:04 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 16:52:23 INF: [14692] [03252] creating file D:\?????\1 ??????? 2 ?????.max.sv$
+2021/11/19 16:52:28 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 16:52:29 INF: [14692] [03252] renaming D:\?????\1 ??????? 2 ?????.max.sv$ to D:\?????\1 ??????? 2 ?????.max
+2021/11/19 16:52:35 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 16:52:35 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 16:52:36 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 16:54:15 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 16:54:16 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 16:54:16 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 16:54:17 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 16:54:17 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 16:54:17 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 16:54:24 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 16:54:24 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 16:54:35 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 16:57:09 INF: [14692] [03252] CORONA : Rendering pass 2
+2021/11/19 16:59:42 INF: [14692] [03252] CORONA : Rendering pass 3
+2021/11/19 17:02:18 INF: [14692] [03252] CORONA : Rendering pass 4
+2021/11/19 17:04:24 INF: [14692] [03252] CORONA : Denoising
+2021/11/19 17:04:30 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 17:07:45 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 17:07:49 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:07:49 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 17:07:49 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 17:09:17 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 17:09:17 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 17:09:23 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 17:10:47 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 17:10:48 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 17:10:48 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 17:10:49 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 17:10:50 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 17:10:50 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 17:10:56 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 17:10:57 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 17:11:07 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 17:13:23 INF: [14692] [03252] CORONA : Rendering pass 2
+2021/11/19 17:16:05 INF: [14692] [03252] CORONA : Rendering pass 3
+2021/11/19 17:18:57 INF: [14692] [03252] CORONA : Rendering pass 4
+2021/11/19 17:21:45 INF: [14692] [03252] CORONA : Rendering pass 5
+2021/11/19 17:24:26 INF: [14692] [03252] CORONA : Rendering pass 6
+2021/11/19 17:27:18 INF: [14692] [03252] CORONA : Rendering pass 7
+2021/11/19 17:29:52 INF: [14692] [03252] CORONA : Rendering pass 8
+2021/11/19 17:32:41 INF: [14692] [03252] CORONA : Rendering pass 9
+2021/11/19 17:35:31 INF: [14692] [03252] CORONA : Rendering pass 10
+2021/11/19 17:38:30 INF: [14692] [03252] CORONA : Rendering pass 11
+2021/11/19 17:41:05 INF: [14692] [03252] CORONA : Rendering pass 12
+2021/11/19 17:44:02 INF: [14692] [03252] CORONA : Rendering pass 13
+2021/11/19 17:46:44 INF: [14692] [03252] CORONA : Rendering pass 14
+2021/11/19 17:49:39 INF: [14692] [03252] CORONA : Rendering pass 15
+2021/11/19 17:52:18 INF: [14692] [03252] CORONA : Denoising
+2021/11/19 17:54:06 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 17:56:19 INF: [14692] [03252] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 17:56:22 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:56:23 INF: [14692] [03252] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 17:56:23 INF: [14692] [03252] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 17:57:02 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:02 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:02 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:02 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:02 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:03 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:03 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:03 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:03 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:03 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 17:57:08 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 17:57:09 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 17:57:10 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 17:58:00 INF: [14692] [03252] CORONA : Parsing scene
+2021/11/19 17:58:01 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 17:58:01 INF: [14692] [03252] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 17:58:04 WRN: [14692] [03252] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 17:58:04 INF: [14692] [03252] CORONA : Calculating displacement
+2021/11/19 17:58:04 INF: [14692] [03252] CORONA : Preparing geometry
+2021/11/19 17:58:23 INF: [14692] [03252] CORONA : Preparing lights
+2021/11/19 17:58:23 INF: [14692] [03252] CORONA : Computing sec. GI
+2021/11/19 17:58:35 INF: [14692] [03252] CORONA : Rendering initial pass
+2021/11/19 18:01:21 INF: [14692] [03252] CORONA : Rendering pass 2
+2021/11/19 18:04:28 INF: [14692] [03252] CORONA : Rendering pass 3
+2021/11/19 18:07:39 INF: [14692] [03252] CORONA : Rendering pass 4
+2021/11/19 18:10:40 INF: [14692] [03252] CORONA : Rendering pass 5
+2021/11/19 18:13:38 INF: [14692] [03252] CORONA : Rendering pass 6
+2021/11/19 18:17:16 INF: [14692] [03252] CORONA : Rendering pass 7
+2021/11/19 18:20:37 INF: [14692] [03252] CORONA : Rendering pass 8
+2021/11/19 18:23:46 INF: [14692] [03252] CORONA : Rendering pass 9
+2021/11/19 18:27:14 INF: [14692] [03252] CORONA : Denoising
+2021/11/19 18:29:04 INF: [14692] [03252] CORONA : Cleaning up
+2021/11/19 18:29:45 INF: [14692] [03252] creating file D:\?????\1 ??????? 2 ?????.max.sv$
+2021/11/19 18:29:49 ERR: [14692] [03252] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 18:29:53 INF: [14692] [03252] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 18:29:53 INF: [14692] [03252] renaming D:\?????\1 ??????? 2 ?????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/19 18:29:53 INF: [14692] [03252] renaming D:\?????\1 ??????? 2 ?????.max.sv$ to D:\?????\1 ??????? 2 ?????.max
+2021/11/19 18:29:57 DBG: [14692] [03252] Stop network
+2021/11/19 18:30:00 INF: [14692] [03252] [V-Ray] ============================================================
+2021/11/19 18:30:00 INF: [14692] [03252] [V-Ray] Console closed normally
+2021/11/19 18:30:00 INF: [14692] [03252] [V-Ray] ============================================================
+2021/11/19 23:13:39 INF: [06852] [08156] Authorize for license 3DSMAX2021 successful
+2021/11/19 23:13:39 INF: [06852] [08156] License Success
+2021/11/19 23:13:39 INF: [06852] [08156] Application started with secure mode state 'OFF'
+2021/11/19 23:13:39 INF: [06852] [08156] Python version: 3
+2021/11/19 23:13:39 INF: [06852] [08156] Product version: 3ds Max 2021.3 Update  (23.3.0.3201)
+2021/11/19 23:13:39 DBG: [06852] [08156] ADP Initialize: Done
+2021/11/19 23:13:39 INF: [06852] [08156] Data collection and use is 'ON'. Change your participation anytime in the Help menu of 3ds Max.
+2021/11/19 23:13:40 DBG: [06852] [08156] Could not find the specified file in DefaultSettingsParser::parse()
+2021/11/19 23:13:43 INF: [06852] [08156] Successfully loaded plugin package - Name: capholes - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\capholes\
+2021/11/19 23:13:43 INF: [06852] [08156] Successfully loaded plugin package - Name: BooleanObject - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\booleanobject\
+2021/11/19 23:13:43 INF: [06852] [08156] Successfully loaded plugin package - Name: Alembic - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\alembic\
+2021/11/19 23:13:43 INF: [06852] [08156] Successfully loaded plugin package - Name: Autodesk 3ds Max Security Tools - Company: Autodesk, Inc. - Version: 1.3.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\
+2021/11/19 23:13:43 INF: [06852] [08156] Successfully loaded plugin package - Name: Autodesk MaxToA - Company: Autodesk, Inc. - Version: 4.2.1.4 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxtoa\
+2021/11/19 23:13:43 INF: [06852] [08156] Successfully loaded plugin package - Name: MaxFluids - Company: Autodesk - Version: 0.0.1 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxfluid\
+2021/11/19 23:13:47 DBG: [06852] [08156] Is GPU present : Yes
+2021/11/19 23:13:47 DBG: [06852] [08156] Graphics driver requested by the user : Nitrous
+2021/11/19 23:13:47 DBG: [06852] [08156] Graphics driver actually created in the viewports : Nitrous DX11
+2021/11/19 23:13:49 INF: [06852] [08156] Autodesk 3ds Max Security Tools is active via configuration settings
+2021/11/19 23:13:55 DBG: [06852] [08156] At Nitrous init, the OGS graphics device requested is : Nitrous DX11
+2021/11/19 23:13:55 DBG: [06852] [08156] At Nitrous init, the OGS graphic device actually created is : Nitrous (Direct3D 11.0 Feature Level 11 - NVIDIA GeForce GTX 1650 Ti)
+2021/11/19 23:13:57 DBG: [06852] [08156] Starting network
+2021/11/19 23:13:57 INF: [06852] [08156] StartupTemplate factoryTemplateFolder: C:\Program Files\Autodesk\3ds Max 2021\en-US\StartupTemplates
+2021/11/19 23:13:57 INF: [06852] [08156] StartupTemplate userTemplateFolder: C:\Users\????????? ??????????\Documents\3ds Max 2021\startuptemplates
+2021/11/19 23:13:57 INF: [06852] [08156] StartupTemplate appdataTemplateFolder: C:\Users\????????? ??????????\AppData\Local\Autodesk\3dsMax\2021 - 64bit\ENU\en-US\StartupTemplates
+2021/11/19 23:13:57 DBG: [06852] [08156] Graphics driver requested by the user : Nitrous
+2021/11/19 23:13:57 DBG: [06852] [08156] Graphics driver actually created in the viewports : Nitrous
+2021/11/19 23:13:58 DBG: [06852] [08156] Graphics driver requested by the user : Nitrous
+2021/11/19 23:13:58 DBG: [06852] [08156] Graphics driver actually created in the viewports : Nitrous
+2021/11/19 23:13:58 DBG: [06852] [08156] Graphics driver requested by the user : Nitrous
+2021/11/19 23:13:58 DBG: [06852] [08156] Graphics driver actually created in the viewports : Nitrous
+2021/11/19 23:14:26 INF: [06852] [08156] ALC Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC_SecurityTool.ms)
+2021/11/19 23:14:26 INF: [06852] [08156] ALC2 Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC2_SecurityTool.ms)
+2021/11/19 23:14:26 INF: [06852] [08156] CRP Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\CRP_SecurityTool.ms)
+2021/11/19 23:14:26 INF: [06852] [08156] ADSL Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ADSL_SecurityTool.ms)
+2021/11/19 23:14:26 INF: [06852] [08156] PhysXPluginMfx Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx_SecurityTool.ms)
+2021/11/19 23:14:26 INF: [06852] [08156] PhysXPluginMfx2 Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx2_SecurityTool.ms)
+2021/11/19 23:14:28 DBG: [06852] [08156] Interface8::LoadFromFile(D:\?????\1 ??????? 2 ?????.max)
+2021/11/19 23:14:28 INF: [06852] [08156] Starting to load file: D:\?????\1 ??????? 2 ?????.max
+2021/11/19 23:14:28 INF: [06852] [08156] [V-Ray] ============================================================
+2021/11/19 23:14:28 INF: [06852] [08156] [V-Ray] Console created, V-Ray 4.30.02 for x64 from Apr  8 2020, 23:24:25
+2021/11/19 23:14:28 INF: [06852] [08156] [V-Ray] ============================================================
+2021/11/19 23:14:28 INF: [06852] [08156] [V-Ray] Compiled with Microsoft Visual C++ compiler, version 19,12
+2021/11/19 23:14:28 INF: [06852] [08156] [V-Ray] Host is 3ds Max, version 23
+2021/11/19 23:14:28 INF: [06852] [08156] [V-Ray] V-Ray DLL version is 4.30.02
+2021/11/19 23:14:42 INF: [06852] [08156] CORONA: Corona is up and running. Corona version: 6 (Hotfix 2), netrender mode: off, slave mode: off, quiet mode: off, Max gamma (display/input/output): 2.2000000476837158/2.2000000476837158/2.2000000476837158
+2021/11/19 23:14:43 DBG: [06852] [08156] WARNING: The Populate data is missing on your system.
+2021/11/19 23:14:46 INF: [06852] [08156] Done loading file:  D:\?????\1 ??????? 2 ?????.max 
+2021/11/19 23:16:09 INF: [06852] [08156] creating file C:\Users\????????? ??????????\Desktop\1.rps.sv$
+2021/11/19 23:16:09 INF: [06852] [08156] renaming C:\Users\????????? ??????????\Desktop\1.rps.sv$ to C:\Users\????????? ??????????\Desktop\1.rps
+2021/11/19 23:17:48 INF: [06852] [08156] CORONA : Parsing scene
+2021/11/19 23:17:48 INF: [06852] [08156] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 23:17:49 INF: [06852] [08156] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 23:17:50 WRN: [06852] [08156] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 23:17:50 INF: [06852] [08156] CORONA : Calculating displacement
+2021/11/19 23:17:50 INF: [06852] [08156] CORONA : Preparing geometry
+2021/11/19 23:17:52 INF: [06852] [08156] CORONA : Preparing lights
+2021/11/19 23:17:52 INF: [06852] [08156] CORONA : Computing sec. GI
+2021/11/19 23:18:04 INF: [06852] [08156] CORONA : Rendering initial pass
+2021/11/19 23:18:11 INF: [06852] [08156] CORONA : Rendering pass 2
+2021/11/19 23:18:18 INF: [06852] [08156] CORONA : Rendering pass 3
+2021/11/19 23:18:24 INF: [06852] [08156] CORONA : Cleaning up
+2021/11/19 23:20:30 INF: [06852] [08156] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/19 23:20:33 ERR: [06852] [08156] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 23:20:34 INF: [06852] [08156] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 23:20:34 INF: [06852] [08156] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/19 23:21:56 INF: [06852] [08156] CORONA : Parsing scene
+2021/11/19 23:21:56 INF: [06852] [08156] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 23:21:56 INF: [06852] [08156] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 23:21:57 WRN: [06852] [08156] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 23:21:57 INF: [06852] [08156] CORONA : Calculating displacement
+2021/11/19 23:21:57 INF: [06852] [08156] CORONA : Preparing geometry
+2021/11/19 23:21:59 INF: [06852] [08156] CORONA : Preparing lights
+2021/11/19 23:21:59 INF: [06852] [08156] CORONA : Computing sec. GI
+2021/11/19 23:22:10 INF: [06852] [08156] CORONA : Rendering initial pass
+2021/11/19 23:22:17 INF: [06852] [08156] CORONA : Rendering pass 2
+2021/11/19 23:22:22 INF: [06852] [08156] CORONA : Cleaning up
+2021/11/19 23:26:02 INF: [06852] [08156] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$
+2021/11/19 23:26:05 ERR: [06852] [08156] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 23:26:06 INF: [06852] [08156] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 23:26:06 INF: [06852] [08156] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup02.max
+2021/11/19 23:28:49 INF: [06852] [08156] CORONA : Parsing scene
+2021/11/19 23:28:50 INF: [06852] [08156] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 23:28:50 INF: [06852] [08156] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 23:28:50 WRN: [06852] [08156] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 23:28:51 INF: [06852] [08156] CORONA : Calculating displacement
+2021/11/19 23:28:51 INF: [06852] [08156] CORONA : Preparing geometry
+2021/11/19 23:28:52 INF: [06852] [08156] CORONA : Preparing lights
+2021/11/19 23:28:52 INF: [06852] [08156] CORONA : Computing sec. GI
+2021/11/19 23:29:04 INF: [06852] [08156] CORONA : Rendering initial pass
+2021/11/19 23:29:11 INF: [06852] [08156] CORONA : Rendering pass 2
+2021/11/19 23:29:18 INF: [06852] [08156] CORONA : Rendering pass 3
+2021/11/19 23:29:25 INF: [06852] [08156] CORONA : Rendering pass 4
+2021/11/19 23:29:25 INF: [06852] [08156] CORONA : Cleaning up
+2021/11/19 23:31:43 INF: [06852] [08156] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$
+2021/11/19 23:31:46 ERR: [06852] [08156] Could not read/write file type: D:\?????\images.jfif
+2021/11/19 23:31:47 INF: [06852] [08156] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 23:31:47 INF: [06852] [08156] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup03.max
+2021/11/19 23:32:36 INF: [06852] [08156] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/19 23:32:36 INF: [06852] [08156] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/19 23:32:37 WRN: [06852] [08156] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/19 23:33:18 DBG: [06852] [08156] Stop network
+2021/11/19 23:33:18 INF: [06852] [08156] [V-Ray] ============================================================
+2021/11/19 23:33:18 INF: [06852] [08156] [V-Ray] Console closed normally
+2021/11/19 23:33:18 INF: [06852] [08156] [V-Ray] ============================================================
+2021/11/20 10:30:03 INF: [16676] [15676] Authorize for license 3DSMAX2021 successful
+2021/11/20 10:30:03 INF: [16676] [15676] License Success
+2021/11/20 10:30:03 INF: [16676] [15676] Application started with secure mode state 'OFF'
+2021/11/20 10:30:03 INF: [16676] [15676] Python version: 3
+2021/11/20 10:30:03 INF: [16676] [15676] Product version: 3ds Max 2021.3 Update  (23.3.0.3201)
+2021/11/20 10:30:03 DBG: [16676] [15676] ADP Initialize: Done
+2021/11/20 10:30:03 INF: [16676] [15676] Data collection and use is 'ON'. Change your participation anytime in the Help menu of 3ds Max.
+2021/11/20 10:30:04 DBG: [16676] [15676] Could not find the specified file in DefaultSettingsParser::parse()
+2021/11/20 10:30:06 INF: [16676] [15676] Successfully loaded plugin package - Name: capholes - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\capholes\
+2021/11/20 10:30:06 INF: [16676] [15676] Successfully loaded plugin package - Name: BooleanObject - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\booleanobject\
+2021/11/20 10:30:06 INF: [16676] [15676] Successfully loaded plugin package - Name: Alembic - Company: Autodesk - Version: 1.0.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\alembic\
+2021/11/20 10:30:06 INF: [16676] [15676] Successfully loaded plugin package - Name: Autodesk 3ds Max Security Tools - Company: Autodesk, Inc. - Version: 1.3.0 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\
+2021/11/20 10:30:06 INF: [16676] [15676] Successfully loaded plugin package - Name: Autodesk MaxToA - Company: Autodesk, Inc. - Version: 4.2.1.4 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxtoa\
+2021/11/20 10:30:06 INF: [16676] [15676] Successfully loaded plugin package - Name: MaxFluids - Company: Autodesk - Version: 0.0.1 - Location: c:\program files\autodesk\3ds max 2021\applicationplugins\maxfluid\
+2021/11/20 10:30:10 DBG: [16676] [15676] Is GPU present : Yes
+2021/11/20 10:30:10 DBG: [16676] [15676] Graphics driver requested by the user : Nitrous
+2021/11/20 10:30:10 DBG: [16676] [15676] Graphics driver actually created in the viewports : Nitrous DX11
+2021/11/20 10:30:12 INF: [16676] [15676] Autodesk 3ds Max Security Tools is active via configuration settings
+2021/11/20 10:30:20 DBG: [16676] [15676] At Nitrous init, the OGS graphics device requested is : Nitrous DX11
+2021/11/20 10:30:20 DBG: [16676] [15676] At Nitrous init, the OGS graphic device actually created is : Nitrous (Direct3D 11.0 Feature Level 11 - NVIDIA GeForce GTX 1650 Ti)
+2021/11/20 10:30:22 DBG: [16676] [15676] Starting network
+2021/11/20 10:30:22 INF: [16676] [15676] StartupTemplate factoryTemplateFolder: C:\Program Files\Autodesk\3ds Max 2021\en-US\StartupTemplates
+2021/11/20 10:30:22 INF: [16676] [15676] StartupTemplate userTemplateFolder: C:\Users\????????? ??????????\Documents\3ds Max 2021\startuptemplates
+2021/11/20 10:30:22 INF: [16676] [15676] StartupTemplate appdataTemplateFolder: C:\Users\????????? ??????????\AppData\Local\Autodesk\3dsMax\2021 - 64bit\ENU\en-US\StartupTemplates
+2021/11/20 10:30:22 DBG: [16676] [15676] Graphics driver requested by the user : Nitrous
+2021/11/20 10:30:22 DBG: [16676] [15676] Graphics driver actually created in the viewports : Nitrous
+2021/11/20 10:30:22 DBG: [16676] [15676] Graphics driver requested by the user : Nitrous
+2021/11/20 10:30:22 DBG: [16676] [15676] Graphics driver actually created in the viewports : Nitrous
+2021/11/20 10:30:23 DBG: [16676] [15676] Graphics driver requested by the user : Nitrous
+2021/11/20 10:30:23 DBG: [16676] [15676] Graphics driver actually created in the viewports : Nitrous
+2021/11/20 10:30:51 INF: [16676] [15676] ALC Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC_SecurityTool.ms)
+2021/11/20 10:30:51 INF: [16676] [15676] ALC2 Security Tool 1.1 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ALC2_SecurityTool.ms)
+2021/11/20 10:30:51 INF: [16676] [15676] CRP Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\CRP_SecurityTool.ms)
+2021/11/20 10:30:51 INF: [16676] [15676] ADSL Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\ADSL_SecurityTool.ms)
+2021/11/20 10:30:51 INF: [16676] [15676] PhysXPluginMfx Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx_SecurityTool.ms)
+2021/11/20 10:30:51 INF: [16676] [15676] PhysXPluginMfx2 Security Tool 1.0 loaded.  (c:\program files\autodesk\3ds max 2021\applicationplugins\securitytools\contents\scripts\PhysXPluginMfx2_SecurityTool.ms)
+2021/11/20 10:30:53 DBG: [16676] [15676] Interface8::LoadFromFile(D:\?????\1 ??????? 2 ?????.max)
+2021/11/20 10:30:53 INF: [16676] [15676] Starting to load file: D:\?????\1 ??????? 2 ?????.max
+2021/11/20 10:30:54 INF: [16676] [15676] [V-Ray] ============================================================
+2021/11/20 10:30:54 INF: [16676] [15676] [V-Ray] Console created, V-Ray 4.30.02 for x64 from Apr  8 2020, 23:24:25
+2021/11/20 10:30:54 INF: [16676] [15676] [V-Ray] ============================================================
+2021/11/20 10:30:54 INF: [16676] [15676] [V-Ray] Compiled with Microsoft Visual C++ compiler, version 19,12
+2021/11/20 10:30:54 INF: [16676] [15676] [V-Ray] Host is 3ds Max, version 23
+2021/11/20 10:30:54 INF: [16676] [15676] [V-Ray] V-Ray DLL version is 4.30.02
+2021/11/20 10:31:05 INF: [16676] [15676] CORONA: Corona is up and running. Corona version: 6 (Hotfix 2), netrender mode: off, slave mode: off, quiet mode: off, Max gamma (display/input/output): 2.2000000476837158/2.2000000476837158/2.2000000476837158
+2021/11/20 10:31:05 DBG: [16676] [15676] WARNING: The Populate data is missing on your system.
+2021/11/20 10:31:08 INF: [16676] [15676] Done loading file:  D:\?????\1 ??????? 2 ?????.max 
+2021/11/20 10:35:55 INF: [16676] [15676] CORONA : Parsing scene
+2021/11/20 10:35:55 INF: [16676] [15676] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #4
+2021/11/20 10:35:56 INF: [16676] [15676] CORONA : A normal map appears to be using input image with incorrect gamma. This can cause shading artifacts. Offending map: Map #2138387240
+2021/11/20 10:35:59 WRN: [16676] [15676] CORONA ERROR: Required asset file(s) could not be located: C:/3D Max Materials/Vray materials complete-vray-materials.de 11-20-07/plastics/Textured Plastic_by_bistor1746/texturedplasticbump.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plants collection 113/Map/25303823-soil-texture-Stock-Photo.jpg C:/Users/ADMIN/Desktop/Plants collection 113/Plants collection 113/Plan...
+2021/11/20 10:36:00 INF: [16676] [15676] CORONA : Calculating displacement
+2021/11/20 10:36:00 INF: [16676] [15676] CORONA : Preparing geometry
+2021/11/20 10:36:21 INF: [16676] [15676] CORONA : Preparing lights
+2021/11/20 10:36:21 INF: [16676] [15676] CORONA : Computing sec. GI
+2021/11/20 10:36:48 INF: [16676] [15676] CORONA : Rendering initial pass
+2021/11/20 10:41:09 INF: [16676] [15676] CORONA : Rendering pass 2
+2021/11/20 10:45:32 INF: [16676] [15676] CORONA : Rendering pass 3
+2021/11/20 10:49:47 INF: [16676] [15676] CORONA : Rendering pass 4
+2021/11/20 10:54:03 INF: [16676] [15676] CORONA : Rendering pass 5
+2021/11/20 10:58:26 INF: [16676] [15676] CORONA : Rendering pass 6
+2021/11/20 11:03:01 INF: [16676] [15676] CORONA : Rendering pass 7
+2021/11/20 11:03:51 INF: [16676] [15676] CORONA : Denoising
+2021/11/20 11:06:11 INF: [16676] [15676] CORONA : Cleaning up
+2021/11/20 11:06:42 INF: [16676] [15676] creating file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$
+2021/11/20 11:06:46 ERR: [16676] [15676] Could not read/write file type: D:\?????\images.jfif
+2021/11/20 11:06:46 INF: [16676] [15676] deleting C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/20 11:06:46 INF: [16676] [15676] renaming C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max.sv$ to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\AutoBackup01.max
+2021/11/20 11:07:42 INF: [16676] [15676] creating file D:\?????\1 ??????? 2 ?????.max.sv$
+2021/11/20 11:07:46 ERR: [16676] [15676] Could not read/write file type: D:\?????\images.jfif
+2021/11/20 11:07:51 INF: [16676] [15676] deleting backup file C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/20 11:07:51 INF: [16676] [15676] renaming D:\?????\1 ??????? 2 ?????.max to C:\Users\????????? ??????????\Documents\3ds Max 2021\autoback\MaxBack.bak
+2021/11/20 11:07:51 INF: [16676] [15676] renaming D:\?????\1 ??????? 2 ?????.max.sv$ to D:\?????\1 ??????? 2 ?????.max
+2021/11/20 11:07:54 DBG: [16676] [15676] Stop network
+2021/11/20 11:07:55 INF: [16676] [15676] [V-Ray] ============================================================
+2021/11/20 11:07:55 INF: [16676] [15676] [V-Ray] Console closed normally
+2021/11/20 11:07:55 INF: [16676] [15676] [V-Ray] ============================================================

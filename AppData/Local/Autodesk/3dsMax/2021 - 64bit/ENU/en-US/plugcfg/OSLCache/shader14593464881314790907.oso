@@ -1,0 +1,527 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader UberNoise	%meta{string,help,"<h3>UberNoise</h3>Combines many noise functions in one. Can do classic<br>Perlin, Fractal, Cell as well as fBm noise and multiple<br>flavors of Worley noise."} %meta{string,label,"Uber Noise"} 
+param	point	UVW	0 0 0		%meta{string,help,"The UVW coordinate to use. When not connected, defaults to Object space"}  %read{2,2} %write{1,1} %initexpr
+param	float	Scale	25		%read{2,2} %write{2147483647,-1}
+param	int	Type	0		%meta{string,widget,"mapper"} %meta{string,help,"Pick noise type from the list"} %meta{int,connectable,0} %meta{string,options,"Simplex:-1|Perlin:0|Fractal:1|Cell:2|Worley Classic (Voronoi):3|Worley Manhattan:4|Worley Chebychev:5|Worley Minkowski 0.5:6|Worley Minkowski 4:7"}  %read{27,50} %write{2147483647,-1}
+param	float	WorleyPower	1		%meta{float,min,0.00999999978} %meta{float,max,10} %meta{string,help,"The power applied to the Worley distance function. Values higher than 1.0 smooths out peaks and values lower than 1.0 sharpens them"}  %read{132,132} %write{2147483647,-1}
+param	float	WorleyJitter	1		%meta{float,min,-2} %meta{float,max,2} %meta{string,help,"How much the individual cell points Worley noise is based on is distorted away from a perfect grid. "}  %read{75,75} %write{2147483647,-1}
+param	int	Iterations	3		%meta{string,help,"Hos many layers of noise are mixed together."} %meta{int,min,1} %meta{int,max,20}  %read{17,17} %write{2147483647,-1}
+param	float	Lacunarity	1.79999995		%meta{string,help,"How much the 'frequency' of the noise changes per layer."}  %read{164,164} %write{2147483647,-1}
+param	float	Gain	0.769999981		%meta{string,help,"How much the amplitude of the noise changes per layer. Higher numbers means higher noise frequencies have more effect."}  %read{165,165} %write{2147483647,-1}
+param	int	Mode	0		%meta{string,widget,"mapper"} %meta{string,help,"The layer combination mode"} %meta{int,connectable,0} %meta{string,options,"Add:0|Relative:1|Multiply:2"}  %read{11,158} %write{2147483647,-1}
+param	int	LayerDistort	1		%meta{string,widget,"checkBox"} %meta{string,label,"Layer Distortion"} %meta{int,connectable,0} %meta{string,help,"Enables a per layer distortion of the noise."}  %read{21,21} %write{2147483647,-1}
+param	float	LayerDistAmount	4		%meta{string,help,"Amount of layer distortion."} %meta{string,label,"Distortion Amount"}  %read{24,24} %write{2147483647,-1}
+param	float	LayerDistScale	0.100000001		%meta{string,help,"Scale of the layer distortion relative to the Base Wavelength."} %meta{string,label,"Distortion Scale"} %meta{float,min,-1} %meta{float,max,1}  %read{7,7} %write{2147483647,-1}
+param	float	LayerDistRatio	1.20000005		%meta{string,help,"How much the 'frequency' of the distortion changes per layer."} %meta{string,label,"Distortion Scale Ratio"}  %read{26,26} %write{2147483647,-1}
+param	int	LayerStepFunction	1		%meta{string,widget,"checkBox"} %meta{string,label,"Layer Step Function"} %meta{int,connectable,0} %meta{string,help,"Enables a per-layer smoothstep curve in the noise, allowing you to increase the 'contrast' of the noise"}  %read{145,145} %write{2147483647,-1}
+param	float	LayerLowStep	0.200000003		%meta{string,help,"Low threshold of the smoothstep function."} %meta{string,label,"Layer Low Step"} %meta{float,min,0} %meta{float,max,1}  %read{146,146} %write{2147483647,-1}
+param	float	LayerHiStep	0.800000012		%meta{string,help,"High threshold of the smoothstep function."} %meta{string,label,"Layer High Step"} %meta{float,min,0} %meta{float,max,1}  %read{146,146} %write{2147483647,-1}
+param	int	Normalize	1		%meta{string,widget,"checkBox"} %meta{int,connectable,0} %meta{string,help,"If the noise is auto-normalized to Amplitude or not."}  %read{171,171} %write{2147483647,-1}
+param	float	Amplitude	1		%meta{string,help,"The amplitude of the noise."}  %read{172,174} %write{2147483647,-1}
+param	int	OutputStepFunction	0		%meta{string,widget,"checkBox"} %meta{string,label,"Output Step Function"} %meta{int,connectable,0} %meta{string,help,"Enables a smoothstep curve to the resulting noise, allowing you to increase the 'contrast' of the noise"}  %read{175,175} %write{2147483647,-1}
+param	float	OutputLowStep	0.200000003		%meta{string,help,"Low threshold of the smoothstep function."} %meta{string,label,"Output Low Step"} %meta{float,min,0} %meta{float,max,1}  %read{176,176} %write{2147483647,-1}
+param	float	OutputHiStep	0.800000012		%meta{string,help,"High threshold of the smoothstep function."} %meta{string,label,"Output High Step"} %meta{float,min,0} %meta{float,max,1}  %read{176,176} %write{2147483647,-1}
+param	color	A	0 0 0		%meta{string,label,"Color A"}  %read{178,178} %write{2147483647,-1}
+param	color	B	1 1 1		%meta{string,label,"Color B"}  %read{178,178} %write{2147483647,-1}
+param	float	Phase	0		%meta{string,help,"The 'Phase' is just a 4th coordinate of the noise, can be used to allow it to evolve over time, for example."}  %read{6,6} %write{2147483647,-1}
+oparam	color	Color	0 0 0		%read{2147483647,-1} %write{178,178}
+oparam	float	Float	0		%read{2147483647,-1} %write{177,177}
+oparam	color	CellRandomness	0 0 0		%meta{string,label,"Worley Cell Color"}  %read{2147483647,-1} %write{179,179}
+oparam	point	CellCenter	0 0 0		%meta{string,label,"Worley Cell Center"}  %read{179,179} %write{17,170}
+global	point	P	%read{1,1} %write{2147483647,-1}
+local	float	___325_closestdist	%read{17,170} %write{17,170}
+local	point	___325_cellpnt	%read{17,170} %write{17,170}
+local	vector	___325_offset	%read{2147483647,-1} %write{17,170}
+local	int	___326_x	%read{17,170} %write{17,170}
+local	int	___328_y	%read{17,170} %write{17,170}
+local	int	___330_z	%read{17,170} %write{17,170}
+local	point	___331_base	%read{17,170} %write{17,170}
+local	float	___331_distort	%read{17,170} %write{17,170}
+local	vector	___331_dist	%read{17,170} %write{17,170}
+local	float	___331_d	%read{17,170} %write{17,170}
+local	float	___334_x	%read{17,170} %write{17,170}
+local	float	___334_y	%read{17,170} %write{17,170}
+local	float	___334_z	%read{17,170} %write{17,170}
+local	float	___336_x	%read{17,170} %write{17,170}
+local	float	___336_y	%read{17,170} %write{17,170}
+local	float	___336_z	%read{17,170} %write{17,170}
+local	point	pnt	%read{17,170} %write{2,2}
+local	float	sum	%read{17,172} %write{3,170}
+local	float	curFreq	%read{17,170} %write{4,170}
+local	float	curAmp	%read{17,170} %write{5,170}
+local	float	curPhase	%read{17,170} %write{6,6}
+local	float	curDistFreq	%read{17,170} %write{7,170}
+local	float	result	%read{17,178} %write{8,176}
+local	float	lastResult	%read{17,170} %write{9,170}
+local	point	cellpoint	%read{17,170} %write{10,170}
+local	int	___339_i	%read{17,170} %write{16,170}
+local	float	___340_ns	%read{17,170} %write{17,170}
+local	point	___340_noisePoint	%read{17,170} %write{17,170}
+local	point	___341_distort	%read{17,170} %write{17,170}
+const	string	$const1	"object"		%read{1,1} %write{2147483647,-1}
+const	string	$const2	"transform"		%read{0,0} %write{2147483647,-1}
+const	string	$const3	"common"		%read{1,1} %write{2147483647,-1}
+const	int	$const4	0		%read{3,166} %write{2147483647,-1}
+const	float	$const5	1		%read{4,144} %write{2147483647,-1}
+const	float	$const6	0		%read{8,78} %write{2147483647,-1}
+temp	int	$tmp1	%read{12,12} %write{11,11}
+temp	int	$tmp2	%read{17,170} %write{17,170}
+temp	int	$tmp3	%read{15,170} %write{16,170}
+const	string	$const7	"perlin"		%read{23,41} %write{2147483647,-1}
+temp	point	$tmp4	%read{17,170} %write{17,170}
+temp	point	$tmp5	%read{17,170} %write{17,170}
+const	int	$const8	-1		%read{27,65} %write{2147483647,-1}
+temp	int	$tmp6	%read{17,170} %write{17,170}
+const	string	$const9	"usimplex"		%read{31,31} %write{2147483647,-1}
+temp	float	$tmp7	%read{17,170} %write{17,170}
+temp	float	$tmp8	%read{17,170} %write{17,170}
+temp	int	$tmp9	%read{17,170} %write{17,170}
+const	string	$const10	"uperlin"		%read{36,36} %write{2147483647,-1}
+temp	float	$tmp10	%read{17,170} %write{17,170}
+temp	float	$tmp11	%read{17,170} %write{17,170}
+const	int	$const11	1		%read{37,170} %write{2147483647,-1}
+temp	int	$tmp12	%read{17,170} %write{17,170}
+temp	float	$tmp13	%read{17,170} %write{17,170}
+temp	float	$tmp14	%read{17,170} %write{17,170}
+temp	float	$tmp15	%read{17,170} %write{17,170}
+const	int	$const12	2		%read{43,158} %write{2147483647,-1}
+temp	int	$tmp16	%read{17,170} %write{17,170}
+const	string	$const13	"cell"		%read{47,47} %write{2147483647,-1}
+temp	float	$tmp17	%read{17,170} %write{17,170}
+temp	float	$tmp18	%read{17,170} %write{17,170}
+temp	float	$tmp19	%read{17,170} %write{17,170}
+temp	float	$tmp20	%read{17,170} %write{17,170}
+const	int	$const14	3		%read{50,102} %write{2147483647,-1}
+temp	int	$tmp21	%read{17,170} %write{17,170}
+const	string	$const15	"WorleyNoise"		%read{51,51} %write{2147483647,-1}
+const	int	$const16	1000		%read{52,52} %write{2147483647,-1}
+const	float	$const17	0.5		%read{53,74} %write{2147483647,-1}
+temp	point	$tmp22	%read{17,170} %write{17,170}
+temp	int	$tmp23	%read{17,170} %write{17,170}
+temp	int	$tmp24	%read{17,170} %write{17,170}
+temp	int	$tmp25	%read{17,170} %write{17,170}
+temp	int	$tmp26	%read{17,170} %write{17,170}
+temp	int	$tmp27	%read{17,170} %write{17,170}
+temp	int	$tmp28	%read{17,170} %write{17,170}
+temp	vector	$tmp29	%read{17,170} %write{17,170}
+temp	float	$tmp30	%read{17,170} %write{17,170}
+temp	float	$tmp31	%read{17,170} %write{17,170}
+temp	float	$tmp32	%read{17,170} %write{17,170}
+temp	float	$tmp33	%read{17,170} %write{17,170}
+temp	float	$tmp34	%read{17,170} %write{17,170}
+temp	point	$tmp35	%read{17,170} %write{17,170}
+temp	int	$tmp36	%read{17,170} %write{17,170}
+temp	int	$tmp37	%read{17,170} %write{17,170}
+temp	float	$tmp38	%read{17,170} %write{17,170}
+temp	float	$tmp39	%read{17,170} %write{17,170}
+temp	float	$tmp40	%read{17,170} %write{17,170}
+temp	float	$tmp41	%read{17,170} %write{17,170}
+temp	float	$tmp42	%read{17,170} %write{17,170}
+temp	float	$tmp43	%read{17,170} %write{17,170}
+temp	float	$tmp44	%read{17,170} %write{17,170}
+temp	int	$tmp45	%read{17,170} %write{17,170}
+temp	float	$tmp46	%read{17,170} %write{17,170}
+temp	float	$tmp47	%read{17,170} %write{17,170}
+temp	float	$tmp48	%read{17,170} %write{17,170}
+temp	float	$tmp49	%read{17,170} %write{17,170}
+temp	int	$tmp50	%read{17,170} %write{17,170}
+temp	float	$tmp51	%read{17,170} %write{17,170}
+temp	float	$tmp52	%read{17,170} %write{17,170}
+temp	float	$tmp53	%read{17,170} %write{17,170}
+temp	float	$tmp54	%read{17,170} %write{17,170}
+temp	float	$tmp55	%read{17,170} %write{17,170}
+temp	float	$tmp56	%read{17,170} %write{17,170}
+temp	float	$tmp57	%read{17,170} %write{17,170}
+temp	float	$tmp58	%read{17,170} %write{17,170}
+temp	float	$tmp59	%read{17,170} %write{17,170}
+temp	float	$tmp60	%read{17,170} %write{17,170}
+const	int	$const18	4		%read{115,115} %write{2147483647,-1}
+temp	int	$tmp61	%read{17,170} %write{17,170}
+temp	float	$tmp62	%read{17,170} %write{17,170}
+temp	float	$tmp63	%read{17,170} %write{17,170}
+temp	float	$tmp64	%read{17,170} %write{17,170}
+temp	float	$tmp65	%read{17,170} %write{17,170}
+temp	float	$tmp66	%read{17,170} %write{17,170}
+temp	float	$tmp67	%read{17,170} %write{17,170}
+temp	float	$tmp68	%read{17,170} %write{17,170}
+temp	float	$tmp69	%read{17,170} %write{17,170}
+temp	float	$tmp70	%read{17,170} %write{17,170}
+temp	float	$tmp71	%read{17,170} %write{17,170}
+temp	float	$tmp72	%read{17,170} %write{17,170}
+temp	int	$tmp73	%read{17,170} %write{17,170}
+temp	int	$tmp74	%read{2147483647,-1} %write{17,170}
+temp	int	$tmp75	%read{2147483647,-1} %write{17,170}
+temp	int	$tmp76	%read{2147483647,-1} %write{17,170}
+const	float	$const19	1.41419995		%read{143,143} %write{2147483647,-1}
+temp	float	$tmp77	%read{17,170} %write{17,170}
+temp	int	$tmp78	%read{17,170} %write{17,170}
+temp	float	$tmp79	%read{17,170} %write{17,170}
+temp	int	$tmp80	%read{17,170} %write{17,170}
+temp	float	$tmp81	%read{17,170} %write{17,170}
+temp	float	$tmp82	%read{17,170} %write{17,170}
+temp	int	$tmp83	%read{17,170} %write{17,170}
+temp	float	$tmp84	%read{17,170} %write{17,170}
+temp	int	$tmp85	%read{17,170} %write{17,170}
+temp	int	$tmp86	%read{2147483647,-1} %write{17,170}
+temp	float	$tmp87	%read{173,173} %write{172,172}
+code UVW
+# OSL\UberNoise.osl:98
+# 		[[ string help = "The UVW coordinate to use. When not connected, defaults to Object space" ]],	
+	functioncall	$const2 2 	%filename{"OSL\UberNoise.osl"} %line{98} %argrw{"r"}
+# OSL\stdosl.h:285
+# point  transform (string to, point p)  { return transform("common",to,p); }
+	transform	UVW $const3 $const1 P 	%filename{"OSL\stdosl.h"} %line{285} %argrw{"wrrr"}
+code ___main___
+# OSL\UberNoise.osl:187
+# 	
+	div		pnt UVW Scale 	%filename{"OSL\UberNoise.osl"} %line{187} %argrw{"wrr"}
+# OSL\UberNoise.osl:189
+# 	float curFreq  = 1.0;
+	assign		sum $const4 	%line{189} %argrw{"wr"}
+# OSL\UberNoise.osl:190
+# 	float curAmp   = 1.0;
+	assign		curFreq $const5 	%line{190} %argrw{"wr"}
+# OSL\UberNoise.osl:191
+# 	float curPhase = Phase;
+	assign		curAmp $const5 	%line{191} %argrw{"wr"}
+# OSL\UberNoise.osl:192
+# 	
+	assign		curPhase Phase 	%line{192} %argrw{"wr"}
+# OSL\UberNoise.osl:194
+# 	
+	assign		curDistFreq LayerDistScale 	%line{194} %argrw{"wr"}
+# OSL\UberNoise.osl:196
+# 
+	assign		result $const6 	%line{196} %argrw{"wr"}
+	assign		lastResult $const5 	%argrw{"wr"}
+# OSL\UberNoise.osl:198
+# 	
+	assign		cellpoint $const4 	%line{198} %argrw{"wr"}
+# OSL\UberNoise.osl:200
+# 	{
+	gt		$tmp1 Mode $const4 	%line{200} %argrw{"wrr"}
+	if		$tmp1 15 15 	%argrw{"r"}
+# OSL\UberNoise.osl:202
+# 		result = 1.0;
+	assign		sum $const5 	%line{202} %argrw{"wr"}
+# OSL\UberNoise.osl:203
+# 	}
+	assign		result $const5 	%line{203} %argrw{"wr"}
+# OSL\UberNoise.osl:207
+# 	{			
+	for		$tmp3 17 19 169 171 	%line{207} %argrw{"r"}
+	assign		___339_i $const4 	%argrw{"wr"}
+	lt		$tmp2 ___339_i Iterations 	%argrw{"wrr"}
+	neq		$tmp3 $tmp2 $const4 	%argrw{"wrr"}
+# OSL\UberNoise.osl:212
+# 
+	assign		___340_ns $const6 	%line{212} %argrw{"wr"}
+# OSL\UberNoise.osl:214
+# 
+	mul		___340_noisePoint pnt curFreq 	%line{214} %argrw{"wrr"}
+# OSL\UberNoise.osl:217
+# 		{
+	if		LayerDistort 27 27 	%line{217} %argrw{"r"}
+# OSL\UberNoise.osl:222
+# 			noisePoint += distort * LayerDistAmount;
+	mul		$tmp4 pnt curDistFreq 	%line{222} %argrw{"wrr"}
+	noise		___341_distort $const7 $tmp4 curPhase 	%argrw{"wrrr"}
+# OSL\UberNoise.osl:223
+# 			curDistFreq *= LayerDistRatio;
+	mul		$tmp5 ___341_distort LayerDistAmount 	%line{223} %argrw{"wrr"}
+	add		___340_noisePoint ___340_noisePoint $tmp5 	%argrw{"wrr"}
+# OSL\UberNoise.osl:224
+# 		}
+	mul		curDistFreq curDistFreq LayerDistRatio 	%line{224} %argrw{"wrr"}
+# OSL\UberNoise.osl:227
+# 			ns = noise("usimplex", noisePoint, curPhase + i);
+	eq		$tmp6 Type $const8 	%line{227} %argrw{"wrr"}
+	if		$tmp6 32 145 	%argrw{"r"}
+# OSL\UberNoise.osl:228
+# 		else if (Type == 0)
+	assign		$tmp8 ___339_i 	%line{228} %argrw{"wr"}
+	add		$tmp7 curPhase $tmp8 	%argrw{"wrr"}
+	noise		___340_ns $const9 ___340_noisePoint $tmp7 	%argrw{"wrrr"}
+# OSL\UberNoise.osl:229
+# 			ns = noise("uperlin", noisePoint, curPhase + i);
+	eq		$tmp9 Type $const4 	%line{229} %argrw{"wrr"}
+	if		$tmp9 37 145 	%argrw{"r"}
+# OSL\UberNoise.osl:230
+# 		else if (Type == 1)
+	assign		$tmp11 ___339_i 	%line{230} %argrw{"wr"}
+	add		$tmp10 curPhase $tmp11 	%argrw{"wrr"}
+	noise		___340_ns $const10 ___340_noisePoint $tmp10 	%argrw{"wrrr"}
+# OSL\UberNoise.osl:231
+# 			ns = fabs(noise("perlin", noisePoint, curPhase + i)); 
+	eq		$tmp12 Type $const11 	%line{231} %argrw{"wrr"}
+	if		$tmp12 43 145 	%argrw{"r"}
+# OSL\UberNoise.osl:232
+# 		else if (Type == 2)
+	assign		$tmp15 ___339_i 	%line{232} %argrw{"wr"}
+	add		$tmp14 curPhase $tmp15 	%argrw{"wrr"}
+	noise		$tmp13 $const7 ___340_noisePoint $tmp14 	%argrw{"wrrr"}
+	fabs		___340_ns $tmp13 	%argrw{"wr"}
+# OSL\UberNoise.osl:233
+# 			ns = noise("cell", noisePoint, curPhase + i);
+	eq		$tmp16 Type $const12 	%line{233} %argrw{"wrr"}
+	if		$tmp16 48 145 	%argrw{"r"}
+# OSL\UberNoise.osl:234
+# 		else 
+	assign		$tmp18 ___339_i 	%line{234} %argrw{"wr"}
+	add		$tmp17 curPhase $tmp18 	%argrw{"wrr"}
+	noise		___340_ns $const13 ___340_noisePoint $tmp17 	%argrw{"wrrr"}
+# OSL\UberNoise.osl:236
+# 		
+	assign		$tmp20 ___339_i 	%line{236} %argrw{"wr"}
+	add		$tmp19 curPhase $tmp20 	%argrw{"wrr"}
+	sub		$tmp21 Type $const14 	%argrw{"wrr"}
+	functioncall	$const15 145 	%argrw{"r"}
+# OSL\UberNoise.osl:13
+# 	point  cellpnt = floor(pnt+0.5);		
+	assign		___325_closestdist $const16 	%line{13} %argrw{"wr"}
+# OSL\UberNoise.osl:14
+# 	vector offset  = pnt - cellpnt;
+	add		$tmp22 ___340_noisePoint $const17 	%line{14} %argrw{"wrr"}
+	floor		___325_cellpnt $tmp22 	%argrw{"wr"}
+# OSL\UberNoise.osl:15
+# 
+	sub		___325_offset ___340_noisePoint ___325_cellpnt 	%line{15} %argrw{"wrr"}
+# OSL\UberNoise.osl:17
+# 	{
+	for		$tmp24 58 60 141 143 	%line{17} %argrw{"r"}
+	assign		___326_x $const8 	%argrw{"wr"}
+	le		$tmp23 ___326_x $const11 	%argrw{"wrr"}
+	neq		$tmp24 $tmp23 $const4 	%argrw{"wrr"}
+# OSL\UberNoise.osl:19
+# 		{
+	for		$tmp26 62 64 139 141 	%line{19} %argrw{"r"}
+	assign		___328_y $const8 	%argrw{"wr"}
+	le		$tmp25 ___328_y $const11 	%argrw{"wrr"}
+	neq		$tmp26 $tmp25 $const4 	%argrw{"wrr"}
+# OSL\UberNoise.osl:21
+# 			{
+	for		$tmp28 66 68 137 139 	%line{21} %argrw{"r"}
+	assign		___330_z $const8 	%argrw{"wr"}
+	le		$tmp27 ___330_z $const11 	%argrw{"wrr"}
+	neq		$tmp28 $tmp27 $const4 	%argrw{"wrr"}
+# OSL\UberNoise.osl:23
+# 				float  distort = cellnoise(base, phase) - 0.5;
+	assign		$tmp30 ___326_x 	%line{23} %argrw{"wr"}
+	assign		$tmp31 ___328_y 	%argrw{"wr"}
+	assign		$tmp32 ___330_z 	%argrw{"wr"}
+	vector		$tmp29 $tmp30 $tmp31 $tmp32 	%argrw{"wrrr"}
+	add		___331_base ___325_cellpnt $tmp29 	%argrw{"wrr"}
+# OSL\UberNoise.osl:24
+# 
+	cellnoise	$tmp33 ___331_base $tmp19 	%line{24} %argrw{"wrr"}
+	sub		___331_distort $tmp33 $const17 	%argrw{"wrr"}
+# OSL\UberNoise.osl:29
+# 				
+	mul		$tmp34 ___331_distort WorleyJitter 	%line{29} %argrw{"wrr"}
+	add		$tmp35 ___331_base $tmp34 	%argrw{"wrr"}
+	sub		___331_dist ___340_noisePoint $tmp35 	%argrw{"wrr"}
+# OSL\UberNoise.osl:31
+# 				
+	assign		___331_d $const6 	%line{31} %argrw{"wr"}
+# OSL\UberNoise.osl:38
+# 				{
+	eq		$tmp36 $tmp21 $const4 	%line{38} %argrw{"wrr"}
+	if		$tmp36 82 132 	%argrw{"r"}
+# OSL\UberNoise.osl:41
+# 				}
+	dot		___331_d ___331_dist ___331_dist 	%line{41} %argrw{"wrr"}
+# OSL\UberNoise.osl:45
+# 				{
+	eq		$tmp37 $tmp21 $const11 	%line{45} %argrw{"wrr"}
+	if		$tmp37 92 132 	%argrw{"r"}
+# OSL\UberNoise.osl:47
+# 				}
+	compref		$tmp39 ___331_dist $const4 	%line{47} %argrw{"wrr"}
+	abs		$tmp38 $tmp39 	%argrw{"wr"}
+	compref		$tmp41 ___331_dist $const11 	%argrw{"wrr"}
+	abs		$tmp40 $tmp41 	%argrw{"wr"}
+	add		$tmp42 $tmp38 $tmp40 	%argrw{"wrr"}
+	compref		$tmp44 ___331_dist $const12 	%argrw{"wrr"}
+	abs		$tmp43 $tmp44 	%argrw{"wr"}
+	add		___331_d $tmp42 $tmp43 	%argrw{"wrr"}
+# OSL\UberNoise.osl:49
+# 				{
+	eq		$tmp45 $tmp21 $const12 	%line{49} %argrw{"wrr"}
+	if		$tmp45 102 132 	%argrw{"r"}
+# OSL\UberNoise.osl:51
+# 					float y = abs(dist[1]);
+	compref		$tmp46 ___331_dist $const4 	%line{51} %argrw{"wrr"}
+	abs		___334_x $tmp46 	%argrw{"wr"}
+# OSL\UberNoise.osl:52
+# 					float z = abs(dist[2]);
+	compref		$tmp47 ___331_dist $const11 	%line{52} %argrw{"wrr"}
+	abs		___334_y $tmp47 	%argrw{"wr"}
+# OSL\UberNoise.osl:53
+# 					d = max(z,max(x,y));
+	compref		$tmp48 ___331_dist $const12 	%line{53} %argrw{"wrr"}
+	abs		___334_z $tmp48 	%argrw{"wr"}
+# OSL\UberNoise.osl:54
+# 				}
+	max		$tmp49 ___334_x ___334_y 	%line{54} %argrw{"wrr"}
+	max		___331_d ___334_z $tmp49 	%argrw{"wrr"}
+# OSL\UberNoise.osl:56
+# 				{
+	eq		$tmp50 $tmp21 $const14 	%line{56} %argrw{"wrr"}
+	if		$tmp50 115 132 	%argrw{"r"}
+# OSL\UberNoise.osl:58
+# 				}
+	compref		$tmp53 ___331_dist $const4 	%line{58} %argrw{"wrr"}
+	abs		$tmp52 $tmp53 	%argrw{"wr"}
+	sqrt		$tmp51 $tmp52 	%argrw{"wr"}
+	compref		$tmp56 ___331_dist $const11 	%argrw{"wrr"}
+	abs		$tmp55 $tmp56 	%argrw{"wr"}
+	sqrt		$tmp54 $tmp55 	%argrw{"wr"}
+	add		$tmp57 $tmp51 $tmp54 	%argrw{"wrr"}
+	compref		$tmp60 ___331_dist $const12 	%argrw{"wrr"}
+	abs		$tmp59 $tmp60 	%argrw{"wr"}
+	sqrt		$tmp58 $tmp59 	%argrw{"wr"}
+	add		___331_d $tmp57 $tmp58 	%argrw{"wrr"}
+# OSL\UberNoise.osl:60
+# 				{
+	eq		$tmp61 $tmp21 $const18 	%line{60} %argrw{"wrr"}
+	if		$tmp61 132 132 	%argrw{"r"}
+# OSL\UberNoise.osl:62
+# 					float y = dist[1]*dist[1];
+	compref		$tmp62 ___331_dist $const4 	%line{62} %argrw{"wrr"}
+	compref		$tmp63 ___331_dist $const4 	%argrw{"wrr"}
+	mul		___336_x $tmp62 $tmp63 	%argrw{"wrr"}
+# OSL\UberNoise.osl:63
+# 					float z = dist[2]*dist[2];				
+	compref		$tmp64 ___331_dist $const11 	%line{63} %argrw{"wrr"}
+	compref		$tmp65 ___331_dist $const11 	%argrw{"wrr"}
+	mul		___336_y $tmp64 $tmp65 	%argrw{"wrr"}
+# OSL\UberNoise.osl:64
+# 					d = sqrt(x*x + y*y + z*z);
+	compref		$tmp66 ___331_dist $const12 	%line{64} %argrw{"wrr"}
+	compref		$tmp67 ___331_dist $const12 	%argrw{"wrr"}
+	mul		___336_z $tmp66 $tmp67 	%argrw{"wrr"}
+# OSL\UberNoise.osl:65
+# 				}
+	mul		$tmp68 ___336_x ___336_x 	%line{65} %argrw{"wrr"}
+	mul		$tmp69 ___336_y ___336_y 	%argrw{"wrr"}
+	add		$tmp70 $tmp68 $tmp69 	%argrw{"wrr"}
+	mul		$tmp71 ___336_z ___336_z 	%argrw{"wrr"}
+	add		$tmp72 $tmp70 $tmp71 	%argrw{"wrr"}
+	sqrt		___331_d $tmp72 	%argrw{"wr"}
+# OSL\UberNoise.osl:72
+# 				
+	pow		___331_d ___331_d WorleyPower 	%line{72} %argrw{"wrr"}
+# OSL\UberNoise.osl:75
+# 				{
+	lt		$tmp73 ___331_d ___325_closestdist 	%line{75} %argrw{"wrr"}
+	if		$tmp73 137 137 	%argrw{"r"}
+# OSL\UberNoise.osl:77
+# 					closestdist  = d;
+	assign		cellpoint ___331_base 	%line{77} %argrw{"wr"}
+# OSL\UberNoise.osl:78
+# 				}
+	assign		___325_closestdist ___331_d 	%line{78} %argrw{"wr"}
+# OSL\UberNoise.osl:21
+# 			{
+	assign		$tmp74 ___330_z 	%line{21} %argrw{"wr"}
+	add		___330_z ___330_z $const11 	%argrw{"wrr"}
+# OSL\UberNoise.osl:19
+# 		{
+	assign		$tmp75 ___328_y 	%line{19} %argrw{"wr"}
+	add		___328_y ___328_y $const11 	%argrw{"wrr"}
+# OSL\UberNoise.osl:17
+# 	{
+	assign		$tmp76 ___326_x 	%line{17} %argrw{"wr"}
+	add		___326_x ___326_x $const11 	%argrw{"wrr"}
+# OSL\UberNoise.osl:86
+# }
+	div		$tmp77 ___325_closestdist $const19 	%line{86} %argrw{"wrr"}
+	sub		___340_ns $const5 $tmp77 	%argrw{"wrr"}
+# OSL\UberNoise.osl:238
+# 			ns = smoothstep(LayerLowStep, LayerHiStep, ns);
+	if		LayerStepFunction 147 147 	%line{238} %argrw{"r"}
+# OSL\UberNoise.osl:239
+# 
+	smoothstep	___340_ns LayerLowStep LayerHiStep ___340_ns 	%line{239} %argrw{"wrrr"}
+# OSL\UberNoise.osl:241
+# 		{
+	eq		$tmp78 Mode $const4 	%line{241} %argrw{"wrr"}
+	if		$tmp78 152 163 	%argrw{"r"}
+# OSL\UberNoise.osl:244
+# 			// Add the amplitude to the normalizing sum
+	mul		$tmp79 ___340_ns curAmp 	%line{244} %argrw{"wrr"}
+	add		result result $tmp79 	%argrw{"wrr"}
+# OSL\UberNoise.osl:246
+# 		}
+	add		sum sum curAmp 	%line{246} %argrw{"wrr"}
+# OSL\UberNoise.osl:248
+# 		{
+	eq		$tmp80 Mode $const11 	%line{248} %argrw{"wrr"}
+	if		$tmp80 158 163 	%argrw{"r"}
+# OSL\UberNoise.osl:251
+# 			// Add the amplitude to the normalizing sum
+	mul		$tmp81 ___340_ns curAmp 	%line{251} %argrw{"wrr"}
+	mul		$tmp82 $tmp81 lastResult 	%argrw{"wrr"}
+	add		result result $tmp82 	%argrw{"wrr"}
+# OSL\UberNoise.osl:253
+# 		}
+	add		sum sum curAmp 	%line{253} %argrw{"wrr"}
+# OSL\UberNoise.osl:255
+# 		{
+	eq		$tmp83 Mode $const12 	%line{255} %argrw{"wrr"}
+	if		$tmp83 163 163 	%argrw{"r"}
+# OSL\UberNoise.osl:258
+# 			// Make the sum the product instead
+	mul		$tmp84 ___340_ns curAmp 	%line{258} %argrw{"wrr"}
+	mul		result result $tmp84 	%argrw{"wrr"}
+# OSL\UberNoise.osl:260
+# 		}
+	mul		sum sum curAmp 	%line{260} %argrw{"wrr"}
+# OSL\UberNoise.osl:264
+# 
+	assign		lastResult ___340_ns 	%line{264} %argrw{"wr"}
+# OSL\UberNoise.osl:267
+# 		curAmp  *= Gain;		
+	mul		curFreq curFreq Lacunarity 	%line{267} %argrw{"wrr"}
+# OSL\UberNoise.osl:268
+# 		
+	mul		curAmp curAmp Gain 	%line{268} %argrw{"wrr"}
+# OSL\UberNoise.osl:270
+# 		{
+	eq		$tmp85 ___339_i $const4 	%line{270} %argrw{"wrr"}
+	if		$tmp85 169 169 	%argrw{"r"}
+# OSL\UberNoise.osl:272
+# 		}
+	assign		CellCenter cellpoint 	%line{272} %argrw{"wr"}
+# OSL\UberNoise.osl:207
+# 	{			
+	assign		$tmp86 ___339_i 	%line{207} %argrw{"wr"}
+	add		___339_i ___339_i $const11 	%argrw{"wrr"}
+# OSL\UberNoise.osl:276
+# 		result /= sum / Amplitude;
+	if		Normalize 174 175 	%line{276} %argrw{"r"}
+# OSL\UberNoise.osl:277
+# 	else
+	div		$tmp87 sum Amplitude 	%line{277} %argrw{"wrr"}
+	div		result result $tmp87 	%argrw{"wrr"}
+# OSL\UberNoise.osl:279
+# 
+	mul		result result Amplitude 	%line{279} %argrw{"wrr"}
+# OSL\UberNoise.osl:281
+# 		result = smoothstep(OutputLowStep, OutputHiStep, result);
+	if		OutputStepFunction 177 177 	%line{281} %argrw{"r"}
+# OSL\UberNoise.osl:282
+# 
+	smoothstep	result OutputLowStep OutputHiStep result 	%line{282} %argrw{"wrrr"}
+# OSL\UberNoise.osl:285
+# 	Color = mix(A, B, result);
+	assign		Float result 	%line{285} %argrw{"wr"}
+# OSL\UberNoise.osl:286
+# 	CellRandomness = noise(CellCenter);
+	mix		Color A B result 	%line{286} %argrw{"wrrr"}
+# OSL\UberNoise.osl:287
+# }
+	noise		CellRandomness CellCenter 	%line{287} %argrw{"wr"}
+	end

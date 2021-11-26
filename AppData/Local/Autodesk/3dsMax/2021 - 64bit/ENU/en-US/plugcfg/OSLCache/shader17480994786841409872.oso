@@ -1,0 +1,11 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader VectorInv	%meta{string,help,"Invert a Vector"} %meta{string,label,"Invert (vector)"} %meta{string,category,"Math Vector"} 
+param	vector	Input	0 0 0		%read{0,0} %write{2147483647,-1}
+oparam	vector	Out	0 0 0		%read{2147483647,-1} %write{0,0}
+code ___main___
+# OSL\VectorInv.osl:17
+# }
+	neg		Out Input 	%filename{"OSL\VectorInv.osl"} %line{17} %argrw{"wr"}
+	end

@@ -1,0 +1,67 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader PBRMixer	%meta{string,label,"PBR Mixer"} %meta{string,help,"Mixes all parameters for two sets of PBR materials "} %meta{string,category,"Utility"} 
+param	float	Mix	0		%meta{float,min,0} %meta{float,max,1} %meta{string,label,"Mix (A to B)"}  %read{1,1} %write{2147483647,-1}
+param	color	A_BaseColor	0.5 0.5 0.5		%meta{string,label,"A BaseColor"} %meta{string,packName,"BaseColor A / B"} %meta{color,min,0,0,0} %meta{color,max,1,1,1}  %read{3,3} %write{2147483647,-1}
+param	float	A_Metalness	0		%meta{string,label,"A Metalness"} %meta{string,packName,"Metalness A / B"} %meta{float,min,0} %meta{float,max,1}  %read{4,4} %write{2147483647,-1}
+param	float	A_Roughness	0		%meta{string,label,"A Roughness"} %meta{string,packName,"Roughness A / B"} %meta{float,min,0} %meta{float,max,1}  %read{5,5} %write{2147483647,-1}
+param	float	A_AO	1		%meta{string,label,"A AO"} %meta{string,packName,"AO A / B"} %meta{float,min,0} %meta{float,max,1}  %read{6,6} %write{2147483647,-1}
+param	color	A_Normal	0.5 0.5 1		%meta{string,label,"A Normal"} %meta{string,packName,"Normal A / B"} %meta{color,min,0,0,0} %meta{color,max,1,1,1}  %read{7,7} %write{2147483647,-1}
+param	color	A_Emission	0 0 0		%meta{string,label,"A Emission"} %meta{string,packName,"Emission A / B"} %meta{color,min,0,0,0} %meta{color,max,1,1,1}  %read{8,8} %write{2147483647,-1}
+param	float	A_Opacity	1		%meta{string,label,"A Opacity"} %meta{string,packName,"Opacity A / B"} %meta{float,min,0} %meta{float,max,1}  %read{9,9} %write{2147483647,-1}
+param	float	A_Displacement	0		%meta{string,label,"A Displacement"} %meta{string,packName,"Displacement A / B"} %meta{float,min,0} %meta{float,max,1}  %read{10,10} %write{2147483647,-1}
+param	color	B_BaseColor	0.5 0.5 0.5		%meta{string,label,"B BaseColor"} %meta{string,packName,"BaseColor A / B"} %meta{color,min,0,0,0} %meta{color,max,1,1,1}  %read{3,3} %write{2147483647,-1}
+param	float	B_Metalness	0		%meta{string,label,"B Metalness"} %meta{string,packName,"Metalness A / B"} %meta{float,min,0} %meta{float,max,1}  %read{4,4} %write{2147483647,-1}
+param	float	B_Roughness	0		%meta{string,label,"B Roughness"} %meta{string,packName,"Roughness A / B"} %meta{float,min,0} %meta{float,max,1}  %read{5,5} %write{2147483647,-1}
+param	float	B_AO	1		%meta{string,label,"B AO"} %meta{string,packName,"AO A / B"} %meta{float,min,0} %meta{float,max,1}  %read{6,6} %write{2147483647,-1}
+param	color	B_Normal	0.5 0.5 1		%meta{string,label,"B Normal"} %meta{string,packName,"Normal A / B"} %meta{color,min,0,0,0} %meta{color,max,1,1,1}  %read{7,7} %write{2147483647,-1}
+param	color	B_Emission	0 0 0		%meta{string,label,"B Emission"} %meta{string,packName,"Emission A / B"} %meta{color,min,0,0,0} %meta{color,max,1,1,1}  %read{8,8} %write{2147483647,-1}
+param	float	B_Opacity	1		%meta{string,label,"B Opacity"} %meta{string,packName,"Opacity A / B"} %meta{float,min,0} %meta{float,max,1}  %read{9,9} %write{2147483647,-1}
+param	float	B_Displacement	0		%meta{string,label,"B Displacement"} %meta{string,packName,"Displacement A / B"} %meta{float,min,0} %meta{float,max,1}  %read{10,10} %write{2147483647,-1}
+oparam	color	BaseColor	0.5 0.5 0.5		%read{2147483647,-1} %write{3,3}
+oparam	float	Metalness	0		%read{2147483647,-1} %write{4,4}
+oparam	float	Roughness	0		%read{2147483647,-1} %write{5,5}
+oparam	float	AO	1		%read{2147483647,-1} %write{6,6}
+oparam	color	Normal	0.5 0.5 1		%read{2147483647,-1} %write{7,7}
+oparam	color	Emission	0 0 0		%read{2147483647,-1} %write{8,8}
+oparam	float	Opacity	1		%read{2147483647,-1} %write{9,9}
+oparam	float	Displacement	0		%read{2147483647,-1} %write{10,10}
+local	float	m	%read{3,10} %write{2,2}
+const	float	$const1	0		%read{2,2} %write{2147483647,-1}
+const	float	$const2	1		%read{1,1} %write{2147483647,-1}
+const	string	$const3	"clamp"		%read{0,0} %write{2147483647,-1}
+temp	float	$tmp1	%read{2,2} %write{1,1}
+code ___main___
+# OSL\PBRMixer.osl:46
+# 	
+	functioncall	$const3 3 	%filename{"OSL\PBRMixer.osl"} %line{46} %argrw{"r"}
+# OSL\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp1 Mix $const2 	%filename{"OSL\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		m $tmp1 $const1 	%argrw{"wrr"}
+# OSL\PBRMixer.osl:50
+# 	MIX(Metalness);
+	mix		BaseColor A_BaseColor B_BaseColor m 	%filename{"OSL\PBRMixer.osl"} %line{50} %argrw{"wrrr"}
+# OSL\PBRMixer.osl:51
+# 	MIX(Roughness);
+	mix		Metalness A_Metalness B_Metalness m 	%line{51} %argrw{"wrrr"}
+# OSL\PBRMixer.osl:52
+# 	MIX(AO);
+	mix		Roughness A_Roughness B_Roughness m 	%line{52} %argrw{"wrrr"}
+# OSL\PBRMixer.osl:53
+# 	MIX(Normal);
+	mix		AO A_AO B_AO m 	%line{53} %argrw{"wrrr"}
+# OSL\PBRMixer.osl:54
+# 	MIX(Emission);
+	mix		Normal A_Normal B_Normal m 	%line{54} %argrw{"wrrr"}
+# OSL\PBRMixer.osl:55
+# 	MIX(Opacity);
+	mix		Emission A_Emission B_Emission m 	%line{55} %argrw{"wrrr"}
+# OSL\PBRMixer.osl:56
+# 	MIX(Displacement);
+	mix		Opacity A_Opacity B_Opacity m 	%line{56} %argrw{"wrrr"}
+# OSL\PBRMixer.osl:57
+# }
+	mix		Displacement A_Displacement B_Displacement m 	%line{57} %argrw{"wrrr"}
+	end

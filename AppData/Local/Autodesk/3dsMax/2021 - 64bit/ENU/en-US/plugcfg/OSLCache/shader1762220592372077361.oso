@@ -1,0 +1,12 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader VectorMin	%meta{string,help,"Returns the minimum of two vectors"} %meta{string,label,"Min (vector)"} %meta{string,category,"Math Vector"} 
+param	vector	A	0.5 0.5 0.5		%read{0,0} %write{2147483647,-1}
+param	vector	B	0.5 0.5 0.5		%read{0,0} %write{2147483647,-1}
+oparam	vector	Out	0 0 0		%read{2147483647,-1} %write{0,0}
+code ___main___
+# OSL\VectorMin.osl:18
+# }
+	min		Out A B 	%filename{"OSL\VectorMin.osl"} %line{18} %argrw{"wrr"}
+	end

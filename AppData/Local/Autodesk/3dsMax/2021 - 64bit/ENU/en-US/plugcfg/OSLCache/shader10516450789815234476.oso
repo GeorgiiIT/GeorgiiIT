@@ -1,0 +1,1384 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader Digits	%meta{string,help,"A shader that emulates a 7-Segment display of numbers.<br/>Useful for debugging and showing numbers in SME"} %meta{string,category,"Textures"} 
+param	vector	UVW	0 0 0		%read{4,4} %write{0,0} %initexpr
+param	float	Number	42		%read{2,15} %write{2147483647,-1}
+param	int	Digits	2		%meta{int,min,2} %meta{int,max,8}  %read{14,14} %write{2147483647,-1}
+param	int	Decimals	0		%meta{int,min,0} %meta{int,max,6}  %read{5,62} %write{2147483647,-1}
+param	float	Scale	1		%read{4,4} %write{2147483647,-1}
+param	color	BGColor	0 0 0		%read{1,1} %write{2147483647,-1}
+param	color	OnColor	1 0 0		%read{642,642} %write{2147483647,-1}
+param	color	OffColor	0.100000001 0 0		%read{638,638} %write{2147483647,-1}
+param	int	UseOffColor	1		%meta{string,widget,"checkBox"} %meta{string,label,"Use OffColor"}  %read{635,635} %write{2147483647,-1}
+oparam	color	Out	0 0 0		%read{2147483647,-1} %write{1,647} %initexpr
+oparam	float	Fac	0		%read{2147483647,-1} %write{58,647}
+oparam	float	NumberOut	0		%meta{string,label,"Number"}  %read{2147483647,-1} %write{2,2} %initexpr
+global	float	u	%read{0,0} %write{2147483647,-1}
+global	float	v	%read{0,0} %write{2147483647,-1}
+local	vector	___326_pt	%read{58,647} %write{58,647}
+local	int[9]	mult	%read{5,5} %write{3,3}
+local	point	px	%read{30,647} %write{4,647}
+local	int	number	%read{10,647} %write{8,647}
+local	int	minus	%read{58,647} %write{9,13}
+local	int	digits	%read{27,647} %write{14,29}
+local	int	leftOfDecimalPoint	%read{23,26} %write{22,25}
+local	int	maxdigi	%read{27,29} %write{26,26}
+local	int	___337_i	%read{58,647} %write{57,647}
+local	int	___338_x	%read{58,647} %write{58,647}
+const	int	$const1	0		%read{9,635} %write{2147483647,-1}
+const	float	$const2	0		%read{0,0} %write{2147483647,-1}
+const	int[9]	$const3	1 10 100 1000 10000 100000 1000000 10000000 100000000 		%read{3,3} %write{2147483647,-1}
+temp	int	$tmp1	%read{6,6} %write{5,5}
+temp	float	$tmp2	%read{8,8} %write{7,7}
+temp	float	$tmp3	%read{7,7} %write{6,6}
+temp	int	$tmp4	%read{11,11} %write{10,10}
+const	int	$const4	1		%read{13,647} %write{2147483647,-1}
+temp	int	$tmp5	%read{22,22} %write{21,21}
+temp	float	$tmp6	%read{21,21} %write{20,20}
+temp	float	$tmp7	%read{20,20} %write{19,19}
+temp	float	$tmp8	%read{17,17} %write{15,15}
+const	float	$const5	10		%read{18,18} %write{2147483647,-1}
+const	string	$const6	"log"		%read{16,16} %write{2147483647,-1}
+temp	float	$tmp9	%read{19,19} %write{17,17}
+temp	float	$tmp10	%read{19,19} %write{18,18}
+temp	int	$tmp11	%read{24,24} %write{23,23}
+temp	int	$tmp12	%read{28,28} %write{27,27}
+temp	float	$tmp13	%read{31,31} %write{30,30}
+temp	int	$tmp14	%read{32,32} %write{31,31}
+temp	int	$tmp15	%read{33,38} %write{32,37}
+temp	float	$tmp16	%read{35,35} %write{34,34}
+temp	int	$tmp17	%read{36,36} %write{35,35}
+temp	int	$tmp18	%read{37,37} %write{36,36}
+temp	int	$tmp19	%read{39,44} %write{38,43}
+temp	float	$tmp20	%read{41,41} %write{40,40}
+temp	int	$tmp21	%read{42,42} %write{41,41}
+temp	int	$tmp22	%read{43,43} %write{42,42}
+temp	int	$tmp23	%read{45,50} %write{44,49}
+temp	float	$tmp24	%read{47,47} %write{46,46}
+temp	int	$tmp25	%read{48,48} %write{47,47}
+temp	int	$tmp26	%read{49,49} %write{48,48}
+const	point	$const7	0.899999976 0.5 0		%read{51,55} %write{2147483647,-1}
+const	float	$const8	0.800000012		%read{53,53} %write{2147483647,-1}
+temp	float	$tmp28	%read{54,54} %write{53,53}
+temp	float	$tmp29	%read{53,53} %write{52,52}
+temp	int	$tmp31	%read{58,647} %write{58,647}
+temp	int	$tmp32	%read{56,647} %write{57,647}
+temp	int	$tmp33	%read{58,647} %write{58,647}
+const	int	$const9	10		%read{61,644} %write{2147483647,-1}
+temp	int	$tmp34	%read{58,647} %write{58,647}
+temp	int	$tmp35	%read{58,647} %write{58,647}
+temp	int	$tmp36	%read{58,647} %write{58,647}
+temp	int	$tmp37	%read{58,647} %write{58,647}
+temp	int	$tmp38	%read{58,647} %write{58,647}
+temp	int	$tmp39	%read{58,647} %write{58,647}
+const	string	$const10	"inDigit"		%read{69,69} %write{2147483647,-1}
+const	point	$const11	0.5 0.200000003 0		%read{71,73} %write{2147483647,-1}
+const	float	$const12	2.5		%read{72,72} %write{2147483647,-1}
+temp	int	$tmp42	%read{58,647} %write{58,647}
+temp	int	$tmp43	%read{58,647} %write{58,647}
+const	point	$const13	-0.899999976 0.899999976 0		%read{78,90} %write{2147483647,-1}
+const	point	$const14	-0.200000003 1.10000002 0		%read{83,97} %write{2147483647,-1}
+const	string	$const15	"inBit"		%read{76,560} %write{2147483647,-1}
+temp	float	$tmp46	%read{58,647} %write{58,647}
+temp	float	$tmp47	%read{58,647} %write{58,647}
+temp	int	$tmp48	%read{58,647} %write{58,647}
+temp	int	$tmp49	%read{58,647} %write{58,647}
+temp	float	$tmp50	%read{58,647} %write{58,647}
+temp	float	$tmp51	%read{58,647} %write{58,647}
+temp	int	$tmp52	%read{58,647} %write{58,647}
+temp	int	$tmp53	%read{58,647} %write{58,647}
+temp	int	$tmp54	%read{58,647} %write{58,647}
+temp	float	$tmp55	%read{58,647} %write{58,647}
+temp	float	$tmp56	%read{58,647} %write{58,647}
+temp	int	$tmp57	%read{58,647} %write{58,647}
+temp	int	$tmp58	%read{58,647} %write{58,647}
+temp	int	$tmp59	%read{58,647} %write{58,647}
+temp	float	$tmp60	%read{58,647} %write{58,647}
+temp	float	$tmp61	%read{58,647} %write{58,647}
+temp	int	$tmp62	%read{58,647} %write{58,647}
+temp	int	$tmp63	%read{58,647} %write{58,647}
+temp	int	$tmp64	%read{58,647} %write{58,647}
+temp	float	$tmp65	%read{58,647} %write{58,647}
+const	float	$const16	-0.100000001		%read{111,115} %write{2147483647,-1}
+temp	int	$tmp66	%read{58,647} %write{58,647}
+temp	int	$tmp67	%read{58,647} %write{58,647}
+temp	float	$tmp68	%read{58,647} %write{58,647}
+temp	int	$tmp69	%read{58,647} %write{58,647}
+temp	int	$tmp70	%read{58,647} %write{58,647}
+temp	int	$tmp71	%read{58,647} %write{58,647}
+temp	float	$tmp72	%read{58,647} %write{58,647}
+const	float	$const17	1.29999995		%read{121,121} %write{2147483647,-1}
+temp	int	$tmp73	%read{58,647} %write{58,647}
+temp	int	$tmp74	%read{58,647} %write{58,647}
+temp	int	$tmp75	%read{58,647} %write{58,647}
+temp	float	$tmp76	%read{58,647} %write{58,647}
+const	float	$const18	2.0999999		%read{127,127} %write{2147483647,-1}
+temp	int	$tmp77	%read{58,647} %write{58,647}
+temp	int	$tmp78	%read{58,647} %write{58,647}
+const	int	$const19	-1		%read{131,631} %write{2147483647,-1}
+temp	int	$tmp79	%read{58,647} %write{58,647}
+temp	int	$tmp80	%read{58,647} %write{58,647}
+const	point	$const20	1.14999998 -0.100000001 0		%read{137,149} %write{2147483647,-1}
+const	point	$const21	1.29999995 0.100000001 0		%read{142,156} %write{2147483647,-1}
+temp	float	$tmp83	%read{58,647} %write{58,647}
+temp	float	$tmp84	%read{58,647} %write{58,647}
+temp	int	$tmp85	%read{58,647} %write{58,647}
+temp	int	$tmp86	%read{58,647} %write{58,647}
+temp	float	$tmp87	%read{58,647} %write{58,647}
+temp	float	$tmp88	%read{58,647} %write{58,647}
+temp	int	$tmp89	%read{58,647} %write{58,647}
+temp	int	$tmp90	%read{58,647} %write{58,647}
+temp	int	$tmp91	%read{58,647} %write{58,647}
+temp	float	$tmp92	%read{58,647} %write{58,647}
+temp	float	$tmp93	%read{58,647} %write{58,647}
+temp	int	$tmp94	%read{58,647} %write{58,647}
+temp	int	$tmp95	%read{58,647} %write{58,647}
+temp	int	$tmp96	%read{58,647} %write{58,647}
+temp	float	$tmp97	%read{58,647} %write{58,647}
+temp	float	$tmp98	%read{58,647} %write{58,647}
+temp	int	$tmp99	%read{58,647} %write{58,647}
+temp	int	$tmp100	%read{58,647} %write{58,647}
+temp	int	$tmp101	%read{58,647} %write{58,647}
+temp	int	$tmp102	%read{58,647} %write{58,647}
+const	point	$const22	0.100000001 -0.100000001 0		%read{171,183} %write{2147483647,-1}
+const	point	$const23	0.899999976 0.100000001 0		%read{176,498} %write{2147483647,-1}
+temp	float	$tmp105	%read{58,647} %write{58,647}
+temp	float	$tmp106	%read{58,647} %write{58,647}
+temp	int	$tmp107	%read{58,647} %write{58,647}
+temp	int	$tmp108	%read{58,647} %write{58,647}
+temp	float	$tmp109	%read{58,647} %write{58,647}
+temp	float	$tmp110	%read{58,647} %write{58,647}
+temp	int	$tmp111	%read{58,647} %write{58,647}
+temp	int	$tmp112	%read{58,647} %write{58,647}
+temp	int	$tmp113	%read{58,647} %write{58,647}
+temp	float	$tmp114	%read{58,647} %write{58,647}
+temp	float	$tmp115	%read{58,647} %write{58,647}
+temp	int	$tmp116	%read{58,647} %write{58,647}
+temp	int	$tmp117	%read{58,647} %write{58,647}
+temp	int	$tmp118	%read{58,647} %write{58,647}
+temp	float	$tmp119	%read{58,647} %write{58,647}
+temp	float	$tmp120	%read{58,647} %write{58,647}
+temp	int	$tmp121	%read{58,647} %write{58,647}
+temp	int	$tmp122	%read{58,647} %write{58,647}
+const	int	$const24	2		%read{199,593} %write{2147483647,-1}
+temp	int	$tmp123	%read{58,647} %write{58,647}
+temp	int	$tmp124	%read{58,647} %write{58,647}
+const	int	$const25	3		%read{202,598} %write{2147483647,-1}
+temp	int	$tmp125	%read{58,647} %write{58,647}
+temp	int	$tmp126	%read{58,647} %write{58,647}
+temp	int	$tmp127	%read{58,647} %write{58,647}
+const	int	$const26	5		%read{207,527} %write{2147483647,-1}
+temp	int	$tmp128	%read{58,647} %write{58,647}
+temp	int	$tmp129	%read{58,647} %write{58,647}
+temp	int	$tmp130	%read{58,647} %write{58,647}
+const	int	$const27	6		%read{212,532} %write{2147483647,-1}
+temp	int	$tmp131	%read{58,647} %write{58,647}
+temp	int	$tmp132	%read{58,647} %write{58,647}
+temp	int	$tmp133	%read{58,647} %write{58,647}
+const	int	$const28	8		%read{217,613} %write{2147483647,-1}
+temp	int	$tmp134	%read{58,647} %write{58,647}
+temp	int	$tmp135	%read{58,647} %write{58,647}
+temp	int	$tmp136	%read{58,647} %write{58,647}
+const	int	$const29	9		%read{222,618} %write{2147483647,-1}
+temp	int	$tmp137	%read{58,647} %write{58,647}
+temp	int	$tmp138	%read{58,647} %write{58,647}
+temp	int	$tmp139	%read{58,647} %write{58,647}
+temp	int	$tmp140	%read{58,647} %write{58,647}
+temp	int	$tmp141	%read{58,647} %write{58,647}
+temp	int	$tmp142	%read{58,647} %write{58,647}
+const	point	$const30	0.100000001 0.899999976 0		%read{237,393} %write{2147483647,-1}
+const	point	$const31	0.899999976 1.10000002 0		%read{242,574} %write{2147483647,-1}
+temp	float	$tmp145	%read{58,647} %write{58,647}
+temp	float	$tmp146	%read{58,647} %write{58,647}
+temp	int	$tmp147	%read{58,647} %write{58,647}
+temp	int	$tmp148	%read{58,647} %write{58,647}
+temp	float	$tmp149	%read{58,647} %write{58,647}
+temp	float	$tmp150	%read{58,647} %write{58,647}
+temp	int	$tmp151	%read{58,647} %write{58,647}
+temp	int	$tmp152	%read{58,647} %write{58,647}
+temp	int	$tmp153	%read{58,647} %write{58,647}
+temp	float	$tmp154	%read{58,647} %write{58,647}
+temp	float	$tmp155	%read{58,647} %write{58,647}
+temp	int	$tmp156	%read{58,647} %write{58,647}
+temp	int	$tmp157	%read{58,647} %write{58,647}
+temp	int	$tmp158	%read{58,647} %write{58,647}
+temp	float	$tmp159	%read{58,647} %write{58,647}
+temp	float	$tmp160	%read{58,647} %write{58,647}
+temp	int	$tmp161	%read{58,647} %write{58,647}
+temp	int	$tmp162	%read{58,647} %write{58,647}
+temp	int	$tmp163	%read{58,647} %write{58,647}
+temp	int	$tmp164	%read{58,647} %write{58,647}
+temp	int	$tmp165	%read{58,647} %write{58,647}
+temp	int	$tmp166	%read{58,647} %write{58,647}
+temp	int	$tmp167	%read{58,647} %write{58,647}
+const	int	$const32	4		%read{273,603} %write{2147483647,-1}
+temp	int	$tmp168	%read{58,647} %write{58,647}
+temp	int	$tmp169	%read{58,647} %write{58,647}
+temp	int	$tmp170	%read{58,647} %write{58,647}
+temp	int	$tmp171	%read{58,647} %write{58,647}
+temp	int	$tmp172	%read{58,647} %write{58,647}
+temp	int	$tmp173	%read{58,647} %write{58,647}
+temp	int	$tmp174	%read{58,647} %write{58,647}
+temp	int	$tmp175	%read{58,647} %write{58,647}
+temp	int	$tmp176	%read{58,647} %write{58,647}
+temp	int	$tmp177	%read{58,647} %write{58,647}
+temp	int	$tmp178	%read{58,647} %write{58,647}
+temp	int	$tmp179	%read{58,647} %write{58,647}
+temp	int	$tmp180	%read{58,647} %write{58,647}
+temp	int	$tmp181	%read{58,647} %write{58,647}
+temp	int	$tmp182	%read{58,647} %write{58,647}
+const	point	$const33	0.100000001 1.89999998 0		%read{303,444} %write{2147483647,-1}
+const	point	$const34	0.899999976 2.0999999 0		%read{308,322} %write{2147483647,-1}
+temp	float	$tmp185	%read{58,647} %write{58,647}
+temp	float	$tmp186	%read{58,647} %write{58,647}
+temp	int	$tmp187	%read{58,647} %write{58,647}
+temp	int	$tmp188	%read{58,647} %write{58,647}
+temp	float	$tmp189	%read{58,647} %write{58,647}
+temp	float	$tmp190	%read{58,647} %write{58,647}
+temp	int	$tmp191	%read{58,647} %write{58,647}
+temp	int	$tmp192	%read{58,647} %write{58,647}
+temp	int	$tmp193	%read{58,647} %write{58,647}
+temp	float	$tmp194	%read{58,647} %write{58,647}
+temp	float	$tmp195	%read{58,647} %write{58,647}
+temp	int	$tmp196	%read{58,647} %write{58,647}
+temp	int	$tmp197	%read{58,647} %write{58,647}
+temp	int	$tmp198	%read{58,647} %write{58,647}
+temp	float	$tmp199	%read{58,647} %write{58,647}
+temp	float	$tmp200	%read{58,647} %write{58,647}
+temp	int	$tmp201	%read{58,647} %write{58,647}
+temp	int	$tmp202	%read{58,647} %write{58,647}
+temp	int	$tmp203	%read{58,647} %write{58,647}
+temp	int	$tmp204	%read{58,647} %write{58,647}
+temp	int	$tmp205	%read{58,647} %write{58,647}
+temp	int	$tmp206	%read{58,647} %write{58,647}
+temp	int	$tmp207	%read{58,647} %write{58,647}
+temp	int	$tmp208	%read{58,647} %write{58,647}
+temp	int	$tmp209	%read{58,647} %write{58,647}
+temp	int	$tmp210	%read{58,647} %write{58,647}
+temp	int	$tmp211	%read{58,647} %write{58,647}
+temp	int	$tmp212	%read{58,647} %write{58,647}
+temp	int	$tmp213	%read{58,647} %write{58,647}
+const	int	$const35	7		%read{349,608} %write{2147483647,-1}
+temp	int	$tmp214	%read{58,647} %write{58,647}
+temp	int	$tmp215	%read{58,647} %write{58,647}
+temp	int	$tmp216	%read{58,647} %write{58,647}
+temp	int	$tmp217	%read{58,647} %write{58,647}
+temp	int	$tmp218	%read{58,647} %write{58,647}
+temp	int	$tmp219	%read{58,647} %write{58,647}
+temp	int	$tmp220	%read{58,647} %write{58,647}
+temp	int	$tmp221	%read{58,647} %write{58,647}
+temp	int	$tmp222	%read{58,647} %write{58,647}
+temp	int	$tmp223	%read{58,647} %write{58,647}
+temp	int	$tmp224	%read{58,647} %write{58,647}
+temp	int	$tmp225	%read{58,647} %write{58,647}
+const	point	$const36	-0.100000001 0.100000001 0		%read{374,386} %write{2147483647,-1}
+temp	float	$tmp228	%read{58,647} %write{58,647}
+temp	float	$tmp229	%read{58,647} %write{58,647}
+temp	int	$tmp230	%read{58,647} %write{58,647}
+temp	int	$tmp231	%read{58,647} %write{58,647}
+temp	float	$tmp232	%read{58,647} %write{58,647}
+temp	float	$tmp233	%read{58,647} %write{58,647}
+temp	int	$tmp234	%read{58,647} %write{58,647}
+temp	int	$tmp235	%read{58,647} %write{58,647}
+temp	int	$tmp236	%read{58,647} %write{58,647}
+temp	float	$tmp237	%read{58,647} %write{58,647}
+temp	float	$tmp238	%read{58,647} %write{58,647}
+temp	int	$tmp239	%read{58,647} %write{58,647}
+temp	int	$tmp240	%read{58,647} %write{58,647}
+temp	int	$tmp241	%read{58,647} %write{58,647}
+temp	float	$tmp242	%read{58,647} %write{58,647}
+temp	float	$tmp243	%read{58,647} %write{58,647}
+temp	int	$tmp244	%read{58,647} %write{58,647}
+temp	int	$tmp245	%read{58,647} %write{58,647}
+temp	int	$tmp246	%read{58,647} %write{58,647}
+temp	int	$tmp247	%read{58,647} %write{58,647}
+temp	int	$tmp248	%read{58,647} %write{58,647}
+temp	int	$tmp249	%read{58,647} %write{58,647}
+temp	int	$tmp250	%read{58,647} %write{58,647}
+temp	int	$tmp251	%read{58,647} %write{58,647}
+temp	int	$tmp252	%read{58,647} %write{58,647}
+temp	int	$tmp253	%read{58,647} %write{58,647}
+temp	int	$tmp254	%read{58,647} %write{58,647}
+temp	int	$tmp255	%read{58,647} %write{58,647}
+temp	int	$tmp256	%read{58,647} %write{58,647}
+const	point	$const37	-0.100000001 1.10000002 0		%read{425,437} %write{2147483647,-1}
+temp	float	$tmp259	%read{58,647} %write{58,647}
+temp	float	$tmp260	%read{58,647} %write{58,647}
+temp	int	$tmp261	%read{58,647} %write{58,647}
+temp	int	$tmp262	%read{58,647} %write{58,647}
+temp	float	$tmp263	%read{58,647} %write{58,647}
+temp	float	$tmp264	%read{58,647} %write{58,647}
+temp	int	$tmp265	%read{58,647} %write{58,647}
+temp	int	$tmp266	%read{58,647} %write{58,647}
+temp	int	$tmp267	%read{58,647} %write{58,647}
+temp	float	$tmp268	%read{58,647} %write{58,647}
+temp	float	$tmp269	%read{58,647} %write{58,647}
+temp	int	$tmp270	%read{58,647} %write{58,647}
+temp	int	$tmp271	%read{58,647} %write{58,647}
+temp	int	$tmp272	%read{58,647} %write{58,647}
+temp	float	$tmp273	%read{58,647} %write{58,647}
+temp	float	$tmp274	%read{58,647} %write{58,647}
+temp	int	$tmp275	%read{58,647} %write{58,647}
+temp	int	$tmp276	%read{58,647} %write{58,647}
+temp	int	$tmp277	%read{58,647} %write{58,647}
+temp	int	$tmp278	%read{58,647} %write{58,647}
+temp	int	$tmp279	%read{58,647} %write{58,647}
+temp	int	$tmp280	%read{58,647} %write{58,647}
+temp	int	$tmp281	%read{58,647} %write{58,647}
+temp	int	$tmp282	%read{58,647} %write{58,647}
+temp	int	$tmp283	%read{58,647} %write{58,647}
+temp	int	$tmp284	%read{58,647} %write{58,647}
+temp	int	$tmp285	%read{58,647} %write{58,647}
+temp	int	$tmp286	%read{58,647} %write{58,647}
+temp	int	$tmp287	%read{58,647} %write{58,647}
+temp	int	$tmp288	%read{58,647} %write{58,647}
+temp	int	$tmp289	%read{58,647} %write{58,647}
+temp	int	$tmp290	%read{58,647} %write{58,647}
+temp	int	$tmp291	%read{58,647} %write{58,647}
+temp	int	$tmp292	%read{58,647} %write{58,647}
+temp	int	$tmp293	%read{58,647} %write{58,647}
+const	point	$const38	1.10000002 0.899999976 0		%read{491,505} %write{2147483647,-1}
+temp	float	$tmp296	%read{58,647} %write{58,647}
+temp	float	$tmp297	%read{58,647} %write{58,647}
+temp	int	$tmp298	%read{58,647} %write{58,647}
+temp	int	$tmp299	%read{58,647} %write{58,647}
+temp	float	$tmp300	%read{58,647} %write{58,647}
+temp	float	$tmp301	%read{58,647} %write{58,647}
+temp	int	$tmp302	%read{58,647} %write{58,647}
+temp	int	$tmp303	%read{58,647} %write{58,647}
+temp	int	$tmp304	%read{58,647} %write{58,647}
+temp	float	$tmp305	%read{58,647} %write{58,647}
+temp	float	$tmp306	%read{58,647} %write{58,647}
+temp	int	$tmp307	%read{58,647} %write{58,647}
+temp	int	$tmp308	%read{58,647} %write{58,647}
+temp	int	$tmp309	%read{58,647} %write{58,647}
+temp	float	$tmp310	%read{58,647} %write{58,647}
+temp	float	$tmp311	%read{58,647} %write{58,647}
+temp	int	$tmp312	%read{58,647} %write{58,647}
+temp	int	$tmp313	%read{58,647} %write{58,647}
+temp	int	$tmp314	%read{58,647} %write{58,647}
+temp	int	$tmp315	%read{58,647} %write{58,647}
+temp	int	$tmp316	%read{58,647} %write{58,647}
+temp	int	$tmp317	%read{58,647} %write{58,647}
+temp	int	$tmp318	%read{58,647} %write{58,647}
+temp	int	$tmp319	%read{58,647} %write{58,647}
+temp	int	$tmp320	%read{58,647} %write{58,647}
+temp	int	$tmp321	%read{58,647} %write{58,647}
+temp	int	$tmp322	%read{58,647} %write{58,647}
+temp	int	$tmp323	%read{58,647} %write{58,647}
+temp	int	$tmp324	%read{58,647} %write{58,647}
+temp	int	$tmp325	%read{58,647} %write{58,647}
+temp	int	$tmp326	%read{58,647} %write{58,647}
+temp	int	$tmp327	%read{58,647} %write{58,647}
+temp	int	$tmp328	%read{58,647} %write{58,647}
+temp	int	$tmp329	%read{58,647} %write{58,647}
+temp	int	$tmp330	%read{58,647} %write{58,647}
+temp	int	$tmp331	%read{58,647} %write{58,647}
+temp	int	$tmp332	%read{58,647} %write{58,647}
+temp	int	$tmp333	%read{58,647} %write{58,647}
+temp	int	$tmp334	%read{58,647} %write{58,647}
+temp	int	$tmp335	%read{58,647} %write{58,647}
+temp	int	$tmp336	%read{58,647} %write{58,647}
+temp	int	$tmp337	%read{58,647} %write{58,647}
+temp	int	$tmp338	%read{58,647} %write{58,647}
+temp	int	$tmp339	%read{58,647} %write{58,647}
+const	point	$const39	1.10000002 1.89999998 0		%read{567,581} %write{2147483647,-1}
+temp	float	$tmp342	%read{58,647} %write{58,647}
+temp	float	$tmp343	%read{58,647} %write{58,647}
+temp	int	$tmp344	%read{58,647} %write{58,647}
+temp	int	$tmp345	%read{58,647} %write{58,647}
+temp	float	$tmp346	%read{58,647} %write{58,647}
+temp	float	$tmp347	%read{58,647} %write{58,647}
+temp	int	$tmp348	%read{58,647} %write{58,647}
+temp	int	$tmp349	%read{58,647} %write{58,647}
+temp	int	$tmp350	%read{58,647} %write{58,647}
+temp	float	$tmp351	%read{58,647} %write{58,647}
+temp	float	$tmp352	%read{58,647} %write{58,647}
+temp	int	$tmp353	%read{58,647} %write{58,647}
+temp	int	$tmp354	%read{58,647} %write{58,647}
+temp	int	$tmp355	%read{58,647} %write{58,647}
+temp	float	$tmp356	%read{58,647} %write{58,647}
+temp	float	$tmp357	%read{58,647} %write{58,647}
+temp	int	$tmp358	%read{58,647} %write{58,647}
+temp	int	$tmp359	%read{58,647} %write{58,647}
+temp	int	$tmp360	%read{58,647} %write{58,647}
+temp	int	$tmp361	%read{58,647} %write{58,647}
+temp	int	$tmp362	%read{58,647} %write{58,647}
+temp	int	$tmp363	%read{58,647} %write{58,647}
+temp	int	$tmp364	%read{58,647} %write{58,647}
+temp	int	$tmp365	%read{58,647} %write{58,647}
+temp	int	$tmp366	%read{58,647} %write{58,647}
+temp	int	$tmp367	%read{58,647} %write{58,647}
+temp	int	$tmp368	%read{58,647} %write{58,647}
+temp	int	$tmp369	%read{58,647} %write{58,647}
+temp	int	$tmp370	%read{58,647} %write{58,647}
+temp	int	$tmp371	%read{58,647} %write{58,647}
+temp	int	$tmp372	%read{58,647} %write{58,647}
+temp	int	$tmp373	%read{58,647} %write{58,647}
+temp	int	$tmp374	%read{58,647} %write{58,647}
+temp	int	$tmp375	%read{58,647} %write{58,647}
+temp	int	$tmp376	%read{58,647} %write{58,647}
+temp	int	$tmp377	%read{58,647} %write{58,647}
+temp	int	$tmp378	%read{58,647} %write{58,647}
+temp	int	$tmp379	%read{58,647} %write{58,647}
+temp	int	$tmp380	%read{58,647} %write{58,647}
+temp	int	$tmp381	%read{58,647} %write{58,647}
+temp	int	$tmp382	%read{58,647} %write{58,647}
+temp	int	$tmp383	%read{58,647} %write{58,647}
+temp	int	$tmp384	%read{58,647} %write{58,647}
+const	float	$const40	1		%read{639,643} %write{2147483647,-1}
+temp	int	$tmp385	%read{58,647} %write{58,647}
+const	point	$const41	0.600000024 0 0		%read{645,645} %write{2147483647,-1}
+temp	int	$tmp387	%read{2147483647,-1} %write{58,647}
+code UVW
+# OSL\Digits.osl:101
+# 	float   Number = 42,
+	vector		UVW u v $const2 	%filename{"OSL\Digits.osl"} %line{101} %argrw{"wrrr"}
+code Out
+# OSL\Digits.osl:111
+# 	output float Fac = 0.0,
+	assign		Out BGColor 	%filename{"OSL\Digits.osl"} %line{111} %argrw{"wr"}
+code NumberOut
+# OSL\Digits.osl:113
+# )
+	assign		NumberOut Number 	%filename{"OSL\Digits.osl"} %line{113} %argrw{"wr"}
+code ___main___
+# OSL\Digits.osl:116
+# 
+	assign		mult $const3 	%filename{"OSL\Digits.osl"} %line{116} %argrw{"wr"}
+# OSL\Digits.osl:118
+# 		 
+	div		px UVW Scale 	%line{118} %argrw{"wrr"}
+# OSL\Digits.osl:120
+# 	
+	aref		$tmp1 mult Decimals 	%line{120} %argrw{"wrr"}
+	assign		$tmp3 $tmp1 	%argrw{"wr"}
+	mul		$tmp2 Number $tmp3 	%argrw{"wrr"}
+	assign		number $tmp2 	%argrw{"wr"}
+# OSL\Digits.osl:122
+# 	if (number < 0) 
+	assign		minus $const1 	%line{122} %argrw{"wr"}
+# OSL\Digits.osl:123
+# 	{
+	lt		$tmp4 number $const1 	%line{123} %argrw{"wrr"}
+	if		$tmp4 14 14 	%argrw{"r"}
+# OSL\Digits.osl:125
+# 		minus  = 1;
+	neg		number number 	%line{125} %argrw{"wr"}
+# OSL\Digits.osl:126
+# 	}
+	assign		minus $const4 	%line{126} %argrw{"wr"}
+# OSL\Digits.osl:129
+# 	// Figure out how many digits we need
+	assign		digits Digits 	%line{129} %argrw{"wr"}
+# OSL\Digits.osl:131
+# 	// ...but at least one
+	fabs		$tmp8 Number 	%line{131} %argrw{"wr"}
+	functioncall	$const6 20 	%argrw{"r"}
+# OSL\stdosl.h:117
+# float  log (float a,  float b) { return log(a)/log(b); }
+	log		$tmp9 $tmp8 	%filename{"OSL\stdosl.h"} %line{117} %argrw{"wr"}
+	log		$tmp10 $const5 	%argrw{"wr"}
+	div		$tmp7 $tmp9 $tmp10 	%argrw{"wrr"}
+# OSL\Digits.osl:131
+# 	// ...but at least one
+	floor		$tmp6 $tmp7 	%filename{"OSL\Digits.osl"} %line{131} %argrw{"wr"}
+	assign		$tmp5 $tmp6 	%argrw{"wr"}
+	add		leftOfDecimalPoint $tmp5 $const4 	%argrw{"wrr"}
+# OSL\Digits.osl:133
+# 		leftOfDecimalPoint = 1;
+	le		$tmp11 leftOfDecimalPoint $const1 	%line{133} %argrw{"wrr"}
+	if		$tmp11 26 26 	%argrw{"r"}
+# OSL\Digits.osl:134
+# 		
+	assign		leftOfDecimalPoint $const4 	%line{134} %argrw{"wr"}
+# OSL\Digits.osl:136
+# 	
+	add		maxdigi leftOfDecimalPoint Decimals 	%line{136} %argrw{"wrr"}
+# OSL\Digits.osl:138
+# 		digits = maxdigi;
+	gt		$tmp12 maxdigi digits 	%line{138} %argrw{"wrr"}
+	if		$tmp12 30 30 	%argrw{"r"}
+# OSL\Digits.osl:139
+# 
+	assign		digits maxdigi 	%line{139} %argrw{"wr"}
+# OSL\Digits.osl:141
+# 	{
+	compref		$tmp13 px $const1 	%line{141} %argrw{"wrr"}
+	gt		$tmp14 $tmp13 $const1 	%argrw{"wrr"}
+	neq		$tmp15 $tmp14 $const1 	%argrw{"wrr"}
+	if		$tmp15 38 38 	%argrw{"r"}
+	compref		$tmp16 px $const1 	%argrw{"wrr"}
+	lt		$tmp17 $tmp16 $const4 	%argrw{"wrr"}
+	neq		$tmp18 $tmp17 $const1 	%argrw{"wrr"}
+	assign		$tmp15 $tmp18 	%argrw{"wr"}
+	neq		$tmp19 $tmp15 $const1 	%argrw{"wrr"}
+	if		$tmp19 44 44 	%argrw{"r"}
+	compref		$tmp20 px $const4 	%argrw{"wrr"}
+	gt		$tmp21 $tmp20 $const1 	%argrw{"wrr"}
+	neq		$tmp22 $tmp21 $const1 	%argrw{"wrr"}
+	assign		$tmp19 $tmp22 	%argrw{"wr"}
+	neq		$tmp23 $tmp19 $const1 	%argrw{"wrr"}
+	if		$tmp23 50 50 	%argrw{"r"}
+	compref		$tmp24 px $const4 	%argrw{"wrr"}
+	lt		$tmp25 $tmp24 $const4 	%argrw{"wrr"}
+	neq		$tmp26 $tmp25 $const1 	%argrw{"wrr"}
+	assign		$tmp23 $tmp26 	%argrw{"wr"}
+	if		$tmp23 648 648 	%argrw{"r"}
+# OSL\Digits.osl:143
+# 		px *= (digits * 0.8);
+	sub		px px $const7 	%line{143} %argrw{"wrr"}
+# OSL\Digits.osl:144
+# 		px += point(0.9, 0.5, 0.0);	
+	assign		$tmp29 digits 	%line{144} %argrw{"wr"}
+	mul		$tmp28 $tmp29 $const8 	%argrw{"wrr"}
+	mul		px px $tmp28 	%argrw{"wrr"}
+# OSL\Digits.osl:145
+# 	
+	add		px px $const7 	%line{145} %argrw{"wrr"}
+# OSL\Digits.osl:147
+# 		{
+	for		$tmp32 58 60 646 648 	%line{147} %argrw{"r"}
+	assign		___337_i $const1 	%argrw{"wr"}
+	lt		$tmp31 ___337_i digits 	%argrw{"wrr"}
+	neq		$tmp32 $tmp31 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:149
+# 		
+	assign		$tmp33 number 	%line{149} %argrw{"wr"}
+	mod		$tmp34 $tmp33 $const9 	%argrw{"wrr"}
+	eq		$tmp35 Decimals ___337_i 	%argrw{"wrr"}
+	neq		$tmp36 minus $const1 	%argrw{"wrr"}
+	if		$tmp36 69 69 	%argrw{"r"}
+	sub		$tmp37 digits $const4 	%argrw{"wrr"}
+	eq		$tmp38 ___337_i $tmp37 	%argrw{"wrr"}
+	neq		$tmp39 $tmp38 $const1 	%argrw{"wrr"}
+	assign		$tmp36 $tmp39 	%argrw{"wr"}
+	functioncall	$const10 632 	%argrw{"r"}
+# OSL\Digits.osl:20
+# 	pt -= point(0.5, 0.2, 0.0);
+	assign		___326_pt px 	%line{20} %argrw{"wr"}
+# OSL\Digits.osl:21
+# 	pt *= 2.5;
+	sub		___326_pt ___326_pt $const11 	%line{21} %argrw{"wrr"}
+# OSL\Digits.osl:22
+# 	pt += point(0.5, 0.2, 0.0);
+	mul		___326_pt ___326_pt $const12 	%line{22} %argrw{"wrr"}
+# OSL\Digits.osl:23
+# 
+	add		___326_pt ___326_pt $const11 	%line{23} %argrw{"wrr"}
+# OSL\Digits.osl:25
+# 		return 1;
+	neq		$tmp42 $tmp36 $const1 	%line{25} %argrw{"wrr"}
+	if		$tmp42 107 107 	%argrw{"r"}
+	functioncall	$const15 105 	%argrw{"r"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	compref		$tmp46 ___326_pt $const1 	%line{10} %argrw{"wrr"}
+	compref		$tmp47 $const13 $const1 	%argrw{"wrr"}
+	gt		$tmp48 $tmp46 $tmp47 	%argrw{"wrr"}
+	neq		$tmp49 $tmp48 $const1 	%argrw{"wrr"}
+	if		$tmp49 87 87 	%argrw{"r"}
+	compref		$tmp50 ___326_pt $const1 	%argrw{"wrr"}
+	compref		$tmp51 $const14 $const1 	%argrw{"wrr"}
+	lt		$tmp52 $tmp50 $tmp51 	%argrw{"wrr"}
+	neq		$tmp53 $tmp52 $const1 	%argrw{"wrr"}
+	assign		$tmp49 $tmp53 	%argrw{"wr"}
+	neq		$tmp54 $tmp49 $const1 	%argrw{"wrr"}
+	if		$tmp54 94 94 	%argrw{"r"}
+# OSL\Digits.osl:11
+# 		return 1;
+	compref		$tmp55 ___326_pt $const4 	%line{11} %argrw{"wrr"}
+	compref		$tmp56 $const13 $const4 	%argrw{"wrr"}
+	gt		$tmp57 $tmp55 $tmp56 	%argrw{"wrr"}
+	neq		$tmp58 $tmp57 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	assign		$tmp54 $tmp58 	%line{10} %argrw{"wr"}
+	neq		$tmp59 $tmp54 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:11
+# 		return 1;
+	if		$tmp59 101 101 	%line{11} %argrw{"r"}
+	compref		$tmp60 ___326_pt $const4 	%argrw{"wrr"}
+	compref		$tmp61 $const14 $const4 	%argrw{"wrr"}
+	lt		$tmp62 $tmp60 $tmp61 	%argrw{"wrr"}
+	neq		$tmp63 $tmp62 $const1 	%argrw{"wrr"}
+	assign		$tmp59 $tmp63 	%argrw{"wr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	if		$tmp59 104 104 	%line{10} %argrw{"r"}
+# OSL\Digits.osl:12
+# 	
+	assign		$tmp43 $const4 	%line{12} %argrw{"wr"}
+	return
+# OSL\Digits.osl:14
+# }
+	assign		$tmp43 $const1 	%line{14} %argrw{"wr"}
+# OSL\Digits.osl:25
+# 		return 1;
+	neq		$tmp64 $tmp43 $const1 	%line{25} %argrw{"wrr"}
+	assign		$tmp42 $tmp64 	%argrw{"wr"}
+	if		$tmp42 110 110 	%argrw{"r"}
+# OSL\Digits.osl:26
+# 		
+	assign		___338_x $const4 	%line{26} %argrw{"wr"}
+	return
+# OSL\Digits.osl:28
+# 	    pt[0] >  1.3 || pt[1] >  2.1)
+	compref		$tmp65 ___326_pt $const1 	%line{28} %argrw{"wrr"}
+	lt		$tmp66 $tmp65 $const16 	%argrw{"wrr"}
+	neq		$tmp67 $tmp66 $const1 	%argrw{"wrr"}
+	if		$tmp67 114 118 	%argrw{"r"}
+	compref		$tmp68 ___326_pt $const4 	%argrw{"wrr"}
+	lt		$tmp69 $tmp68 $const16 	%argrw{"wrr"}
+	neq		$tmp70 $tmp69 $const1 	%argrw{"wrr"}
+	assign		$tmp67 $tmp70 	%argrw{"wr"}
+	neq		$tmp71 $tmp67 $const1 	%argrw{"wrr"}
+	if		$tmp71 120 124 	%argrw{"r"}
+# OSL\Digits.osl:29
+# 	    return -1;
+	compref		$tmp72 ___326_pt $const1 	%line{29} %argrw{"wrr"}
+	gt		$tmp73 $tmp72 $const17 	%argrw{"wrr"}
+	neq		$tmp74 $tmp73 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:28
+# 	    pt[0] >  1.3 || pt[1] >  2.1)
+	assign		$tmp71 $tmp74 	%line{28} %argrw{"wr"}
+	neq		$tmp75 $tmp71 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:29
+# 	    return -1;
+	if		$tmp75 126 130 	%line{29} %argrw{"r"}
+	compref		$tmp76 ___326_pt $const4 	%argrw{"wrr"}
+	gt		$tmp77 $tmp76 $const18 	%argrw{"wrr"}
+	neq		$tmp78 $tmp77 $const1 	%argrw{"wrr"}
+	assign		$tmp75 $tmp78 	%argrw{"wr"}
+# OSL\Digits.osl:28
+# 	    pt[0] >  1.3 || pt[1] >  2.1)
+	if		$tmp75 133 133 	%line{28} %argrw{"r"}
+# OSL\Digits.osl:30
+# 
+	assign		___338_x $const19 	%line{30} %argrw{"wr"}
+	return
+# OSL\Digits.osl:32
+# 	{
+	neq		$tmp79 $tmp35 $const1 	%line{32} %argrw{"wrr"}
+	if		$tmp79 166 166 	%argrw{"r"}
+	functioncall	$const15 164 	%argrw{"r"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	compref		$tmp83 ___326_pt $const1 	%line{10} %argrw{"wrr"}
+	compref		$tmp84 $const20 $const1 	%argrw{"wrr"}
+	gt		$tmp85 $tmp83 $tmp84 	%argrw{"wrr"}
+	neq		$tmp86 $tmp85 $const1 	%argrw{"wrr"}
+	if		$tmp86 146 146 	%argrw{"r"}
+	compref		$tmp87 ___326_pt $const1 	%argrw{"wrr"}
+	compref		$tmp88 $const21 $const1 	%argrw{"wrr"}
+	lt		$tmp89 $tmp87 $tmp88 	%argrw{"wrr"}
+	neq		$tmp90 $tmp89 $const1 	%argrw{"wrr"}
+	assign		$tmp86 $tmp90 	%argrw{"wr"}
+	neq		$tmp91 $tmp86 $const1 	%argrw{"wrr"}
+	if		$tmp91 153 153 	%argrw{"r"}
+# OSL\Digits.osl:11
+# 		return 1;
+	compref		$tmp92 ___326_pt $const4 	%line{11} %argrw{"wrr"}
+	compref		$tmp93 $const20 $const4 	%argrw{"wrr"}
+	gt		$tmp94 $tmp92 $tmp93 	%argrw{"wrr"}
+	neq		$tmp95 $tmp94 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	assign		$tmp91 $tmp95 	%line{10} %argrw{"wr"}
+	neq		$tmp96 $tmp91 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:11
+# 		return 1;
+	if		$tmp96 160 160 	%line{11} %argrw{"r"}
+	compref		$tmp97 ___326_pt $const4 	%argrw{"wrr"}
+	compref		$tmp98 $const21 $const4 	%argrw{"wrr"}
+	lt		$tmp99 $tmp97 $tmp98 	%argrw{"wrr"}
+	neq		$tmp100 $tmp99 $const1 	%argrw{"wrr"}
+	assign		$tmp96 $tmp100 	%argrw{"wr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	if		$tmp96 163 163 	%line{10} %argrw{"r"}
+# OSL\Digits.osl:12
+# 	
+	assign		$tmp80 $const4 	%line{12} %argrw{"wr"}
+	return
+# OSL\Digits.osl:14
+# }
+	assign		$tmp80 $const1 	%line{14} %argrw{"wr"}
+# OSL\Digits.osl:32
+# 	{
+	neq		$tmp101 $tmp80 $const1 	%line{32} %argrw{"wrr"}
+	assign		$tmp79 $tmp101 	%argrw{"wr"}
+	if		$tmp79 169 169 	%argrw{"r"}
+# OSL\Digits.osl:34
+# 	}
+	assign		___338_x $const4 	%line{34} %argrw{"wr"}
+	return
+# OSL\Digits.osl:37
+# 	{
+	functioncall	$const15 198 	%line{37} %argrw{"r"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	compref		$tmp105 ___326_pt $const1 	%line{10} %argrw{"wrr"}
+	compref		$tmp106 $const22 $const1 	%argrw{"wrr"}
+	gt		$tmp107 $tmp105 $tmp106 	%argrw{"wrr"}
+	neq		$tmp108 $tmp107 $const1 	%argrw{"wrr"}
+	if		$tmp108 180 180 	%argrw{"r"}
+	compref		$tmp109 ___326_pt $const1 	%argrw{"wrr"}
+	compref		$tmp110 $const23 $const1 	%argrw{"wrr"}
+	lt		$tmp111 $tmp109 $tmp110 	%argrw{"wrr"}
+	neq		$tmp112 $tmp111 $const1 	%argrw{"wrr"}
+	assign		$tmp108 $tmp112 	%argrw{"wr"}
+	neq		$tmp113 $tmp108 $const1 	%argrw{"wrr"}
+	if		$tmp113 187 187 	%argrw{"r"}
+# OSL\Digits.osl:11
+# 		return 1;
+	compref		$tmp114 ___326_pt $const4 	%line{11} %argrw{"wrr"}
+	compref		$tmp115 $const22 $const4 	%argrw{"wrr"}
+	gt		$tmp116 $tmp114 $tmp115 	%argrw{"wrr"}
+	neq		$tmp117 $tmp116 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	assign		$tmp113 $tmp117 	%line{10} %argrw{"wr"}
+	neq		$tmp118 $tmp113 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:11
+# 		return 1;
+	if		$tmp118 194 194 	%line{11} %argrw{"r"}
+	compref		$tmp119 ___326_pt $const4 	%argrw{"wrr"}
+	compref		$tmp120 $const23 $const4 	%argrw{"wrr"}
+	lt		$tmp121 $tmp119 $tmp120 	%argrw{"wrr"}
+	neq		$tmp122 $tmp121 $const1 	%argrw{"wrr"}
+	assign		$tmp118 $tmp122 	%argrw{"wr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	if		$tmp118 197 197 	%line{10} %argrw{"r"}
+# OSL\Digits.osl:12
+# 	
+	assign		$tmp102 $const4 	%line{12} %argrw{"wr"}
+	return
+# OSL\Digits.osl:14
+# }
+	assign		$tmp102 $const1 	%line{14} %argrw{"wr"}
+# OSL\Digits.osl:37
+# 	{
+	if		$tmp102 235 235 	%line{37} %argrw{"r"}
+# OSL\Digits.osl:39
+# 			return 1;
+	eq		$tmp123 $tmp34 $const24 	%line{39} %argrw{"wrr"}
+	neq		$tmp124 $tmp123 $const1 	%argrw{"wrr"}
+	if		$tmp124 202 205 	%argrw{"r"}
+	eq		$tmp125 $tmp34 $const25 	%argrw{"wrr"}
+	neq		$tmp126 $tmp125 $const1 	%argrw{"wrr"}
+	assign		$tmp124 $tmp126 	%argrw{"wr"}
+	neq		$tmp127 $tmp124 $const1 	%argrw{"wrr"}
+	if		$tmp127 207 210 	%argrw{"r"}
+	eq		$tmp128 $tmp34 $const26 	%argrw{"wrr"}
+	neq		$tmp129 $tmp128 $const1 	%argrw{"wrr"}
+	assign		$tmp127 $tmp129 	%argrw{"wr"}
+	neq		$tmp130 $tmp127 $const1 	%argrw{"wrr"}
+	if		$tmp130 212 215 	%argrw{"r"}
+	eq		$tmp131 $tmp34 $const27 	%argrw{"wrr"}
+	neq		$tmp132 $tmp131 $const1 	%argrw{"wrr"}
+	assign		$tmp130 $tmp132 	%argrw{"wr"}
+	neq		$tmp133 $tmp130 $const1 	%argrw{"wrr"}
+	if		$tmp133 217 220 	%argrw{"r"}
+	eq		$tmp134 $tmp34 $const28 	%argrw{"wrr"}
+	neq		$tmp135 $tmp134 $const1 	%argrw{"wrr"}
+	assign		$tmp133 $tmp135 	%argrw{"wr"}
+	neq		$tmp136 $tmp133 $const1 	%argrw{"wrr"}
+	if		$tmp136 222 225 	%argrw{"r"}
+	eq		$tmp137 $tmp34 $const29 	%argrw{"wrr"}
+	neq		$tmp138 $tmp137 $const1 	%argrw{"wrr"}
+	assign		$tmp136 $tmp138 	%argrw{"wr"}
+	neq		$tmp139 $tmp136 $const1 	%argrw{"wrr"}
+	if		$tmp139 227 230 	%argrw{"r"}
+	eq		$tmp140 $tmp34 $const1 	%argrw{"wrr"}
+	neq		$tmp141 $tmp140 $const1 	%argrw{"wrr"}
+	assign		$tmp139 $tmp141 	%argrw{"wr"}
+	if		$tmp139 233 235 	%argrw{"r"}
+# OSL\Digits.osl:40
+# 		else
+	assign		___338_x $const4 	%line{40} %argrw{"wr"}
+	return
+# OSL\Digits.osl:42
+# 	}
+	assign		___338_x $const1 	%line{42} %argrw{"wr"}
+	return
+# OSL\Digits.osl:45
+# 	{
+	functioncall	$const15 264 	%line{45} %argrw{"r"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	compref		$tmp145 ___326_pt $const1 	%line{10} %argrw{"wrr"}
+	compref		$tmp146 $const30 $const1 	%argrw{"wrr"}
+	gt		$tmp147 $tmp145 $tmp146 	%argrw{"wrr"}
+	neq		$tmp148 $tmp147 $const1 	%argrw{"wrr"}
+	if		$tmp148 246 246 	%argrw{"r"}
+	compref		$tmp149 ___326_pt $const1 	%argrw{"wrr"}
+	compref		$tmp150 $const31 $const1 	%argrw{"wrr"}
+	lt		$tmp151 $tmp149 $tmp150 	%argrw{"wrr"}
+	neq		$tmp152 $tmp151 $const1 	%argrw{"wrr"}
+	assign		$tmp148 $tmp152 	%argrw{"wr"}
+	neq		$tmp153 $tmp148 $const1 	%argrw{"wrr"}
+	if		$tmp153 253 253 	%argrw{"r"}
+# OSL\Digits.osl:11
+# 		return 1;
+	compref		$tmp154 ___326_pt $const4 	%line{11} %argrw{"wrr"}
+	compref		$tmp155 $const30 $const4 	%argrw{"wrr"}
+	gt		$tmp156 $tmp154 $tmp155 	%argrw{"wrr"}
+	neq		$tmp157 $tmp156 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	assign		$tmp153 $tmp157 	%line{10} %argrw{"wr"}
+	neq		$tmp158 $tmp153 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:11
+# 		return 1;
+	if		$tmp158 260 260 	%line{11} %argrw{"r"}
+	compref		$tmp159 ___326_pt $const4 	%argrw{"wrr"}
+	compref		$tmp160 $const31 $const4 	%argrw{"wrr"}
+	lt		$tmp161 $tmp159 $tmp160 	%argrw{"wrr"}
+	neq		$tmp162 $tmp161 $const1 	%argrw{"wrr"}
+	assign		$tmp158 $tmp162 	%argrw{"wr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	if		$tmp158 263 263 	%line{10} %argrw{"r"}
+# OSL\Digits.osl:12
+# 	
+	assign		$tmp142 $const4 	%line{12} %argrw{"wr"}
+	return
+# OSL\Digits.osl:14
+# }
+	assign		$tmp142 $const1 	%line{14} %argrw{"wr"}
+# OSL\Digits.osl:45
+# 	{
+	if		$tmp142 301 301 	%line{45} %argrw{"r"}
+# OSL\Digits.osl:47
+# 			return 1;
+	eq		$tmp163 $tmp34 $const24 	%line{47} %argrw{"wrr"}
+	neq		$tmp164 $tmp163 $const1 	%argrw{"wrr"}
+	if		$tmp164 268 271 	%argrw{"r"}
+	eq		$tmp165 $tmp34 $const25 	%argrw{"wrr"}
+	neq		$tmp166 $tmp165 $const1 	%argrw{"wrr"}
+	assign		$tmp164 $tmp166 	%argrw{"wr"}
+	neq		$tmp167 $tmp164 $const1 	%argrw{"wrr"}
+	if		$tmp167 273 276 	%argrw{"r"}
+	eq		$tmp168 $tmp34 $const32 	%argrw{"wrr"}
+	neq		$tmp169 $tmp168 $const1 	%argrw{"wrr"}
+	assign		$tmp167 $tmp169 	%argrw{"wr"}
+	neq		$tmp170 $tmp167 $const1 	%argrw{"wrr"}
+	if		$tmp170 278 281 	%argrw{"r"}
+	eq		$tmp171 $tmp34 $const26 	%argrw{"wrr"}
+	neq		$tmp172 $tmp171 $const1 	%argrw{"wrr"}
+	assign		$tmp170 $tmp172 	%argrw{"wr"}
+	neq		$tmp173 $tmp170 $const1 	%argrw{"wrr"}
+	if		$tmp173 283 286 	%argrw{"r"}
+	eq		$tmp174 $tmp34 $const27 	%argrw{"wrr"}
+	neq		$tmp175 $tmp174 $const1 	%argrw{"wrr"}
+	assign		$tmp173 $tmp175 	%argrw{"wr"}
+	neq		$tmp176 $tmp173 $const1 	%argrw{"wrr"}
+	if		$tmp176 288 291 	%argrw{"r"}
+	eq		$tmp177 $tmp34 $const28 	%argrw{"wrr"}
+	neq		$tmp178 $tmp177 $const1 	%argrw{"wrr"}
+	assign		$tmp176 $tmp178 	%argrw{"wr"}
+	neq		$tmp179 $tmp176 $const1 	%argrw{"wrr"}
+	if		$tmp179 293 296 	%argrw{"r"}
+	eq		$tmp180 $tmp34 $const29 	%argrw{"wrr"}
+	neq		$tmp181 $tmp180 $const1 	%argrw{"wrr"}
+	assign		$tmp179 $tmp181 	%argrw{"wr"}
+	if		$tmp179 299 301 	%argrw{"r"}
+# OSL\Digits.osl:48
+# 		else
+	assign		___338_x $const4 	%line{48} %argrw{"wr"}
+	return
+# OSL\Digits.osl:50
+# 	}
+	assign		___338_x $const1 	%line{50} %argrw{"wr"}
+	return
+# OSL\Digits.osl:53
+# 	{
+	functioncall	$const15 330 	%line{53} %argrw{"r"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	compref		$tmp185 ___326_pt $const1 	%line{10} %argrw{"wrr"}
+	compref		$tmp186 $const33 $const1 	%argrw{"wrr"}
+	gt		$tmp187 $tmp185 $tmp186 	%argrw{"wrr"}
+	neq		$tmp188 $tmp187 $const1 	%argrw{"wrr"}
+	if		$tmp188 312 312 	%argrw{"r"}
+	compref		$tmp189 ___326_pt $const1 	%argrw{"wrr"}
+	compref		$tmp190 $const34 $const1 	%argrw{"wrr"}
+	lt		$tmp191 $tmp189 $tmp190 	%argrw{"wrr"}
+	neq		$tmp192 $tmp191 $const1 	%argrw{"wrr"}
+	assign		$tmp188 $tmp192 	%argrw{"wr"}
+	neq		$tmp193 $tmp188 $const1 	%argrw{"wrr"}
+	if		$tmp193 319 319 	%argrw{"r"}
+# OSL\Digits.osl:11
+# 		return 1;
+	compref		$tmp194 ___326_pt $const4 	%line{11} %argrw{"wrr"}
+	compref		$tmp195 $const33 $const4 	%argrw{"wrr"}
+	gt		$tmp196 $tmp194 $tmp195 	%argrw{"wrr"}
+	neq		$tmp197 $tmp196 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	assign		$tmp193 $tmp197 	%line{10} %argrw{"wr"}
+	neq		$tmp198 $tmp193 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:11
+# 		return 1;
+	if		$tmp198 326 326 	%line{11} %argrw{"r"}
+	compref		$tmp199 ___326_pt $const4 	%argrw{"wrr"}
+	compref		$tmp200 $const34 $const4 	%argrw{"wrr"}
+	lt		$tmp201 $tmp199 $tmp200 	%argrw{"wrr"}
+	neq		$tmp202 $tmp201 $const1 	%argrw{"wrr"}
+	assign		$tmp198 $tmp202 	%argrw{"wr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	if		$tmp198 329 329 	%line{10} %argrw{"r"}
+# OSL\Digits.osl:12
+# 	
+	assign		$tmp182 $const4 	%line{12} %argrw{"wr"}
+	return
+# OSL\Digits.osl:14
+# }
+	assign		$tmp182 $const1 	%line{14} %argrw{"wr"}
+# OSL\Digits.osl:53
+# 	{
+	if		$tmp182 372 372 	%line{53} %argrw{"r"}
+# OSL\Digits.osl:55
+# 			return 1;
+	eq		$tmp203 $tmp34 $const24 	%line{55} %argrw{"wrr"}
+	neq		$tmp204 $tmp203 $const1 	%argrw{"wrr"}
+	if		$tmp204 334 337 	%argrw{"r"}
+	eq		$tmp205 $tmp34 $const25 	%argrw{"wrr"}
+	neq		$tmp206 $tmp205 $const1 	%argrw{"wrr"}
+	assign		$tmp204 $tmp206 	%argrw{"wr"}
+	neq		$tmp207 $tmp204 $const1 	%argrw{"wrr"}
+	if		$tmp207 339 342 	%argrw{"r"}
+	eq		$tmp208 $tmp34 $const26 	%argrw{"wrr"}
+	neq		$tmp209 $tmp208 $const1 	%argrw{"wrr"}
+	assign		$tmp207 $tmp209 	%argrw{"wr"}
+	neq		$tmp210 $tmp207 $const1 	%argrw{"wrr"}
+	if		$tmp210 344 347 	%argrw{"r"}
+	eq		$tmp211 $tmp34 $const27 	%argrw{"wrr"}
+	neq		$tmp212 $tmp211 $const1 	%argrw{"wrr"}
+	assign		$tmp210 $tmp212 	%argrw{"wr"}
+	neq		$tmp213 $tmp210 $const1 	%argrw{"wrr"}
+	if		$tmp213 349 352 	%argrw{"r"}
+	eq		$tmp214 $tmp34 $const35 	%argrw{"wrr"}
+	neq		$tmp215 $tmp214 $const1 	%argrw{"wrr"}
+	assign		$tmp213 $tmp215 	%argrw{"wr"}
+	neq		$tmp216 $tmp213 $const1 	%argrw{"wrr"}
+	if		$tmp216 354 357 	%argrw{"r"}
+	eq		$tmp217 $tmp34 $const28 	%argrw{"wrr"}
+	neq		$tmp218 $tmp217 $const1 	%argrw{"wrr"}
+	assign		$tmp216 $tmp218 	%argrw{"wr"}
+	neq		$tmp219 $tmp216 $const1 	%argrw{"wrr"}
+	if		$tmp219 359 362 	%argrw{"r"}
+	eq		$tmp220 $tmp34 $const29 	%argrw{"wrr"}
+	neq		$tmp221 $tmp220 $const1 	%argrw{"wrr"}
+	assign		$tmp219 $tmp221 	%argrw{"wr"}
+	neq		$tmp222 $tmp219 $const1 	%argrw{"wrr"}
+	if		$tmp222 364 367 	%argrw{"r"}
+	eq		$tmp223 $tmp34 $const1 	%argrw{"wrr"}
+	neq		$tmp224 $tmp223 $const1 	%argrw{"wrr"}
+	assign		$tmp222 $tmp224 	%argrw{"wr"}
+	if		$tmp222 370 372 	%argrw{"r"}
+# OSL\Digits.osl:56
+# 		else
+	assign		___338_x $const4 	%line{56} %argrw{"wr"}
+	return
+# OSL\Digits.osl:58
+# 	}
+	assign		___338_x $const1 	%line{58} %argrw{"wr"}
+	return
+# OSL\Digits.osl:61
+# 	{
+	functioncall	$const15 401 	%line{61} %argrw{"r"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	compref		$tmp228 ___326_pt $const1 	%line{10} %argrw{"wrr"}
+	compref		$tmp229 $const36 $const1 	%argrw{"wrr"}
+	gt		$tmp230 $tmp228 $tmp229 	%argrw{"wrr"}
+	neq		$tmp231 $tmp230 $const1 	%argrw{"wrr"}
+	if		$tmp231 383 383 	%argrw{"r"}
+	compref		$tmp232 ___326_pt $const1 	%argrw{"wrr"}
+	compref		$tmp233 $const30 $const1 	%argrw{"wrr"}
+	lt		$tmp234 $tmp232 $tmp233 	%argrw{"wrr"}
+	neq		$tmp235 $tmp234 $const1 	%argrw{"wrr"}
+	assign		$tmp231 $tmp235 	%argrw{"wr"}
+	neq		$tmp236 $tmp231 $const1 	%argrw{"wrr"}
+	if		$tmp236 390 390 	%argrw{"r"}
+# OSL\Digits.osl:11
+# 		return 1;
+	compref		$tmp237 ___326_pt $const4 	%line{11} %argrw{"wrr"}
+	compref		$tmp238 $const36 $const4 	%argrw{"wrr"}
+	gt		$tmp239 $tmp237 $tmp238 	%argrw{"wrr"}
+	neq		$tmp240 $tmp239 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	assign		$tmp236 $tmp240 	%line{10} %argrw{"wr"}
+	neq		$tmp241 $tmp236 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:11
+# 		return 1;
+	if		$tmp241 397 397 	%line{11} %argrw{"r"}
+	compref		$tmp242 ___326_pt $const4 	%argrw{"wrr"}
+	compref		$tmp243 $const30 $const4 	%argrw{"wrr"}
+	lt		$tmp244 $tmp242 $tmp243 	%argrw{"wrr"}
+	neq		$tmp245 $tmp244 $const1 	%argrw{"wrr"}
+	assign		$tmp241 $tmp245 	%argrw{"wr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	if		$tmp241 400 400 	%line{10} %argrw{"r"}
+# OSL\Digits.osl:12
+# 	
+	assign		$tmp225 $const4 	%line{12} %argrw{"wr"}
+	return
+# OSL\Digits.osl:14
+# }
+	assign		$tmp225 $const1 	%line{14} %argrw{"wr"}
+# OSL\Digits.osl:61
+# 	{
+	if		$tmp225 423 423 	%line{61} %argrw{"r"}
+# OSL\Digits.osl:63
+# 			return 1;
+	eq		$tmp246 $tmp34 $const24 	%line{63} %argrw{"wrr"}
+	neq		$tmp247 $tmp246 $const1 	%argrw{"wrr"}
+	if		$tmp247 405 408 	%argrw{"r"}
+	eq		$tmp248 $tmp34 $const27 	%argrw{"wrr"}
+	neq		$tmp249 $tmp248 $const1 	%argrw{"wrr"}
+	assign		$tmp247 $tmp249 	%argrw{"wr"}
+	neq		$tmp250 $tmp247 $const1 	%argrw{"wrr"}
+	if		$tmp250 410 413 	%argrw{"r"}
+	eq		$tmp251 $tmp34 $const28 	%argrw{"wrr"}
+	neq		$tmp252 $tmp251 $const1 	%argrw{"wrr"}
+	assign		$tmp250 $tmp252 	%argrw{"wr"}
+	neq		$tmp253 $tmp250 $const1 	%argrw{"wrr"}
+	if		$tmp253 415 418 	%argrw{"r"}
+	eq		$tmp254 $tmp34 $const1 	%argrw{"wrr"}
+	neq		$tmp255 $tmp254 $const1 	%argrw{"wrr"}
+	assign		$tmp253 $tmp255 	%argrw{"wr"}
+	if		$tmp253 421 423 	%argrw{"r"}
+# OSL\Digits.osl:64
+# 		else
+	assign		___338_x $const4 	%line{64} %argrw{"wr"}
+	return
+# OSL\Digits.osl:66
+# 	}
+	assign		___338_x $const1 	%line{66} %argrw{"wr"}
+	return
+# OSL\Digits.osl:69
+# 	{
+	functioncall	$const15 452 	%line{69} %argrw{"r"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	compref		$tmp259 ___326_pt $const1 	%line{10} %argrw{"wrr"}
+	compref		$tmp260 $const37 $const1 	%argrw{"wrr"}
+	gt		$tmp261 $tmp259 $tmp260 	%argrw{"wrr"}
+	neq		$tmp262 $tmp261 $const1 	%argrw{"wrr"}
+	if		$tmp262 434 434 	%argrw{"r"}
+	compref		$tmp263 ___326_pt $const1 	%argrw{"wrr"}
+	compref		$tmp264 $const33 $const1 	%argrw{"wrr"}
+	lt		$tmp265 $tmp263 $tmp264 	%argrw{"wrr"}
+	neq		$tmp266 $tmp265 $const1 	%argrw{"wrr"}
+	assign		$tmp262 $tmp266 	%argrw{"wr"}
+	neq		$tmp267 $tmp262 $const1 	%argrw{"wrr"}
+	if		$tmp267 441 441 	%argrw{"r"}
+# OSL\Digits.osl:11
+# 		return 1;
+	compref		$tmp268 ___326_pt $const4 	%line{11} %argrw{"wrr"}
+	compref		$tmp269 $const37 $const4 	%argrw{"wrr"}
+	gt		$tmp270 $tmp268 $tmp269 	%argrw{"wrr"}
+	neq		$tmp271 $tmp270 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	assign		$tmp267 $tmp271 	%line{10} %argrw{"wr"}
+	neq		$tmp272 $tmp267 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:11
+# 		return 1;
+	if		$tmp272 448 448 	%line{11} %argrw{"r"}
+	compref		$tmp273 ___326_pt $const4 	%argrw{"wrr"}
+	compref		$tmp274 $const33 $const4 	%argrw{"wrr"}
+	lt		$tmp275 $tmp273 $tmp274 	%argrw{"wrr"}
+	neq		$tmp276 $tmp275 $const1 	%argrw{"wrr"}
+	assign		$tmp272 $tmp276 	%argrw{"wr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	if		$tmp272 451 451 	%line{10} %argrw{"r"}
+# OSL\Digits.osl:12
+# 	
+	assign		$tmp256 $const4 	%line{12} %argrw{"wr"}
+	return
+# OSL\Digits.osl:14
+# }
+	assign		$tmp256 $const1 	%line{14} %argrw{"wr"}
+# OSL\Digits.osl:69
+# 	{
+	if		$tmp256 484 484 	%line{69} %argrw{"r"}
+# OSL\Digits.osl:71
+# 			return 1;
+	eq		$tmp277 $tmp34 $const32 	%line{71} %argrw{"wrr"}
+	neq		$tmp278 $tmp277 $const1 	%argrw{"wrr"}
+	if		$tmp278 456 459 	%argrw{"r"}
+	eq		$tmp279 $tmp34 $const26 	%argrw{"wrr"}
+	neq		$tmp280 $tmp279 $const1 	%argrw{"wrr"}
+	assign		$tmp278 $tmp280 	%argrw{"wr"}
+	neq		$tmp281 $tmp278 $const1 	%argrw{"wrr"}
+	if		$tmp281 461 464 	%argrw{"r"}
+	eq		$tmp282 $tmp34 $const27 	%argrw{"wrr"}
+	neq		$tmp283 $tmp282 $const1 	%argrw{"wrr"}
+	assign		$tmp281 $tmp283 	%argrw{"wr"}
+	neq		$tmp284 $tmp281 $const1 	%argrw{"wrr"}
+	if		$tmp284 466 469 	%argrw{"r"}
+	eq		$tmp285 $tmp34 $const28 	%argrw{"wrr"}
+	neq		$tmp286 $tmp285 $const1 	%argrw{"wrr"}
+	assign		$tmp284 $tmp286 	%argrw{"wr"}
+	neq		$tmp287 $tmp284 $const1 	%argrw{"wrr"}
+	if		$tmp287 471 474 	%argrw{"r"}
+	eq		$tmp288 $tmp34 $const29 	%argrw{"wrr"}
+	neq		$tmp289 $tmp288 $const1 	%argrw{"wrr"}
+	assign		$tmp287 $tmp289 	%argrw{"wr"}
+	neq		$tmp290 $tmp287 $const1 	%argrw{"wrr"}
+	if		$tmp290 476 479 	%argrw{"r"}
+	eq		$tmp291 $tmp34 $const1 	%argrw{"wrr"}
+	neq		$tmp292 $tmp291 $const1 	%argrw{"wrr"}
+	assign		$tmp290 $tmp292 	%argrw{"wr"}
+	if		$tmp290 482 484 	%argrw{"r"}
+# OSL\Digits.osl:72
+# 		else
+	assign		___338_x $const4 	%line{72} %argrw{"wr"}
+	return
+# OSL\Digits.osl:74
+# 	}
+	assign		___338_x $const1 	%line{74} %argrw{"wr"}
+	return
+# OSL\Digits.osl:77
+# 	{
+	functioncall	$const15 513 	%line{77} %argrw{"r"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	compref		$tmp296 ___326_pt $const1 	%line{10} %argrw{"wrr"}
+	compref		$tmp297 $const23 $const1 	%argrw{"wrr"}
+	gt		$tmp298 $tmp296 $tmp297 	%argrw{"wrr"}
+	neq		$tmp299 $tmp298 $const1 	%argrw{"wrr"}
+	if		$tmp299 495 495 	%argrw{"r"}
+	compref		$tmp300 ___326_pt $const1 	%argrw{"wrr"}
+	compref		$tmp301 $const38 $const1 	%argrw{"wrr"}
+	lt		$tmp302 $tmp300 $tmp301 	%argrw{"wrr"}
+	neq		$tmp303 $tmp302 $const1 	%argrw{"wrr"}
+	assign		$tmp299 $tmp303 	%argrw{"wr"}
+	neq		$tmp304 $tmp299 $const1 	%argrw{"wrr"}
+	if		$tmp304 502 502 	%argrw{"r"}
+# OSL\Digits.osl:11
+# 		return 1;
+	compref		$tmp305 ___326_pt $const4 	%line{11} %argrw{"wrr"}
+	compref		$tmp306 $const23 $const4 	%argrw{"wrr"}
+	gt		$tmp307 $tmp305 $tmp306 	%argrw{"wrr"}
+	neq		$tmp308 $tmp307 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	assign		$tmp304 $tmp308 	%line{10} %argrw{"wr"}
+	neq		$tmp309 $tmp304 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:11
+# 		return 1;
+	if		$tmp309 509 509 	%line{11} %argrw{"r"}
+	compref		$tmp310 ___326_pt $const4 	%argrw{"wrr"}
+	compref		$tmp311 $const38 $const4 	%argrw{"wrr"}
+	lt		$tmp312 $tmp310 $tmp311 	%argrw{"wrr"}
+	neq		$tmp313 $tmp312 $const1 	%argrw{"wrr"}
+	assign		$tmp309 $tmp313 	%argrw{"wr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	if		$tmp309 512 512 	%line{10} %argrw{"r"}
+# OSL\Digits.osl:12
+# 	
+	assign		$tmp293 $const4 	%line{12} %argrw{"wr"}
+	return
+# OSL\Digits.osl:14
+# }
+	assign		$tmp293 $const1 	%line{14} %argrw{"wr"}
+# OSL\Digits.osl:77
+# 	{
+	if		$tmp293 560 560 	%line{77} %argrw{"r"}
+# OSL\Digits.osl:79
+# 			return 1;
+	eq		$tmp314 $tmp34 $const4 	%line{79} %argrw{"wrr"}
+	neq		$tmp315 $tmp314 $const1 	%argrw{"wrr"}
+	if		$tmp315 517 520 	%argrw{"r"}
+	eq		$tmp316 $tmp34 $const25 	%argrw{"wrr"}
+	neq		$tmp317 $tmp316 $const1 	%argrw{"wrr"}
+	assign		$tmp315 $tmp317 	%argrw{"wr"}
+	neq		$tmp318 $tmp315 $const1 	%argrw{"wrr"}
+	if		$tmp318 522 525 	%argrw{"r"}
+	eq		$tmp319 $tmp34 $const32 	%argrw{"wrr"}
+	neq		$tmp320 $tmp319 $const1 	%argrw{"wrr"}
+	assign		$tmp318 $tmp320 	%argrw{"wr"}
+	neq		$tmp321 $tmp318 $const1 	%argrw{"wrr"}
+	if		$tmp321 527 530 	%argrw{"r"}
+	eq		$tmp322 $tmp34 $const26 	%argrw{"wrr"}
+	neq		$tmp323 $tmp322 $const1 	%argrw{"wrr"}
+	assign		$tmp321 $tmp323 	%argrw{"wr"}
+	neq		$tmp324 $tmp321 $const1 	%argrw{"wrr"}
+	if		$tmp324 532 535 	%argrw{"r"}
+	eq		$tmp325 $tmp34 $const27 	%argrw{"wrr"}
+	neq		$tmp326 $tmp325 $const1 	%argrw{"wrr"}
+	assign		$tmp324 $tmp326 	%argrw{"wr"}
+	neq		$tmp327 $tmp324 $const1 	%argrw{"wrr"}
+	if		$tmp327 537 540 	%argrw{"r"}
+	eq		$tmp328 $tmp34 $const35 	%argrw{"wrr"}
+	neq		$tmp329 $tmp328 $const1 	%argrw{"wrr"}
+	assign		$tmp327 $tmp329 	%argrw{"wr"}
+	neq		$tmp330 $tmp327 $const1 	%argrw{"wrr"}
+	if		$tmp330 542 545 	%argrw{"r"}
+	eq		$tmp331 $tmp34 $const28 	%argrw{"wrr"}
+	neq		$tmp332 $tmp331 $const1 	%argrw{"wrr"}
+	assign		$tmp330 $tmp332 	%argrw{"wr"}
+	neq		$tmp333 $tmp330 $const1 	%argrw{"wrr"}
+	if		$tmp333 547 550 	%argrw{"r"}
+	eq		$tmp334 $tmp34 $const29 	%argrw{"wrr"}
+	neq		$tmp335 $tmp334 $const1 	%argrw{"wrr"}
+	assign		$tmp333 $tmp335 	%argrw{"wr"}
+	neq		$tmp336 $tmp333 $const1 	%argrw{"wrr"}
+	if		$tmp336 552 555 	%argrw{"r"}
+	eq		$tmp337 $tmp34 $const1 	%argrw{"wrr"}
+	neq		$tmp338 $tmp337 $const1 	%argrw{"wrr"}
+	assign		$tmp336 $tmp338 	%argrw{"wr"}
+	if		$tmp336 558 560 	%argrw{"r"}
+# OSL\Digits.osl:80
+# 		else
+	assign		___338_x $const4 	%line{80} %argrw{"wr"}
+	return
+# OSL\Digits.osl:82
+# 	}
+	assign		___338_x $const1 	%line{82} %argrw{"wr"}
+	return
+# OSL\Digits.osl:85
+# 	{
+	functioncall	$const15 589 	%line{85} %argrw{"r"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	compref		$tmp342 ___326_pt $const1 	%line{10} %argrw{"wrr"}
+	compref		$tmp343 $const31 $const1 	%argrw{"wrr"}
+	gt		$tmp344 $tmp342 $tmp343 	%argrw{"wrr"}
+	neq		$tmp345 $tmp344 $const1 	%argrw{"wrr"}
+	if		$tmp345 571 571 	%argrw{"r"}
+	compref		$tmp346 ___326_pt $const1 	%argrw{"wrr"}
+	compref		$tmp347 $const39 $const1 	%argrw{"wrr"}
+	lt		$tmp348 $tmp346 $tmp347 	%argrw{"wrr"}
+	neq		$tmp349 $tmp348 $const1 	%argrw{"wrr"}
+	assign		$tmp345 $tmp349 	%argrw{"wr"}
+	neq		$tmp350 $tmp345 $const1 	%argrw{"wrr"}
+	if		$tmp350 578 578 	%argrw{"r"}
+# OSL\Digits.osl:11
+# 		return 1;
+	compref		$tmp351 ___326_pt $const4 	%line{11} %argrw{"wrr"}
+	compref		$tmp352 $const31 $const4 	%argrw{"wrr"}
+	gt		$tmp353 $tmp351 $tmp352 	%argrw{"wrr"}
+	neq		$tmp354 $tmp353 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	assign		$tmp350 $tmp354 	%line{10} %argrw{"wr"}
+	neq		$tmp355 $tmp350 $const1 	%argrw{"wrr"}
+# OSL\Digits.osl:11
+# 		return 1;
+	if		$tmp355 585 585 	%line{11} %argrw{"r"}
+	compref		$tmp356 ___326_pt $const4 	%argrw{"wrr"}
+	compref		$tmp357 $const39 $const4 	%argrw{"wrr"}
+	lt		$tmp358 $tmp356 $tmp357 	%argrw{"wrr"}
+	neq		$tmp359 $tmp358 $const1 	%argrw{"wrr"}
+	assign		$tmp355 $tmp359 	%argrw{"wr"}
+# OSL\Digits.osl:10
+# 		pt[1] > start[1] && pt[1] < end[1])
+	if		$tmp355 588 588 	%line{10} %argrw{"r"}
+# OSL\Digits.osl:12
+# 	
+	assign		$tmp339 $const4 	%line{12} %argrw{"wr"}
+	return
+# OSL\Digits.osl:14
+# }
+	assign		$tmp339 $const1 	%line{14} %argrw{"wr"}
+# OSL\Digits.osl:85
+# 	{
+	if		$tmp339 631 631 	%line{85} %argrw{"r"}
+# OSL\Digits.osl:87
+# 			return 1;
+	eq		$tmp360 $tmp34 $const4 	%line{87} %argrw{"wrr"}
+	neq		$tmp361 $tmp360 $const1 	%argrw{"wrr"}
+	if		$tmp361 593 596 	%argrw{"r"}
+	eq		$tmp362 $tmp34 $const24 	%argrw{"wrr"}
+	neq		$tmp363 $tmp362 $const1 	%argrw{"wrr"}
+	assign		$tmp361 $tmp363 	%argrw{"wr"}
+	neq		$tmp364 $tmp361 $const1 	%argrw{"wrr"}
+	if		$tmp364 598 601 	%argrw{"r"}
+	eq		$tmp365 $tmp34 $const25 	%argrw{"wrr"}
+	neq		$tmp366 $tmp365 $const1 	%argrw{"wrr"}
+	assign		$tmp364 $tmp366 	%argrw{"wr"}
+	neq		$tmp367 $tmp364 $const1 	%argrw{"wrr"}
+	if		$tmp367 603 606 	%argrw{"r"}
+	eq		$tmp368 $tmp34 $const32 	%argrw{"wrr"}
+	neq		$tmp369 $tmp368 $const1 	%argrw{"wrr"}
+	assign		$tmp367 $tmp369 	%argrw{"wr"}
+	neq		$tmp370 $tmp367 $const1 	%argrw{"wrr"}
+	if		$tmp370 608 611 	%argrw{"r"}
+	eq		$tmp371 $tmp34 $const35 	%argrw{"wrr"}
+	neq		$tmp372 $tmp371 $const1 	%argrw{"wrr"}
+	assign		$tmp370 $tmp372 	%argrw{"wr"}
+	neq		$tmp373 $tmp370 $const1 	%argrw{"wrr"}
+	if		$tmp373 613 616 	%argrw{"r"}
+	eq		$tmp374 $tmp34 $const28 	%argrw{"wrr"}
+	neq		$tmp375 $tmp374 $const1 	%argrw{"wrr"}
+	assign		$tmp373 $tmp375 	%argrw{"wr"}
+	neq		$tmp376 $tmp373 $const1 	%argrw{"wrr"}
+	if		$tmp376 618 621 	%argrw{"r"}
+	eq		$tmp377 $tmp34 $const29 	%argrw{"wrr"}
+	neq		$tmp378 $tmp377 $const1 	%argrw{"wrr"}
+	assign		$tmp376 $tmp378 	%argrw{"wr"}
+	neq		$tmp379 $tmp376 $const1 	%argrw{"wrr"}
+	if		$tmp379 623 626 	%argrw{"r"}
+	eq		$tmp380 $tmp34 $const1 	%argrw{"wrr"}
+	neq		$tmp381 $tmp380 $const1 	%argrw{"wrr"}
+	assign		$tmp379 $tmp381 	%argrw{"wr"}
+	if		$tmp379 629 631 	%argrw{"r"}
+# OSL\Digits.osl:88
+# 		else
+	assign		___338_x $const4 	%line{88} %argrw{"wr"}
+	return
+# OSL\Digits.osl:90
+# 	}
+	assign		___338_x $const1 	%line{90} %argrw{"wr"}
+	return
+# OSL\Digits.osl:93
+# }
+	assign		___338_x $const19 	%line{93} %argrw{"wr"}
+# OSL\Digits.osl:151
+# 			{
+	eq		$tmp382 ___338_x $const1 	%line{151} %argrw{"wrr"}
+	neq		$tmp383 $tmp382 $const1 	%argrw{"wrr"}
+	if		$tmp383 637 637 	%argrw{"r"}
+	neq		$tmp384 UseOffColor $const1 	%argrw{"wrr"}
+	assign		$tmp383 $tmp384 	%argrw{"wr"}
+	if		$tmp383 640 640 	%argrw{"r"}
+# OSL\Digits.osl:153
+# 				Fac = 1.0;
+	assign		Out OffColor 	%line{153} %argrw{"wr"}
+# OSL\Digits.osl:154
+# 			}
+	assign		Fac $const40 	%line{154} %argrw{"wr"}
+# OSL\Digits.osl:156
+# 			{
+	eq		$tmp385 ___338_x $const4 	%line{156} %argrw{"wrr"}
+	if		$tmp385 644 644 	%argrw{"r"}
+# OSL\Digits.osl:158
+# 				Fac = 1.0;
+	assign		Out OnColor 	%line{158} %argrw{"wr"}
+# OSL\Digits.osl:159
+# 			}
+	assign		Fac $const40 	%line{159} %argrw{"wr"}
+# OSL\Digits.osl:162
+# 		
+	div		number number $const9 	%line{162} %argrw{"wrr"}
+# OSL\Digits.osl:164
+# 		}
+	add		px px $const41 	%line{164} %argrw{"wrr"}
+# OSL\Digits.osl:147
+# 		{
+	assign		$tmp387 ___337_i 	%line{147} %argrw{"wr"}
+	add		___337_i ___337_i $const4 	%argrw{"wrr"}
+	end

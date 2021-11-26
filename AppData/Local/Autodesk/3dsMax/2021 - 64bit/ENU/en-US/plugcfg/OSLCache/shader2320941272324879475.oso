@@ -1,0 +1,508 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader FloatCurves	%meta{string,label,"Curves (float)"} %meta{string,help,"<h3>Curves</h3> Transform an input using an arbitrary curve. An incoming float value is transformed to an outgoing value defined by the curve. "} %meta{string,version,"1.0"} 
+param	int[]	interpolation	2 2		%meta{string,widget,"max:ramp0"} %meta{string,interpolation,"interpolation"} %meta{string,position,"position"} %meta{string,values,"values"} %meta{int,connectable,0}  %read{39,39} %write{2147483647,-1}
+param	float[]	values	0 1		%meta{string,widget,"null"} %meta{int,connectable,0}  %read{7,185} %write{2147483647,-1}
+param	float[]	position	0 1		%meta{string,widget,"null"} %meta{int,connectable,0}  %read{2,111} %write{2147483647,-1}
+param	float	Input	0		%read{5,50} %write{0,0} %initexpr
+oparam	float	Out	0		%read{2147483647,-1} %write{7,186}
+global	float	u	%read{0,0} %write{2147483647,-1}
+local	int	___325_l	%read{3,3} %write{2,2}
+local	int	___325_last	%read{11,143} %write{3,3}
+local	int	___325_i	%read{11,34} %write{10,25}
+local	int	___325_i0	%read{71,114} %write{31,31}
+local	int	___325_i1	%read{37,184} %write{32,32}
+local	int	___325_i2	%read{36,185} %write{33,33}
+local	int	___325_i3	%read{74,121} %write{35,35}
+local	float	___325_delta	%read{40,51} %write{38,38}
+local	int	___325_interp	%read{43,100} %write{39,39}
+local	float	___325_along	%read{56,186} %write{51,51}
+local	float	___328_M12	%read{75,75} %write{60,60}
+local	float	___328_M21	%read{76,76} %write{61,61}
+local	float	___328_M23	%read{77,77} %write{62,62}
+local	float	___328_M31	%read{79,79} %write{63,63}
+local	float	___328_M32	%read{80,80} %write{64,64}
+local	float	___328_M33	%read{82,82} %write{65,65}
+local	float	___328_M34	%read{84,84} %write{66,66}
+local	float	___328_M41	%read{86,86} %write{67,67}
+local	float	___328_M42	%read{87,87} %write{68,68}
+local	float	___328_M43	%read{89,89} %write{69,69}
+local	float	___328_M44	%read{91,91} %write{70,70}
+local	float	___328_v0	%read{76,86} %write{71,71}
+local	float	___328_v1	%read{75,87} %write{72,72}
+local	float	___328_v2	%read{77,89} %write{73,73}
+local	float	___328_v3	%read{84,91} %write{74,74}
+local	float	___328_c1	%read{98,98} %write{75,75}
+local	float	___328_c2	%read{96,96} %write{78,78}
+local	float	___328_c3	%read{94,94} %write{85,85}
+local	float	___328_c4	%read{93,93} %write{92,92}
+local	float	___329_i1_tangent	%read{164,177} %write{102,142}
+local	float	___329_i2_tangent	%read{166,168} %write{103,160}
+local	float	___329_i0_interval	%read{116,138} %write{106,106}
+local	float	___329_i1_interval	%read{120,173} %write{109,109}
+local	float	___329_i2_interval	%read{124,157} %write{112,112}
+local	float	___329_i0_delta	%read{128,137} %write{116,116}
+local	float	___329_i1_delta	%read{128,162} %write{120,120}
+local	float	___329_i2_delta	%read{146,158} %write{124,124}
+local	float	___329_invint	%read{167,172} %write{161,161}
+local	float	___329_si	%read{163,169} %write{162,162}
+local	float	___329_ci	%read{179,179} %write{167,167}
+local	float	___329_di	%read{181,181} %write{172,172}
+local	float	___329_t	%read{174,177} %write{173,173}
+local	float	___329_t2	%read{175,179} %write{174,174}
+local	float	___329_t3	%read{181,181} %write{175,175}
+const	string	$const1	"interpolate"		%read{1,1} %write{2147483647,-1}
+const	int	$const2	1		%read{3,52} %write{2147483647,-1}
+const	int	$const3	0		%read{4,148} %write{2147483647,-1}
+temp	float	$tmp1	%read{5,5} %write{4,4}
+temp	int	$tmp2	%read{6,6} %write{5,5}
+temp	int	$tmp3	%read{11,25} %write{11,25}
+temp	int	$tmp4	%read{9,25} %write{10,25}
+temp	float	$tmp5	%read{11,25} %write{11,25}
+temp	int	$tmp6	%read{11,25} %write{11,25}
+temp	int	$tmp7	%read{11,25} %write{11,25}
+temp	int	$tmp8	%read{11,25} %write{11,25}
+temp	float	$tmp9	%read{11,25} %write{11,25}
+temp	int	$tmp10	%read{11,25} %write{11,25}
+temp	int	$tmp11	%read{11,25} %write{11,25}
+temp	int	$tmp12	%read{2147483647,-1} %write{11,25}
+temp	int	$tmp13	%read{27,27} %write{26,26}
+temp	int	$tmp14	%read{31,31} %write{30,30}
+const	int	$const4	2		%read{34,58} %write{2147483647,-1}
+temp	int	$tmp15	%read{35,35} %write{34,34}
+temp	float	$tmp16	%read{38,38} %write{36,36}
+temp	float	$tmp17	%read{38,38} %write{37,37}
+const	float	$const5	0		%read{40,147} %write{2147483647,-1}
+temp	int	$tmp18	%read{41,41} %write{40,40}
+temp	int	$tmp19	%read{42,46} %write{41,45}
+temp	int	$tmp20	%read{44,44} %write{43,43}
+temp	int	$tmp21	%read{45,45} %write{44,44}
+temp	float	$tmp22	%read{50,50} %write{49,49}
+temp	float	$tmp23	%read{51,51} %write{50,50}
+temp	int	$tmp24	%read{53,53} %write{52,52}
+temp	float	$tmp25	%read{56,56} %write{54,54}
+temp	float	$tmp26	%read{56,56} %write{55,55}
+temp	int	$tmp27	%read{59,59} %write{58,58}
+const	float	$const6	1		%read{60,161} %write{2147483647,-1}
+const	float	$const7	-0.5		%read{61,67} %write{2147483647,-1}
+const	float	$const8	0.5		%read{62,70} %write{2147483647,-1}
+const	float	$const9	-2.5		%read{64,64} %write{2147483647,-1}
+const	float	$const10	2		%read{65,169} %write{2147483647,-1}
+const	float	$const11	1.5		%read{68,68} %write{2147483647,-1}
+const	float	$const12	-1.5		%read{69,69} %write{2147483647,-1}
+temp	float	$tmp28	%read{78,78} %write{76,76}
+temp	float	$tmp29	%read{78,78} %write{77,77}
+temp	float	$tmp30	%read{81,81} %write{79,79}
+temp	float	$tmp31	%read{81,81} %write{80,80}
+temp	float	$tmp32	%read{83,83} %write{81,81}
+temp	float	$tmp33	%read{83,83} %write{82,82}
+temp	float	$tmp34	%read{85,85} %write{83,83}
+temp	float	$tmp35	%read{85,85} %write{84,84}
+temp	float	$tmp36	%read{88,88} %write{86,86}
+temp	float	$tmp37	%read{88,88} %write{87,87}
+temp	float	$tmp38	%read{90,90} %write{88,88}
+temp	float	$tmp39	%read{90,90} %write{89,89}
+temp	float	$tmp40	%read{92,92} %write{90,90}
+temp	float	$tmp41	%read{92,92} %write{91,91}
+temp	float	$tmp42	%read{94,94} %write{93,93}
+temp	float	$tmp43	%read{95,95} %write{94,94}
+temp	float	$tmp44	%read{96,96} %write{95,95}
+temp	float	$tmp45	%read{97,97} %write{96,96}
+temp	float	$tmp46	%read{98,98} %write{97,97}
+const	int	$const13	3		%read{100,100} %write{2147483647,-1}
+temp	int	$tmp47	%read{101,101} %write{100,100}
+temp	float	$tmp48	%read{106,106} %write{104,104}
+temp	float	$tmp49	%read{106,106} %write{105,105}
+temp	float	$tmp50	%read{109,109} %write{107,107}
+temp	float	$tmp51	%read{109,109} %write{108,108}
+temp	float	$tmp52	%read{112,112} %write{110,110}
+temp	float	$tmp53	%read{112,112} %write{111,111}
+temp	float	$tmp54	%read{115,115} %write{113,113}
+temp	float	$tmp55	%read{115,115} %write{114,114}
+temp	float	$tmp56	%read{116,116} %write{115,115}
+temp	float	$tmp57	%read{119,119} %write{117,117}
+temp	float	$tmp58	%read{119,119} %write{118,118}
+temp	float	$tmp59	%read{120,120} %write{119,119}
+temp	float	$tmp60	%read{123,123} %write{121,121}
+temp	float	$tmp61	%read{123,123} %write{122,122}
+temp	float	$tmp62	%read{124,124} %write{123,123}
+temp	int	$tmp63	%read{126,126} %write{125,125}
+temp	int	$tmp64	%read{127,132} %write{126,131}
+temp	float	$tmp65	%read{129,129} %write{128,128}
+temp	int	$tmp66	%read{130,130} %write{129,129}
+temp	int	$tmp67	%read{131,131} %write{130,130}
+const	float	$const14	3		%read{134,163} %write{2147483647,-1}
+temp	float	$tmp68	%read{134,134} %write{133,133}
+temp	float	$tmp69	%read{142,142} %write{134,134}
+temp	float	$tmp70	%read{136,136} %write{135,135}
+temp	float	$tmp71	%read{137,137} %write{136,136}
+temp	float	$tmp72	%read{141,141} %write{137,137}
+temp	float	$tmp73	%read{139,139} %write{138,138}
+temp	float	$tmp74	%read{140,140} %write{139,139}
+temp	float	$tmp75	%read{141,141} %write{140,140}
+temp	float	$tmp76	%read{142,142} %write{141,141}
+temp	int	$tmp77	%read{144,144} %write{143,143}
+temp	int	$tmp78	%read{145,150} %write{144,149}
+temp	float	$tmp79	%read{147,147} %write{146,146}
+temp	int	$tmp80	%read{148,148} %write{147,147}
+temp	int	$tmp81	%read{149,149} %write{148,148}
+temp	float	$tmp82	%read{152,152} %write{151,151}
+temp	float	$tmp83	%read{160,160} %write{152,152}
+temp	float	$tmp84	%read{154,154} %write{153,153}
+temp	float	$tmp85	%read{155,155} %write{154,154}
+temp	float	$tmp86	%read{159,159} %write{155,155}
+temp	float	$tmp87	%read{157,157} %write{156,156}
+temp	float	$tmp88	%read{158,158} %write{157,157}
+temp	float	$tmp89	%read{159,159} %write{158,158}
+temp	float	$tmp90	%read{160,160} %write{159,159}
+temp	float	$tmp91	%read{165,165} %write{163,163}
+temp	float	$tmp92	%read{165,165} %write{164,164}
+temp	float	$tmp93	%read{166,166} %write{165,165}
+temp	float	$tmp94	%read{167,167} %write{166,166}
+temp	float	$tmp95	%read{170,170} %write{168,168}
+temp	float	$tmp96	%read{170,170} %write{169,169}
+temp	float	$tmp97	%read{171,171} %write{170,170}
+temp	float	$tmp98	%read{172,172} %write{171,171}
+temp	float	$tmp99	%read{178,178} %write{176,176}
+temp	float	$tmp100	%read{178,178} %write{177,177}
+temp	float	$tmp101	%read{180,180} %write{178,178}
+temp	float	$tmp102	%read{180,180} %write{179,179}
+temp	float	$tmp103	%read{182,182} %write{180,180}
+temp	float	$tmp104	%read{182,182} %write{181,181}
+temp	float	$tmp105	%read{186,186} %write{184,184}
+temp	float	$tmp106	%read{186,186} %write{185,185}
+code Input
+# OSL\FloatCurves.osl:145
+# 	 
+	assign		Input u 	%filename{"OSL\FloatCurves.osl"} %line{145} %argrw{"wr"}
+code ___main___
+# OSL\FloatCurves.osl:151
+# 
+	functioncall	$const1 187 	%filename{"OSL\FloatCurves.osl"} %line{151} %argrw{"r"}
+# OSL\FloatCurves.osl:10
+# 	int last = l-1;
+	arraylength	___325_l position 	%line{10} %argrw{"wr"}
+# OSL\FloatCurves.osl:11
+# 
+	sub		___325_last ___325_l $const2 	%line{11} %argrw{"wrr"}
+# OSL\FloatCurves.osl:14
+# 		return values[0];
+	aref		$tmp1 position $const3 	%line{14} %argrw{"wrr"}
+	lt		$tmp2 Input $tmp1 	%argrw{"wrr"}
+	if		$tmp2 9 9 	%argrw{"r"}
+# OSL\FloatCurves.osl:15
+# 
+	aref		Out values $const3 	%line{15} %argrw{"wrr"}
+	return
+# OSL\FloatCurves.osl:19
+# 	{
+	for		$tmp4 11 13 24 26 	%line{19} %argrw{"r"}
+	assign		___325_i $const3 	%argrw{"wr"}
+	lt		$tmp3 ___325_i ___325_last 	%argrw{"wrr"}
+	neq		$tmp4 $tmp3 $const3 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:21
+# 			break;
+	aref		$tmp5 position ___325_i 	%line{21} %argrw{"wrr"}
+	ge		$tmp6 Input $tmp5 	%argrw{"wrr"}
+	neq		$tmp7 $tmp6 $const3 	%argrw{"wrr"}
+	if		$tmp7 22 22 	%argrw{"r"}
+	add		$tmp8 ___325_i $const2 	%argrw{"wrr"}
+	aref		$tmp9 position $tmp8 	%argrw{"wrr"}
+	lt		$tmp10 Input $tmp9 	%argrw{"wrr"}
+	neq		$tmp11 $tmp10 $const3 	%argrw{"wrr"}
+	assign		$tmp7 $tmp11 	%argrw{"wr"}
+	if		$tmp7 24 24 	%argrw{"r"}
+# OSL\FloatCurves.osl:22
+# 	}
+	break	%line{22}
+# OSL\FloatCurves.osl:19
+# 	{
+	assign		$tmp12 ___325_i 	%line{19} %argrw{"wr"}
+	add		___325_i ___325_i $const2 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:26
+# 		return values[last];
+	ge		$tmp13 ___325_i ___325_last 	%line{26} %argrw{"wrr"}
+	if		$tmp13 30 30 	%argrw{"r"}
+# OSL\FloatCurves.osl:27
+# 		
+	aref		Out values ___325_last 	%line{27} %argrw{"wrr"}
+	return
+# OSL\FloatCurves.osl:29
+# 	int i1 = i;
+	sub		$tmp14 ___325_i $const2 	%line{29} %argrw{"wrr"}
+	max		___325_i0 $const3 $tmp14 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:30
+# 	int i2 = i+1;
+	assign		___325_i1 ___325_i 	%line{30} %argrw{"wr"}
+# OSL\FloatCurves.osl:31
+# 	int i3 = min(last, i+2);
+	add		___325_i2 ___325_i $const2 	%line{31} %argrw{"wrr"}
+# OSL\FloatCurves.osl:32
+# 	
+	add		$tmp15 ___325_i $const4 	%line{32} %argrw{"wrr"}
+	min		___325_i3 ___325_last $tmp15 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:34
+# 
+	aref		$tmp16 position ___325_i2 	%line{34} %argrw{"wrr"}
+	aref		$tmp17 position ___325_i1 	%argrw{"wrr"}
+	sub		___325_delta $tmp16 $tmp17 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:37
+# 
+	aref		___325_interp interpolation ___325_i1 	%line{37} %argrw{"wrr"}
+# OSL\FloatCurves.osl:40
+# 		return values[i1];
+	le		$tmp18 ___325_delta $const5 	%line{40} %argrw{"wrr"}
+	neq		$tmp19 $tmp18 $const3 	%argrw{"wrr"}
+	if		$tmp19 43 46 	%argrw{"r"}
+	eq		$tmp20 ___325_interp $const3 	%argrw{"wrr"}
+	neq		$tmp21 $tmp20 $const3 	%argrw{"wrr"}
+	assign		$tmp19 $tmp21 	%argrw{"wr"}
+	if		$tmp19 49 49 	%argrw{"r"}
+# OSL\FloatCurves.osl:41
+# 
+	aref		Out values ___325_i1 	%line{41} %argrw{"wrr"}
+	return
+# OSL\FloatCurves.osl:44
+# 
+	aref		$tmp22 position ___325_i1 	%line{44} %argrw{"wrr"}
+	sub		$tmp23 Input $tmp22 	%argrw{"wrr"}
+	div		___325_along $tmp23 ___325_delta 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:47
+# 		return mix(values[i1], values[i2], along);	
+	eq		$tmp24 ___325_interp $const2 	%line{47} %argrw{"wrr"}
+	if		$tmp24 58 58 	%argrw{"r"}
+# OSL\FloatCurves.osl:48
+# 	if (interp == 2)
+	aref		$tmp25 values ___325_i1 	%line{48} %argrw{"wrr"}
+	aref		$tmp26 values ___325_i2 	%argrw{"wrr"}
+	mix		Out $tmp25 $tmp26 ___325_along 	%argrw{"wrrr"}
+	return
+# OSL\FloatCurves.osl:49
+# 	{
+	eq		$tmp27 ___325_interp $const4 	%line{49} %argrw{"wrr"}
+	if		$tmp27 100 100 	%argrw{"r"}
+# OSL\FloatCurves.osl:58
+# 		float M21 = -0.5;
+	assign		___328_M12 $const6 	%line{58} %argrw{"wr"}
+# OSL\FloatCurves.osl:59
+# 		float M23 =  0.5;
+	assign		___328_M21 $const7 	%line{59} %argrw{"wr"}
+# OSL\FloatCurves.osl:60
+# 		float M31 =  1.0;
+	assign		___328_M23 $const8 	%line{60} %argrw{"wr"}
+# OSL\FloatCurves.osl:61
+# 		float M32 = -2.5;
+	assign		___328_M31 $const6 	%line{61} %argrw{"wr"}
+# OSL\FloatCurves.osl:62
+# 		float M33 =  2.0;
+	assign		___328_M32 $const9 	%line{62} %argrw{"wr"}
+# OSL\FloatCurves.osl:63
+# 		float M34 = -0.5;
+	assign		___328_M33 $const10 	%line{63} %argrw{"wr"}
+# OSL\FloatCurves.osl:64
+# 		float M41 = -0.5;
+	assign		___328_M34 $const7 	%line{64} %argrw{"wr"}
+# OSL\FloatCurves.osl:65
+# 		float M42 =  1.5;
+	assign		___328_M41 $const7 	%line{65} %argrw{"wr"}
+# OSL\FloatCurves.osl:66
+# 		float M43 = -1.5;
+	assign		___328_M42 $const11 	%line{66} %argrw{"wr"}
+# OSL\FloatCurves.osl:67
+# 		float M44 =  0.5;
+	assign		___328_M43 $const12 	%line{67} %argrw{"wr"}
+# OSL\FloatCurves.osl:68
+# 
+	assign		___328_M44 $const8 	%line{68} %argrw{"wr"}
+# OSL\FloatCurves.osl:70
+# 		float v1 = values[i1];
+	aref		___328_v0 values ___325_i0 	%line{70} %argrw{"wrr"}
+# OSL\FloatCurves.osl:71
+# 		float v2 = values[i2];
+	aref		___328_v1 values ___325_i1 	%line{71} %argrw{"wrr"}
+# OSL\FloatCurves.osl:72
+# 		float v3 = values[i3];
+	aref		___328_v2 values ___325_i2 	%line{72} %argrw{"wrr"}
+# OSL\FloatCurves.osl:73
+# 
+	aref		___328_v3 values ___325_i3 	%line{73} %argrw{"wrr"}
+# OSL\FloatCurves.osl:75
+# 		float c2 = M21 * v0 + M23 * v2;
+	mul		___328_c1 ___328_M12 ___328_v1 	%line{75} %argrw{"wrr"}
+# OSL\FloatCurves.osl:76
+# 		float c3 = M31 * v0 + M32 * v1 + M33 * v2 + M34 * v3;
+	mul		$tmp28 ___328_M21 ___328_v0 	%line{76} %argrw{"wrr"}
+	mul		$tmp29 ___328_M23 ___328_v2 	%argrw{"wrr"}
+	add		___328_c2 $tmp28 $tmp29 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:77
+# 		float c4 = M41 * v0 + M42 * v1 + M43 * v2 + M44 * v3;
+	mul		$tmp30 ___328_M31 ___328_v0 	%line{77} %argrw{"wrr"}
+	mul		$tmp31 ___328_M32 ___328_v1 	%argrw{"wrr"}
+	add		$tmp32 $tmp30 $tmp31 	%argrw{"wrr"}
+	mul		$tmp33 ___328_M33 ___328_v2 	%argrw{"wrr"}
+	add		$tmp34 $tmp32 $tmp33 	%argrw{"wrr"}
+	mul		$tmp35 ___328_M34 ___328_v3 	%argrw{"wrr"}
+	add		___328_c3 $tmp34 $tmp35 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:78
+# 
+	mul		$tmp36 ___328_M41 ___328_v0 	%line{78} %argrw{"wrr"}
+	mul		$tmp37 ___328_M42 ___328_v1 	%argrw{"wrr"}
+	add		$tmp38 $tmp36 $tmp37 	%argrw{"wrr"}
+	mul		$tmp39 ___328_M43 ___328_v2 	%argrw{"wrr"}
+	add		$tmp40 $tmp38 $tmp39 	%argrw{"wrr"}
+	mul		$tmp41 ___328_M44 ___328_v3 	%argrw{"wrr"}
+	add		___328_c4 $tmp40 $tmp41 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:80
+# 	}
+	mul		$tmp42 ___328_c4 ___325_along 	%line{80} %argrw{"wrr"}
+	add		$tmp43 $tmp42 ___328_c3 	%argrw{"wrr"}
+	mul		$tmp44 $tmp43 ___325_along 	%argrw{"wrr"}
+	add		$tmp45 $tmp44 ___328_c2 	%argrw{"wrr"}
+	mul		$tmp46 $tmp45 ___325_along 	%argrw{"wrr"}
+	add		Out $tmp46 ___328_c1 	%argrw{"wrr"}
+	return
+# OSL\FloatCurves.osl:82
+# 	{
+	eq		$tmp47 ___325_interp $const13 	%line{82} %argrw{"wrr"}
+	if		$tmp47 184 184 	%argrw{"r"}
+# OSL\FloatCurves.osl:84
+# 		float i2_tangent = 0;
+	assign		___329_i1_tangent $const3 	%line{84} %argrw{"wr"}
+# OSL\FloatCurves.osl:85
+# 
+	assign		___329_i2_tangent $const3 	%line{85} %argrw{"wr"}
+# OSL\FloatCurves.osl:87
+# 		float i1_interval = position[i2] - position[i1];
+	aref		$tmp48 position ___325_i1 	%line{87} %argrw{"wrr"}
+	aref		$tmp49 position ___325_i0 	%argrw{"wrr"}
+	sub		___329_i0_interval $tmp48 $tmp49 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:88
+# 		float i2_interval = position[i3] - position[i2];
+	aref		$tmp50 position ___325_i2 	%line{88} %argrw{"wrr"}
+	aref		$tmp51 position ___325_i1 	%argrw{"wrr"}
+	sub		___329_i1_interval $tmp50 $tmp51 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:89
+# 
+	aref		$tmp52 position ___325_i3 	%line{89} %argrw{"wrr"}
+	aref		$tmp53 position ___325_i2 	%argrw{"wrr"}
+	sub		___329_i2_interval $tmp52 $tmp53 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:91
+# 		float i1_delta = (values[i2] - values[i1]) / i1_interval;		
+	aref		$tmp54 values ___325_i1 	%line{91} %argrw{"wrr"}
+	aref		$tmp55 values ___325_i0 	%argrw{"wrr"}
+	sub		$tmp56 $tmp54 $tmp55 	%argrw{"wrr"}
+	div		___329_i0_delta $tmp56 ___329_i0_interval 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:92
+# 		float i2_delta = (values[i3] - values[i2]) / i2_interval;		
+	aref		$tmp57 values ___325_i2 	%line{92} %argrw{"wrr"}
+	aref		$tmp58 values ___325_i1 	%argrw{"wrr"}
+	sub		$tmp59 $tmp57 $tmp58 	%argrw{"wrr"}
+	div		___329_i1_delta $tmp59 ___329_i1_interval 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:93
+# 		
+	aref		$tmp60 values ___325_i3 	%line{93} %argrw{"wrr"}
+	aref		$tmp61 values ___325_i2 	%argrw{"wrr"}
+	sub		$tmp62 $tmp60 $tmp61 	%argrw{"wrr"}
+	div		___329_i2_delta $tmp62 ___329_i2_interval 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:96
+# 			i1_tangent = 3.0 * (i0_interval + i1_interval)
+	gt		$tmp63 ___325_i1 $const3 	%line{96} %argrw{"wrr"}
+	neq		$tmp64 $tmp63 $const3 	%argrw{"wrr"}
+	if		$tmp64 132 132 	%argrw{"r"}
+	mul		$tmp65 ___329_i1_delta ___329_i0_delta 	%argrw{"wrr"}
+	ge		$tmp66 $tmp65 $const5 	%argrw{"wrr"}
+	neq		$tmp67 $tmp66 $const3 	%argrw{"wrr"}
+	assign		$tmp64 $tmp67 	%argrw{"wr"}
+	if		$tmp64 143 143 	%argrw{"r"}
+# OSL\FloatCurves.osl:97
+# 						/ ((2.0 * i1_interval + i0_interval) / i0_delta
+	add		$tmp68 ___329_i0_interval ___329_i1_interval 	%line{97} %argrw{"wrr"}
+	mul		$tmp69 $const14 $tmp68 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:98
+# 						+ (i1_interval + 2.0  * i0_interval) / i1_delta);
+	mul		$tmp70 $const10 ___329_i1_interval 	%line{98} %argrw{"wrr"}
+	add		$tmp71 $tmp70 ___329_i0_interval 	%argrw{"wrr"}
+	div		$tmp72 $tmp71 ___329_i0_delta 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:99
+# 		}
+	mul		$tmp73 $const10 ___329_i0_interval 	%line{99} %argrw{"wrr"}
+	add		$tmp74 ___329_i1_interval $tmp73 	%argrw{"wrr"}
+	div		$tmp75 $tmp74 ___329_i1_delta 	%argrw{"wrr"}
+	add		$tmp76 $tmp72 $tmp75 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:98
+# 						+ (i1_interval + 2.0  * i0_interval) / i1_delta);
+	div		___329_i1_tangent $tmp69 $tmp76 	%line{98} %argrw{"wrr"}
+# OSL\FloatCurves.osl:102
+# 						i2_tangent = 3.0 * (i1_interval + i2_interval)
+	lt		$tmp77 ___325_i2 ___325_last 	%line{102} %argrw{"wrr"}
+	neq		$tmp78 $tmp77 $const3 	%argrw{"wrr"}
+	if		$tmp78 150 150 	%argrw{"r"}
+	mul		$tmp79 ___329_i2_delta ___329_i1_delta 	%argrw{"wrr"}
+	ge		$tmp80 $tmp79 $const5 	%argrw{"wrr"}
+	neq		$tmp81 $tmp80 $const3 	%argrw{"wrr"}
+	assign		$tmp78 $tmp81 	%argrw{"wr"}
+	if		$tmp78 161 161 	%argrw{"r"}
+# OSL\FloatCurves.osl:103
+# 						/ ((2.0 * i2_interval + i1_interval) / i1_delta
+	add		$tmp82 ___329_i1_interval ___329_i2_interval 	%line{103} %argrw{"wrr"}
+	mul		$tmp83 $const14 $tmp82 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:104
+# 						+ (i2_interval + 2.0 * i1_interval) / i2_delta);
+	mul		$tmp84 $const10 ___329_i2_interval 	%line{104} %argrw{"wrr"}
+	add		$tmp85 $tmp84 ___329_i1_interval 	%argrw{"wrr"}
+	div		$tmp86 $tmp85 ___329_i1_delta 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:105
+# 		}
+	mul		$tmp87 $const10 ___329_i1_interval 	%line{105} %argrw{"wrr"}
+	add		$tmp88 ___329_i2_interval $tmp87 	%argrw{"wrr"}
+	div		$tmp89 $tmp88 ___329_i2_delta 	%argrw{"wrr"}
+	add		$tmp90 $tmp86 $tmp89 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:104
+# 						+ (i2_interval + 2.0 * i1_interval) / i2_delta);
+	div		___329_i2_tangent $tmp83 $tmp90 	%line{104} %argrw{"wrr"}
+# OSL\FloatCurves.osl:108
+# 		float si = i1_delta;
+	div		___329_invint $const6 ___329_i1_interval 	%line{108} %argrw{"wrr"}
+# OSL\FloatCurves.osl:109
+# 		float ci = (3.0 * si - 2.0 * i1_tangent - i2_tangent) * invint;
+	assign		___329_si ___329_i1_delta 	%line{109} %argrw{"wr"}
+# OSL\FloatCurves.osl:110
+# 		float di = (i1_tangent + i2_tangent - 2.0 * si) * invint * invint;
+	mul		$tmp91 $const14 ___329_si 	%line{110} %argrw{"wrr"}
+	mul		$tmp92 $const10 ___329_i1_tangent 	%argrw{"wrr"}
+	sub		$tmp93 $tmp91 $tmp92 	%argrw{"wrr"}
+	sub		$tmp94 $tmp93 ___329_i2_tangent 	%argrw{"wrr"}
+	mul		___329_ci $tmp94 ___329_invint 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:111
+# 
+	add		$tmp95 ___329_i1_tangent ___329_i2_tangent 	%line{111} %argrw{"wrr"}
+	mul		$tmp96 $const10 ___329_si 	%argrw{"wrr"}
+	sub		$tmp97 $tmp95 $tmp96 	%argrw{"wrr"}
+	mul		$tmp98 $tmp97 ___329_invint 	%argrw{"wrr"}
+	mul		___329_di $tmp98 ___329_invint 	%argrw{"wrr"}
+# OSL\FloatCurves.osl:113
+# 		float t2 = t * t;
+	mul		___329_t ___325_along ___329_i1_interval 	%line{113} %argrw{"wrr"}
+# OSL\FloatCurves.osl:114
+# 		float t3 = t * t2;
+	mul		___329_t2 ___329_t ___329_t 	%line{114} %argrw{"wrr"}
+# OSL\FloatCurves.osl:115
+# 		return values[i1] + i1_tangent * t + ci * t2 + di * t3;
+	mul		___329_t3 ___329_t ___329_t2 	%line{115} %argrw{"wrr"}
+# OSL\FloatCurves.osl:116
+# 	}
+	aref		$tmp99 values ___325_i1 	%line{116} %argrw{"wrr"}
+	mul		$tmp100 ___329_i1_tangent ___329_t 	%argrw{"wrr"}
+	add		$tmp101 $tmp99 $tmp100 	%argrw{"wrr"}
+	mul		$tmp102 ___329_ci ___329_t2 	%argrw{"wrr"}
+	add		$tmp103 $tmp101 $tmp102 	%argrw{"wrr"}
+	mul		$tmp104 ___329_di ___329_t3 	%argrw{"wrr"}
+	add		Out $tmp103 $tmp104 	%argrw{"wrr"}
+	return
+# OSL\FloatCurves.osl:120
+# }
+	aref		$tmp105 values ___325_i1 	%line{120} %argrw{"wrr"}
+	aref		$tmp106 values ___325_i2 	%argrw{"wrr"}
+	mix		Out $tmp105 $tmp106 ___325_along 	%argrw{"wrrr"}
+	end

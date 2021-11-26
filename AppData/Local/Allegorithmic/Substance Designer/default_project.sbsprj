@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<settingsinfo>
+		<version>2</version>
+	</settingsinfo>
+	<preferences>
+		<versioncontrol>
+			<settingsinfo>
+				<version>2</version>
+			</settingsinfo>
+		</versioncontrol>
+		<sbstemplates>
+			<dirs>
+				<size>1</size>
+				<_1 prefix="_">
+					<url>file:///C:/Program Files/Allegorithmic/Substance Designer/resources/templates</url>
+				</_1>
+			</dirs>
+		</sbstemplates>
+		<resources>
+			<urlaliases>
+				<size>4</size>
+				<_4 prefix="_">
+					<path>file:///C:/Program Files/Allegorithmic/Substance Designer/resources/view3d/maps</path>
+					<name>sd-3dview-maps</name>
+				</_4>
+				<_3 prefix="_">
+					<path>file:///C:/Program Files/Allegorithmic/Substance Designer/resources/packages</path>
+					<name>sbs</name>
+				</_3>
+				<_2 prefix="_">
+					<path>file:///C:/Program Files/Allegorithmic/Substance Designer/resources/view3d/shaders</path>
+					<name>sd-3dview-shaders</name>
+				</_2>
+				<_1 prefix="_">
+					<path>file:///C:/Program Files/Allegorithmic/Substance Designer/resources/view3d/shapes</path>
+					<name>sd-3dview-shapes</name>
+				</_1>
+			</urlaliases>
+		</resources>
+		<python>
+			<plugin_paths>
+				<size>3</size>
+				<_3 prefix="_">
+					<url>file:///C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Designer/python/sduserplugins</url>
+				</_3>
+				<_2 prefix="_">
+					<url>file:///C:/Program Files/Allegorithmic/Substance Designer/resources/python/sdplugins</url>
+				</_2>
+				<_1 prefix="_">
+					<url>environment:SBS_DESIGNER_PYTHON_PATH</url>
+				</_1>
+			</plugin_paths>
+		</python>
+		<mdl>
+			<iray>
+				<mdl_paths>
+					<size>4</size>
+					<_4 prefix="_">
+						<url>file:///C:/Users/Екатерина Милованова/Documents/mdl</url>
+					</_4>
+					<_3 prefix="_">
+						<url>file:///C:/ProgramData/NVIDIA Corporation/MDL Material Exchange Package/mdl</url>
+					</_3>
+					<_2 prefix="_">
+						<url>file:///C:/ProgramData/NVIDIA Corporation/mdl</url>
+					</_2>
+					<_1 prefix="_">
+						<url>file:///C:/Program Files/Allegorithmic/Substance Designer/resources/view3d/iray</url>
+					</_1>
+				</mdl_paths>
+			</iray>
+		</mdl>
+		<library>
+			<watchedpaths>
+				<size>2</size>
+				<_2 prefix="_">
+					<url>sbs://</url>
+					<isrecursive>true</isrecursive>
+					<isenabled>true</isenabled>
+					<excludepattern></excludepattern>
+					<excludefilter></excludefilter>
+				</_2>
+				<_1 prefix="_">
+					<url>sd-3dview-maps://</url>
+					<isrecursive>true</isrecursive>
+					<isenabled>true</isenabled>
+					<excludepattern></excludepattern>
+					<excludefilter></excludefilter>
+				</_1>
+			</watchedpaths>
+			<settingsinfo>
+				<version>2</version>
+			</settingsinfo>
+		</library>
+	</preferences>
+</root>

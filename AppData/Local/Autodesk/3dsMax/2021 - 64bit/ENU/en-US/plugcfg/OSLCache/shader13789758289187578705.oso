@@ -1,0 +1,101 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader Noise	%meta{string,help,"A shader for generating more advanced noise"} 
+param	point	UVW	0 0 0		%meta{string,help,"The UVW coordinate to use. When not connected, defaults to Object space"}  %read{2,2} %write{1,1} %derivs %initexpr
+param	float	Scale	25		%read{2,2} %write{2147483647,-1} %derivs
+param	string	Type	"uperlin"		%meta{string,widget,"popup"} %meta{string,help,"Use perlin, uperlin, cell, hash, simplex or gabor"} %meta{string,options,"perlin|uperlin|cell|hash|simplex|gabor"}  %read{13,13} %write{2147483647,-1}
+param	int	Octaves	4		%meta{string,help,"Hos many layers of noise are mixed together"}  %read{8,8} %write{2147483647,-1}
+param	float	Lacunarity	2		%meta{string,help,"How much the 'frequency' of the noise changes per layer"}  %read{19,19} %write{2147483647,-1} %derivs
+param	float	Gain	0.5		%meta{string,help,"How much the amplitude of the noise changes per layer. Higher numbers means higher noise frequencies have more effect."}  %read{20,20} %write{2147483647,-1}
+param	int	StepFunction	1		%meta{string,widget,"checkBox"} %meta{string,label,"Step Function"} %meta{string,help,"Enables a per-layer smoothstep curve in the noise, allowing you to increase the 'contrast' of the noise"}  %read{14,14} %write{2147483647,-1}
+param	float	LowStep	0.5		%meta{string,help,"Low threshold of the smoothstep function."} %meta{string,label,"Low Step"} %meta{float,min,-1} %meta{float,max,1}  %read{15,15} %write{2147483647,-1}
+param	float	HiStep	0.800000012		%meta{string,help,"High threshold of the smoothstep function."} %meta{string,label,"High Step"} %meta{float,min,-1} %meta{float,max,1}  %read{15,15} %write{2147483647,-1}
+param	int	Normalize	1		%meta{string,widget,"checkBox"} %meta{string,help,"If the noise is auto-normalized to Amplitude or not."}  %read{23,23} %write{2147483647,-1}
+param	float	Amplitude	1		%meta{string,help,"The amplitude of the noise."}  %read{5,24} %write{2147483647,-1}
+param	float	Phase	0		%meta{string,help,"The 'Phase' is just a 4th coordinate of the noise, can be used to allow it to evolve over time, for example."}  %read{12,12} %write{2147483647,-1} %derivs
+oparam	float	Out	0		%read{8,25} %write{8,25}
+global	point	P	%read{1,1} %write{2147483647,-1} %derivs
+local	point	pnt	%read{8,22} %write{2,2} %derivs
+local	float	sum	%read{8,24} %write{3,22}
+local	float	curFreq	%read{8,22} %write{4,22} %derivs
+local	float	curAmp	%read{8,22} %write{5,22}
+local	int	___325_i	%read{8,22} %write{7,22} %derivs
+local	float	___326_ns	%read{8,22} %write{8,22}
+const	string	$const1	"object"		%read{1,1} %write{2147483647,-1}
+const	string	$const2	"transform"		%read{0,0} %write{2147483647,-1}
+const	string	$const3	"common"		%read{1,1} %write{2147483647,-1}
+const	int	$const4	0		%read{3,9} %write{2147483647,-1}
+const	float	$const5	1		%read{4,4} %write{2147483647,-1}
+temp	int	$tmp1	%read{8,22} %write{8,22}
+temp	int	$tmp2	%read{6,22} %write{7,22}
+temp	point	$tmp3	%read{8,22} %write{8,22} %derivs
+temp	float	$tmp4	%read{8,22} %write{8,22} %derivs
+temp	float	$tmp5	%read{8,22} %write{8,22} %derivs
+temp	float	$tmp6	%read{8,22} %write{8,22}
+const	int	$const6	1		%read{22,22} %write{2147483647,-1}
+temp	int	$tmp7	%read{2147483647,-1} %write{8,22}
+temp	float	$tmp8	%read{25,25} %write{24,24}
+code UVW
+# OSL\Noise.osl:11
+# 		[[ string help = "The UVW coordinate to use. When not connected, defaults to Object space" ]],	
+	functioncall	$const2 2 	%filename{"OSL\Noise.osl"} %line{11} %argrw{"r"}
+# OSL\stdosl.h:285
+# point  transform (string to, point p)  { return transform("common",to,p); }
+	transform	UVW $const3 $const1 P 	%filename{"OSL\stdosl.h"} %line{285} %argrw{"wrrr"}
+code ___main___
+# OSL\Noise.osl:48
+# 	
+	div		pnt UVW Scale 	%filename{"OSL\Noise.osl"} %line{48} %argrw{"wrr"}
+# OSL\Noise.osl:50
+# 	float curFreq = 1.0;
+	assign		sum $const4 	%line{50} %argrw{"wr"}
+# OSL\Noise.osl:51
+# 	float curAmp = Amplitude;
+	assign		curFreq $const5 	%line{51} %argrw{"wr"}
+# OSL\Noise.osl:52
+# 	
+	assign		curAmp Amplitude 	%line{52} %argrw{"wr"}
+# OSL\Noise.osl:55
+# 	{			
+	for		$tmp2 8 10 21 23 	%line{55} %argrw{"r"}
+	assign		___325_i $const4 	%argrw{"wr"}
+	lt		$tmp1 ___325_i Octaves 	%argrw{"wrr"}
+	neq		$tmp2 $tmp1 $const4 	%argrw{"wrr"}
+# OSL\Noise.osl:58
+# 		
+	mul		$tmp3 pnt curFreq 	%line{58} %argrw{"wrr"}
+	assign		$tmp5 ___325_i 	%argrw{"wr"}
+	add		$tmp4 Phase $tmp5 	%argrw{"wrr"}
+	noise		___326_ns Type $tmp3 $tmp4 	%argrw{"wrrr"} %argderivs{2,3}
+# OSL\Noise.osl:60
+# 			ns = smoothstep(LowStep, HiStep, ns);
+	if		StepFunction 16 16 	%line{60} %argrw{"r"}
+# OSL\Noise.osl:61
+# 
+	smoothstep	___326_ns LowStep HiStep ___326_ns 	%line{61} %argrw{"wrrr"}
+# OSL\Noise.osl:64
+# 		// Add the amplitude to the normalizing sum
+	mul		$tmp6 ___326_ns curAmp 	%line{64} %argrw{"wrr"}
+	add		Out Out $tmp6 	%argrw{"wrr"}
+# OSL\Noise.osl:66
+# 
+	add		sum sum curAmp 	%line{66} %argrw{"wrr"}
+# OSL\Noise.osl:69
+# 		curAmp  *= Gain;		
+	mul		curFreq curFreq Lacunarity 	%line{69} %argrw{"wrr"}
+# OSL\Noise.osl:70
+# 	}
+	mul		curAmp curAmp Gain 	%line{70} %argrw{"wrr"}
+# OSL\Noise.osl:55
+# 	{			
+	assign		$tmp7 ___325_i 	%line{55} %argrw{"wr"}
+	add		___325_i ___325_i $const6 	%argrw{"wrr"}
+# OSL\Noise.osl:73
+# 		Out /= sum / Amplitude;
+	if		Normalize 26 26 	%line{73} %argrw{"r"}
+# OSL\Noise.osl:74
+# }
+	div		$tmp8 sum Amplitude 	%line{74} %argrw{"wrr"}
+	div		Out Out $tmp8 	%argrw{"wrr"}
+	end

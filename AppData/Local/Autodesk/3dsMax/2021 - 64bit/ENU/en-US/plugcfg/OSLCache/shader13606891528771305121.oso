@@ -1,0 +1,4786 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader SimpleTiles	%meta{string,help,"<font size=+1><b>Simple Tiles</b></font><br>Allows various kinds of Tiling.<br>The Tiling Offset modifies the base parameter of the tiling layout, and can generate different effects. "} %meta{string,label,"Simple Tiles"} 
+param	point	UVW	0 0 0		%read{4,4} %write{0,0} %initexpr
+param	float	Scale	1		%meta{float,min,9.99999997e-07} %meta{float,max,1000000}  %read{5,5} %write{2147483647,-1}
+param	int	TileMode	0		%meta{string,widget,"mapper"} %meta{string,label,"Tiling Mode"} %meta{string,options,"Checker Tiles:1|Running/Stack Bond:0|English Bond:2|Fine Running/Stack Bond:3|Twist Box:4"} %meta{string,help,"Choose the kind of tile pattern to use. The 'TilingOffset' parameter adjusts the appearance of the tiles."}  %read{25,1516} %write{2147483647,-1}
+param	float	U_Count	2		%meta{string,label,"Tiles in U"} %meta{float,min,9.99999997e-07} %meta{float,max,1000000}  %read{2,2} %write{2147483647,-1}
+param	float	V_Count	2		%meta{string,label,"Tiles in V"} %meta{float,min,9.99999997e-07} %meta{float,max,1000000}  %read{2,2} %write{2147483647,-1}
+param	float	TilingOffset	0.5		%meta{string,label,"Tiling Offset"} %meta{float,min,0} %meta{float,max,1} %meta{string,help,"An adjustable parameter which changes the appearance of the tiling. Does different things for different Tiling Modes"}  %read{6,6} %write{2147483647,-1}
+param	float	GapWidth	0.100000001		%meta{string,label,"Gap Width"} %meta{string,help,"The width of the gap between tiles"} %meta{float,min,0} %meta{float,max,10}  %read{33,1950} %write{2147483647,-1}
+param	float	Radius	0.200000003		%meta{string,label,"Corner Roundness"} %meta{string,help,"Adds fillet radius to the corner of the tiles"} %meta{float,min,0} %meta{float,max,10}  %read{8,8} %write{2147483647,-1}
+param	float	Edge	0.100000001		%meta{string,label,"Edge Width (for Bump)"} %meta{string,help,"The width of a (slightly beveled) fake 'Edge' to give the tile a more realistic appearance"} %meta{float,min,0} %meta{float,max,10}  %read{34,1951} %write{2147483647,-1}
+param	float	EdgeBump	1		%meta{float,min,-10} %meta{float,max,10} %meta{string,help,"The amount of Edge bump effect"}  %read{2073,2073} %write{2147483647,-1}
+param	float	ColorBump	0		%meta{float,min,-10} %meta{float,max,10} %meta{string,help,"Adds some contribution of the color settings to the Bump output"}  %read{2076,2076} %write{2147483647,-1}
+param	color	GapColor	0.200000003 0.200000003 0.200000003		%meta{string,label,"Gap Color"} %meta{string,help,"The color of the gap between tiles"}  %read{3,3} %write{2147483647,-1}
+param	color	TileColor1	0.400000006 0.400000006 0.400000006		%meta{string,label,"Tile Color 1"} %meta{string,help,"First Tile Color"}  %read{2066,2066} %write{2147483647,-1}
+param	color	TileColor2	0.5 0.5 0.5		%meta{string,label,"Tile Color 2"} %meta{string,help,"Second Tile Color"}  %read{2069,2069} %write{2147483647,-1}
+param	color	TileColor3	0.600000024 0.600000024 0.600000024		%meta{string,label,"Tile Color 3"} %meta{string,help,"Third Tile Color. Not all Tiling Modes use this."}  %read{2072,2072} %write{2147483647,-1}
+oparam	color	Col	0 0 0		%read{2075,2075} %write{3,2072}
+oparam	float	Bump	0		%read{13,2077} %write{13,2077}
+oparam	int	Tile	0		%read{13,2070} %write{13,2063}
+oparam	int	TileIdx	0		%read{2147483647,-1} %write{13,2063}
+oparam	int	Index	0		%read{2147483647,-1} %write{13,2063}
+global	float	u	%read{0,0} %write{2147483647,-1}
+global	float	v	%read{0,0} %write{2147483647,-1}
+local	float	___325_x	%read{13,2063} %write{13,2063}
+local	float	___325_y	%read{13,2063} %write{13,2063}
+local	float	___325_lox	%read{13,2063} %write{13,2063}
+local	float	___325_hix	%read{13,2063} %write{13,2063}
+local	float	___325_loy	%read{13,2063} %write{13,2063}
+local	float	___325_hiy	%read{13,2063} %write{13,2063}
+local	float	___325_gwr	%read{13,2063} %write{13,2063}
+local	float	___325_lx	%read{13,2063} %write{13,2063}
+local	float	___325_ly	%read{13,2063} %write{13,2063}
+local	float	___325_hx	%read{13,2063} %write{13,2063}
+local	float	___325_hy	%read{13,2063} %write{13,2063}
+local	vector	___325_dp	%read{13,2063} %write{13,2063}
+local	float	___325_d	%read{13,2063} %write{13,2063}
+local	float	___326_lx	%read{13,2063} %write{13,2063}
+local	float	___326_ly	%read{13,2063} %write{13,2063}
+local	float	___326_hx	%read{13,2063} %write{13,2063}
+local	float	___326_hy	%read{13,2063} %write{13,2063}
+local	int	Overlap	%read{12,2063} %write{1,1}
+local	vector	Tiling	%read{4,2063} %write{2,2}
+local	point	uvw	%read{9,2063} %write{5,5}
+local	float	to	%read{7,2063} %write{6,6}
+local	float	to2	%read{13,2063} %write{7,7}
+local	float	Roundness	%read{13,2063} %write{8,8}
+local	point	fluvw	%read{10,2063} %write{9,9}
+local	point	fruvw	%read{2147483647,-1} %write{10,10}
+local	int	___327_xx	%read{13,2063} %write{12,2063}
+local	int	___328_yy	%read{13,2063} %write{13,2063}
+local	point	___329_lookup	%read{13,2063} %write{13,2063}
+local	int	___329_HitIdx	%read{13,2063} %write{13,2063}
+const	int	$const1	0		%read{14,2049} %write{2147483647,-1}
+const	float	$const2	0		%read{0,2054} %write{2147483647,-1}
+const	int	$const3	1		%read{1,2064} %write{2147483647,-1}
+temp	point	$tmp1	%read{5,5} %write{4,4}
+const	float	$const4	0.5		%read{7,1411} %write{2147483647,-1}
+const	float	$const5	10		%read{8,8} %write{2147483647,-1}
+temp	int	$tmp2	%read{13,2063} %write{13,2063}
+temp	int	$tmp3	%read{11,2063} %write{12,2063}
+temp	int	$tmp4	%read{13,2063} %write{13,2063}
+temp	int	$tmp5	%read{13,2063} %write{13,2063}
+temp	vector	$tmp6	%read{13,2063} %write{13,2063}
+temp	point	$tmp7	%read{13,2063} %write{13,2063}
+temp	float	$tmp8	%read{13,2063} %write{13,2063}
+temp	float	$tmp9	%read{13,2063} %write{13,2063}
+temp	int	$tmp10	%read{13,2063} %write{13,2063}
+temp	int	$tmp11	%read{13,2063} %write{13,2063}
+const	float	$const6	1		%read{45,2024} %write{2147483647,-1}
+temp	point	$tmp12	%read{13,2063} %write{13,2063}
+temp	float	$tmp13	%read{13,2063} %write{13,2063}
+temp	float	$tmp14	%read{13,2063} %write{13,2063}
+temp	point	$tmp15	%read{2147483647,-1} %write{13,2063}
+const	float	$const7	0.0500000007		%read{33,1950} %write{2147483647,-1}
+temp	float	$tmp16	%read{13,2063} %write{13,2063}
+const	float	$const8	0.100000001		%read{34,1951} %write{2147483647,-1}
+temp	float	$tmp17	%read{13,2063} %write{13,2063}
+const	string	$const9	"doRect"		%read{35,1952} %write{2147483647,-1}
+temp	float	$tmp18	%read{13,2063} %write{13,2063}
+temp	float	$tmp19	%read{13,2063} %write{13,2063}
+temp	float	$tmp20	%read{13,2063} %write{13,2063}
+temp	float	$tmp21	%read{13,2063} %write{13,2063}
+temp	float	$tmp22	%read{13,2063} %write{13,2063}
+temp	float	$tmp23	%read{13,2063} %write{13,2063}
+temp	float	$tmp24	%read{13,2063} %write{13,2063}
+temp	float	$tmp25	%read{13,2063} %write{13,2063}
+temp	float	$tmp26	%read{13,2063} %write{13,2063}
+temp	int	$tmp27	%read{13,2063} %write{13,2063}
+temp	int	$tmp28	%read{13,2063} %write{13,2063}
+temp	float	$tmp29	%read{13,2063} %write{13,2063}
+temp	int	$tmp30	%read{13,2063} %write{13,2063}
+temp	int	$tmp31	%read{13,2063} %write{13,2063}
+temp	int	$tmp32	%read{13,2063} %write{13,2063}
+temp	float	$tmp33	%read{13,2063} %write{13,2063}
+temp	int	$tmp34	%read{13,2063} %write{13,2063}
+temp	int	$tmp35	%read{13,2063} %write{13,2063}
+temp	int	$tmp36	%read{13,2063} %write{13,2063}
+temp	float	$tmp37	%read{13,2063} %write{13,2063}
+temp	int	$tmp38	%read{13,2063} %write{13,2063}
+temp	int	$tmp39	%read{13,2063} %write{13,2063}
+temp	float	$tmp40	%read{13,2063} %write{13,2063}
+temp	float	$tmp41	%read{13,2063} %write{13,2063}
+temp	float	$tmp42	%read{13,2063} %write{13,2063}
+temp	float	$tmp43	%read{13,2063} %write{13,2063}
+temp	float	$tmp44	%read{13,2063} %write{13,2063}
+temp	int	$tmp45	%read{13,2063} %write{13,2063}
+temp	int	$tmp46	%read{13,2063} %write{13,2063}
+temp	float	$tmp47	%read{13,2063} %write{13,2063}
+temp	int	$tmp48	%read{13,2063} %write{13,2063}
+temp	int	$tmp49	%read{13,2063} %write{13,2063}
+temp	int	$tmp50	%read{13,2063} %write{13,2063}
+temp	int	$tmp51	%read{13,2063} %write{13,2063}
+temp	float	$tmp52	%read{13,2063} %write{13,2063}
+temp	float	$tmp53	%read{13,2063} %write{13,2063}
+temp	float	$tmp54	%read{13,2063} %write{13,2063}
+temp	float	$tmp55	%read{13,2063} %write{13,2063}
+temp	float	$tmp56	%read{13,2063} %write{13,2063}
+temp	float	$tmp57	%read{13,2063} %write{13,2063}
+temp	float	$tmp58	%read{13,2063} %write{13,2063}
+temp	float	$tmp59	%read{13,2063} %write{13,2063}
+temp	float	$tmp60	%read{13,2063} %write{13,2063}
+temp	float	$tmp61	%read{13,2063} %write{13,2063}
+temp	float	$tmp62	%read{13,2063} %write{13,2063}
+temp	float	$tmp63	%read{13,2063} %write{13,2063}
+temp	float	$tmp64	%read{13,2063} %write{13,2063}
+temp	float	$tmp65	%read{13,2063} %write{13,2063}
+temp	float	$tmp66	%read{13,2063} %write{13,2063}
+temp	float	$tmp67	%read{13,2063} %write{13,2063}
+temp	int	$tmp68	%read{13,2063} %write{13,2063}
+temp	float	$tmp69	%read{13,2063} %write{13,2063}
+const	int	$const10	2		%read{235,2067} %write{2147483647,-1}
+temp	point	$tmp70	%read{13,2063} %write{13,2063}
+temp	float	$tmp71	%read{13,2063} %write{13,2063}
+temp	float	$tmp72	%read{13,2063} %write{13,2063}
+temp	point	$tmp73	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp74	%read{13,2063} %write{13,2063}
+temp	float	$tmp75	%read{13,2063} %write{13,2063}
+temp	float	$tmp76	%read{13,2063} %write{13,2063}
+temp	float	$tmp77	%read{13,2063} %write{13,2063}
+temp	float	$tmp78	%read{13,2063} %write{13,2063}
+temp	float	$tmp79	%read{13,2063} %write{13,2063}
+temp	float	$tmp80	%read{13,2063} %write{13,2063}
+temp	float	$tmp81	%read{13,2063} %write{13,2063}
+temp	float	$tmp82	%read{13,2063} %write{13,2063}
+temp	float	$tmp83	%read{13,2063} %write{13,2063}
+temp	float	$tmp84	%read{13,2063} %write{13,2063}
+temp	int	$tmp85	%read{13,2063} %write{13,2063}
+temp	int	$tmp86	%read{13,2063} %write{13,2063}
+temp	float	$tmp87	%read{13,2063} %write{13,2063}
+temp	int	$tmp88	%read{13,2063} %write{13,2063}
+temp	int	$tmp89	%read{13,2063} %write{13,2063}
+temp	int	$tmp90	%read{13,2063} %write{13,2063}
+temp	float	$tmp91	%read{13,2063} %write{13,2063}
+temp	int	$tmp92	%read{13,2063} %write{13,2063}
+temp	int	$tmp93	%read{13,2063} %write{13,2063}
+temp	int	$tmp94	%read{13,2063} %write{13,2063}
+temp	float	$tmp95	%read{13,2063} %write{13,2063}
+temp	int	$tmp96	%read{13,2063} %write{13,2063}
+temp	int	$tmp97	%read{13,2063} %write{13,2063}
+temp	float	$tmp98	%read{13,2063} %write{13,2063}
+temp	float	$tmp99	%read{13,2063} %write{13,2063}
+temp	float	$tmp100	%read{13,2063} %write{13,2063}
+temp	float	$tmp101	%read{13,2063} %write{13,2063}
+temp	float	$tmp102	%read{13,2063} %write{13,2063}
+temp	int	$tmp103	%read{13,2063} %write{13,2063}
+temp	int	$tmp104	%read{13,2063} %write{13,2063}
+temp	float	$tmp105	%read{13,2063} %write{13,2063}
+temp	int	$tmp106	%read{13,2063} %write{13,2063}
+temp	int	$tmp107	%read{13,2063} %write{13,2063}
+temp	int	$tmp108	%read{13,2063} %write{13,2063}
+temp	int	$tmp109	%read{13,2063} %write{13,2063}
+temp	float	$tmp110	%read{13,2063} %write{13,2063}
+temp	float	$tmp111	%read{13,2063} %write{13,2063}
+temp	float	$tmp112	%read{13,2063} %write{13,2063}
+temp	float	$tmp113	%read{13,2063} %write{13,2063}
+temp	float	$tmp114	%read{13,2063} %write{13,2063}
+temp	float	$tmp115	%read{13,2063} %write{13,2063}
+temp	float	$tmp116	%read{13,2063} %write{13,2063}
+temp	float	$tmp117	%read{13,2063} %write{13,2063}
+temp	float	$tmp118	%read{13,2063} %write{13,2063}
+temp	float	$tmp119	%read{13,2063} %write{13,2063}
+temp	float	$tmp120	%read{13,2063} %write{13,2063}
+temp	float	$tmp121	%read{13,2063} %write{13,2063}
+temp	float	$tmp122	%read{13,2063} %write{13,2063}
+temp	float	$tmp123	%read{13,2063} %write{13,2063}
+temp	float	$tmp124	%read{13,2063} %write{13,2063}
+temp	float	$tmp125	%read{13,2063} %write{13,2063}
+temp	int	$tmp126	%read{13,2063} %write{13,2063}
+temp	int	$tmp127	%read{13,2063} %write{13,2063}
+temp	point	$tmp128	%read{13,2063} %write{13,2063}
+temp	float	$tmp129	%read{13,2063} %write{13,2063}
+temp	float	$tmp130	%read{13,2063} %write{13,2063}
+temp	point	$tmp131	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp132	%read{13,2063} %write{13,2063}
+temp	float	$tmp133	%read{13,2063} %write{13,2063}
+temp	float	$tmp134	%read{13,2063} %write{13,2063}
+temp	float	$tmp135	%read{13,2063} %write{13,2063}
+temp	float	$tmp136	%read{13,2063} %write{13,2063}
+temp	float	$tmp137	%read{13,2063} %write{13,2063}
+temp	float	$tmp138	%read{13,2063} %write{13,2063}
+temp	float	$tmp139	%read{13,2063} %write{13,2063}
+temp	float	$tmp140	%read{13,2063} %write{13,2063}
+temp	float	$tmp141	%read{13,2063} %write{13,2063}
+temp	float	$tmp142	%read{13,2063} %write{13,2063}
+temp	int	$tmp143	%read{13,2063} %write{13,2063}
+temp	int	$tmp144	%read{13,2063} %write{13,2063}
+temp	float	$tmp145	%read{13,2063} %write{13,2063}
+temp	int	$tmp146	%read{13,2063} %write{13,2063}
+temp	int	$tmp147	%read{13,2063} %write{13,2063}
+temp	int	$tmp148	%read{13,2063} %write{13,2063}
+temp	float	$tmp149	%read{13,2063} %write{13,2063}
+temp	int	$tmp150	%read{13,2063} %write{13,2063}
+temp	int	$tmp151	%read{13,2063} %write{13,2063}
+temp	int	$tmp152	%read{13,2063} %write{13,2063}
+temp	float	$tmp153	%read{13,2063} %write{13,2063}
+temp	int	$tmp154	%read{13,2063} %write{13,2063}
+temp	int	$tmp155	%read{13,2063} %write{13,2063}
+temp	float	$tmp156	%read{13,2063} %write{13,2063}
+temp	float	$tmp157	%read{13,2063} %write{13,2063}
+temp	float	$tmp158	%read{13,2063} %write{13,2063}
+temp	float	$tmp159	%read{13,2063} %write{13,2063}
+temp	float	$tmp160	%read{13,2063} %write{13,2063}
+temp	int	$tmp161	%read{13,2063} %write{13,2063}
+temp	int	$tmp162	%read{13,2063} %write{13,2063}
+temp	float	$tmp163	%read{13,2063} %write{13,2063}
+temp	int	$tmp164	%read{13,2063} %write{13,2063}
+temp	int	$tmp165	%read{13,2063} %write{13,2063}
+temp	int	$tmp166	%read{13,2063} %write{13,2063}
+temp	int	$tmp167	%read{13,2063} %write{13,2063}
+temp	float	$tmp168	%read{13,2063} %write{13,2063}
+temp	float	$tmp169	%read{13,2063} %write{13,2063}
+temp	float	$tmp170	%read{13,2063} %write{13,2063}
+temp	float	$tmp171	%read{13,2063} %write{13,2063}
+temp	float	$tmp172	%read{13,2063} %write{13,2063}
+temp	float	$tmp173	%read{13,2063} %write{13,2063}
+temp	float	$tmp174	%read{13,2063} %write{13,2063}
+temp	float	$tmp175	%read{13,2063} %write{13,2063}
+temp	float	$tmp176	%read{13,2063} %write{13,2063}
+temp	float	$tmp177	%read{13,2063} %write{13,2063}
+temp	float	$tmp178	%read{13,2063} %write{13,2063}
+temp	float	$tmp179	%read{13,2063} %write{13,2063}
+temp	float	$tmp180	%read{13,2063} %write{13,2063}
+temp	float	$tmp181	%read{13,2063} %write{13,2063}
+temp	float	$tmp182	%read{13,2063} %write{13,2063}
+temp	float	$tmp183	%read{13,2063} %write{13,2063}
+temp	int	$tmp184	%read{13,2063} %write{13,2063}
+temp	point	$tmp185	%read{13,2063} %write{13,2063}
+temp	float	$tmp186	%read{13,2063} %write{13,2063}
+temp	float	$tmp187	%read{13,2063} %write{13,2063}
+temp	point	$tmp188	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp189	%read{13,2063} %write{13,2063}
+temp	float	$tmp190	%read{13,2063} %write{13,2063}
+temp	float	$tmp191	%read{13,2063} %write{13,2063}
+temp	float	$tmp192	%read{13,2063} %write{13,2063}
+temp	float	$tmp193	%read{13,2063} %write{13,2063}
+temp	float	$tmp194	%read{13,2063} %write{13,2063}
+temp	float	$tmp195	%read{13,2063} %write{13,2063}
+temp	float	$tmp196	%read{13,2063} %write{13,2063}
+temp	float	$tmp197	%read{13,2063} %write{13,2063}
+temp	float	$tmp198	%read{13,2063} %write{13,2063}
+temp	float	$tmp199	%read{13,2063} %write{13,2063}
+temp	int	$tmp200	%read{13,2063} %write{13,2063}
+temp	int	$tmp201	%read{13,2063} %write{13,2063}
+temp	float	$tmp202	%read{13,2063} %write{13,2063}
+temp	int	$tmp203	%read{13,2063} %write{13,2063}
+temp	int	$tmp204	%read{13,2063} %write{13,2063}
+temp	int	$tmp205	%read{13,2063} %write{13,2063}
+temp	float	$tmp206	%read{13,2063} %write{13,2063}
+temp	int	$tmp207	%read{13,2063} %write{13,2063}
+temp	int	$tmp208	%read{13,2063} %write{13,2063}
+temp	int	$tmp209	%read{13,2063} %write{13,2063}
+temp	float	$tmp210	%read{13,2063} %write{13,2063}
+temp	int	$tmp211	%read{13,2063} %write{13,2063}
+temp	int	$tmp212	%read{13,2063} %write{13,2063}
+temp	float	$tmp213	%read{13,2063} %write{13,2063}
+temp	float	$tmp214	%read{13,2063} %write{13,2063}
+temp	float	$tmp215	%read{13,2063} %write{13,2063}
+temp	float	$tmp216	%read{13,2063} %write{13,2063}
+temp	float	$tmp217	%read{13,2063} %write{13,2063}
+temp	int	$tmp218	%read{13,2063} %write{13,2063}
+temp	int	$tmp219	%read{13,2063} %write{13,2063}
+temp	float	$tmp220	%read{13,2063} %write{13,2063}
+temp	int	$tmp221	%read{13,2063} %write{13,2063}
+temp	int	$tmp222	%read{13,2063} %write{13,2063}
+temp	int	$tmp223	%read{13,2063} %write{13,2063}
+temp	int	$tmp224	%read{13,2063} %write{13,2063}
+temp	float	$tmp225	%read{13,2063} %write{13,2063}
+temp	float	$tmp226	%read{13,2063} %write{13,2063}
+temp	float	$tmp227	%read{13,2063} %write{13,2063}
+temp	float	$tmp228	%read{13,2063} %write{13,2063}
+temp	float	$tmp229	%read{13,2063} %write{13,2063}
+temp	float	$tmp230	%read{13,2063} %write{13,2063}
+temp	float	$tmp231	%read{13,2063} %write{13,2063}
+temp	float	$tmp232	%read{13,2063} %write{13,2063}
+temp	float	$tmp233	%read{13,2063} %write{13,2063}
+temp	float	$tmp234	%read{13,2063} %write{13,2063}
+temp	float	$tmp235	%read{13,2063} %write{13,2063}
+temp	float	$tmp236	%read{13,2063} %write{13,2063}
+temp	float	$tmp237	%read{13,2063} %write{13,2063}
+temp	float	$tmp238	%read{13,2063} %write{13,2063}
+temp	float	$tmp239	%read{13,2063} %write{13,2063}
+temp	float	$tmp240	%read{13,2063} %write{13,2063}
+temp	int	$tmp241	%read{13,2063} %write{13,2063}
+const	int	$const11	3		%read{552,2070} %write{2147483647,-1}
+temp	point	$tmp242	%read{13,2063} %write{13,2063}
+temp	float	$tmp243	%read{13,2063} %write{13,2063}
+temp	float	$tmp244	%read{13,2063} %write{13,2063}
+temp	point	$tmp245	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp246	%read{13,2063} %write{13,2063}
+temp	float	$tmp247	%read{13,2063} %write{13,2063}
+temp	float	$tmp248	%read{13,2063} %write{13,2063}
+temp	float	$tmp249	%read{13,2063} %write{13,2063}
+temp	float	$tmp250	%read{13,2063} %write{13,2063}
+temp	float	$tmp251	%read{13,2063} %write{13,2063}
+temp	float	$tmp252	%read{13,2063} %write{13,2063}
+temp	float	$tmp253	%read{13,2063} %write{13,2063}
+temp	float	$tmp254	%read{13,2063} %write{13,2063}
+temp	float	$tmp255	%read{13,2063} %write{13,2063}
+temp	float	$tmp256	%read{13,2063} %write{13,2063}
+temp	int	$tmp257	%read{13,2063} %write{13,2063}
+temp	int	$tmp258	%read{13,2063} %write{13,2063}
+temp	float	$tmp259	%read{13,2063} %write{13,2063}
+temp	int	$tmp260	%read{13,2063} %write{13,2063}
+temp	int	$tmp261	%read{13,2063} %write{13,2063}
+temp	int	$tmp262	%read{13,2063} %write{13,2063}
+temp	float	$tmp263	%read{13,2063} %write{13,2063}
+temp	int	$tmp264	%read{13,2063} %write{13,2063}
+temp	int	$tmp265	%read{13,2063} %write{13,2063}
+temp	int	$tmp266	%read{13,2063} %write{13,2063}
+temp	float	$tmp267	%read{13,2063} %write{13,2063}
+temp	int	$tmp268	%read{13,2063} %write{13,2063}
+temp	int	$tmp269	%read{13,2063} %write{13,2063}
+temp	float	$tmp270	%read{13,2063} %write{13,2063}
+temp	float	$tmp271	%read{13,2063} %write{13,2063}
+temp	float	$tmp272	%read{13,2063} %write{13,2063}
+temp	float	$tmp273	%read{13,2063} %write{13,2063}
+temp	float	$tmp274	%read{13,2063} %write{13,2063}
+temp	int	$tmp275	%read{13,2063} %write{13,2063}
+temp	int	$tmp276	%read{13,2063} %write{13,2063}
+temp	float	$tmp277	%read{13,2063} %write{13,2063}
+temp	int	$tmp278	%read{13,2063} %write{13,2063}
+temp	int	$tmp279	%read{13,2063} %write{13,2063}
+temp	int	$tmp280	%read{13,2063} %write{13,2063}
+temp	int	$tmp281	%read{13,2063} %write{13,2063}
+temp	float	$tmp282	%read{13,2063} %write{13,2063}
+temp	float	$tmp283	%read{13,2063} %write{13,2063}
+temp	float	$tmp284	%read{13,2063} %write{13,2063}
+temp	float	$tmp285	%read{13,2063} %write{13,2063}
+temp	float	$tmp286	%read{13,2063} %write{13,2063}
+temp	float	$tmp287	%read{13,2063} %write{13,2063}
+temp	float	$tmp288	%read{13,2063} %write{13,2063}
+temp	float	$tmp289	%read{13,2063} %write{13,2063}
+temp	float	$tmp290	%read{13,2063} %write{13,2063}
+temp	float	$tmp291	%read{13,2063} %write{13,2063}
+temp	float	$tmp292	%read{13,2063} %write{13,2063}
+temp	float	$tmp293	%read{13,2063} %write{13,2063}
+temp	float	$tmp294	%read{13,2063} %write{13,2063}
+temp	float	$tmp295	%read{13,2063} %write{13,2063}
+temp	float	$tmp296	%read{13,2063} %write{13,2063}
+temp	float	$tmp297	%read{13,2063} %write{13,2063}
+temp	int	$tmp298	%read{13,2063} %write{13,2063}
+const	int	$const12	4		%read{657,1939} %write{2147483647,-1}
+temp	point	$tmp299	%read{13,2063} %write{13,2063}
+temp	float	$tmp300	%read{13,2063} %write{13,2063}
+temp	float	$tmp301	%read{13,2063} %write{13,2063}
+temp	point	$tmp302	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp303	%read{13,2063} %write{13,2063}
+temp	float	$tmp304	%read{13,2063} %write{13,2063}
+temp	float	$tmp305	%read{13,2063} %write{13,2063}
+temp	float	$tmp306	%read{13,2063} %write{13,2063}
+temp	float	$tmp307	%read{13,2063} %write{13,2063}
+temp	float	$tmp308	%read{13,2063} %write{13,2063}
+temp	float	$tmp309	%read{13,2063} %write{13,2063}
+temp	float	$tmp310	%read{13,2063} %write{13,2063}
+temp	float	$tmp311	%read{13,2063} %write{13,2063}
+temp	float	$tmp312	%read{13,2063} %write{13,2063}
+temp	float	$tmp313	%read{13,2063} %write{13,2063}
+temp	int	$tmp314	%read{13,2063} %write{13,2063}
+temp	int	$tmp315	%read{13,2063} %write{13,2063}
+temp	float	$tmp316	%read{13,2063} %write{13,2063}
+temp	int	$tmp317	%read{13,2063} %write{13,2063}
+temp	int	$tmp318	%read{13,2063} %write{13,2063}
+temp	int	$tmp319	%read{13,2063} %write{13,2063}
+temp	float	$tmp320	%read{13,2063} %write{13,2063}
+temp	int	$tmp321	%read{13,2063} %write{13,2063}
+temp	int	$tmp322	%read{13,2063} %write{13,2063}
+temp	int	$tmp323	%read{13,2063} %write{13,2063}
+temp	float	$tmp324	%read{13,2063} %write{13,2063}
+temp	int	$tmp325	%read{13,2063} %write{13,2063}
+temp	int	$tmp326	%read{13,2063} %write{13,2063}
+temp	float	$tmp327	%read{13,2063} %write{13,2063}
+temp	float	$tmp328	%read{13,2063} %write{13,2063}
+temp	float	$tmp329	%read{13,2063} %write{13,2063}
+temp	float	$tmp330	%read{13,2063} %write{13,2063}
+temp	float	$tmp331	%read{13,2063} %write{13,2063}
+temp	int	$tmp332	%read{13,2063} %write{13,2063}
+temp	int	$tmp333	%read{13,2063} %write{13,2063}
+temp	float	$tmp334	%read{13,2063} %write{13,2063}
+temp	int	$tmp335	%read{13,2063} %write{13,2063}
+temp	int	$tmp336	%read{13,2063} %write{13,2063}
+temp	int	$tmp337	%read{13,2063} %write{13,2063}
+temp	int	$tmp338	%read{13,2063} %write{13,2063}
+temp	float	$tmp339	%read{13,2063} %write{13,2063}
+temp	float	$tmp340	%read{13,2063} %write{13,2063}
+temp	float	$tmp341	%read{13,2063} %write{13,2063}
+temp	float	$tmp342	%read{13,2063} %write{13,2063}
+temp	float	$tmp343	%read{13,2063} %write{13,2063}
+temp	float	$tmp344	%read{13,2063} %write{13,2063}
+temp	float	$tmp345	%read{13,2063} %write{13,2063}
+temp	float	$tmp346	%read{13,2063} %write{13,2063}
+temp	float	$tmp347	%read{13,2063} %write{13,2063}
+temp	float	$tmp348	%read{13,2063} %write{13,2063}
+temp	float	$tmp349	%read{13,2063} %write{13,2063}
+temp	float	$tmp350	%read{13,2063} %write{13,2063}
+temp	float	$tmp351	%read{13,2063} %write{13,2063}
+temp	float	$tmp352	%read{13,2063} %write{13,2063}
+temp	float	$tmp353	%read{13,2063} %write{13,2063}
+temp	float	$tmp354	%read{13,2063} %write{13,2063}
+temp	int	$tmp355	%read{13,2063} %write{13,2063}
+temp	int	$tmp356	%read{13,2063} %write{13,2063}
+temp	point	$tmp357	%read{13,2063} %write{13,2063}
+temp	float	$tmp358	%read{13,2063} %write{13,2063}
+temp	float	$tmp359	%read{13,2063} %write{13,2063}
+temp	point	$tmp360	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp361	%read{13,2063} %write{13,2063}
+temp	float	$tmp362	%read{13,2063} %write{13,2063}
+temp	float	$tmp363	%read{13,2063} %write{13,2063}
+temp	float	$tmp364	%read{13,2063} %write{13,2063}
+temp	float	$tmp365	%read{13,2063} %write{13,2063}
+temp	float	$tmp366	%read{13,2063} %write{13,2063}
+temp	float	$tmp367	%read{13,2063} %write{13,2063}
+temp	float	$tmp368	%read{13,2063} %write{13,2063}
+temp	float	$tmp369	%read{13,2063} %write{13,2063}
+temp	float	$tmp370	%read{13,2063} %write{13,2063}
+temp	float	$tmp371	%read{13,2063} %write{13,2063}
+temp	int	$tmp372	%read{13,2063} %write{13,2063}
+temp	int	$tmp373	%read{13,2063} %write{13,2063}
+temp	float	$tmp374	%read{13,2063} %write{13,2063}
+temp	int	$tmp375	%read{13,2063} %write{13,2063}
+temp	int	$tmp376	%read{13,2063} %write{13,2063}
+temp	int	$tmp377	%read{13,2063} %write{13,2063}
+temp	float	$tmp378	%read{13,2063} %write{13,2063}
+temp	int	$tmp379	%read{13,2063} %write{13,2063}
+temp	int	$tmp380	%read{13,2063} %write{13,2063}
+temp	int	$tmp381	%read{13,2063} %write{13,2063}
+temp	float	$tmp382	%read{13,2063} %write{13,2063}
+temp	int	$tmp383	%read{13,2063} %write{13,2063}
+temp	int	$tmp384	%read{13,2063} %write{13,2063}
+temp	float	$tmp385	%read{13,2063} %write{13,2063}
+temp	float	$tmp386	%read{13,2063} %write{13,2063}
+temp	float	$tmp387	%read{13,2063} %write{13,2063}
+temp	float	$tmp388	%read{13,2063} %write{13,2063}
+temp	float	$tmp389	%read{13,2063} %write{13,2063}
+temp	int	$tmp390	%read{13,2063} %write{13,2063}
+temp	int	$tmp391	%read{13,2063} %write{13,2063}
+temp	float	$tmp392	%read{13,2063} %write{13,2063}
+temp	int	$tmp393	%read{13,2063} %write{13,2063}
+temp	int	$tmp394	%read{13,2063} %write{13,2063}
+temp	int	$tmp395	%read{13,2063} %write{13,2063}
+temp	int	$tmp396	%read{13,2063} %write{13,2063}
+temp	float	$tmp397	%read{13,2063} %write{13,2063}
+temp	float	$tmp398	%read{13,2063} %write{13,2063}
+temp	float	$tmp399	%read{13,2063} %write{13,2063}
+temp	float	$tmp400	%read{13,2063} %write{13,2063}
+temp	float	$tmp401	%read{13,2063} %write{13,2063}
+temp	float	$tmp402	%read{13,2063} %write{13,2063}
+temp	float	$tmp403	%read{13,2063} %write{13,2063}
+temp	float	$tmp404	%read{13,2063} %write{13,2063}
+temp	float	$tmp405	%read{13,2063} %write{13,2063}
+temp	float	$tmp406	%read{13,2063} %write{13,2063}
+temp	float	$tmp407	%read{13,2063} %write{13,2063}
+temp	float	$tmp408	%read{13,2063} %write{13,2063}
+temp	float	$tmp409	%read{13,2063} %write{13,2063}
+temp	float	$tmp410	%read{13,2063} %write{13,2063}
+temp	float	$tmp411	%read{13,2063} %write{13,2063}
+temp	float	$tmp412	%read{13,2063} %write{13,2063}
+temp	int	$tmp413	%read{13,2063} %write{13,2063}
+temp	float	$tmp414	%read{13,2063} %write{13,2063}
+temp	float	$tmp415	%read{13,2063} %write{13,2063}
+temp	point	$tmp416	%read{13,2063} %write{13,2063}
+temp	float	$tmp417	%read{13,2063} %write{13,2063}
+temp	float	$tmp418	%read{13,2063} %write{13,2063}
+temp	point	$tmp419	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp420	%read{13,2063} %write{13,2063}
+temp	float	$tmp421	%read{13,2063} %write{13,2063}
+temp	float	$tmp422	%read{13,2063} %write{13,2063}
+temp	float	$tmp423	%read{13,2063} %write{13,2063}
+temp	float	$tmp424	%read{13,2063} %write{13,2063}
+temp	float	$tmp425	%read{13,2063} %write{13,2063}
+temp	float	$tmp426	%read{13,2063} %write{13,2063}
+temp	float	$tmp427	%read{13,2063} %write{13,2063}
+temp	float	$tmp428	%read{13,2063} %write{13,2063}
+temp	float	$tmp429	%read{13,2063} %write{13,2063}
+temp	float	$tmp430	%read{13,2063} %write{13,2063}
+temp	int	$tmp431	%read{13,2063} %write{13,2063}
+temp	int	$tmp432	%read{13,2063} %write{13,2063}
+temp	float	$tmp433	%read{13,2063} %write{13,2063}
+temp	int	$tmp434	%read{13,2063} %write{13,2063}
+temp	int	$tmp435	%read{13,2063} %write{13,2063}
+temp	int	$tmp436	%read{13,2063} %write{13,2063}
+temp	float	$tmp437	%read{13,2063} %write{13,2063}
+temp	int	$tmp438	%read{13,2063} %write{13,2063}
+temp	int	$tmp439	%read{13,2063} %write{13,2063}
+temp	int	$tmp440	%read{13,2063} %write{13,2063}
+temp	float	$tmp441	%read{13,2063} %write{13,2063}
+temp	int	$tmp442	%read{13,2063} %write{13,2063}
+temp	int	$tmp443	%read{13,2063} %write{13,2063}
+temp	float	$tmp444	%read{13,2063} %write{13,2063}
+temp	float	$tmp445	%read{13,2063} %write{13,2063}
+temp	float	$tmp446	%read{13,2063} %write{13,2063}
+temp	float	$tmp447	%read{13,2063} %write{13,2063}
+temp	float	$tmp448	%read{13,2063} %write{13,2063}
+temp	int	$tmp449	%read{13,2063} %write{13,2063}
+temp	int	$tmp450	%read{13,2063} %write{13,2063}
+temp	float	$tmp451	%read{13,2063} %write{13,2063}
+temp	int	$tmp452	%read{13,2063} %write{13,2063}
+temp	int	$tmp453	%read{13,2063} %write{13,2063}
+temp	int	$tmp454	%read{13,2063} %write{13,2063}
+temp	int	$tmp455	%read{13,2063} %write{13,2063}
+temp	float	$tmp456	%read{13,2063} %write{13,2063}
+temp	float	$tmp457	%read{13,2063} %write{13,2063}
+temp	float	$tmp458	%read{13,2063} %write{13,2063}
+temp	float	$tmp459	%read{13,2063} %write{13,2063}
+temp	float	$tmp460	%read{13,2063} %write{13,2063}
+temp	float	$tmp461	%read{13,2063} %write{13,2063}
+temp	float	$tmp462	%read{13,2063} %write{13,2063}
+temp	float	$tmp463	%read{13,2063} %write{13,2063}
+temp	float	$tmp464	%read{13,2063} %write{13,2063}
+temp	float	$tmp465	%read{13,2063} %write{13,2063}
+temp	float	$tmp466	%read{13,2063} %write{13,2063}
+temp	float	$tmp467	%read{13,2063} %write{13,2063}
+temp	float	$tmp468	%read{13,2063} %write{13,2063}
+temp	float	$tmp469	%read{13,2063} %write{13,2063}
+temp	float	$tmp470	%read{13,2063} %write{13,2063}
+temp	float	$tmp471	%read{13,2063} %write{13,2063}
+temp	int	$tmp472	%read{13,2063} %write{13,2063}
+temp	float	$tmp473	%read{13,2063} %write{13,2063}
+temp	float	$tmp474	%read{13,2063} %write{13,2063}
+temp	point	$tmp475	%read{13,2063} %write{13,2063}
+temp	float	$tmp476	%read{13,2063} %write{13,2063}
+temp	float	$tmp477	%read{13,2063} %write{13,2063}
+temp	point	$tmp478	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp479	%read{13,2063} %write{13,2063}
+temp	float	$tmp480	%read{13,2063} %write{13,2063}
+temp	float	$tmp481	%read{13,2063} %write{13,2063}
+temp	float	$tmp482	%read{13,2063} %write{13,2063}
+temp	float	$tmp483	%read{13,2063} %write{13,2063}
+temp	float	$tmp484	%read{13,2063} %write{13,2063}
+temp	float	$tmp485	%read{13,2063} %write{13,2063}
+temp	float	$tmp486	%read{13,2063} %write{13,2063}
+temp	float	$tmp487	%read{13,2063} %write{13,2063}
+temp	float	$tmp488	%read{13,2063} %write{13,2063}
+temp	float	$tmp489	%read{13,2063} %write{13,2063}
+temp	int	$tmp490	%read{13,2063} %write{13,2063}
+temp	int	$tmp491	%read{13,2063} %write{13,2063}
+temp	float	$tmp492	%read{13,2063} %write{13,2063}
+temp	int	$tmp493	%read{13,2063} %write{13,2063}
+temp	int	$tmp494	%read{13,2063} %write{13,2063}
+temp	int	$tmp495	%read{13,2063} %write{13,2063}
+temp	float	$tmp496	%read{13,2063} %write{13,2063}
+temp	int	$tmp497	%read{13,2063} %write{13,2063}
+temp	int	$tmp498	%read{13,2063} %write{13,2063}
+temp	int	$tmp499	%read{13,2063} %write{13,2063}
+temp	float	$tmp500	%read{13,2063} %write{13,2063}
+temp	int	$tmp501	%read{13,2063} %write{13,2063}
+temp	int	$tmp502	%read{13,2063} %write{13,2063}
+temp	float	$tmp503	%read{13,2063} %write{13,2063}
+temp	float	$tmp504	%read{13,2063} %write{13,2063}
+temp	float	$tmp505	%read{13,2063} %write{13,2063}
+temp	float	$tmp506	%read{13,2063} %write{13,2063}
+temp	float	$tmp507	%read{13,2063} %write{13,2063}
+temp	int	$tmp508	%read{13,2063} %write{13,2063}
+temp	int	$tmp509	%read{13,2063} %write{13,2063}
+temp	float	$tmp510	%read{13,2063} %write{13,2063}
+temp	int	$tmp511	%read{13,2063} %write{13,2063}
+temp	int	$tmp512	%read{13,2063} %write{13,2063}
+temp	int	$tmp513	%read{13,2063} %write{13,2063}
+temp	int	$tmp514	%read{13,2063} %write{13,2063}
+temp	float	$tmp515	%read{13,2063} %write{13,2063}
+temp	float	$tmp516	%read{13,2063} %write{13,2063}
+temp	float	$tmp517	%read{13,2063} %write{13,2063}
+temp	float	$tmp518	%read{13,2063} %write{13,2063}
+temp	float	$tmp519	%read{13,2063} %write{13,2063}
+temp	float	$tmp520	%read{13,2063} %write{13,2063}
+temp	float	$tmp521	%read{13,2063} %write{13,2063}
+temp	float	$tmp522	%read{13,2063} %write{13,2063}
+temp	float	$tmp523	%read{13,2063} %write{13,2063}
+temp	float	$tmp524	%read{13,2063} %write{13,2063}
+temp	float	$tmp525	%read{13,2063} %write{13,2063}
+temp	float	$tmp526	%read{13,2063} %write{13,2063}
+temp	float	$tmp527	%read{13,2063} %write{13,2063}
+temp	float	$tmp528	%read{13,2063} %write{13,2063}
+temp	float	$tmp529	%read{13,2063} %write{13,2063}
+temp	float	$tmp530	%read{13,2063} %write{13,2063}
+temp	int	$tmp531	%read{13,2063} %write{13,2063}
+temp	int	$tmp532	%read{13,2063} %write{13,2063}
+temp	point	$tmp533	%read{13,2063} %write{13,2063}
+temp	float	$tmp534	%read{13,2063} %write{13,2063}
+temp	float	$tmp535	%read{13,2063} %write{13,2063}
+temp	point	$tmp536	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp537	%read{13,2063} %write{13,2063}
+temp	float	$tmp538	%read{13,2063} %write{13,2063}
+temp	float	$tmp539	%read{13,2063} %write{13,2063}
+temp	float	$tmp540	%read{13,2063} %write{13,2063}
+temp	float	$tmp541	%read{13,2063} %write{13,2063}
+temp	float	$tmp542	%read{13,2063} %write{13,2063}
+temp	float	$tmp543	%read{13,2063} %write{13,2063}
+temp	float	$tmp544	%read{13,2063} %write{13,2063}
+temp	float	$tmp545	%read{13,2063} %write{13,2063}
+temp	float	$tmp546	%read{13,2063} %write{13,2063}
+temp	float	$tmp547	%read{13,2063} %write{13,2063}
+temp	int	$tmp548	%read{13,2063} %write{13,2063}
+temp	int	$tmp549	%read{13,2063} %write{13,2063}
+temp	float	$tmp550	%read{13,2063} %write{13,2063}
+temp	int	$tmp551	%read{13,2063} %write{13,2063}
+temp	int	$tmp552	%read{13,2063} %write{13,2063}
+temp	int	$tmp553	%read{13,2063} %write{13,2063}
+temp	float	$tmp554	%read{13,2063} %write{13,2063}
+temp	int	$tmp555	%read{13,2063} %write{13,2063}
+temp	int	$tmp556	%read{13,2063} %write{13,2063}
+temp	int	$tmp557	%read{13,2063} %write{13,2063}
+temp	float	$tmp558	%read{13,2063} %write{13,2063}
+temp	int	$tmp559	%read{13,2063} %write{13,2063}
+temp	int	$tmp560	%read{13,2063} %write{13,2063}
+temp	float	$tmp561	%read{13,2063} %write{13,2063}
+temp	float	$tmp562	%read{13,2063} %write{13,2063}
+temp	float	$tmp563	%read{13,2063} %write{13,2063}
+temp	float	$tmp564	%read{13,2063} %write{13,2063}
+temp	float	$tmp565	%read{13,2063} %write{13,2063}
+temp	int	$tmp566	%read{13,2063} %write{13,2063}
+temp	int	$tmp567	%read{13,2063} %write{13,2063}
+temp	float	$tmp568	%read{13,2063} %write{13,2063}
+temp	int	$tmp569	%read{13,2063} %write{13,2063}
+temp	int	$tmp570	%read{13,2063} %write{13,2063}
+temp	int	$tmp571	%read{13,2063} %write{13,2063}
+temp	int	$tmp572	%read{13,2063} %write{13,2063}
+temp	float	$tmp573	%read{13,2063} %write{13,2063}
+temp	float	$tmp574	%read{13,2063} %write{13,2063}
+temp	float	$tmp575	%read{13,2063} %write{13,2063}
+temp	float	$tmp576	%read{13,2063} %write{13,2063}
+temp	float	$tmp577	%read{13,2063} %write{13,2063}
+temp	float	$tmp578	%read{13,2063} %write{13,2063}
+temp	float	$tmp579	%read{13,2063} %write{13,2063}
+temp	float	$tmp580	%read{13,2063} %write{13,2063}
+temp	float	$tmp581	%read{13,2063} %write{13,2063}
+temp	float	$tmp582	%read{13,2063} %write{13,2063}
+temp	float	$tmp583	%read{13,2063} %write{13,2063}
+temp	float	$tmp584	%read{13,2063} %write{13,2063}
+temp	float	$tmp585	%read{13,2063} %write{13,2063}
+temp	float	$tmp586	%read{13,2063} %write{13,2063}
+temp	float	$tmp587	%read{13,2063} %write{13,2063}
+temp	float	$tmp588	%read{13,2063} %write{13,2063}
+temp	int	$tmp589	%read{13,2063} %write{13,2063}
+temp	float	$tmp590	%read{13,2063} %write{13,2063}
+temp	float	$tmp591	%read{13,2063} %write{13,2063}
+const	float	$const13	0.75		%read{1112,1431} %write{2147483647,-1}
+temp	point	$tmp592	%read{13,2063} %write{13,2063}
+temp	float	$tmp593	%read{13,2063} %write{13,2063}
+temp	float	$tmp594	%read{13,2063} %write{13,2063}
+temp	point	$tmp595	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp596	%read{13,2063} %write{13,2063}
+temp	float	$tmp597	%read{13,2063} %write{13,2063}
+temp	float	$tmp598	%read{13,2063} %write{13,2063}
+temp	float	$tmp599	%read{13,2063} %write{13,2063}
+temp	float	$tmp600	%read{13,2063} %write{13,2063}
+temp	float	$tmp601	%read{13,2063} %write{13,2063}
+temp	float	$tmp602	%read{13,2063} %write{13,2063}
+temp	float	$tmp603	%read{13,2063} %write{13,2063}
+temp	float	$tmp604	%read{13,2063} %write{13,2063}
+temp	float	$tmp605	%read{13,2063} %write{13,2063}
+temp	float	$tmp606	%read{13,2063} %write{13,2063}
+temp	int	$tmp607	%read{13,2063} %write{13,2063}
+temp	int	$tmp608	%read{13,2063} %write{13,2063}
+temp	float	$tmp609	%read{13,2063} %write{13,2063}
+temp	int	$tmp610	%read{13,2063} %write{13,2063}
+temp	int	$tmp611	%read{13,2063} %write{13,2063}
+temp	int	$tmp612	%read{13,2063} %write{13,2063}
+temp	float	$tmp613	%read{13,2063} %write{13,2063}
+temp	int	$tmp614	%read{13,2063} %write{13,2063}
+temp	int	$tmp615	%read{13,2063} %write{13,2063}
+temp	int	$tmp616	%read{13,2063} %write{13,2063}
+temp	float	$tmp617	%read{13,2063} %write{13,2063}
+temp	int	$tmp618	%read{13,2063} %write{13,2063}
+temp	int	$tmp619	%read{13,2063} %write{13,2063}
+temp	float	$tmp620	%read{13,2063} %write{13,2063}
+temp	float	$tmp621	%read{13,2063} %write{13,2063}
+temp	float	$tmp622	%read{13,2063} %write{13,2063}
+temp	float	$tmp623	%read{13,2063} %write{13,2063}
+temp	float	$tmp624	%read{13,2063} %write{13,2063}
+temp	int	$tmp625	%read{13,2063} %write{13,2063}
+temp	int	$tmp626	%read{13,2063} %write{13,2063}
+temp	float	$tmp627	%read{13,2063} %write{13,2063}
+temp	int	$tmp628	%read{13,2063} %write{13,2063}
+temp	int	$tmp629	%read{13,2063} %write{13,2063}
+temp	int	$tmp630	%read{13,2063} %write{13,2063}
+temp	int	$tmp631	%read{13,2063} %write{13,2063}
+temp	float	$tmp632	%read{13,2063} %write{13,2063}
+temp	float	$tmp633	%read{13,2063} %write{13,2063}
+temp	float	$tmp634	%read{13,2063} %write{13,2063}
+temp	float	$tmp635	%read{13,2063} %write{13,2063}
+temp	float	$tmp636	%read{13,2063} %write{13,2063}
+temp	float	$tmp637	%read{13,2063} %write{13,2063}
+temp	float	$tmp638	%read{13,2063} %write{13,2063}
+temp	float	$tmp639	%read{13,2063} %write{13,2063}
+temp	float	$tmp640	%read{13,2063} %write{13,2063}
+temp	float	$tmp641	%read{13,2063} %write{13,2063}
+temp	float	$tmp642	%read{13,2063} %write{13,2063}
+temp	float	$tmp643	%read{13,2063} %write{13,2063}
+temp	float	$tmp644	%read{13,2063} %write{13,2063}
+temp	float	$tmp645	%read{13,2063} %write{13,2063}
+temp	float	$tmp646	%read{13,2063} %write{13,2063}
+temp	float	$tmp647	%read{13,2063} %write{13,2063}
+temp	int	$tmp648	%read{13,2063} %write{13,2063}
+temp	float	$tmp649	%read{13,2063} %write{13,2063}
+temp	float	$tmp650	%read{13,2063} %write{13,2063}
+temp	point	$tmp651	%read{13,2063} %write{13,2063}
+temp	float	$tmp652	%read{13,2063} %write{13,2063}
+temp	float	$tmp653	%read{13,2063} %write{13,2063}
+temp	point	$tmp654	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp655	%read{13,2063} %write{13,2063}
+temp	float	$tmp656	%read{13,2063} %write{13,2063}
+temp	float	$tmp657	%read{13,2063} %write{13,2063}
+temp	float	$tmp658	%read{13,2063} %write{13,2063}
+temp	float	$tmp659	%read{13,2063} %write{13,2063}
+temp	float	$tmp660	%read{13,2063} %write{13,2063}
+temp	float	$tmp661	%read{13,2063} %write{13,2063}
+temp	float	$tmp662	%read{13,2063} %write{13,2063}
+temp	float	$tmp663	%read{13,2063} %write{13,2063}
+temp	float	$tmp664	%read{13,2063} %write{13,2063}
+temp	float	$tmp665	%read{13,2063} %write{13,2063}
+temp	int	$tmp666	%read{13,2063} %write{13,2063}
+temp	int	$tmp667	%read{13,2063} %write{13,2063}
+temp	float	$tmp668	%read{13,2063} %write{13,2063}
+temp	int	$tmp669	%read{13,2063} %write{13,2063}
+temp	int	$tmp670	%read{13,2063} %write{13,2063}
+temp	int	$tmp671	%read{13,2063} %write{13,2063}
+temp	float	$tmp672	%read{13,2063} %write{13,2063}
+temp	int	$tmp673	%read{13,2063} %write{13,2063}
+temp	int	$tmp674	%read{13,2063} %write{13,2063}
+temp	int	$tmp675	%read{13,2063} %write{13,2063}
+temp	float	$tmp676	%read{13,2063} %write{13,2063}
+temp	int	$tmp677	%read{13,2063} %write{13,2063}
+temp	int	$tmp678	%read{13,2063} %write{13,2063}
+temp	float	$tmp679	%read{13,2063} %write{13,2063}
+temp	float	$tmp680	%read{13,2063} %write{13,2063}
+temp	float	$tmp681	%read{13,2063} %write{13,2063}
+temp	float	$tmp682	%read{13,2063} %write{13,2063}
+temp	float	$tmp683	%read{13,2063} %write{13,2063}
+temp	int	$tmp684	%read{13,2063} %write{13,2063}
+temp	int	$tmp685	%read{13,2063} %write{13,2063}
+temp	float	$tmp686	%read{13,2063} %write{13,2063}
+temp	int	$tmp687	%read{13,2063} %write{13,2063}
+temp	int	$tmp688	%read{13,2063} %write{13,2063}
+temp	int	$tmp689	%read{13,2063} %write{13,2063}
+temp	int	$tmp690	%read{13,2063} %write{13,2063}
+temp	float	$tmp691	%read{13,2063} %write{13,2063}
+temp	float	$tmp692	%read{13,2063} %write{13,2063}
+temp	float	$tmp693	%read{13,2063} %write{13,2063}
+temp	float	$tmp694	%read{13,2063} %write{13,2063}
+temp	float	$tmp695	%read{13,2063} %write{13,2063}
+temp	float	$tmp696	%read{13,2063} %write{13,2063}
+temp	float	$tmp697	%read{13,2063} %write{13,2063}
+temp	float	$tmp698	%read{13,2063} %write{13,2063}
+temp	float	$tmp699	%read{13,2063} %write{13,2063}
+temp	float	$tmp700	%read{13,2063} %write{13,2063}
+temp	float	$tmp701	%read{13,2063} %write{13,2063}
+temp	float	$tmp702	%read{13,2063} %write{13,2063}
+temp	float	$tmp703	%read{13,2063} %write{13,2063}
+temp	float	$tmp704	%read{13,2063} %write{13,2063}
+temp	float	$tmp705	%read{13,2063} %write{13,2063}
+temp	float	$tmp706	%read{13,2063} %write{13,2063}
+temp	int	$tmp707	%read{13,2063} %write{13,2063}
+temp	float	$tmp708	%read{13,2063} %write{13,2063}
+temp	float	$tmp709	%read{13,2063} %write{13,2063}
+temp	point	$tmp710	%read{13,2063} %write{13,2063}
+temp	float	$tmp711	%read{13,2063} %write{13,2063}
+temp	float	$tmp712	%read{13,2063} %write{13,2063}
+temp	point	$tmp713	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp714	%read{13,2063} %write{13,2063}
+temp	float	$tmp715	%read{13,2063} %write{13,2063}
+temp	float	$tmp716	%read{13,2063} %write{13,2063}
+temp	float	$tmp717	%read{13,2063} %write{13,2063}
+temp	float	$tmp718	%read{13,2063} %write{13,2063}
+temp	float	$tmp719	%read{13,2063} %write{13,2063}
+temp	float	$tmp720	%read{13,2063} %write{13,2063}
+temp	float	$tmp721	%read{13,2063} %write{13,2063}
+temp	float	$tmp722	%read{13,2063} %write{13,2063}
+temp	float	$tmp723	%read{13,2063} %write{13,2063}
+temp	float	$tmp724	%read{13,2063} %write{13,2063}
+temp	int	$tmp725	%read{13,2063} %write{13,2063}
+temp	int	$tmp726	%read{13,2063} %write{13,2063}
+temp	float	$tmp727	%read{13,2063} %write{13,2063}
+temp	int	$tmp728	%read{13,2063} %write{13,2063}
+temp	int	$tmp729	%read{13,2063} %write{13,2063}
+temp	int	$tmp730	%read{13,2063} %write{13,2063}
+temp	float	$tmp731	%read{13,2063} %write{13,2063}
+temp	int	$tmp732	%read{13,2063} %write{13,2063}
+temp	int	$tmp733	%read{13,2063} %write{13,2063}
+temp	int	$tmp734	%read{13,2063} %write{13,2063}
+temp	float	$tmp735	%read{13,2063} %write{13,2063}
+temp	int	$tmp736	%read{13,2063} %write{13,2063}
+temp	int	$tmp737	%read{13,2063} %write{13,2063}
+temp	float	$tmp738	%read{13,2063} %write{13,2063}
+temp	float	$tmp739	%read{13,2063} %write{13,2063}
+temp	float	$tmp740	%read{13,2063} %write{13,2063}
+temp	float	$tmp741	%read{13,2063} %write{13,2063}
+temp	float	$tmp742	%read{13,2063} %write{13,2063}
+temp	int	$tmp743	%read{13,2063} %write{13,2063}
+temp	int	$tmp744	%read{13,2063} %write{13,2063}
+temp	float	$tmp745	%read{13,2063} %write{13,2063}
+temp	int	$tmp746	%read{13,2063} %write{13,2063}
+temp	int	$tmp747	%read{13,2063} %write{13,2063}
+temp	int	$tmp748	%read{13,2063} %write{13,2063}
+temp	int	$tmp749	%read{13,2063} %write{13,2063}
+temp	float	$tmp750	%read{13,2063} %write{13,2063}
+temp	float	$tmp751	%read{13,2063} %write{13,2063}
+temp	float	$tmp752	%read{13,2063} %write{13,2063}
+temp	float	$tmp753	%read{13,2063} %write{13,2063}
+temp	float	$tmp754	%read{13,2063} %write{13,2063}
+temp	float	$tmp755	%read{13,2063} %write{13,2063}
+temp	float	$tmp756	%read{13,2063} %write{13,2063}
+temp	float	$tmp757	%read{13,2063} %write{13,2063}
+temp	float	$tmp758	%read{13,2063} %write{13,2063}
+temp	float	$tmp759	%read{13,2063} %write{13,2063}
+temp	float	$tmp760	%read{13,2063} %write{13,2063}
+temp	float	$tmp761	%read{13,2063} %write{13,2063}
+temp	float	$tmp762	%read{13,2063} %write{13,2063}
+temp	float	$tmp763	%read{13,2063} %write{13,2063}
+temp	float	$tmp764	%read{13,2063} %write{13,2063}
+temp	float	$tmp765	%read{13,2063} %write{13,2063}
+temp	int	$tmp766	%read{13,2063} %write{13,2063}
+temp	float	$tmp767	%read{13,2063} %write{13,2063}
+temp	float	$tmp768	%read{13,2063} %write{13,2063}
+const	int	$const14	5		%read{1513,2046} %write{2147483647,-1}
+temp	point	$tmp769	%read{13,2063} %write{13,2063}
+temp	float	$tmp770	%read{13,2063} %write{13,2063}
+temp	float	$tmp771	%read{13,2063} %write{13,2063}
+temp	point	$tmp772	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp773	%read{13,2063} %write{13,2063}
+temp	float	$tmp774	%read{13,2063} %write{13,2063}
+temp	float	$tmp775	%read{13,2063} %write{13,2063}
+temp	float	$tmp776	%read{13,2063} %write{13,2063}
+temp	float	$tmp777	%read{13,2063} %write{13,2063}
+temp	float	$tmp778	%read{13,2063} %write{13,2063}
+temp	float	$tmp779	%read{13,2063} %write{13,2063}
+temp	float	$tmp780	%read{13,2063} %write{13,2063}
+temp	float	$tmp781	%read{13,2063} %write{13,2063}
+temp	float	$tmp782	%read{13,2063} %write{13,2063}
+temp	float	$tmp783	%read{13,2063} %write{13,2063}
+temp	int	$tmp784	%read{13,2063} %write{13,2063}
+temp	int	$tmp785	%read{13,2063} %write{13,2063}
+temp	float	$tmp786	%read{13,2063} %write{13,2063}
+temp	int	$tmp787	%read{13,2063} %write{13,2063}
+temp	int	$tmp788	%read{13,2063} %write{13,2063}
+temp	int	$tmp789	%read{13,2063} %write{13,2063}
+temp	float	$tmp790	%read{13,2063} %write{13,2063}
+temp	int	$tmp791	%read{13,2063} %write{13,2063}
+temp	int	$tmp792	%read{13,2063} %write{13,2063}
+temp	int	$tmp793	%read{13,2063} %write{13,2063}
+temp	float	$tmp794	%read{13,2063} %write{13,2063}
+temp	int	$tmp795	%read{13,2063} %write{13,2063}
+temp	int	$tmp796	%read{13,2063} %write{13,2063}
+temp	float	$tmp797	%read{13,2063} %write{13,2063}
+temp	float	$tmp798	%read{13,2063} %write{13,2063}
+temp	float	$tmp799	%read{13,2063} %write{13,2063}
+temp	float	$tmp800	%read{13,2063} %write{13,2063}
+temp	float	$tmp801	%read{13,2063} %write{13,2063}
+temp	int	$tmp802	%read{13,2063} %write{13,2063}
+temp	int	$tmp803	%read{13,2063} %write{13,2063}
+temp	float	$tmp804	%read{13,2063} %write{13,2063}
+temp	int	$tmp805	%read{13,2063} %write{13,2063}
+temp	int	$tmp806	%read{13,2063} %write{13,2063}
+temp	int	$tmp807	%read{13,2063} %write{13,2063}
+temp	int	$tmp808	%read{13,2063} %write{13,2063}
+temp	float	$tmp809	%read{13,2063} %write{13,2063}
+temp	float	$tmp810	%read{13,2063} %write{13,2063}
+temp	float	$tmp811	%read{13,2063} %write{13,2063}
+temp	float	$tmp812	%read{13,2063} %write{13,2063}
+temp	float	$tmp813	%read{13,2063} %write{13,2063}
+temp	float	$tmp814	%read{13,2063} %write{13,2063}
+temp	float	$tmp815	%read{13,2063} %write{13,2063}
+temp	float	$tmp816	%read{13,2063} %write{13,2063}
+temp	float	$tmp817	%read{13,2063} %write{13,2063}
+temp	float	$tmp818	%read{13,2063} %write{13,2063}
+temp	float	$tmp819	%read{13,2063} %write{13,2063}
+temp	float	$tmp820	%read{13,2063} %write{13,2063}
+temp	float	$tmp821	%read{13,2063} %write{13,2063}
+temp	float	$tmp822	%read{13,2063} %write{13,2063}
+temp	float	$tmp823	%read{13,2063} %write{13,2063}
+temp	float	$tmp824	%read{13,2063} %write{13,2063}
+temp	int	$tmp825	%read{13,2063} %write{13,2063}
+temp	int	$tmp826	%read{13,2063} %write{13,2063}
+temp	float	$tmp827	%read{13,2063} %write{13,2063}
+temp	point	$tmp828	%read{13,2063} %write{13,2063}
+temp	float	$tmp829	%read{13,2063} %write{13,2063}
+temp	float	$tmp830	%read{13,2063} %write{13,2063}
+temp	point	$tmp831	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp832	%read{13,2063} %write{13,2063}
+temp	float	$tmp833	%read{13,2063} %write{13,2063}
+temp	float	$tmp834	%read{13,2063} %write{13,2063}
+temp	float	$tmp835	%read{13,2063} %write{13,2063}
+temp	float	$tmp836	%read{13,2063} %write{13,2063}
+temp	float	$tmp837	%read{13,2063} %write{13,2063}
+temp	float	$tmp838	%read{13,2063} %write{13,2063}
+temp	float	$tmp839	%read{13,2063} %write{13,2063}
+temp	float	$tmp840	%read{13,2063} %write{13,2063}
+temp	float	$tmp841	%read{13,2063} %write{13,2063}
+temp	float	$tmp842	%read{13,2063} %write{13,2063}
+temp	int	$tmp843	%read{13,2063} %write{13,2063}
+temp	int	$tmp844	%read{13,2063} %write{13,2063}
+temp	float	$tmp845	%read{13,2063} %write{13,2063}
+temp	int	$tmp846	%read{13,2063} %write{13,2063}
+temp	int	$tmp847	%read{13,2063} %write{13,2063}
+temp	int	$tmp848	%read{13,2063} %write{13,2063}
+temp	float	$tmp849	%read{13,2063} %write{13,2063}
+temp	int	$tmp850	%read{13,2063} %write{13,2063}
+temp	int	$tmp851	%read{13,2063} %write{13,2063}
+temp	int	$tmp852	%read{13,2063} %write{13,2063}
+temp	float	$tmp853	%read{13,2063} %write{13,2063}
+temp	int	$tmp854	%read{13,2063} %write{13,2063}
+temp	int	$tmp855	%read{13,2063} %write{13,2063}
+temp	float	$tmp856	%read{13,2063} %write{13,2063}
+temp	float	$tmp857	%read{13,2063} %write{13,2063}
+temp	float	$tmp858	%read{13,2063} %write{13,2063}
+temp	float	$tmp859	%read{13,2063} %write{13,2063}
+temp	float	$tmp860	%read{13,2063} %write{13,2063}
+temp	int	$tmp861	%read{13,2063} %write{13,2063}
+temp	int	$tmp862	%read{13,2063} %write{13,2063}
+temp	float	$tmp863	%read{13,2063} %write{13,2063}
+temp	int	$tmp864	%read{13,2063} %write{13,2063}
+temp	int	$tmp865	%read{13,2063} %write{13,2063}
+temp	int	$tmp866	%read{13,2063} %write{13,2063}
+temp	int	$tmp867	%read{13,2063} %write{13,2063}
+temp	float	$tmp868	%read{13,2063} %write{13,2063}
+temp	float	$tmp869	%read{13,2063} %write{13,2063}
+temp	float	$tmp870	%read{13,2063} %write{13,2063}
+temp	float	$tmp871	%read{13,2063} %write{13,2063}
+temp	float	$tmp872	%read{13,2063} %write{13,2063}
+temp	float	$tmp873	%read{13,2063} %write{13,2063}
+temp	float	$tmp874	%read{13,2063} %write{13,2063}
+temp	float	$tmp875	%read{13,2063} %write{13,2063}
+temp	float	$tmp876	%read{13,2063} %write{13,2063}
+temp	float	$tmp877	%read{13,2063} %write{13,2063}
+temp	float	$tmp878	%read{13,2063} %write{13,2063}
+temp	float	$tmp879	%read{13,2063} %write{13,2063}
+temp	float	$tmp880	%read{13,2063} %write{13,2063}
+temp	float	$tmp881	%read{13,2063} %write{13,2063}
+temp	float	$tmp882	%read{13,2063} %write{13,2063}
+temp	float	$tmp883	%read{13,2063} %write{13,2063}
+temp	int	$tmp884	%read{13,2063} %write{13,2063}
+temp	float	$tmp885	%read{13,2063} %write{13,2063}
+temp	point	$tmp886	%read{13,2063} %write{13,2063}
+temp	float	$tmp887	%read{13,2063} %write{13,2063}
+temp	float	$tmp888	%read{13,2063} %write{13,2063}
+temp	point	$tmp889	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp890	%read{13,2063} %write{13,2063}
+temp	float	$tmp891	%read{13,2063} %write{13,2063}
+temp	float	$tmp892	%read{13,2063} %write{13,2063}
+temp	float	$tmp893	%read{13,2063} %write{13,2063}
+temp	float	$tmp894	%read{13,2063} %write{13,2063}
+temp	float	$tmp895	%read{13,2063} %write{13,2063}
+temp	float	$tmp896	%read{13,2063} %write{13,2063}
+temp	float	$tmp897	%read{13,2063} %write{13,2063}
+temp	float	$tmp898	%read{13,2063} %write{13,2063}
+temp	float	$tmp899	%read{13,2063} %write{13,2063}
+temp	float	$tmp900	%read{13,2063} %write{13,2063}
+temp	int	$tmp901	%read{13,2063} %write{13,2063}
+temp	int	$tmp902	%read{13,2063} %write{13,2063}
+temp	float	$tmp903	%read{13,2063} %write{13,2063}
+temp	int	$tmp904	%read{13,2063} %write{13,2063}
+temp	int	$tmp905	%read{13,2063} %write{13,2063}
+temp	int	$tmp906	%read{13,2063} %write{13,2063}
+temp	float	$tmp907	%read{13,2063} %write{13,2063}
+temp	int	$tmp908	%read{13,2063} %write{13,2063}
+temp	int	$tmp909	%read{13,2063} %write{13,2063}
+temp	int	$tmp910	%read{13,2063} %write{13,2063}
+temp	float	$tmp911	%read{13,2063} %write{13,2063}
+temp	int	$tmp912	%read{13,2063} %write{13,2063}
+temp	int	$tmp913	%read{13,2063} %write{13,2063}
+temp	float	$tmp914	%read{13,2063} %write{13,2063}
+temp	float	$tmp915	%read{13,2063} %write{13,2063}
+temp	float	$tmp916	%read{13,2063} %write{13,2063}
+temp	float	$tmp917	%read{13,2063} %write{13,2063}
+temp	float	$tmp918	%read{13,2063} %write{13,2063}
+temp	int	$tmp919	%read{13,2063} %write{13,2063}
+temp	int	$tmp920	%read{13,2063} %write{13,2063}
+temp	float	$tmp921	%read{13,2063} %write{13,2063}
+temp	int	$tmp922	%read{13,2063} %write{13,2063}
+temp	int	$tmp923	%read{13,2063} %write{13,2063}
+temp	int	$tmp924	%read{13,2063} %write{13,2063}
+temp	int	$tmp925	%read{13,2063} %write{13,2063}
+temp	float	$tmp926	%read{13,2063} %write{13,2063}
+temp	float	$tmp927	%read{13,2063} %write{13,2063}
+temp	float	$tmp928	%read{13,2063} %write{13,2063}
+temp	float	$tmp929	%read{13,2063} %write{13,2063}
+temp	float	$tmp930	%read{13,2063} %write{13,2063}
+temp	float	$tmp931	%read{13,2063} %write{13,2063}
+temp	float	$tmp932	%read{13,2063} %write{13,2063}
+temp	float	$tmp933	%read{13,2063} %write{13,2063}
+temp	float	$tmp934	%read{13,2063} %write{13,2063}
+temp	float	$tmp935	%read{13,2063} %write{13,2063}
+temp	float	$tmp936	%read{13,2063} %write{13,2063}
+temp	float	$tmp937	%read{13,2063} %write{13,2063}
+temp	float	$tmp938	%read{13,2063} %write{13,2063}
+temp	float	$tmp939	%read{13,2063} %write{13,2063}
+temp	float	$tmp940	%read{13,2063} %write{13,2063}
+temp	float	$tmp941	%read{13,2063} %write{13,2063}
+temp	int	$tmp942	%read{13,2063} %write{13,2063}
+temp	point	$tmp943	%read{13,2063} %write{13,2063}
+temp	float	$tmp944	%read{13,2063} %write{13,2063}
+temp	float	$tmp945	%read{13,2063} %write{13,2063}
+temp	point	$tmp946	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp947	%read{13,2063} %write{13,2063}
+temp	float	$tmp948	%read{13,2063} %write{13,2063}
+temp	float	$tmp949	%read{13,2063} %write{13,2063}
+temp	float	$tmp950	%read{13,2063} %write{13,2063}
+temp	float	$tmp951	%read{13,2063} %write{13,2063}
+temp	float	$tmp952	%read{13,2063} %write{13,2063}
+temp	float	$tmp953	%read{13,2063} %write{13,2063}
+temp	float	$tmp954	%read{13,2063} %write{13,2063}
+temp	float	$tmp955	%read{13,2063} %write{13,2063}
+temp	float	$tmp956	%read{13,2063} %write{13,2063}
+temp	float	$tmp957	%read{13,2063} %write{13,2063}
+temp	int	$tmp958	%read{13,2063} %write{13,2063}
+temp	int	$tmp959	%read{13,2063} %write{13,2063}
+temp	float	$tmp960	%read{13,2063} %write{13,2063}
+temp	int	$tmp961	%read{13,2063} %write{13,2063}
+temp	int	$tmp962	%read{13,2063} %write{13,2063}
+temp	int	$tmp963	%read{13,2063} %write{13,2063}
+temp	float	$tmp964	%read{13,2063} %write{13,2063}
+temp	int	$tmp965	%read{13,2063} %write{13,2063}
+temp	int	$tmp966	%read{13,2063} %write{13,2063}
+temp	int	$tmp967	%read{13,2063} %write{13,2063}
+temp	float	$tmp968	%read{13,2063} %write{13,2063}
+temp	int	$tmp969	%read{13,2063} %write{13,2063}
+temp	int	$tmp970	%read{13,2063} %write{13,2063}
+temp	float	$tmp971	%read{13,2063} %write{13,2063}
+temp	float	$tmp972	%read{13,2063} %write{13,2063}
+temp	float	$tmp973	%read{13,2063} %write{13,2063}
+temp	float	$tmp974	%read{13,2063} %write{13,2063}
+temp	float	$tmp975	%read{13,2063} %write{13,2063}
+temp	int	$tmp976	%read{13,2063} %write{13,2063}
+temp	int	$tmp977	%read{13,2063} %write{13,2063}
+temp	float	$tmp978	%read{13,2063} %write{13,2063}
+temp	int	$tmp979	%read{13,2063} %write{13,2063}
+temp	int	$tmp980	%read{13,2063} %write{13,2063}
+temp	int	$tmp981	%read{13,2063} %write{13,2063}
+temp	int	$tmp982	%read{13,2063} %write{13,2063}
+temp	float	$tmp983	%read{13,2063} %write{13,2063}
+temp	float	$tmp984	%read{13,2063} %write{13,2063}
+temp	float	$tmp985	%read{13,2063} %write{13,2063}
+temp	float	$tmp986	%read{13,2063} %write{13,2063}
+temp	float	$tmp987	%read{13,2063} %write{13,2063}
+temp	float	$tmp988	%read{13,2063} %write{13,2063}
+temp	float	$tmp989	%read{13,2063} %write{13,2063}
+temp	float	$tmp990	%read{13,2063} %write{13,2063}
+temp	float	$tmp991	%read{13,2063} %write{13,2063}
+temp	float	$tmp992	%read{13,2063} %write{13,2063}
+temp	float	$tmp993	%read{13,2063} %write{13,2063}
+temp	float	$tmp994	%read{13,2063} %write{13,2063}
+temp	float	$tmp995	%read{13,2063} %write{13,2063}
+temp	float	$tmp996	%read{13,2063} %write{13,2063}
+temp	float	$tmp997	%read{13,2063} %write{13,2063}
+temp	float	$tmp998	%read{13,2063} %write{13,2063}
+temp	int	$tmp999	%read{13,2063} %write{13,2063}
+temp	float	$tmp1000	%read{13,2063} %write{13,2063}
+temp	float	$tmp1001	%read{13,2063} %write{13,2063}
+temp	point	$tmp1002	%read{13,2063} %write{13,2063}
+temp	float	$tmp1003	%read{13,2063} %write{13,2063}
+temp	float	$tmp1004	%read{13,2063} %write{13,2063}
+temp	point	$tmp1005	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp1006	%read{13,2063} %write{13,2063}
+temp	float	$tmp1007	%read{13,2063} %write{13,2063}
+temp	float	$tmp1008	%read{13,2063} %write{13,2063}
+temp	float	$tmp1009	%read{13,2063} %write{13,2063}
+temp	float	$tmp1010	%read{13,2063} %write{13,2063}
+temp	float	$tmp1011	%read{13,2063} %write{13,2063}
+temp	float	$tmp1012	%read{13,2063} %write{13,2063}
+temp	float	$tmp1013	%read{13,2063} %write{13,2063}
+temp	float	$tmp1014	%read{13,2063} %write{13,2063}
+temp	float	$tmp1015	%read{13,2063} %write{13,2063}
+temp	float	$tmp1016	%read{13,2063} %write{13,2063}
+temp	int	$tmp1017	%read{13,2063} %write{13,2063}
+temp	int	$tmp1018	%read{13,2063} %write{13,2063}
+temp	float	$tmp1019	%read{13,2063} %write{13,2063}
+temp	int	$tmp1020	%read{13,2063} %write{13,2063}
+temp	int	$tmp1021	%read{13,2063} %write{13,2063}
+temp	int	$tmp1022	%read{13,2063} %write{13,2063}
+temp	float	$tmp1023	%read{13,2063} %write{13,2063}
+temp	int	$tmp1024	%read{13,2063} %write{13,2063}
+temp	int	$tmp1025	%read{13,2063} %write{13,2063}
+temp	int	$tmp1026	%read{13,2063} %write{13,2063}
+temp	float	$tmp1027	%read{13,2063} %write{13,2063}
+temp	int	$tmp1028	%read{13,2063} %write{13,2063}
+temp	int	$tmp1029	%read{13,2063} %write{13,2063}
+temp	float	$tmp1030	%read{13,2063} %write{13,2063}
+temp	float	$tmp1031	%read{13,2063} %write{13,2063}
+temp	float	$tmp1032	%read{13,2063} %write{13,2063}
+temp	float	$tmp1033	%read{13,2063} %write{13,2063}
+temp	float	$tmp1034	%read{13,2063} %write{13,2063}
+temp	int	$tmp1035	%read{13,2063} %write{13,2063}
+temp	int	$tmp1036	%read{13,2063} %write{13,2063}
+temp	float	$tmp1037	%read{13,2063} %write{13,2063}
+temp	int	$tmp1038	%read{13,2063} %write{13,2063}
+temp	int	$tmp1039	%read{13,2063} %write{13,2063}
+temp	int	$tmp1040	%read{13,2063} %write{13,2063}
+temp	int	$tmp1041	%read{13,2063} %write{13,2063}
+temp	float	$tmp1042	%read{13,2063} %write{13,2063}
+temp	float	$tmp1043	%read{13,2063} %write{13,2063}
+temp	float	$tmp1044	%read{13,2063} %write{13,2063}
+temp	float	$tmp1045	%read{13,2063} %write{13,2063}
+temp	float	$tmp1046	%read{13,2063} %write{13,2063}
+temp	float	$tmp1047	%read{13,2063} %write{13,2063}
+temp	float	$tmp1048	%read{13,2063} %write{13,2063}
+temp	float	$tmp1049	%read{13,2063} %write{13,2063}
+temp	float	$tmp1050	%read{13,2063} %write{13,2063}
+temp	float	$tmp1051	%read{13,2063} %write{13,2063}
+temp	float	$tmp1052	%read{13,2063} %write{13,2063}
+temp	float	$tmp1053	%read{13,2063} %write{13,2063}
+temp	float	$tmp1054	%read{13,2063} %write{13,2063}
+temp	float	$tmp1055	%read{13,2063} %write{13,2063}
+temp	float	$tmp1056	%read{13,2063} %write{13,2063}
+temp	float	$tmp1057	%read{13,2063} %write{13,2063}
+temp	int	$tmp1058	%read{13,2063} %write{13,2063}
+temp	float	$tmp1059	%read{13,2063} %write{13,2063}
+temp	float	$tmp1060	%read{13,2063} %write{13,2063}
+temp	point	$tmp1061	%read{13,2063} %write{13,2063}
+temp	float	$tmp1062	%read{13,2063} %write{13,2063}
+temp	float	$tmp1063	%read{13,2063} %write{13,2063}
+temp	point	$tmp1064	%read{2147483647,-1} %write{13,2063}
+temp	float	$tmp1065	%read{13,2063} %write{13,2063}
+temp	float	$tmp1066	%read{13,2063} %write{13,2063}
+temp	float	$tmp1067	%read{13,2063} %write{13,2063}
+temp	float	$tmp1068	%read{13,2063} %write{13,2063}
+temp	float	$tmp1069	%read{13,2063} %write{13,2063}
+temp	float	$tmp1070	%read{13,2063} %write{13,2063}
+temp	float	$tmp1071	%read{13,2063} %write{13,2063}
+temp	float	$tmp1072	%read{13,2063} %write{13,2063}
+temp	float	$tmp1073	%read{13,2063} %write{13,2063}
+temp	float	$tmp1074	%read{13,2063} %write{13,2063}
+temp	float	$tmp1075	%read{13,2063} %write{13,2063}
+temp	int	$tmp1076	%read{13,2063} %write{13,2063}
+temp	int	$tmp1077	%read{13,2063} %write{13,2063}
+temp	float	$tmp1078	%read{13,2063} %write{13,2063}
+temp	int	$tmp1079	%read{13,2063} %write{13,2063}
+temp	int	$tmp1080	%read{13,2063} %write{13,2063}
+temp	int	$tmp1081	%read{13,2063} %write{13,2063}
+temp	float	$tmp1082	%read{13,2063} %write{13,2063}
+temp	int	$tmp1083	%read{13,2063} %write{13,2063}
+temp	int	$tmp1084	%read{13,2063} %write{13,2063}
+temp	int	$tmp1085	%read{13,2063} %write{13,2063}
+temp	float	$tmp1086	%read{13,2063} %write{13,2063}
+temp	int	$tmp1087	%read{13,2063} %write{13,2063}
+temp	int	$tmp1088	%read{13,2063} %write{13,2063}
+temp	float	$tmp1089	%read{13,2063} %write{13,2063}
+temp	float	$tmp1090	%read{13,2063} %write{13,2063}
+temp	float	$tmp1091	%read{13,2063} %write{13,2063}
+temp	float	$tmp1092	%read{13,2063} %write{13,2063}
+temp	float	$tmp1093	%read{13,2063} %write{13,2063}
+temp	int	$tmp1094	%read{13,2063} %write{13,2063}
+temp	int	$tmp1095	%read{13,2063} %write{13,2063}
+temp	float	$tmp1096	%read{13,2063} %write{13,2063}
+temp	int	$tmp1097	%read{13,2063} %write{13,2063}
+temp	int	$tmp1098	%read{13,2063} %write{13,2063}
+temp	int	$tmp1099	%read{13,2063} %write{13,2063}
+temp	int	$tmp1100	%read{13,2063} %write{13,2063}
+temp	float	$tmp1101	%read{13,2063} %write{13,2063}
+temp	float	$tmp1102	%read{13,2063} %write{13,2063}
+temp	float	$tmp1103	%read{13,2063} %write{13,2063}
+temp	float	$tmp1104	%read{13,2063} %write{13,2063}
+temp	float	$tmp1105	%read{13,2063} %write{13,2063}
+temp	float	$tmp1106	%read{13,2063} %write{13,2063}
+temp	float	$tmp1107	%read{13,2063} %write{13,2063}
+temp	float	$tmp1108	%read{13,2063} %write{13,2063}
+temp	float	$tmp1109	%read{13,2063} %write{13,2063}
+temp	float	$tmp1110	%read{13,2063} %write{13,2063}
+temp	float	$tmp1111	%read{13,2063} %write{13,2063}
+temp	float	$tmp1112	%read{13,2063} %write{13,2063}
+temp	float	$tmp1113	%read{13,2063} %write{13,2063}
+temp	float	$tmp1114	%read{13,2063} %write{13,2063}
+temp	float	$tmp1115	%read{13,2063} %write{13,2063}
+temp	float	$tmp1116	%read{13,2063} %write{13,2063}
+temp	int	$tmp1117	%read{13,2063} %write{13,2063}
+temp	int	$tmp1118	%read{13,2063} %write{13,2063}
+temp	float	$tmp1119	%read{13,2063} %write{13,2063}
+temp	point	$tmp1120	%read{13,2063} %write{13,2063}
+temp	float	$tmp1121	%read{13,2063} %write{13,2063}
+temp	float	$tmp1122	%read{13,2063} %write{13,2063}
+temp	point	$tmp1123	%read{13,2063} %write{13,2063}
+const	float	$const15	1024		%read{2057,2057} %write{2147483647,-1}
+temp	float	$tmp1124	%read{13,2063} %write{13,2063}
+temp	int	$tmp1125	%read{2147483647,-1} %write{13,2063}
+temp	int	$tmp1126	%read{2147483647,-1} %write{13,2063}
+temp	int	$tmp1127	%read{2065,2065} %write{2064,2064}
+temp	int	$tmp1128	%read{2068,2068} %write{2067,2067}
+temp	int	$tmp1129	%read{2071,2071} %write{2070,2070}
+temp	float	$tmp1130	%read{2076,2076} %write{2075,2075}
+const	float	$const16	0.333299994		%read{2074,2074} %write{2147483647,-1}
+temp	vector	$tmp1131	%read{2075,2075} %write{2074,2074}
+temp	float	$tmp1132	%read{2077,2077} %write{2076,2076}
+code UVW
+# <buffer>:74
+# <file not found>
+	point		UVW u v $const2 	%filename{"<buffer>"} %line{74} %argrw{"wrrr"}
+code ___main___
+# <buffer>:147
+# <file not found>
+	assign		Overlap $const3 	%filename{"<buffer>"} %line{147} %argrw{"wr"}
+# <buffer>:148
+# <file not found>
+	vector		Tiling U_Count V_Count $const2 	%line{148} %argrw{"wrrr"}
+# <buffer>:149
+# <file not found>
+	assign		Col GapColor 	%line{149} %argrw{"wr"}
+# <buffer>:150
+# <file not found>
+	mul		$tmp1 UVW Tiling 	%line{150} %argrw{"wrr"}
+	div		uvw $tmp1 Scale 	%argrw{"wrr"}
+# <buffer>:151
+# <file not found>
+	assign		to TilingOffset 	%line{151} %argrw{"wr"}
+# <buffer>:152
+# <file not found>
+	mul		to2 to $const4 	%line{152} %argrw{"wrr"}
+# <buffer>:154
+# <file not found>
+	div		Roundness Radius $const5 	%line{154} %argrw{"wrr"}
+# <buffer>:157
+# <file not found>
+	floor		fluvw uvw 	%line{157} %argrw{"wr"}
+# <buffer>:159
+# <file not found>
+	sub		fruvw uvw fluvw 	%line{159} %argrw{"wrr"}
+# <buffer>:162
+# <file not found>
+	for		$tmp3 13 15 2062 2064 	%line{162} %argrw{"r"}
+	neg		___327_xx Overlap 	%argrw{"wr"}
+	le		$tmp2 ___327_xx Overlap 	%argrw{"wrr"}
+	neq		$tmp3 $tmp2 $const1 	%argrw{"wrr"}
+# <buffer>:163
+# <file not found>
+	for		$tmp5 17 19 2060 2062 	%line{163} %argrw{"r"}
+	neg		___328_yy Overlap 	%argrw{"wr"}
+	le		$tmp4 ___328_yy Overlap 	%argrw{"wrr"}
+	neq		$tmp5 $tmp4 $const1 	%argrw{"wrr"}
+# <buffer>:165
+# <file not found>
+	sub		$tmp6 uvw fluvw 	%line{165} %argrw{"wrr"}
+	assign		$tmp8 ___327_xx 	%argrw{"wr"}
+	assign		$tmp9 ___328_yy 	%argrw{"wr"}
+	point		$tmp7 $tmp8 $tmp9 $const2 	%argrw{"wrrr"}
+	sub		___329_lookup $tmp6 $tmp7 	%argrw{"wrr"}
+# <buffer>:166
+# <file not found>
+	assign		___329_HitIdx $const1 	%line{166} %argrw{"wr"}
+# <buffer>:168
+# <file not found>
+	eq		$tmp10 TileMode $const1 	%line{168} %argrw{"wrr"}
+	if		$tmp10 238 238 	%argrw{"r"}
+# <buffer>:170
+# <file not found>
+	eq		$tmp11 Tile $const1 	%line{170} %argrw{"wrr"}
+	if		$tmp11 132 132 	%argrw{"r"}
+# <buffer>:171
+# <file not found>
+	assign		$tmp13 ___327_xx 	%line{171} %argrw{"wr"}
+	assign		$tmp14 ___328_yy 	%argrw{"wr"}
+	point		$tmp12 $tmp13 $tmp14 $const2 	%argrw{"wrrr"}
+	add		$tmp15 fluvw $tmp12 	%argrw{"wrr"}
+	mul		$tmp16 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp17 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 132 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp18 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp19 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp18 $tmp19 	%argrw{"wrr"}
+	compref		$tmp20 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp21 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp20 $tmp21 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp22 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $const2 $tmp22 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp23 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $const6 $tmp23 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp24 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const2 $tmp24 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp25 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const4 $tmp25 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp26 ___325_lox $tmp16 	%line{25} %argrw{"wrr"}
+	lt		$tmp27 ___325_x $tmp26 	%argrw{"wrr"}
+	neq		$tmp28 $tmp27 $const1 	%argrw{"wrr"}
+	if		$tmp28 54 58 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp29 ___325_hix $tmp16 	%line{26} %argrw{"wrr"}
+	gt		$tmp30 ___325_x $tmp29 	%argrw{"wrr"}
+	neq		$tmp31 $tmp30 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp28 $tmp31 	%line{25} %argrw{"wr"}
+	neq		$tmp32 $tmp28 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp32 60 64 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp33 ___325_loy $tmp16 	%line{27} %argrw{"wrr"}
+	lt		$tmp34 ___325_y $tmp33 	%argrw{"wrr"}
+	neq		$tmp35 $tmp34 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp32 $tmp35 	%line{26} %argrw{"wr"}
+	neq		$tmp36 $tmp32 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp36 66 70 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp37 ___325_hiy $tmp16 	%line{28} %argrw{"wrr"}
+	gt		$tmp38 ___325_y $tmp37 	%argrw{"wrr"}
+	neq		$tmp39 $tmp38 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp36 $tmp39 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp36 73 73 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp16 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp40 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp40 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp41 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp41 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp42 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp42 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp43 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp43 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp45 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp45 85 89 	%argrw{"r"}
+	assign		$tmp44 ___325_lx 	%argrw{"wr"}
+	gt		$tmp46 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp46 88 89 	%argrw{"r"}
+	assign		$tmp44 ___325_hx 	%argrw{"wr"}
+	assign		$tmp44 $const2 	%argrw{"wr"}
+	lt		$tmp48 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp48 92 96 	%argrw{"r"}
+	assign		$tmp47 ___325_ly 	%argrw{"wr"}
+	gt		$tmp49 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp49 95 96 	%argrw{"r"}
+	assign		$tmp47 ___325_hy 	%argrw{"wr"}
+	assign		$tmp47 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp44 $tmp47 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp50 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp50 102 102 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp51 Roundness $tmp17 	%line{47} %argrw{"wrr"}
+	if		$tmp51 108 129 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp53 Roundness $tmp17 	%line{48} %argrw{"wrr"}
+	add		$tmp54 Roundness $tmp17 	%argrw{"wrr"}
+	smoothstep	$tmp52 $tmp53 $tmp54 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp52 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp55 ___325_lox $tmp16 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp55 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp56 ___325_loy $tmp16 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp56 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp57 ___325_hix $tmp16 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp57 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp58 ___325_hiy $tmp16 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp58 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp59 $tmp17 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp59 $tmp17 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp61 $tmp17 	%line{58} %argrw{"wr"}
+	neg		$tmp62 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp60 $tmp61 $tmp17 $tmp62 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp60 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp64 $tmp17 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp63 $tmp64 $tmp17 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp63 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp66 $tmp17 	%line{60} %argrw{"wr"}
+	neg		$tmp67 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp65 $tmp66 $tmp17 $tmp67 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp65 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const3 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const3 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:172
+# <file not found>
+	eq		$tmp68 Tile $const1 	%line{172} %argrw{"wrr"}
+	if		$tmp68 238 238 	%argrw{"r"}
+# <buffer>:173
+# <file not found>
+	add		$tmp69 to $const6 	%line{173} %argrw{"wrr"}
+	assign		$tmp71 ___327_xx 	%argrw{"wr"}
+	assign		$tmp72 ___328_yy 	%argrw{"wr"}
+	point		$tmp70 $tmp71 $tmp72 $const2 	%argrw{"wrrr"}
+	add		$tmp73 fluvw $tmp70 	%argrw{"wrr"}
+	mul		$tmp74 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp75 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 238 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp76 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp77 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp76 $tmp77 	%argrw{"wrr"}
+	compref		$tmp78 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp79 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp78 $tmp79 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp80 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox to $tmp80 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp81 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $tmp69 $tmp81 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp82 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const4 $tmp82 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp83 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const6 $tmp83 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp84 ___325_lox $tmp74 	%line{25} %argrw{"wrr"}
+	lt		$tmp85 ___325_x $tmp84 	%argrw{"wrr"}
+	neq		$tmp86 $tmp85 $const1 	%argrw{"wrr"}
+	if		$tmp86 160 164 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp87 ___325_hix $tmp74 	%line{26} %argrw{"wrr"}
+	gt		$tmp88 ___325_x $tmp87 	%argrw{"wrr"}
+	neq		$tmp89 $tmp88 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp86 $tmp89 	%line{25} %argrw{"wr"}
+	neq		$tmp90 $tmp86 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp90 166 170 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp91 ___325_loy $tmp74 	%line{27} %argrw{"wrr"}
+	lt		$tmp92 ___325_y $tmp91 	%argrw{"wrr"}
+	neq		$tmp93 $tmp92 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp90 $tmp93 	%line{26} %argrw{"wr"}
+	neq		$tmp94 $tmp90 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp94 172 176 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp95 ___325_hiy $tmp74 	%line{28} %argrw{"wrr"}
+	gt		$tmp96 ___325_y $tmp95 	%argrw{"wrr"}
+	neq		$tmp97 $tmp96 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp94 $tmp97 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp94 179 179 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp74 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp98 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp98 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp99 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp99 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp100 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp100 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp101 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp101 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp103 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp103 191 195 	%argrw{"r"}
+	assign		$tmp102 ___325_lx 	%argrw{"wr"}
+	gt		$tmp104 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp104 194 195 	%argrw{"r"}
+	assign		$tmp102 ___325_hx 	%argrw{"wr"}
+	assign		$tmp102 $const2 	%argrw{"wr"}
+	lt		$tmp106 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp106 198 202 	%argrw{"r"}
+	assign		$tmp105 ___325_ly 	%argrw{"wr"}
+	gt		$tmp107 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp107 201 202 	%argrw{"r"}
+	assign		$tmp105 ___325_hy 	%argrw{"wr"}
+	assign		$tmp105 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp102 $tmp105 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp108 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp108 208 208 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp109 Roundness $tmp75 	%line{47} %argrw{"wrr"}
+	if		$tmp109 214 235 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp111 Roundness $tmp75 	%line{48} %argrw{"wrr"}
+	add		$tmp112 Roundness $tmp75 	%argrw{"wrr"}
+	smoothstep	$tmp110 $tmp111 $tmp112 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp110 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp113 ___325_lox $tmp74 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp113 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp114 ___325_loy $tmp74 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp114 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp115 ___325_hix $tmp74 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp115 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp116 ___325_hiy $tmp74 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp116 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp117 $tmp75 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp117 $tmp75 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp119 $tmp75 	%line{58} %argrw{"wr"}
+	neg		$tmp120 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp118 $tmp119 $tmp75 $tmp120 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp118 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp122 $tmp75 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp121 $tmp122 $tmp75 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp121 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp124 $tmp75 	%line{60} %argrw{"wr"}
+	neg		$tmp125 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp123 $tmp124 $tmp75 $tmp125 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp123 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const10 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const10 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:176
+# <file not found>
+	eq		$tmp126 TileMode $const3 	%line{176} %argrw{"wrr"}
+	if		$tmp126 660 660 	%argrw{"r"}
+# <buffer>:178
+# <file not found>
+	eq		$tmp127 Tile $const1 	%line{178} %argrw{"wrr"}
+	if		$tmp127 345 345 	%argrw{"r"}
+# <buffer>:179
+# <file not found>
+	assign		$tmp129 ___327_xx 	%line{179} %argrw{"wr"}
+	assign		$tmp130 ___328_yy 	%argrw{"wr"}
+	point		$tmp128 $tmp129 $tmp130 $const2 	%argrw{"wrrr"}
+	add		$tmp131 fluvw $tmp128 	%argrw{"wrr"}
+	mul		$tmp132 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp133 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 345 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp134 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp135 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp134 $tmp135 	%argrw{"wrr"}
+	compref		$tmp136 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp137 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp136 $tmp137 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp138 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $const2 $tmp138 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp139 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $const4 $tmp139 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp140 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const2 $tmp140 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp141 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const4 $tmp141 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp142 ___325_lox $tmp132 	%line{25} %argrw{"wrr"}
+	lt		$tmp143 ___325_x $tmp142 	%argrw{"wrr"}
+	neq		$tmp144 $tmp143 $const1 	%argrw{"wrr"}
+	if		$tmp144 267 271 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp145 ___325_hix $tmp132 	%line{26} %argrw{"wrr"}
+	gt		$tmp146 ___325_x $tmp145 	%argrw{"wrr"}
+	neq		$tmp147 $tmp146 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp144 $tmp147 	%line{25} %argrw{"wr"}
+	neq		$tmp148 $tmp144 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp148 273 277 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp149 ___325_loy $tmp132 	%line{27} %argrw{"wrr"}
+	lt		$tmp150 ___325_y $tmp149 	%argrw{"wrr"}
+	neq		$tmp151 $tmp150 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp148 $tmp151 	%line{26} %argrw{"wr"}
+	neq		$tmp152 $tmp148 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp152 279 283 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp153 ___325_hiy $tmp132 	%line{28} %argrw{"wrr"}
+	gt		$tmp154 ___325_y $tmp153 	%argrw{"wrr"}
+	neq		$tmp155 $tmp154 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp152 $tmp155 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp152 286 286 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp132 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp156 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp156 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp157 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp157 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp158 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp158 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp159 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp159 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp161 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp161 298 302 	%argrw{"r"}
+	assign		$tmp160 ___325_lx 	%argrw{"wr"}
+	gt		$tmp162 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp162 301 302 	%argrw{"r"}
+	assign		$tmp160 ___325_hx 	%argrw{"wr"}
+	assign		$tmp160 $const2 	%argrw{"wr"}
+	lt		$tmp164 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp164 305 309 	%argrw{"r"}
+	assign		$tmp163 ___325_ly 	%argrw{"wr"}
+	gt		$tmp165 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp165 308 309 	%argrw{"r"}
+	assign		$tmp163 ___325_hy 	%argrw{"wr"}
+	assign		$tmp163 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp160 $tmp163 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp166 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp166 315 315 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp167 Roundness $tmp133 	%line{47} %argrw{"wrr"}
+	if		$tmp167 321 342 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp169 Roundness $tmp133 	%line{48} %argrw{"wrr"}
+	add		$tmp170 Roundness $tmp133 	%argrw{"wrr"}
+	smoothstep	$tmp168 $tmp169 $tmp170 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp168 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp171 ___325_lox $tmp132 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp171 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp172 ___325_loy $tmp132 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp172 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp173 ___325_hix $tmp132 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp173 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp174 ___325_hiy $tmp132 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp174 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp175 $tmp133 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp175 $tmp133 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp177 $tmp133 	%line{58} %argrw{"wr"}
+	neg		$tmp178 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp176 $tmp177 $tmp133 $tmp178 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp176 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp180 $tmp133 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp179 $tmp180 $tmp133 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp179 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp182 $tmp133 	%line{60} %argrw{"wr"}
+	neg		$tmp183 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp181 $tmp182 $tmp133 $tmp183 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp181 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const3 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const3 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:180
+# <file not found>
+	eq		$tmp184 Tile $const1 	%line{180} %argrw{"wrr"}
+	if		$tmp184 450 450 	%argrw{"r"}
+# <buffer>:181
+# <file not found>
+	assign		$tmp186 ___327_xx 	%line{181} %argrw{"wr"}
+	assign		$tmp187 ___328_yy 	%argrw{"wr"}
+	point		$tmp185 $tmp186 $tmp187 $const2 	%argrw{"wrrr"}
+	add		$tmp188 fluvw $tmp185 	%argrw{"wrr"}
+	mul		$tmp189 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp190 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 450 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp191 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp192 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp191 $tmp192 	%argrw{"wrr"}
+	compref		$tmp193 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp194 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp193 $tmp194 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp195 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $const2 $tmp195 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp196 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $const4 $tmp196 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp197 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const4 $tmp197 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp198 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const6 $tmp198 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp199 ___325_lox $tmp189 	%line{25} %argrw{"wrr"}
+	lt		$tmp200 ___325_x $tmp199 	%argrw{"wrr"}
+	neq		$tmp201 $tmp200 $const1 	%argrw{"wrr"}
+	if		$tmp201 372 376 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp202 ___325_hix $tmp189 	%line{26} %argrw{"wrr"}
+	gt		$tmp203 ___325_x $tmp202 	%argrw{"wrr"}
+	neq		$tmp204 $tmp203 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp201 $tmp204 	%line{25} %argrw{"wr"}
+	neq		$tmp205 $tmp201 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp205 378 382 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp206 ___325_loy $tmp189 	%line{27} %argrw{"wrr"}
+	lt		$tmp207 ___325_y $tmp206 	%argrw{"wrr"}
+	neq		$tmp208 $tmp207 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp205 $tmp208 	%line{26} %argrw{"wr"}
+	neq		$tmp209 $tmp205 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp209 384 388 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp210 ___325_hiy $tmp189 	%line{28} %argrw{"wrr"}
+	gt		$tmp211 ___325_y $tmp210 	%argrw{"wrr"}
+	neq		$tmp212 $tmp211 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp209 $tmp212 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp209 391 391 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp189 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp213 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp213 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp214 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp214 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp215 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp215 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp216 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp216 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp218 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp218 403 407 	%argrw{"r"}
+	assign		$tmp217 ___325_lx 	%argrw{"wr"}
+	gt		$tmp219 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp219 406 407 	%argrw{"r"}
+	assign		$tmp217 ___325_hx 	%argrw{"wr"}
+	assign		$tmp217 $const2 	%argrw{"wr"}
+	lt		$tmp221 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp221 410 414 	%argrw{"r"}
+	assign		$tmp220 ___325_ly 	%argrw{"wr"}
+	gt		$tmp222 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp222 413 414 	%argrw{"r"}
+	assign		$tmp220 ___325_hy 	%argrw{"wr"}
+	assign		$tmp220 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp217 $tmp220 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp223 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp223 420 420 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp224 Roundness $tmp190 	%line{47} %argrw{"wrr"}
+	if		$tmp224 426 447 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp226 Roundness $tmp190 	%line{48} %argrw{"wrr"}
+	add		$tmp227 Roundness $tmp190 	%argrw{"wrr"}
+	smoothstep	$tmp225 $tmp226 $tmp227 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp225 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp228 ___325_lox $tmp189 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp228 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp229 ___325_loy $tmp189 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp229 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp230 ___325_hix $tmp189 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp230 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp231 ___325_hiy $tmp189 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp231 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp232 $tmp190 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp232 $tmp190 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp234 $tmp190 	%line{58} %argrw{"wr"}
+	neg		$tmp235 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp233 $tmp234 $tmp190 $tmp235 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp233 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp237 $tmp190 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp236 $tmp237 $tmp190 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp236 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp239 $tmp190 	%line{60} %argrw{"wr"}
+	neg		$tmp240 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp238 $tmp239 $tmp190 $tmp240 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp238 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const10 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const10 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:182
+# <file not found>
+	eq		$tmp241 Tile $const1 	%line{182} %argrw{"wrr"}
+	if		$tmp241 555 555 	%argrw{"r"}
+# <buffer>:183
+# <file not found>
+	assign		$tmp243 ___327_xx 	%line{183} %argrw{"wr"}
+	assign		$tmp244 ___328_yy 	%argrw{"wr"}
+	point		$tmp242 $tmp243 $tmp244 $const2 	%argrw{"wrrr"}
+	add		$tmp245 fluvw $tmp242 	%argrw{"wrr"}
+	mul		$tmp246 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp247 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 555 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp248 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp249 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp248 $tmp249 	%argrw{"wrr"}
+	compref		$tmp250 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp251 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp250 $tmp251 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp252 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $const4 $tmp252 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp253 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $const6 $tmp253 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp254 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const2 $tmp254 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp255 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const4 $tmp255 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp256 ___325_lox $tmp246 	%line{25} %argrw{"wrr"}
+	lt		$tmp257 ___325_x $tmp256 	%argrw{"wrr"}
+	neq		$tmp258 $tmp257 $const1 	%argrw{"wrr"}
+	if		$tmp258 477 481 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp259 ___325_hix $tmp246 	%line{26} %argrw{"wrr"}
+	gt		$tmp260 ___325_x $tmp259 	%argrw{"wrr"}
+	neq		$tmp261 $tmp260 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp258 $tmp261 	%line{25} %argrw{"wr"}
+	neq		$tmp262 $tmp258 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp262 483 487 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp263 ___325_loy $tmp246 	%line{27} %argrw{"wrr"}
+	lt		$tmp264 ___325_y $tmp263 	%argrw{"wrr"}
+	neq		$tmp265 $tmp264 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp262 $tmp265 	%line{26} %argrw{"wr"}
+	neq		$tmp266 $tmp262 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp266 489 493 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp267 ___325_hiy $tmp246 	%line{28} %argrw{"wrr"}
+	gt		$tmp268 ___325_y $tmp267 	%argrw{"wrr"}
+	neq		$tmp269 $tmp268 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp266 $tmp269 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp266 496 496 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp246 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp270 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp270 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp271 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp271 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp272 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp272 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp273 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp273 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp275 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp275 508 512 	%argrw{"r"}
+	assign		$tmp274 ___325_lx 	%argrw{"wr"}
+	gt		$tmp276 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp276 511 512 	%argrw{"r"}
+	assign		$tmp274 ___325_hx 	%argrw{"wr"}
+	assign		$tmp274 $const2 	%argrw{"wr"}
+	lt		$tmp278 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp278 515 519 	%argrw{"r"}
+	assign		$tmp277 ___325_ly 	%argrw{"wr"}
+	gt		$tmp279 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp279 518 519 	%argrw{"r"}
+	assign		$tmp277 ___325_hy 	%argrw{"wr"}
+	assign		$tmp277 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp274 $tmp277 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp280 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp280 525 525 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp281 Roundness $tmp247 	%line{47} %argrw{"wrr"}
+	if		$tmp281 531 552 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp283 Roundness $tmp247 	%line{48} %argrw{"wrr"}
+	add		$tmp284 Roundness $tmp247 	%argrw{"wrr"}
+	smoothstep	$tmp282 $tmp283 $tmp284 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp282 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp285 ___325_lox $tmp246 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp285 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp286 ___325_loy $tmp246 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp286 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp287 ___325_hix $tmp246 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp287 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp288 ___325_hiy $tmp246 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp288 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp289 $tmp247 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp289 $tmp247 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp291 $tmp247 	%line{58} %argrw{"wr"}
+	neg		$tmp292 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp290 $tmp291 $tmp247 $tmp292 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp290 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp294 $tmp247 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp293 $tmp294 $tmp247 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp293 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp296 $tmp247 	%line{60} %argrw{"wr"}
+	neg		$tmp297 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp295 $tmp296 $tmp247 $tmp297 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp295 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const11 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const10 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:184
+# <file not found>
+	eq		$tmp298 Tile $const1 	%line{184} %argrw{"wrr"}
+	if		$tmp298 660 660 	%argrw{"r"}
+# <buffer>:185
+# <file not found>
+	assign		$tmp300 ___327_xx 	%line{185} %argrw{"wr"}
+	assign		$tmp301 ___328_yy 	%argrw{"wr"}
+	point		$tmp299 $tmp300 $tmp301 $const2 	%argrw{"wrrr"}
+	add		$tmp302 fluvw $tmp299 	%argrw{"wrr"}
+	mul		$tmp303 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp304 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 660 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp305 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp306 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp305 $tmp306 	%argrw{"wrr"}
+	compref		$tmp307 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp308 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp307 $tmp308 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp309 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $const4 $tmp309 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp310 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $const6 $tmp310 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp311 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const4 $tmp311 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp312 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const6 $tmp312 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp313 ___325_lox $tmp303 	%line{25} %argrw{"wrr"}
+	lt		$tmp314 ___325_x $tmp313 	%argrw{"wrr"}
+	neq		$tmp315 $tmp314 $const1 	%argrw{"wrr"}
+	if		$tmp315 582 586 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp316 ___325_hix $tmp303 	%line{26} %argrw{"wrr"}
+	gt		$tmp317 ___325_x $tmp316 	%argrw{"wrr"}
+	neq		$tmp318 $tmp317 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp315 $tmp318 	%line{25} %argrw{"wr"}
+	neq		$tmp319 $tmp315 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp319 588 592 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp320 ___325_loy $tmp303 	%line{27} %argrw{"wrr"}
+	lt		$tmp321 ___325_y $tmp320 	%argrw{"wrr"}
+	neq		$tmp322 $tmp321 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp319 $tmp322 	%line{26} %argrw{"wr"}
+	neq		$tmp323 $tmp319 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp323 594 598 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp324 ___325_hiy $tmp303 	%line{28} %argrw{"wrr"}
+	gt		$tmp325 ___325_y $tmp324 	%argrw{"wrr"}
+	neq		$tmp326 $tmp325 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp323 $tmp326 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp323 601 601 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp303 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp327 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp327 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp328 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp328 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp329 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp329 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp330 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp330 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp332 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp332 613 617 	%argrw{"r"}
+	assign		$tmp331 ___325_lx 	%argrw{"wr"}
+	gt		$tmp333 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp333 616 617 	%argrw{"r"}
+	assign		$tmp331 ___325_hx 	%argrw{"wr"}
+	assign		$tmp331 $const2 	%argrw{"wr"}
+	lt		$tmp335 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp335 620 624 	%argrw{"r"}
+	assign		$tmp334 ___325_ly 	%argrw{"wr"}
+	gt		$tmp336 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp336 623 624 	%argrw{"r"}
+	assign		$tmp334 ___325_hy 	%argrw{"wr"}
+	assign		$tmp334 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp331 $tmp334 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp337 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp337 630 630 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp338 Roundness $tmp304 	%line{47} %argrw{"wrr"}
+	if		$tmp338 636 657 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp340 Roundness $tmp304 	%line{48} %argrw{"wrr"}
+	add		$tmp341 Roundness $tmp304 	%argrw{"wrr"}
+	smoothstep	$tmp339 $tmp340 $tmp341 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp339 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp342 ___325_lox $tmp303 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp342 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp343 ___325_loy $tmp303 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp343 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp344 ___325_hix $tmp303 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp344 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp345 ___325_hiy $tmp303 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp345 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp346 $tmp304 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp346 $tmp304 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp348 $tmp304 	%line{58} %argrw{"wr"}
+	neg		$tmp349 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp347 $tmp348 $tmp304 $tmp349 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp347 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp351 $tmp304 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp350 $tmp351 $tmp304 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp350 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp353 $tmp304 	%line{60} %argrw{"wr"}
+	neg		$tmp354 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp352 $tmp353 $tmp304 $tmp354 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp352 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const12 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const3 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:188
+# <file not found>
+	eq		$tmp355 TileMode $const10 	%line{188} %argrw{"wrr"}
+	if		$tmp355 981 981 	%argrw{"r"}
+# <buffer>:190
+# <file not found>
+	eq		$tmp356 Tile $const1 	%line{190} %argrw{"wrr"}
+	if		$tmp356 767 767 	%argrw{"r"}
+# <buffer>:191
+# <file not found>
+	assign		$tmp358 ___327_xx 	%line{191} %argrw{"wr"}
+	assign		$tmp359 ___328_yy 	%argrw{"wr"}
+	point		$tmp357 $tmp358 $tmp359 $const2 	%argrw{"wrrr"}
+	add		$tmp360 fluvw $tmp357 	%argrw{"wrr"}
+	mul		$tmp361 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp362 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 767 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp363 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp364 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp363 $tmp364 	%argrw{"wrr"}
+	compref		$tmp365 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp366 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp365 $tmp366 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp367 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $const2 $tmp367 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp368 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $const6 $tmp368 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp369 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const2 $tmp369 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp370 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const4 $tmp370 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp371 ___325_lox $tmp361 	%line{25} %argrw{"wrr"}
+	lt		$tmp372 ___325_x $tmp371 	%argrw{"wrr"}
+	neq		$tmp373 $tmp372 $const1 	%argrw{"wrr"}
+	if		$tmp373 689 693 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp374 ___325_hix $tmp361 	%line{26} %argrw{"wrr"}
+	gt		$tmp375 ___325_x $tmp374 	%argrw{"wrr"}
+	neq		$tmp376 $tmp375 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp373 $tmp376 	%line{25} %argrw{"wr"}
+	neq		$tmp377 $tmp373 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp377 695 699 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp378 ___325_loy $tmp361 	%line{27} %argrw{"wrr"}
+	lt		$tmp379 ___325_y $tmp378 	%argrw{"wrr"}
+	neq		$tmp380 $tmp379 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp377 $tmp380 	%line{26} %argrw{"wr"}
+	neq		$tmp381 $tmp377 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp381 701 705 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp382 ___325_hiy $tmp361 	%line{28} %argrw{"wrr"}
+	gt		$tmp383 ___325_y $tmp382 	%argrw{"wrr"}
+	neq		$tmp384 $tmp383 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp381 $tmp384 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp381 708 708 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp361 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp385 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp385 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp386 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp386 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp387 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp387 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp388 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp388 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp390 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp390 720 724 	%argrw{"r"}
+	assign		$tmp389 ___325_lx 	%argrw{"wr"}
+	gt		$tmp391 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp391 723 724 	%argrw{"r"}
+	assign		$tmp389 ___325_hx 	%argrw{"wr"}
+	assign		$tmp389 $const2 	%argrw{"wr"}
+	lt		$tmp393 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp393 727 731 	%argrw{"r"}
+	assign		$tmp392 ___325_ly 	%argrw{"wr"}
+	gt		$tmp394 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp394 730 731 	%argrw{"r"}
+	assign		$tmp392 ___325_hy 	%argrw{"wr"}
+	assign		$tmp392 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp389 $tmp392 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp395 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp395 737 737 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp396 Roundness $tmp362 	%line{47} %argrw{"wrr"}
+	if		$tmp396 743 764 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp398 Roundness $tmp362 	%line{48} %argrw{"wrr"}
+	add		$tmp399 Roundness $tmp362 	%argrw{"wrr"}
+	smoothstep	$tmp397 $tmp398 $tmp399 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp397 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp400 ___325_lox $tmp361 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp400 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp401 ___325_loy $tmp361 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp401 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp402 ___325_hix $tmp361 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp402 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp403 ___325_hiy $tmp361 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp403 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp404 $tmp362 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp404 $tmp362 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp406 $tmp362 	%line{58} %argrw{"wr"}
+	neg		$tmp407 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp405 $tmp406 $tmp362 $tmp407 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp405 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp409 $tmp362 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp408 $tmp409 $tmp362 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp408 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp411 $tmp362 	%line{60} %argrw{"wr"}
+	neg		$tmp412 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp410 $tmp411 $tmp362 $tmp412 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp410 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const3 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const3 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:192
+# <file not found>
+	eq		$tmp413 Tile $const1 	%line{192} %argrw{"wrr"}
+	if		$tmp413 874 874 	%argrw{"r"}
+# <buffer>:193
+# <file not found>
+	add		$tmp414 $const2 to2 	%line{193} %argrw{"wrr"}
+	add		$tmp415 $const4 to2 	%argrw{"wrr"}
+	assign		$tmp417 ___327_xx 	%argrw{"wr"}
+	assign		$tmp418 ___328_yy 	%argrw{"wr"}
+	point		$tmp416 $tmp417 $tmp418 $const2 	%argrw{"wrrr"}
+	add		$tmp419 fluvw $tmp416 	%argrw{"wrr"}
+	mul		$tmp420 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp421 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 874 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp422 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp423 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp422 $tmp423 	%argrw{"wrr"}
+	compref		$tmp424 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp425 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp424 $tmp425 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp426 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $tmp414 $tmp426 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp427 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $tmp415 $tmp427 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp428 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const4 $tmp428 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp429 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const6 $tmp429 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp430 ___325_lox $tmp420 	%line{25} %argrw{"wrr"}
+	lt		$tmp431 ___325_x $tmp430 	%argrw{"wrr"}
+	neq		$tmp432 $tmp431 $const1 	%argrw{"wrr"}
+	if		$tmp432 796 800 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp433 ___325_hix $tmp420 	%line{26} %argrw{"wrr"}
+	gt		$tmp434 ___325_x $tmp433 	%argrw{"wrr"}
+	neq		$tmp435 $tmp434 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp432 $tmp435 	%line{25} %argrw{"wr"}
+	neq		$tmp436 $tmp432 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp436 802 806 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp437 ___325_loy $tmp420 	%line{27} %argrw{"wrr"}
+	lt		$tmp438 ___325_y $tmp437 	%argrw{"wrr"}
+	neq		$tmp439 $tmp438 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp436 $tmp439 	%line{26} %argrw{"wr"}
+	neq		$tmp440 $tmp436 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp440 808 812 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp441 ___325_hiy $tmp420 	%line{28} %argrw{"wrr"}
+	gt		$tmp442 ___325_y $tmp441 	%argrw{"wrr"}
+	neq		$tmp443 $tmp442 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp440 $tmp443 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp440 815 815 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp420 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp444 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp444 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp445 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp445 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp446 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp446 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp447 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp447 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp449 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp449 827 831 	%argrw{"r"}
+	assign		$tmp448 ___325_lx 	%argrw{"wr"}
+	gt		$tmp450 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp450 830 831 	%argrw{"r"}
+	assign		$tmp448 ___325_hx 	%argrw{"wr"}
+	assign		$tmp448 $const2 	%argrw{"wr"}
+	lt		$tmp452 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp452 834 838 	%argrw{"r"}
+	assign		$tmp451 ___325_ly 	%argrw{"wr"}
+	gt		$tmp453 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp453 837 838 	%argrw{"r"}
+	assign		$tmp451 ___325_hy 	%argrw{"wr"}
+	assign		$tmp451 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp448 $tmp451 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp454 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp454 844 844 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp455 Roundness $tmp421 	%line{47} %argrw{"wrr"}
+	if		$tmp455 850 871 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp457 Roundness $tmp421 	%line{48} %argrw{"wrr"}
+	add		$tmp458 Roundness $tmp421 	%argrw{"wrr"}
+	smoothstep	$tmp456 $tmp457 $tmp458 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp456 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp459 ___325_lox $tmp420 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp459 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp460 ___325_loy $tmp420 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp460 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp461 ___325_hix $tmp420 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp461 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp462 ___325_hiy $tmp420 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp462 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp463 $tmp421 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp463 $tmp421 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp465 $tmp421 	%line{58} %argrw{"wr"}
+	neg		$tmp466 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp464 $tmp465 $tmp421 $tmp466 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp464 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp468 $tmp421 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp467 $tmp468 $tmp421 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp467 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp470 $tmp421 	%line{60} %argrw{"wr"}
+	neg		$tmp471 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp469 $tmp470 $tmp421 $tmp471 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp469 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const10 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const10 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:194
+# <file not found>
+	eq		$tmp472 Tile $const1 	%line{194} %argrw{"wrr"}
+	if		$tmp472 981 981 	%argrw{"r"}
+# <buffer>:195
+# <file not found>
+	add		$tmp473 $const4 to2 	%line{195} %argrw{"wrr"}
+	add		$tmp474 $const6 to2 	%argrw{"wrr"}
+	assign		$tmp476 ___327_xx 	%argrw{"wr"}
+	assign		$tmp477 ___328_yy 	%argrw{"wr"}
+	point		$tmp475 $tmp476 $tmp477 $const2 	%argrw{"wrrr"}
+	add		$tmp478 fluvw $tmp475 	%argrw{"wrr"}
+	mul		$tmp479 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp480 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 981 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp481 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp482 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp481 $tmp482 	%argrw{"wrr"}
+	compref		$tmp483 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp484 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp483 $tmp484 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp485 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $tmp473 $tmp485 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp486 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $tmp474 $tmp486 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp487 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const4 $tmp487 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp488 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const6 $tmp488 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp489 ___325_lox $tmp479 	%line{25} %argrw{"wrr"}
+	lt		$tmp490 ___325_x $tmp489 	%argrw{"wrr"}
+	neq		$tmp491 $tmp490 $const1 	%argrw{"wrr"}
+	if		$tmp491 903 907 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp492 ___325_hix $tmp479 	%line{26} %argrw{"wrr"}
+	gt		$tmp493 ___325_x $tmp492 	%argrw{"wrr"}
+	neq		$tmp494 $tmp493 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp491 $tmp494 	%line{25} %argrw{"wr"}
+	neq		$tmp495 $tmp491 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp495 909 913 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp496 ___325_loy $tmp479 	%line{27} %argrw{"wrr"}
+	lt		$tmp497 ___325_y $tmp496 	%argrw{"wrr"}
+	neq		$tmp498 $tmp497 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp495 $tmp498 	%line{26} %argrw{"wr"}
+	neq		$tmp499 $tmp495 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp499 915 919 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp500 ___325_hiy $tmp479 	%line{28} %argrw{"wrr"}
+	gt		$tmp501 ___325_y $tmp500 	%argrw{"wrr"}
+	neq		$tmp502 $tmp501 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp499 $tmp502 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp499 922 922 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp479 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp503 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp503 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp504 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp504 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp505 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp505 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp506 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp506 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp508 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp508 934 938 	%argrw{"r"}
+	assign		$tmp507 ___325_lx 	%argrw{"wr"}
+	gt		$tmp509 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp509 937 938 	%argrw{"r"}
+	assign		$tmp507 ___325_hx 	%argrw{"wr"}
+	assign		$tmp507 $const2 	%argrw{"wr"}
+	lt		$tmp511 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp511 941 945 	%argrw{"r"}
+	assign		$tmp510 ___325_ly 	%argrw{"wr"}
+	gt		$tmp512 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp512 944 945 	%argrw{"r"}
+	assign		$tmp510 ___325_hy 	%argrw{"wr"}
+	assign		$tmp510 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp507 $tmp510 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp513 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp513 951 951 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp514 Roundness $tmp480 	%line{47} %argrw{"wrr"}
+	if		$tmp514 957 978 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp516 Roundness $tmp480 	%line{48} %argrw{"wrr"}
+	add		$tmp517 Roundness $tmp480 	%argrw{"wrr"}
+	smoothstep	$tmp515 $tmp516 $tmp517 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp515 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp518 ___325_lox $tmp479 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp518 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp519 ___325_loy $tmp479 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp519 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp520 ___325_hix $tmp479 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp520 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp521 ___325_hiy $tmp479 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp521 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp522 $tmp480 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp522 $tmp480 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp524 $tmp480 	%line{58} %argrw{"wr"}
+	neg		$tmp525 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp523 $tmp524 $tmp480 $tmp525 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp523 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp527 $tmp480 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp526 $tmp527 $tmp480 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp526 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp529 $tmp480 	%line{60} %argrw{"wr"}
+	neg		$tmp530 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp528 $tmp529 $tmp480 $tmp530 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp528 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const11 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const10 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:198
+# <file not found>
+	eq		$tmp531 TileMode $const11 	%line{198} %argrw{"wrr"}
+	if		$tmp531 1516 1516 	%argrw{"r"}
+# <buffer>:200
+# <file not found>
+	eq		$tmp532 Tile $const1 	%line{200} %argrw{"wrr"}
+	if		$tmp532 1088 1088 	%argrw{"r"}
+# <buffer>:201
+# <file not found>
+	assign		$tmp534 ___327_xx 	%line{201} %argrw{"wr"}
+	assign		$tmp535 ___328_yy 	%argrw{"wr"}
+	point		$tmp533 $tmp534 $tmp535 $const2 	%argrw{"wrrr"}
+	add		$tmp536 fluvw $tmp533 	%argrw{"wrr"}
+	mul		$tmp537 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp538 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 1088 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp539 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp540 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp539 $tmp540 	%argrw{"wrr"}
+	compref		$tmp541 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp542 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp541 $tmp542 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp543 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $const2 $tmp543 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp544 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $const6 $tmp544 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp545 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const2 $tmp545 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp546 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const4 $tmp546 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp547 ___325_lox $tmp537 	%line{25} %argrw{"wrr"}
+	lt		$tmp548 ___325_x $tmp547 	%argrw{"wrr"}
+	neq		$tmp549 $tmp548 $const1 	%argrw{"wrr"}
+	if		$tmp549 1010 1014 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp550 ___325_hix $tmp537 	%line{26} %argrw{"wrr"}
+	gt		$tmp551 ___325_x $tmp550 	%argrw{"wrr"}
+	neq		$tmp552 $tmp551 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp549 $tmp552 	%line{25} %argrw{"wr"}
+	neq		$tmp553 $tmp549 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp553 1016 1020 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp554 ___325_loy $tmp537 	%line{27} %argrw{"wrr"}
+	lt		$tmp555 ___325_y $tmp554 	%argrw{"wrr"}
+	neq		$tmp556 $tmp555 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp553 $tmp556 	%line{26} %argrw{"wr"}
+	neq		$tmp557 $tmp553 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp557 1022 1026 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp558 ___325_hiy $tmp537 	%line{28} %argrw{"wrr"}
+	gt		$tmp559 ___325_y $tmp558 	%argrw{"wrr"}
+	neq		$tmp560 $tmp559 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp557 $tmp560 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp557 1029 1029 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp537 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp561 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp561 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp562 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp562 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp563 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp563 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp564 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp564 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp566 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp566 1041 1045 	%argrw{"r"}
+	assign		$tmp565 ___325_lx 	%argrw{"wr"}
+	gt		$tmp567 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp567 1044 1045 	%argrw{"r"}
+	assign		$tmp565 ___325_hx 	%argrw{"wr"}
+	assign		$tmp565 $const2 	%argrw{"wr"}
+	lt		$tmp569 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp569 1048 1052 	%argrw{"r"}
+	assign		$tmp568 ___325_ly 	%argrw{"wr"}
+	gt		$tmp570 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp570 1051 1052 	%argrw{"r"}
+	assign		$tmp568 ___325_hy 	%argrw{"wr"}
+	assign		$tmp568 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp565 $tmp568 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp571 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp571 1058 1058 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp572 Roundness $tmp538 	%line{47} %argrw{"wrr"}
+	if		$tmp572 1064 1085 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp574 Roundness $tmp538 	%line{48} %argrw{"wrr"}
+	add		$tmp575 Roundness $tmp538 	%argrw{"wrr"}
+	smoothstep	$tmp573 $tmp574 $tmp575 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp573 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp576 ___325_lox $tmp537 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp576 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp577 ___325_loy $tmp537 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp577 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp578 ___325_hix $tmp537 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp578 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp579 ___325_hiy $tmp537 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp579 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp580 $tmp538 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp580 $tmp538 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp582 $tmp538 	%line{58} %argrw{"wr"}
+	neg		$tmp583 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp581 $tmp582 $tmp538 $tmp583 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp581 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp585 $tmp538 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp584 $tmp585 $tmp538 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp584 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp587 $tmp538 	%line{60} %argrw{"wr"}
+	neg		$tmp588 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp586 $tmp587 $tmp538 $tmp588 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp586 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const3 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const3 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:202
+# <file not found>
+	eq		$tmp589 Tile $const1 	%line{202} %argrw{"wrr"}
+	if		$tmp589 1195 1195 	%argrw{"r"}
+# <buffer>:203
+# <file not found>
+	add		$tmp590 $const2 to 	%line{203} %argrw{"wrr"}
+	add		$tmp591 $const4 to 	%argrw{"wrr"}
+	assign		$tmp593 ___327_xx 	%argrw{"wr"}
+	assign		$tmp594 ___328_yy 	%argrw{"wr"}
+	point		$tmp592 $tmp593 $tmp594 $const2 	%argrw{"wrrr"}
+	add		$tmp595 fluvw $tmp592 	%argrw{"wrr"}
+	mul		$tmp596 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp597 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 1195 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp598 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp599 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp598 $tmp599 	%argrw{"wrr"}
+	compref		$tmp600 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp601 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp600 $tmp601 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp602 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $tmp590 $tmp602 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp603 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $tmp591 $tmp603 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp604 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const4 $tmp604 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp605 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const13 $tmp605 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp606 ___325_lox $tmp596 	%line{25} %argrw{"wrr"}
+	lt		$tmp607 ___325_x $tmp606 	%argrw{"wrr"}
+	neq		$tmp608 $tmp607 $const1 	%argrw{"wrr"}
+	if		$tmp608 1117 1121 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp609 ___325_hix $tmp596 	%line{26} %argrw{"wrr"}
+	gt		$tmp610 ___325_x $tmp609 	%argrw{"wrr"}
+	neq		$tmp611 $tmp610 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp608 $tmp611 	%line{25} %argrw{"wr"}
+	neq		$tmp612 $tmp608 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp612 1123 1127 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp613 ___325_loy $tmp596 	%line{27} %argrw{"wrr"}
+	lt		$tmp614 ___325_y $tmp613 	%argrw{"wrr"}
+	neq		$tmp615 $tmp614 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp612 $tmp615 	%line{26} %argrw{"wr"}
+	neq		$tmp616 $tmp612 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp616 1129 1133 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp617 ___325_hiy $tmp596 	%line{28} %argrw{"wrr"}
+	gt		$tmp618 ___325_y $tmp617 	%argrw{"wrr"}
+	neq		$tmp619 $tmp618 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp616 $tmp619 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp616 1136 1136 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp596 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp620 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp620 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp621 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp621 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp622 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp622 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp623 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp623 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp625 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp625 1148 1152 	%argrw{"r"}
+	assign		$tmp624 ___325_lx 	%argrw{"wr"}
+	gt		$tmp626 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp626 1151 1152 	%argrw{"r"}
+	assign		$tmp624 ___325_hx 	%argrw{"wr"}
+	assign		$tmp624 $const2 	%argrw{"wr"}
+	lt		$tmp628 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp628 1155 1159 	%argrw{"r"}
+	assign		$tmp627 ___325_ly 	%argrw{"wr"}
+	gt		$tmp629 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp629 1158 1159 	%argrw{"r"}
+	assign		$tmp627 ___325_hy 	%argrw{"wr"}
+	assign		$tmp627 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp624 $tmp627 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp630 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp630 1165 1165 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp631 Roundness $tmp597 	%line{47} %argrw{"wrr"}
+	if		$tmp631 1171 1192 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp633 Roundness $tmp597 	%line{48} %argrw{"wrr"}
+	add		$tmp634 Roundness $tmp597 	%argrw{"wrr"}
+	smoothstep	$tmp632 $tmp633 $tmp634 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp632 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp635 ___325_lox $tmp596 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp635 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp636 ___325_loy $tmp596 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp636 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp637 ___325_hix $tmp596 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp637 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp638 ___325_hiy $tmp596 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp638 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp639 $tmp597 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp639 $tmp597 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp641 $tmp597 	%line{58} %argrw{"wr"}
+	neg		$tmp642 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp640 $tmp641 $tmp597 $tmp642 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp640 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp644 $tmp597 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp643 $tmp644 $tmp597 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp643 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp646 $tmp597 	%line{60} %argrw{"wr"}
+	neg		$tmp647 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp645 $tmp646 $tmp597 $tmp647 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp645 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const10 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const10 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:204
+# <file not found>
+	eq		$tmp648 Tile $const1 	%line{204} %argrw{"wrr"}
+	if		$tmp648 1302 1302 	%argrw{"r"}
+# <buffer>:205
+# <file not found>
+	add		$tmp649 $const4 to 	%line{205} %argrw{"wrr"}
+	add		$tmp650 $const6 to 	%argrw{"wrr"}
+	assign		$tmp652 ___327_xx 	%argrw{"wr"}
+	assign		$tmp653 ___328_yy 	%argrw{"wr"}
+	point		$tmp651 $tmp652 $tmp653 $const2 	%argrw{"wrrr"}
+	add		$tmp654 fluvw $tmp651 	%argrw{"wrr"}
+	mul		$tmp655 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp656 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 1302 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp657 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp658 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp657 $tmp658 	%argrw{"wrr"}
+	compref		$tmp659 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp660 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp659 $tmp660 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp661 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $tmp649 $tmp661 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp662 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $tmp650 $tmp662 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp663 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const4 $tmp663 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp664 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const13 $tmp664 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp665 ___325_lox $tmp655 	%line{25} %argrw{"wrr"}
+	lt		$tmp666 ___325_x $tmp665 	%argrw{"wrr"}
+	neq		$tmp667 $tmp666 $const1 	%argrw{"wrr"}
+	if		$tmp667 1224 1228 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp668 ___325_hix $tmp655 	%line{26} %argrw{"wrr"}
+	gt		$tmp669 ___325_x $tmp668 	%argrw{"wrr"}
+	neq		$tmp670 $tmp669 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp667 $tmp670 	%line{25} %argrw{"wr"}
+	neq		$tmp671 $tmp667 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp671 1230 1234 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp672 ___325_loy $tmp655 	%line{27} %argrw{"wrr"}
+	lt		$tmp673 ___325_y $tmp672 	%argrw{"wrr"}
+	neq		$tmp674 $tmp673 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp671 $tmp674 	%line{26} %argrw{"wr"}
+	neq		$tmp675 $tmp671 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp675 1236 1240 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp676 ___325_hiy $tmp655 	%line{28} %argrw{"wrr"}
+	gt		$tmp677 ___325_y $tmp676 	%argrw{"wrr"}
+	neq		$tmp678 $tmp677 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp675 $tmp678 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp675 1243 1243 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp655 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp679 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp679 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp680 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp680 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp681 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp681 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp682 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp682 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp684 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp684 1255 1259 	%argrw{"r"}
+	assign		$tmp683 ___325_lx 	%argrw{"wr"}
+	gt		$tmp685 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp685 1258 1259 	%argrw{"r"}
+	assign		$tmp683 ___325_hx 	%argrw{"wr"}
+	assign		$tmp683 $const2 	%argrw{"wr"}
+	lt		$tmp687 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp687 1262 1266 	%argrw{"r"}
+	assign		$tmp686 ___325_ly 	%argrw{"wr"}
+	gt		$tmp688 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp688 1265 1266 	%argrw{"r"}
+	assign		$tmp686 ___325_hy 	%argrw{"wr"}
+	assign		$tmp686 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp683 $tmp686 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp689 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp689 1272 1272 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp690 Roundness $tmp656 	%line{47} %argrw{"wrr"}
+	if		$tmp690 1278 1299 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp692 Roundness $tmp656 	%line{48} %argrw{"wrr"}
+	add		$tmp693 Roundness $tmp656 	%argrw{"wrr"}
+	smoothstep	$tmp691 $tmp692 $tmp693 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp691 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp694 ___325_lox $tmp655 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp694 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp695 ___325_loy $tmp655 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp695 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp696 ___325_hix $tmp655 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp696 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp697 ___325_hiy $tmp655 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp697 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp698 $tmp656 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp698 $tmp656 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp700 $tmp656 	%line{58} %argrw{"wr"}
+	neg		$tmp701 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp699 $tmp700 $tmp656 $tmp701 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp699 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp703 $tmp656 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp702 $tmp703 $tmp656 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp702 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp705 $tmp656 	%line{60} %argrw{"wr"}
+	neg		$tmp706 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp704 $tmp705 $tmp656 $tmp706 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp704 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const11 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const10 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:206
+# <file not found>
+	eq		$tmp707 Tile $const1 	%line{206} %argrw{"wrr"}
+	if		$tmp707 1409 1409 	%argrw{"r"}
+# <buffer>:207
+# <file not found>
+	add		$tmp708 $const2 to2 	%line{207} %argrw{"wrr"}
+	add		$tmp709 $const4 to2 	%argrw{"wrr"}
+	assign		$tmp711 ___327_xx 	%argrw{"wr"}
+	assign		$tmp712 ___328_yy 	%argrw{"wr"}
+	point		$tmp710 $tmp711 $tmp712 $const2 	%argrw{"wrrr"}
+	add		$tmp713 fluvw $tmp710 	%argrw{"wrr"}
+	mul		$tmp714 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp715 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 1409 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp716 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp717 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp716 $tmp717 	%argrw{"wrr"}
+	compref		$tmp718 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp719 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp718 $tmp719 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp720 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $tmp708 $tmp720 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp721 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $tmp709 $tmp721 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp722 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const13 $tmp722 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp723 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const6 $tmp723 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp724 ___325_lox $tmp714 	%line{25} %argrw{"wrr"}
+	lt		$tmp725 ___325_x $tmp724 	%argrw{"wrr"}
+	neq		$tmp726 $tmp725 $const1 	%argrw{"wrr"}
+	if		$tmp726 1331 1335 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp727 ___325_hix $tmp714 	%line{26} %argrw{"wrr"}
+	gt		$tmp728 ___325_x $tmp727 	%argrw{"wrr"}
+	neq		$tmp729 $tmp728 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp726 $tmp729 	%line{25} %argrw{"wr"}
+	neq		$tmp730 $tmp726 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp730 1337 1341 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp731 ___325_loy $tmp714 	%line{27} %argrw{"wrr"}
+	lt		$tmp732 ___325_y $tmp731 	%argrw{"wrr"}
+	neq		$tmp733 $tmp732 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp730 $tmp733 	%line{26} %argrw{"wr"}
+	neq		$tmp734 $tmp730 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp734 1343 1347 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp735 ___325_hiy $tmp714 	%line{28} %argrw{"wrr"}
+	gt		$tmp736 ___325_y $tmp735 	%argrw{"wrr"}
+	neq		$tmp737 $tmp736 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp734 $tmp737 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp734 1350 1350 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp714 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp738 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp738 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp739 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp739 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp740 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp740 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp741 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp741 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp743 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp743 1362 1366 	%argrw{"r"}
+	assign		$tmp742 ___325_lx 	%argrw{"wr"}
+	gt		$tmp744 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp744 1365 1366 	%argrw{"r"}
+	assign		$tmp742 ___325_hx 	%argrw{"wr"}
+	assign		$tmp742 $const2 	%argrw{"wr"}
+	lt		$tmp746 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp746 1369 1373 	%argrw{"r"}
+	assign		$tmp745 ___325_ly 	%argrw{"wr"}
+	gt		$tmp747 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp747 1372 1373 	%argrw{"r"}
+	assign		$tmp745 ___325_hy 	%argrw{"wr"}
+	assign		$tmp745 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp742 $tmp745 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp748 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp748 1379 1379 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp749 Roundness $tmp715 	%line{47} %argrw{"wrr"}
+	if		$tmp749 1385 1406 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp751 Roundness $tmp715 	%line{48} %argrw{"wrr"}
+	add		$tmp752 Roundness $tmp715 	%argrw{"wrr"}
+	smoothstep	$tmp750 $tmp751 $tmp752 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp750 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp753 ___325_lox $tmp714 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp753 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp754 ___325_loy $tmp714 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp754 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp755 ___325_hix $tmp714 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp755 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp756 ___325_hiy $tmp714 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp756 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp757 $tmp715 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp757 $tmp715 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp759 $tmp715 	%line{58} %argrw{"wr"}
+	neg		$tmp760 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp758 $tmp759 $tmp715 $tmp760 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp758 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp762 $tmp715 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp761 $tmp762 $tmp715 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp761 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp764 $tmp715 	%line{60} %argrw{"wr"}
+	neg		$tmp765 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp763 $tmp764 $tmp715 $tmp765 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp763 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const12 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const11 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:208
+# <file not found>
+	eq		$tmp766 Tile $const1 	%line{208} %argrw{"wrr"}
+	if		$tmp766 1516 1516 	%argrw{"r"}
+# <buffer>:209
+# <file not found>
+	add		$tmp767 $const4 to2 	%line{209} %argrw{"wrr"}
+	add		$tmp768 $const6 to2 	%argrw{"wrr"}
+	assign		$tmp770 ___327_xx 	%argrw{"wr"}
+	assign		$tmp771 ___328_yy 	%argrw{"wr"}
+	point		$tmp769 $tmp770 $tmp771 $const2 	%argrw{"wrrr"}
+	add		$tmp772 fluvw $tmp769 	%argrw{"wrr"}
+	mul		$tmp773 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp774 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 1516 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp775 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp776 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp775 $tmp776 	%argrw{"wrr"}
+	compref		$tmp777 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp778 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp777 $tmp778 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp779 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $tmp767 $tmp779 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp780 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $tmp768 $tmp780 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp781 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const13 $tmp781 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp782 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const6 $tmp782 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp783 ___325_lox $tmp773 	%line{25} %argrw{"wrr"}
+	lt		$tmp784 ___325_x $tmp783 	%argrw{"wrr"}
+	neq		$tmp785 $tmp784 $const1 	%argrw{"wrr"}
+	if		$tmp785 1438 1442 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp786 ___325_hix $tmp773 	%line{26} %argrw{"wrr"}
+	gt		$tmp787 ___325_x $tmp786 	%argrw{"wrr"}
+	neq		$tmp788 $tmp787 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp785 $tmp788 	%line{25} %argrw{"wr"}
+	neq		$tmp789 $tmp785 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp789 1444 1448 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp790 ___325_loy $tmp773 	%line{27} %argrw{"wrr"}
+	lt		$tmp791 ___325_y $tmp790 	%argrw{"wrr"}
+	neq		$tmp792 $tmp791 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp789 $tmp792 	%line{26} %argrw{"wr"}
+	neq		$tmp793 $tmp789 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp793 1450 1454 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp794 ___325_hiy $tmp773 	%line{28} %argrw{"wrr"}
+	gt		$tmp795 ___325_y $tmp794 	%argrw{"wrr"}
+	neq		$tmp796 $tmp795 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp793 $tmp796 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp793 1457 1457 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp773 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp797 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp797 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp798 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp798 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp799 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp799 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp800 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp800 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp802 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp802 1469 1473 	%argrw{"r"}
+	assign		$tmp801 ___325_lx 	%argrw{"wr"}
+	gt		$tmp803 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp803 1472 1473 	%argrw{"r"}
+	assign		$tmp801 ___325_hx 	%argrw{"wr"}
+	assign		$tmp801 $const2 	%argrw{"wr"}
+	lt		$tmp805 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp805 1476 1480 	%argrw{"r"}
+	assign		$tmp804 ___325_ly 	%argrw{"wr"}
+	gt		$tmp806 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp806 1479 1480 	%argrw{"r"}
+	assign		$tmp804 ___325_hy 	%argrw{"wr"}
+	assign		$tmp804 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp801 $tmp804 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp807 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp807 1486 1486 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp808 Roundness $tmp774 	%line{47} %argrw{"wrr"}
+	if		$tmp808 1492 1513 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp810 Roundness $tmp774 	%line{48} %argrw{"wrr"}
+	add		$tmp811 Roundness $tmp774 	%argrw{"wrr"}
+	smoothstep	$tmp809 $tmp810 $tmp811 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp809 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp812 ___325_lox $tmp773 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp812 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp813 ___325_loy $tmp773 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp813 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp814 ___325_hix $tmp773 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp814 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp815 ___325_hiy $tmp773 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp815 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp816 $tmp774 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp816 $tmp774 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp818 $tmp774 	%line{58} %argrw{"wr"}
+	neg		$tmp819 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp817 $tmp818 $tmp774 $tmp819 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp817 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp821 $tmp774 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp820 $tmp821 $tmp774 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp820 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp823 $tmp774 	%line{60} %argrw{"wr"}
+	neg		$tmp824 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp822 $tmp823 $tmp774 $tmp824 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp822 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const14 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const11 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:212
+# <file not found>
+	eq		$tmp825 TileMode $const12 	%line{212} %argrw{"wrr"}
+	if		$tmp825 2049 2049 	%argrw{"r"}
+# <buffer>:214
+# <file not found>
+	eq		$tmp826 Tile $const1 	%line{214} %argrw{"wrr"}
+	if		$tmp826 1624 1624 	%argrw{"r"}
+# <buffer>:215
+# <file not found>
+	sub		$tmp827 $const6 to2 	%line{215} %argrw{"wrr"}
+	assign		$tmp829 ___327_xx 	%argrw{"wr"}
+	assign		$tmp830 ___328_yy 	%argrw{"wr"}
+	point		$tmp828 $tmp829 $tmp830 $const2 	%argrw{"wrrr"}
+	add		$tmp831 fluvw $tmp828 	%argrw{"wrr"}
+	mul		$tmp832 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp833 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 1624 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp834 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp835 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp834 $tmp835 	%argrw{"wrr"}
+	compref		$tmp836 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp837 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp836 $tmp837 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp838 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $const2 $tmp838 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp839 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $tmp827 $tmp839 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp840 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const2 $tmp840 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp841 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy to2 $tmp841 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp842 ___325_lox $tmp832 	%line{25} %argrw{"wrr"}
+	lt		$tmp843 ___325_x $tmp842 	%argrw{"wrr"}
+	neq		$tmp844 $tmp843 $const1 	%argrw{"wrr"}
+	if		$tmp844 1546 1550 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp845 ___325_hix $tmp832 	%line{26} %argrw{"wrr"}
+	gt		$tmp846 ___325_x $tmp845 	%argrw{"wrr"}
+	neq		$tmp847 $tmp846 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp844 $tmp847 	%line{25} %argrw{"wr"}
+	neq		$tmp848 $tmp844 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp848 1552 1556 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp849 ___325_loy $tmp832 	%line{27} %argrw{"wrr"}
+	lt		$tmp850 ___325_y $tmp849 	%argrw{"wrr"}
+	neq		$tmp851 $tmp850 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp848 $tmp851 	%line{26} %argrw{"wr"}
+	neq		$tmp852 $tmp848 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp852 1558 1562 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp853 ___325_hiy $tmp832 	%line{28} %argrw{"wrr"}
+	gt		$tmp854 ___325_y $tmp853 	%argrw{"wrr"}
+	neq		$tmp855 $tmp854 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp852 $tmp855 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp852 1565 1565 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp832 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp856 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp856 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp857 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp857 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp858 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp858 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp859 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp859 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp861 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp861 1577 1581 	%argrw{"r"}
+	assign		$tmp860 ___325_lx 	%argrw{"wr"}
+	gt		$tmp862 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp862 1580 1581 	%argrw{"r"}
+	assign		$tmp860 ___325_hx 	%argrw{"wr"}
+	assign		$tmp860 $const2 	%argrw{"wr"}
+	lt		$tmp864 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp864 1584 1588 	%argrw{"r"}
+	assign		$tmp863 ___325_ly 	%argrw{"wr"}
+	gt		$tmp865 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp865 1587 1588 	%argrw{"r"}
+	assign		$tmp863 ___325_hy 	%argrw{"wr"}
+	assign		$tmp863 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp860 $tmp863 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp866 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp866 1594 1594 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp867 Roundness $tmp833 	%line{47} %argrw{"wrr"}
+	if		$tmp867 1600 1621 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp869 Roundness $tmp833 	%line{48} %argrw{"wrr"}
+	add		$tmp870 Roundness $tmp833 	%argrw{"wrr"}
+	smoothstep	$tmp868 $tmp869 $tmp870 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp868 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp871 ___325_lox $tmp832 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp871 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp872 ___325_loy $tmp832 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp872 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp873 ___325_hix $tmp832 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp873 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp874 ___325_hiy $tmp832 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp874 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp875 $tmp833 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp875 $tmp833 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp877 $tmp833 	%line{58} %argrw{"wr"}
+	neg		$tmp878 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp876 $tmp877 $tmp833 $tmp878 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp876 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp880 $tmp833 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp879 $tmp880 $tmp833 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp879 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp882 $tmp833 	%line{60} %argrw{"wr"}
+	neg		$tmp883 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp881 $tmp882 $tmp833 $tmp883 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp881 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const3 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const3 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:216
+# <file not found>
+	eq		$tmp884 Tile $const1 	%line{216} %argrw{"wrr"}
+	if		$tmp884 1730 1730 	%argrw{"r"}
+# <buffer>:217
+# <file not found>
+	sub		$tmp885 $const6 to2 	%line{217} %argrw{"wrr"}
+	assign		$tmp887 ___327_xx 	%argrw{"wr"}
+	assign		$tmp888 ___328_yy 	%argrw{"wr"}
+	point		$tmp886 $tmp887 $tmp888 $const2 	%argrw{"wrrr"}
+	add		$tmp889 fluvw $tmp886 	%argrw{"wrr"}
+	mul		$tmp890 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp891 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 1730 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp892 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp893 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp892 $tmp893 	%argrw{"wrr"}
+	compref		$tmp894 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp895 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp894 $tmp895 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp896 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox to2 $tmp896 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp897 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $const6 $tmp897 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp898 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $tmp885 $tmp898 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp899 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const6 $tmp899 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp900 ___325_lox $tmp890 	%line{25} %argrw{"wrr"}
+	lt		$tmp901 ___325_x $tmp900 	%argrw{"wrr"}
+	neq		$tmp902 $tmp901 $const1 	%argrw{"wrr"}
+	if		$tmp902 1652 1656 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp903 ___325_hix $tmp890 	%line{26} %argrw{"wrr"}
+	gt		$tmp904 ___325_x $tmp903 	%argrw{"wrr"}
+	neq		$tmp905 $tmp904 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp902 $tmp905 	%line{25} %argrw{"wr"}
+	neq		$tmp906 $tmp902 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp906 1658 1662 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp907 ___325_loy $tmp890 	%line{27} %argrw{"wrr"}
+	lt		$tmp908 ___325_y $tmp907 	%argrw{"wrr"}
+	neq		$tmp909 $tmp908 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp906 $tmp909 	%line{26} %argrw{"wr"}
+	neq		$tmp910 $tmp906 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp910 1664 1668 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp911 ___325_hiy $tmp890 	%line{28} %argrw{"wrr"}
+	gt		$tmp912 ___325_y $tmp911 	%argrw{"wrr"}
+	neq		$tmp913 $tmp912 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp910 $tmp913 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp910 1671 1671 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp890 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp914 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp914 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp915 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp915 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp916 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp916 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp917 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp917 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp919 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp919 1683 1687 	%argrw{"r"}
+	assign		$tmp918 ___325_lx 	%argrw{"wr"}
+	gt		$tmp920 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp920 1686 1687 	%argrw{"r"}
+	assign		$tmp918 ___325_hx 	%argrw{"wr"}
+	assign		$tmp918 $const2 	%argrw{"wr"}
+	lt		$tmp922 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp922 1690 1694 	%argrw{"r"}
+	assign		$tmp921 ___325_ly 	%argrw{"wr"}
+	gt		$tmp923 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp923 1693 1694 	%argrw{"r"}
+	assign		$tmp921 ___325_hy 	%argrw{"wr"}
+	assign		$tmp921 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp918 $tmp921 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp924 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp924 1700 1700 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp925 Roundness $tmp891 	%line{47} %argrw{"wrr"}
+	if		$tmp925 1706 1727 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp927 Roundness $tmp891 	%line{48} %argrw{"wrr"}
+	add		$tmp928 Roundness $tmp891 	%argrw{"wrr"}
+	smoothstep	$tmp926 $tmp927 $tmp928 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp926 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp929 ___325_lox $tmp890 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp929 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp930 ___325_loy $tmp890 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp930 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp931 ___325_hix $tmp890 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp931 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp932 ___325_hiy $tmp890 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp932 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp933 $tmp891 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp933 $tmp891 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp935 $tmp891 	%line{58} %argrw{"wr"}
+	neg		$tmp936 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp934 $tmp935 $tmp891 $tmp936 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp934 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp938 $tmp891 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp937 $tmp938 $tmp891 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp937 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp940 $tmp891 	%line{60} %argrw{"wr"}
+	neg		$tmp941 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp939 $tmp940 $tmp891 $tmp941 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp939 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const10 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const3 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:218
+# <file not found>
+	eq		$tmp942 Tile $const1 	%line{218} %argrw{"wrr"}
+	if		$tmp942 1835 1835 	%argrw{"r"}
+# <buffer>:219
+# <file not found>
+	assign		$tmp944 ___327_xx 	%line{219} %argrw{"wr"}
+	assign		$tmp945 ___328_yy 	%argrw{"wr"}
+	point		$tmp943 $tmp944 $tmp945 $const2 	%argrw{"wrrr"}
+	add		$tmp946 fluvw $tmp943 	%argrw{"wrr"}
+	mul		$tmp947 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp948 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 1835 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp949 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp950 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp949 $tmp950 	%argrw{"wrr"}
+	compref		$tmp951 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp952 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp951 $tmp952 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp953 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $const2 $tmp953 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp954 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix to2 $tmp954 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp955 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy to2 $tmp955 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp956 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $const6 $tmp956 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp957 ___325_lox $tmp947 	%line{25} %argrw{"wrr"}
+	lt		$tmp958 ___325_x $tmp957 	%argrw{"wrr"}
+	neq		$tmp959 $tmp958 $const1 	%argrw{"wrr"}
+	if		$tmp959 1757 1761 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp960 ___325_hix $tmp947 	%line{26} %argrw{"wrr"}
+	gt		$tmp961 ___325_x $tmp960 	%argrw{"wrr"}
+	neq		$tmp962 $tmp961 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp959 $tmp962 	%line{25} %argrw{"wr"}
+	neq		$tmp963 $tmp959 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp963 1763 1767 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp964 ___325_loy $tmp947 	%line{27} %argrw{"wrr"}
+	lt		$tmp965 ___325_y $tmp964 	%argrw{"wrr"}
+	neq		$tmp966 $tmp965 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp963 $tmp966 	%line{26} %argrw{"wr"}
+	neq		$tmp967 $tmp963 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp967 1769 1773 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp968 ___325_hiy $tmp947 	%line{28} %argrw{"wrr"}
+	gt		$tmp969 ___325_y $tmp968 	%argrw{"wrr"}
+	neq		$tmp970 $tmp969 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp967 $tmp970 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp967 1776 1776 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp947 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp971 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp971 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp972 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp972 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp973 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp973 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp974 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp974 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp976 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp976 1788 1792 	%argrw{"r"}
+	assign		$tmp975 ___325_lx 	%argrw{"wr"}
+	gt		$tmp977 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp977 1791 1792 	%argrw{"r"}
+	assign		$tmp975 ___325_hx 	%argrw{"wr"}
+	assign		$tmp975 $const2 	%argrw{"wr"}
+	lt		$tmp979 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp979 1795 1799 	%argrw{"r"}
+	assign		$tmp978 ___325_ly 	%argrw{"wr"}
+	gt		$tmp980 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp980 1798 1799 	%argrw{"r"}
+	assign		$tmp978 ___325_hy 	%argrw{"wr"}
+	assign		$tmp978 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp975 $tmp978 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp981 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp981 1805 1805 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp982 Roundness $tmp948 	%line{47} %argrw{"wrr"}
+	if		$tmp982 1811 1832 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp984 Roundness $tmp948 	%line{48} %argrw{"wrr"}
+	add		$tmp985 Roundness $tmp948 	%argrw{"wrr"}
+	smoothstep	$tmp983 $tmp984 $tmp985 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp983 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp986 ___325_lox $tmp947 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp986 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp987 ___325_loy $tmp947 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp987 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp988 ___325_hix $tmp947 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp988 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp989 ___325_hiy $tmp947 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp989 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp990 $tmp948 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp990 $tmp948 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp992 $tmp948 	%line{58} %argrw{"wr"}
+	neg		$tmp993 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp991 $tmp992 $tmp948 $tmp993 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp991 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp995 $tmp948 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp994 $tmp995 $tmp948 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp994 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp997 $tmp948 	%line{60} %argrw{"wr"}
+	neg		$tmp998 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp996 $tmp997 $tmp948 $tmp998 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp996 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const11 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const10 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:220
+# <file not found>
+	eq		$tmp999 Tile $const1 	%line{220} %argrw{"wrr"}
+	if		$tmp999 1942 1942 	%argrw{"r"}
+# <buffer>:221
+# <file not found>
+	sub		$tmp1000 $const6 to2 	%line{221} %argrw{"wrr"}
+	sub		$tmp1001 $const6 to2 	%argrw{"wrr"}
+	assign		$tmp1003 ___327_xx 	%argrw{"wr"}
+	assign		$tmp1004 ___328_yy 	%argrw{"wr"}
+	point		$tmp1002 $tmp1003 $tmp1004 $const2 	%argrw{"wrrr"}
+	add		$tmp1005 fluvw $tmp1002 	%argrw{"wrr"}
+	mul		$tmp1006 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp1007 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 1942 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp1008 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp1009 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp1008 $tmp1009 	%argrw{"wrr"}
+	compref		$tmp1010 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp1011 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp1010 $tmp1011 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp1012 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox $tmp1000 $tmp1012 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp1013 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $const6 $tmp1013 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp1014 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy $const2 $tmp1014 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp1015 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $tmp1001 $tmp1015 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp1016 ___325_lox $tmp1006 	%line{25} %argrw{"wrr"}
+	lt		$tmp1017 ___325_x $tmp1016 	%argrw{"wrr"}
+	neq		$tmp1018 $tmp1017 $const1 	%argrw{"wrr"}
+	if		$tmp1018 1864 1868 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp1019 ___325_hix $tmp1006 	%line{26} %argrw{"wrr"}
+	gt		$tmp1020 ___325_x $tmp1019 	%argrw{"wrr"}
+	neq		$tmp1021 $tmp1020 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp1018 $tmp1021 	%line{25} %argrw{"wr"}
+	neq		$tmp1022 $tmp1018 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp1022 1870 1874 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp1023 ___325_loy $tmp1006 	%line{27} %argrw{"wrr"}
+	lt		$tmp1024 ___325_y $tmp1023 	%argrw{"wrr"}
+	neq		$tmp1025 $tmp1024 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp1022 $tmp1025 	%line{26} %argrw{"wr"}
+	neq		$tmp1026 $tmp1022 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp1026 1876 1880 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp1027 ___325_hiy $tmp1006 	%line{28} %argrw{"wrr"}
+	gt		$tmp1028 ___325_y $tmp1027 	%argrw{"wrr"}
+	neq		$tmp1029 $tmp1028 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp1026 $tmp1029 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp1026 1883 1883 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp1006 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp1030 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp1030 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp1031 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp1031 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp1032 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp1032 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp1033 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp1033 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp1035 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp1035 1895 1899 	%argrw{"r"}
+	assign		$tmp1034 ___325_lx 	%argrw{"wr"}
+	gt		$tmp1036 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp1036 1898 1899 	%argrw{"r"}
+	assign		$tmp1034 ___325_hx 	%argrw{"wr"}
+	assign		$tmp1034 $const2 	%argrw{"wr"}
+	lt		$tmp1038 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp1038 1902 1906 	%argrw{"r"}
+	assign		$tmp1037 ___325_ly 	%argrw{"wr"}
+	gt		$tmp1039 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp1039 1905 1906 	%argrw{"r"}
+	assign		$tmp1037 ___325_hy 	%argrw{"wr"}
+	assign		$tmp1037 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp1034 $tmp1037 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp1040 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp1040 1912 1912 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp1041 Roundness $tmp1007 	%line{47} %argrw{"wrr"}
+	if		$tmp1041 1918 1939 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp1043 Roundness $tmp1007 	%line{48} %argrw{"wrr"}
+	add		$tmp1044 Roundness $tmp1007 	%argrw{"wrr"}
+	smoothstep	$tmp1042 $tmp1043 $tmp1044 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp1042 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp1045 ___325_lox $tmp1006 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp1045 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp1046 ___325_loy $tmp1006 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp1046 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp1047 ___325_hix $tmp1006 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp1047 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp1048 ___325_hiy $tmp1006 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp1048 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp1049 $tmp1007 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp1049 $tmp1007 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp1051 $tmp1007 	%line{58} %argrw{"wr"}
+	neg		$tmp1052 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp1050 $tmp1051 $tmp1007 $tmp1052 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp1050 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp1054 $tmp1007 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp1053 $tmp1054 $tmp1007 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp1053 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp1056 $tmp1007 	%line{60} %argrw{"wr"}
+	neg		$tmp1057 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp1055 $tmp1056 $tmp1007 $tmp1057 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp1055 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const12 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const10 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:222
+# <file not found>
+	eq		$tmp1058 Tile $const1 	%line{222} %argrw{"wrr"}
+	if		$tmp1058 2049 2049 	%argrw{"r"}
+# <buffer>:223
+# <file not found>
+	sub		$tmp1059 $const6 to2 	%line{223} %argrw{"wrr"}
+	sub		$tmp1060 $const6 to2 	%argrw{"wrr"}
+	assign		$tmp1062 ___327_xx 	%argrw{"wr"}
+	assign		$tmp1063 ___328_yy 	%argrw{"wr"}
+	point		$tmp1061 $tmp1062 $tmp1063 $const2 	%argrw{"wrrr"}
+	add		$tmp1064 fluvw $tmp1061 	%argrw{"wrr"}
+	mul		$tmp1065 GapWidth $const7 	%argrw{"wrr"}
+	mul		$tmp1066 Edge $const8 	%argrw{"wrr"}
+	functioncall	$const9 2049 	%argrw{"r"}
+# <buffer>:16
+# <file not found>
+	compref		$tmp1067 ___329_lookup $const1 	%line{16} %argrw{"wrr"}
+	compref		$tmp1068 Tiling $const1 	%argrw{"wrr"}
+	div		___325_x $tmp1067 $tmp1068 	%argrw{"wrr"}
+	compref		$tmp1069 ___329_lookup $const3 	%argrw{"wrr"}
+	compref		$tmp1070 Tiling $const3 	%argrw{"wrr"}
+	div		___325_y $tmp1069 $tmp1070 	%argrw{"wrr"}
+# <buffer>:18
+# <file not found>
+	compref		$tmp1071 Tiling $const1 	%line{18} %argrw{"wrr"}
+	div		___325_lox to2 $tmp1071 	%argrw{"wrr"}
+# <buffer>:19
+# <file not found>
+	compref		$tmp1072 Tiling $const1 	%line{19} %argrw{"wrr"}
+	div		___325_hix $tmp1059 $tmp1072 	%argrw{"wrr"}
+# <buffer>:20
+# <file not found>
+	compref		$tmp1073 Tiling $const3 	%line{20} %argrw{"wrr"}
+	div		___325_loy to2 $tmp1073 	%argrw{"wrr"}
+# <buffer>:21
+# <file not found>
+	compref		$tmp1074 Tiling $const3 	%line{21} %argrw{"wrr"}
+	div		___325_hiy $tmp1060 $tmp1074 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	add		$tmp1075 ___325_lox $tmp1065 	%line{25} %argrw{"wrr"}
+	lt		$tmp1076 ___325_x $tmp1075 	%argrw{"wrr"}
+	neq		$tmp1077 $tmp1076 $const1 	%argrw{"wrr"}
+	if		$tmp1077 1971 1975 	%argrw{"r"}
+# <buffer>:26
+# <file not found>
+	sub		$tmp1078 ___325_hix $tmp1065 	%line{26} %argrw{"wrr"}
+	gt		$tmp1079 ___325_x $tmp1078 	%argrw{"wrr"}
+	neq		$tmp1080 $tmp1079 $const1 	%argrw{"wrr"}
+# <buffer>:25
+# <file not found>
+	assign		$tmp1077 $tmp1080 	%line{25} %argrw{"wr"}
+	neq		$tmp1081 $tmp1077 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	if		$tmp1081 1977 1981 	%line{26} %argrw{"r"}
+# <buffer>:27
+# <file not found>
+	add		$tmp1082 ___325_loy $tmp1065 	%line{27} %argrw{"wrr"}
+	lt		$tmp1083 ___325_y $tmp1082 	%argrw{"wrr"}
+	neq		$tmp1084 $tmp1083 $const1 	%argrw{"wrr"}
+# <buffer>:26
+# <file not found>
+	assign		$tmp1081 $tmp1084 	%line{26} %argrw{"wr"}
+	neq		$tmp1085 $tmp1081 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	if		$tmp1085 1983 1987 	%line{27} %argrw{"r"}
+# <buffer>:28
+# <file not found>
+	sub		$tmp1086 ___325_hiy $tmp1065 	%line{28} %argrw{"wrr"}
+	gt		$tmp1087 ___325_y $tmp1086 	%argrw{"wrr"}
+	neq		$tmp1088 $tmp1087 $const1 	%argrw{"wrr"}
+# <buffer>:27
+# <file not found>
+	assign		$tmp1085 $tmp1088 	%line{27} %argrw{"wr"}
+# <buffer>:25
+# <file not found>
+	if		$tmp1085 1990 1990 	%line{25} %argrw{"r"}
+# <buffer>:29
+# <file not found>
+	assign		Tile $const1 	%line{29} %argrw{"wr"}
+	return
+# <buffer>:32
+# <file not found>
+	add		___325_gwr $tmp1065 Roundness 	%line{32} %argrw{"wrr"}
+# <buffer>:34
+# <file not found>
+	add		$tmp1089 ___325_lox ___325_gwr 	%line{34} %argrw{"wrr"}
+	sub		___325_lx ___325_x $tmp1089 	%argrw{"wrr"}
+# <buffer>:35
+# <file not found>
+	add		$tmp1090 ___325_loy ___325_gwr 	%line{35} %argrw{"wrr"}
+	sub		___325_ly ___325_y $tmp1090 	%argrw{"wrr"}
+# <buffer>:36
+# <file not found>
+	sub		$tmp1091 ___325_hix ___325_gwr 	%line{36} %argrw{"wrr"}
+	sub		___325_hx ___325_x $tmp1091 	%argrw{"wrr"}
+# <buffer>:37
+# <file not found>
+	sub		$tmp1092 ___325_hiy ___325_gwr 	%line{37} %argrw{"wrr"}
+	sub		___325_hy ___325_y $tmp1092 	%argrw{"wrr"}
+# <buffer>:41
+# <file not found>
+	lt		$tmp1094 ___325_lx $const1 	%line{41} %argrw{"wrr"}
+	if		$tmp1094 2002 2006 	%argrw{"r"}
+	assign		$tmp1093 ___325_lx 	%argrw{"wr"}
+	gt		$tmp1095 ___325_hx $const1 	%argrw{"wrr"}
+	if		$tmp1095 2005 2006 	%argrw{"r"}
+	assign		$tmp1093 ___325_hx 	%argrw{"wr"}
+	assign		$tmp1093 $const2 	%argrw{"wr"}
+	lt		$tmp1097 ___325_ly $const1 	%argrw{"wrr"}
+	if		$tmp1097 2009 2013 	%argrw{"r"}
+	assign		$tmp1096 ___325_ly 	%argrw{"wr"}
+	gt		$tmp1098 ___325_hy $const2 	%argrw{"wrr"}
+	if		$tmp1098 2012 2013 	%argrw{"r"}
+	assign		$tmp1096 ___325_hy 	%argrw{"wr"}
+	assign		$tmp1096 $const2 	%argrw{"wr"}
+	vector		___325_dp $tmp1093 $tmp1096 $const2 	%argrw{"wrrr"}
+# <buffer>:42
+# <file not found>
+	length		___325_d ___325_dp 	%line{42} %argrw{"wr"}
+# <buffer>:44
+# <file not found>
+	gt		$tmp1099 ___325_d Roundness 	%line{44} %argrw{"wrr"}
+	if		$tmp1099 2019 2019 	%argrw{"r"}
+	assign		Tile $const1 	%argrw{"wr"}
+	return
+# <buffer>:47
+# <file not found>
+	gt		$tmp1100 Roundness $tmp1066 	%line{47} %argrw{"wrr"}
+	if		$tmp1100 2025 2046 	%argrw{"r"}
+# <buffer>:48
+# <file not found>
+	sub		$tmp1102 Roundness $tmp1066 	%line{48} %argrw{"wrr"}
+	add		$tmp1103 Roundness $tmp1066 	%argrw{"wrr"}
+	smoothstep	$tmp1101 $tmp1102 $tmp1103 ___325_d 	%argrw{"wrrr"}
+	sub		Bump $const6 $tmp1101 	%argrw{"wrr"}
+# <buffer>:53
+# <file not found>
+	add		$tmp1104 ___325_lox $tmp1065 	%line{53} %argrw{"wrr"}
+	sub		___326_lx ___325_x $tmp1104 	%argrw{"wrr"}
+# <buffer>:54
+# <file not found>
+	add		$tmp1105 ___325_loy $tmp1065 	%line{54} %argrw{"wrr"}
+	sub		___326_ly ___325_y $tmp1105 	%argrw{"wrr"}
+# <buffer>:55
+# <file not found>
+	sub		$tmp1106 ___325_hix $tmp1065 	%line{55} %argrw{"wrr"}
+	sub		___326_hx ___325_x $tmp1106 	%argrw{"wrr"}
+# <buffer>:56
+# <file not found>
+	sub		$tmp1107 ___325_hiy $tmp1065 	%line{56} %argrw{"wrr"}
+	sub		___326_hy ___325_y $tmp1107 	%argrw{"wrr"}
+# <buffer>:57
+# <file not found>
+	neg		$tmp1108 $tmp1066 	%line{57} %argrw{"wr"}
+	smoothstep	Bump $tmp1108 $tmp1066 ___326_lx 	%argrw{"wrrr"}
+# <buffer>:58
+# <file not found>
+	neg		$tmp1110 $tmp1066 	%line{58} %argrw{"wr"}
+	neg		$tmp1111 ___326_hx 	%argrw{"wr"}
+	smoothstep	$tmp1109 $tmp1110 $tmp1066 $tmp1111 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp1109 	%argrw{"wrr"}
+# <buffer>:59
+# <file not found>
+	neg		$tmp1113 $tmp1066 	%line{59} %argrw{"wr"}
+	smoothstep	$tmp1112 $tmp1113 $tmp1066 ___326_ly 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp1112 	%argrw{"wrr"}
+# <buffer>:60
+# <file not found>
+	neg		$tmp1115 $tmp1066 	%line{60} %argrw{"wr"}
+	neg		$tmp1116 ___326_hy 	%argrw{"wr"}
+	smoothstep	$tmp1114 $tmp1115 $tmp1066 $tmp1116 	%argrw{"wrrr"}
+	mul		Bump Bump $tmp1114 	%argrw{"wrr"}
+# <buffer>:64
+# <file not found>
+	assign		___329_HitIdx $const14 	%line{64} %argrw{"wr"}
+# <buffer>:66
+# <file not found>
+	assign		Tile $const11 	%line{66} %argrw{"wr"}
+	return
+# <buffer>:225
+# <file not found>
+	gt		$tmp1117 ___329_HitIdx $const1 	%line{225} %argrw{"wrr"}
+	if		$tmp1117 2060 2060 	%argrw{"r"}
+# <buffer>:227
+# <file not found>
+	assign		TileIdx ___329_HitIdx 	%line{227} %argrw{"wr"}
+# <buffer>:228
+# <file not found>
+	assign		$tmp1121 ___327_xx 	%line{228} %argrw{"wr"}
+	assign		$tmp1122 ___328_yy 	%argrw{"wr"}
+	point		$tmp1120 $tmp1121 $tmp1122 $const2 	%argrw{"wrrr"}
+	add		$tmp1123 fluvw $tmp1120 	%argrw{"wrr"}
+	cellnoise	$tmp1119 $tmp1123 	%argrw{"wr"}
+	mul		$tmp1124 $tmp1119 $const15 	%argrw{"wrr"}
+	assign		$tmp1118 $tmp1124 	%argrw{"wr"}
+	add		Index ___329_HitIdx $tmp1118 	%argrw{"wrr"}
+# <buffer>:163
+# <file not found>
+	assign		$tmp1125 ___328_yy 	%line{163} %argrw{"wr"}
+	add		___328_yy ___328_yy $const3 	%argrw{"wrr"}
+# <buffer>:162
+# <file not found>
+	assign		$tmp1126 ___327_xx 	%line{162} %argrw{"wr"}
+	add		___327_xx ___327_xx $const3 	%argrw{"wrr"}
+# <buffer>:232
+# <file not found>
+	eq		$tmp1127 Tile $const3 	%line{232} %argrw{"wrr"}
+	if		$tmp1127 2067 2067 	%argrw{"r"}
+	assign		Col TileColor1 	%argrw{"wr"}
+# <buffer>:233
+# <file not found>
+	eq		$tmp1128 Tile $const10 	%line{233} %argrw{"wrr"}
+	if		$tmp1128 2070 2070 	%argrw{"r"}
+	assign		Col TileColor2 	%argrw{"wr"}
+# <buffer>:234
+# <file not found>
+	eq		$tmp1129 Tile $const11 	%line{234} %argrw{"wrr"}
+	if		$tmp1129 2073 2073 	%argrw{"r"}
+	assign		Col TileColor3 	%argrw{"wr"}
+# <buffer>:236
+# <file not found>
+	mul		Bump Bump EdgeBump 	%line{236} %argrw{"wrr"}
+# <buffer>:237
+# <file not found>
+	assign		$tmp1131 $const16 	%line{237} %argrw{"wr"}
+	dot		$tmp1130 $tmp1131 Col 	%argrw{"wrr"}
+	mul		$tmp1132 $tmp1130 ColorBump 	%argrw{"wrr"}
+	add		Bump Bump $tmp1132 	%argrw{"wrr"}
+	end

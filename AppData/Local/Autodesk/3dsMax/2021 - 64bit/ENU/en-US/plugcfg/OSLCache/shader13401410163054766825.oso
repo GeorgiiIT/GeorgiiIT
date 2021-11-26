@@ -1,0 +1,11 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader FloatSqrt	%meta{string,help,"Computes Square Root"} %meta{string,label,"Square Root"} %meta{string,category,"Math Float"} 
+param	float	Input	0		%read{0,0} %write{2147483647,-1}
+oparam	float	Out	0		%read{2147483647,-1} %write{0,0}
+code ___main___
+# OSL\FloatSqrt.osl:17
+# }
+	sqrt		Out Input 	%filename{"OSL\FloatSqrt.osl"} %line{17} %argrw{"wr"}
+	end

@@ -1,0 +1,12 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader ColorMin	%meta{string,help,"Returns the minimum of two colors"} %meta{string,label,"Min (color)"} %meta{string,category,"Math Color"} 
+param	color	A	0.5 0.5 0.5		%read{0,0} %write{2147483647,-1}
+param	color	B	0.5 0.5 0.5		%read{0,0} %write{2147483647,-1}
+oparam	color	Out	0 0 0		%read{2147483647,-1} %write{0,0}
+code ___main___
+# OSL\ColorMin.osl:18
+# }
+	min		Out A B 	%filename{"OSL\ColorMin.osl"} %line{18} %argrw{"wrr"}
+	end

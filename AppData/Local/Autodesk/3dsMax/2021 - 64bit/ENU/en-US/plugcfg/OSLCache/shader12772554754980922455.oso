@@ -1,0 +1,158 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader Candy	%meta{string,help,"Random circles with random colors and a tunable bump output. For random dots or candy sprinkles."} %meta{string,category,"Textures"} 
+param	point	UVW	0 0 0		%meta{string,help,"The position input, defaulting to object space. Connect an UVW shader for other alternatives."}  %read{2,2} %write{1,1} %initexpr
+param	float	Scale	20		%read{2,2} %write{2147483647,-1}
+param	float	Radius	0.5		%meta{float,min,0} %meta{float,max,2}  %read{24,33} %write{2147483647,-1}
+param	int	RandomOverlap	0		%meta{string,widget,"checkBox"}  %read{41,41} %write{2147483647,-1}
+param	float	BumpAmount	1		%read{38,38} %write{2147483647,-1}
+param	float	BumpShape	1		%read{37,37} %write{2147483647,-1}
+oparam	color	Col	0 0 0		%read{2147483647,-1} %write{6,49}
+oparam	float	Fac	0		%read{2147483647,-1} %write{6,49}
+oparam	float	Bump	0		%read{2147483647,-1} %write{6,49}
+oparam	float	Dist	0		%read{6,49} %write{6,49}
+oparam	float	Rnd	0		%read{2147483647,-1} %write{6,49}
+global	point	P	%read{1,1} %write{2147483647,-1}
+local	point	pnt	%read{6,49} %write{2,2}
+local	float	pri	%read{6,49} %write{3,49}
+local	float	___325_x	%read{6,49} %write{5,49}
+local	float	___327_y	%read{6,49} %write{6,49}
+local	float	___329_z	%read{6,49} %write{6,49}
+local	point	___330_rndpoint	%read{6,49} %write{6,49}
+local	point	___330_dotcenter	%read{6,49} %write{6,49}
+local	float	___330_dist	%read{6,49} %write{6,49}
+local	float	___330_priority	%read{6,49} %write{6,49}
+const	string	$const1	"object"		%read{1,1} %write{2147483647,-1}
+const	string	$const2	"transform"		%read{0,0} %write{2147483647,-1}
+const	string	$const3	"common"		%read{1,1} %write{2147483647,-1}
+const	int	$const4	-1		%read{3,13} %write{2147483647,-1}
+const	int	$const5	1		%read{6,14} %write{2147483647,-1}
+temp	int	$tmp1	%read{6,49} %write{6,49}
+temp	int	$tmp2	%read{4,49} %write{5,49}
+const	int	$const6	0		%read{7,41} %write{2147483647,-1}
+temp	int	$tmp3	%read{6,49} %write{6,49}
+temp	int	$tmp4	%read{6,49} %write{6,49}
+temp	int	$tmp5	%read{6,49} %write{6,49}
+temp	int	$tmp6	%read{6,49} %write{6,49}
+temp	point	$tmp7	%read{6,49} %write{6,49}
+temp	point	$tmp8	%read{6,49} %write{6,49}
+temp	point	$tmp9	%read{6,49} %write{6,49}
+const	float	$const7	0.00100000005		%read{19,19} %write{2147483647,-1}
+temp	vector	$tmp10	%read{6,49} %write{6,49}
+const	string	$const8	"cell"		%read{20,32} %write{2147483647,-1}
+const	float	$const9	1		%read{20,49} %write{2147483647,-1}
+const	float	$const11	2		%read{23,23} %write{2147483647,-1}
+temp	int	$tmp11	%read{6,49} %write{6,49}
+temp	int	$tmp12	%read{6,49} %write{6,49}
+temp	int	$tmp13	%read{6,49} %write{6,49}
+temp	int	$tmp14	%read{6,49} %write{6,49}
+const	float	$const13	3		%read{32,32} %write{2147483647,-1}
+temp	float	$tmp15	%read{6,49} %write{6,49}
+temp	float	$tmp16	%read{6,49} %write{6,49}
+temp	float	$tmp17	%read{6,49} %write{6,49}
+const	float	$const14	1.58000004		%read{35,35} %write{2147483647,-1}
+temp	float	$tmp18	%read{6,49} %write{6,49}
+temp	int	$tmp19	%read{6,49} %write{6,49}
+temp	float	$tmp20	%read{2147483647,-1} %write{6,49}
+temp	float	$tmp21	%read{2147483647,-1} %write{6,49}
+temp	float	$tmp22	%read{2147483647,-1} %write{6,49}
+code UVW
+# OSL\Candy.osl:19
+# 	float Scale  = 20.0,
+	functioncall	$const2 2 	%filename{"OSL\Candy.osl"} %line{19} %argrw{"r"}
+# OSL\stdosl.h:285
+# point  transform (string to, point p)  { return transform("common",to,p); }
+	transform	UVW $const3 $const1 P 	%filename{"OSL\stdosl.h"} %line{285} %argrw{"wrrr"}
+code ___main___
+# OSL\Candy.osl:33
+# 	float pri = -1;
+	div		pnt UVW Scale 	%filename{"OSL\Candy.osl"} %line{33} %argrw{"wrr"}
+# OSL\Candy.osl:34
+#   
+	assign		pri $const4 	%line{34} %argrw{"wr"}
+# OSL\Candy.osl:38
+# 	{
+	for		$tmp2 6 8 48 50 	%line{38} %argrw{"r"}
+	assign		___325_x $const4 	%argrw{"wr"}
+	le		$tmp1 ___325_x $const5 	%argrw{"wrr"}
+	neq		$tmp2 $tmp1 $const6 	%argrw{"wrr"}
+# OSL\Candy.osl:40
+# 		{
+	for		$tmp4 10 12 46 48 	%line{40} %argrw{"r"}
+	assign		___327_y $const4 	%argrw{"wr"}
+	le		$tmp3 ___327_y $const5 	%argrw{"wrr"}
+	neq		$tmp4 $tmp3 $const6 	%argrw{"wrr"}
+# OSL\Candy.osl:42
+# 			{
+	for		$tmp6 14 16 44 46 	%line{42} %argrw{"r"}
+	assign		___329_z $const4 	%argrw{"wr"}
+	le		$tmp5 ___329_z $const5 	%argrw{"wrr"}
+	neq		$tmp6 $tmp5 $const6 	%argrw{"wrr"}
+# OSL\Candy.osl:48
+# 				// Compute a center 
+	floor		$tmp7 pnt 	%line{48} %argrw{"wr"}
+	point		$tmp8 ___325_x ___327_y ___329_z 	%argrw{"wrrr"}
+	add		$tmp9 $tmp7 $tmp8 	%argrw{"wrr"}
+	add		___330_rndpoint $tmp9 $const7 	%argrw{"wrr"}
+# OSL\Candy.osl:50
+# 				float dist      = distance(dotcenter, pnt);
+	noise		$tmp10 $const8 ___330_rndpoint $const9 	%line{50} %argrw{"wrrr"}
+	add		___330_dotcenter ___330_rndpoint $tmp10 	%argrw{"wrr"}
+# OSL\Candy.osl:51
+# 				// Randomize the priority, all they all look "stacked" in 
+	distance	___330_dist ___330_dotcenter pnt 	%line{51} %argrw{"wrr"}
+# OSL\Candy.osl:54
+# 
+	noise		___330_priority $const8 ___330_rndpoint $const11 	%line{54} %argrw{"wrrr"}
+# OSL\Candy.osl:57
+# 				{
+	lt		$tmp11 ___330_dist Radius 	%line{57} %argrw{"wrr"}
+	neq		$tmp12 $tmp11 $const6 	%argrw{"wrr"}
+	if		$tmp12 30 30 	%argrw{"r"}
+	gt		$tmp13 ___330_priority pri 	%argrw{"wrr"}
+	neq		$tmp14 $tmp13 $const6 	%argrw{"wrr"}
+	assign		$tmp12 $tmp14 	%argrw{"wr"}
+	if		$tmp12 44 44 	%argrw{"r"}
+# OSL\Candy.osl:59
+# 					
+	assign		pri ___330_priority 	%line{59} %argrw{"wr"}
+# OSL\Candy.osl:61
+# 					Dist   = dist / Radius;
+	noise		Col $const8 ___330_rndpoint $const13 	%line{61} %argrw{"wrrr"}
+# OSL\Candy.osl:62
+# 					Bump   = pow(sin((1.0 - Dist) * 1.58), BumpShape) * BumpAmount;
+	div		Dist ___330_dist Radius 	%line{62} %argrw{"wrr"}
+# OSL\Candy.osl:63
+# 					Fac    = 1.0;
+	sub		$tmp17 $const9 Dist 	%line{63} %argrw{"wrr"}
+	mul		$tmp18 $tmp17 $const14 	%argrw{"wrr"}
+	sin		$tmp16 $tmp18 	%argrw{"wr"}
+	pow		$tmp15 $tmp16 BumpShape 	%argrw{"wrr"}
+	mul		Bump $tmp15 BumpAmount 	%argrw{"wrr"}
+# OSL\Candy.osl:64
+# 					Rnd    = priority;
+	assign		Fac $const9 	%line{64} %argrw{"wr"}
+# OSL\Candy.osl:65
+# 					
+	assign		Rnd ___330_priority 	%line{65} %argrw{"wr"}
+# OSL\Candy.osl:70
+# 						return;
+	eq		$tmp19 RandomOverlap $const6 	%line{70} %argrw{"wrr"}
+	if		$tmp19 44 44 	%argrw{"r"}
+# OSL\Candy.osl:71
+# 				}
+	exit	%line{71}
+# OSL\Candy.osl:42
+# 			{
+	assign		$tmp20 ___329_z 	%line{42} %argrw{"wr"}
+	add		___329_z ___329_z $const9 	%argrw{"wrr"}
+# OSL\Candy.osl:40
+# 		{
+	assign		$tmp21 ___327_y 	%line{40} %argrw{"wr"}
+	add		___327_y ___327_y $const9 	%argrw{"wrr"}
+# OSL\Candy.osl:38
+# 	{
+	assign		$tmp22 ___325_x 	%line{38} %argrw{"wr"}
+	add		___325_x ___325_x $const9 	%argrw{"wrr"}
+	end

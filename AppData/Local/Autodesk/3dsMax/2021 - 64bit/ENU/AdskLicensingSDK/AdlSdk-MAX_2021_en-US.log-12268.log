@@ -1,0 +1,3 @@
+2021-09-20 13:03:07.162 [O] Created AdlSdk Logger level [error], API version [4.0.0.38]
+2021-09-20 13:03:07.162 [E] Invalid log level was specified by environment variable ADLSDK_LOG_LEVEL[]; fall back to the default [error].
+2021-09-20 15:12:53.445 [E] CAdlsAdapter::ProcessRegisterMessage(): unexpected Register Messsage while in state [4]

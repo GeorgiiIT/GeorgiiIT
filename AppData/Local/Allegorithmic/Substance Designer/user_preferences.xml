@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<settingsinfo>
+		<version>6</version>
+	</settingsinfo>
+	<preferences>
+		<versioncontrol>
+			<settingsinfo>
+				<version>1</version>
+			</settingsinfo>
+		</versioncontrol>
+		<engines>
+			<current>C:/Program Files/Allegorithmic/Substance Designer/plugins/engines/substance_d3d11pc_blend.dll</current>
+		</engines>
+		<configuration>
+			<configurationfile>C:/Users/Екатерина Милованова/AppData/Local/Allegorithmic/Substance Designer/default_configuration.sbscfg</configurationfile>
+		</configuration>
+		<analytics>
+			<enabled>true</enabled>
+		</analytics>
+	</preferences>
+</root>

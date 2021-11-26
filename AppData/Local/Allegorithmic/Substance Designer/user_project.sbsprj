@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<settingsinfo>
+		<version>2</version>
+	</settingsinfo>
+	<preferences>
+		<versioncontrol>
+			<workspaces>
+				<size>1</size>
+				<_1 prefix="_">
+					<settingsinfo>
+						<version>1</version>
+					</settingsinfo>
+				</_1>
+			</workspaces>
+			<settingsinfo>
+				<version>2</version>
+			</settingsinfo>
+		</versioncontrol>
+		<scenes3d>
+			<tangentspaceplugin>file:///C:/Program Files/Allegorithmic/Substance Designer/plugins/tangentspace/mikktspace.dll</tangentspaceplugin>
+		</scenes3d>
+		<resources>
+			<urlaliases>
+				<size>0</size>
+			</urlaliases>
+		</resources>
+		<library>
+			<settingsinfo>
+				<version>2</version>
+			</settingsinfo>
+		</library>
+	</preferences>
+</root>

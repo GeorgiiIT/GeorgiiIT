@@ -1,0 +1,4 @@
+2021-10-19 10:30:59.093 [O] Created AdlSdk Logger level [error], API version [4.0.0.38]
+2021-10-19 10:30:59.093 [E] Invalid log level was specified by environment variable ADLSDK_LOG_LEVEL[]; fall back to the default [error].
+2021-10-19 15:12:04.803 [E] easywsclient: Connection error!
+2021-10-19 15:12:04.851 [E] CAdlsAdapter::ProcessRegisterMessage(): unexpected Register Messsage while in state [4]

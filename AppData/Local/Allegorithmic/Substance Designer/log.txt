@@ -1,0 +1,813 @@
+===== New Session =====
+пн авг. 30 23:08:46 2021
+[INFO][ApplicationVersion] Version 11.1.1 build 4469 commit 0x7bd97b4b (2021-02-06)
+[INFO][ApplicationSettings] ApplicationInstallDir: C:/Program Files/Allegorithmic/Substance Designer
+[INFO][ApplicationSettings] ApplicationResourceDir: C:/Program Files/Allegorithmic/Substance Designer/resources
+[INFO][ApplicationSettings] ApplicationDocumentsDir: C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Designer
+[INFO][ApplicationSettings] Plugins Directories:
+[INFO][ApplicationSettings]    C:/Program Files/Allegorithmic/Substance Designer/plugins
+[INFO][ApplicationSettings]    C:/Program Files/Allegorithmic/Substance Designer
+[INFO][ApplicationSettings] Settings:
+[INFO][ApplicationSettings]    Skip all data under 'licensessvc-'
+[INFO][ApplicationSettings]    settingsInfo/version=1
+[INFO][News] OS: Windows 10 (10.0)
+[INFO][News] kernel: winnt-10.0.19043
+[INFO][News] CPU: x86_64
+[INFO][News] Screen 0 (\\.\DISPLAY1): resolution 1920x1080, origin (0,0), depth 32, refresh rate 59Hz, dpi 1 (141.585 pixel/inch)
+[INFO][News] 3 mounted volume(s) available.
+[INFO][News] Volume 0:
+[INFO][News]   Name: 
+[INFO][News]   Root path: C:/
+[INFO][News]   File system: NTFS
+[INFO][News]   Size: 238.46 GB (256042332160 bytes)
+[INFO][News]   Available Size: 160.19 GB (172006174720 bytes)
+[INFO][News] Volume 1:
+[INFO][News]   Name: 
+[INFO][News]   Root path: D:/
+[INFO][News]   File system: NTFS
+[INFO][News]   Size: 930.50 GB (999113297920 bytes)
+[INFO][News]   Available Size: 903.30 GB (969913430016 bytes)
+[INFO][News] Volume 2:
+[INFO][News]   Name: 
+[INFO][News]   Root path: F:/
+[INFO][News]   File system: 
+[INFO][News]   Size: 0 (0 bytes)
+[INFO][News]   Available Size: 0 (0 bytes)
+[INFO][News] Physical memory Total: 31.84 GB (34182582272 bytes)
+[INFO][News] Physical memory Available: 26.80 GB (28779765760 bytes)
+[INFO][News] Process memory Total: 128.00 TB (140737488224256 bytes)
+[INFO][News] Process memory Available: 128.00 TB (140732692918272 bytes)
+[INFO][CmdLineArgs] Arguments to parse:
+[INFO][CmdLineArgs]    C:\Program Files\Allegorithmic\Substance Designer\Substance Designer.exe
+[INFO][Environment] DPI: 1
+[INFO][Environment] Available Fonts: AcadEref; Adobe Clean; AIGDT; AmdtSymbols; AMGDT; Arial; Arial Black
+Artifakt Element; Bahnschrift; Bahnschrift Condensed; Bahnschrift Light; Bahnschrift Light Condensed; Bahnschrift Light SemiCondensed; Bahnschrift SemiBold
+Bahnschrift SemiBold Condensed; Bahnschrift SemiBold SemiConden; Bahnschrift SemiCondensed; Bahnschrift SemiLight; Bahnschrift SemiLight Condensed; Bahnschrift SemiLight SemiConde; BankGothic Lt BT
+BankGothic Md BT; Calibri; Calibri Light; Cambria; Cambria Math; Candara; Candara Light
+CityBlueprint; Comic Sans MS; CommercialPi BT; CommercialScript BT; Complex; Consolas; Constantia
+Corbel; Corbel Light; CountryBlueprint; Courier; Courier New; Dutch801 Rm BT; Dutch801 XBd BT
+Ebrima; EuroRoman; Fixedsys; Franklin Gothic Medium; Gabriola; Gadugi; GDT
+GENISO; Georgia; GOST Common; GothicE; GothicG; GothicI; GreekC
+GreekS; HoloLens MDL2 Assets; Impact; Ink Free; ISOCP; ISOCP2; ISOCP3
+ISOCPEUR; ISOCT; ISOCT2; ISOCT3; ISOCTEUR; Italic; ItalicC
+ItalicT; Javanese Text; Leelawadee UI; Leelawadee UI Semilight; Lucida Console; Lucida Sans Unicode; Malgun Gothic
+Malgun Gothic Semilight; Marlett; Microsoft Himalaya; Microsoft JhengHei; Microsoft JhengHei Light; Microsoft JhengHei UI; Microsoft JhengHei UI Light
+Microsoft New Tai Lue; Microsoft PhagsPa; Microsoft Sans Serif; Microsoft Tai Le; Microsoft YaHei; Microsoft YaHei Light; Microsoft YaHei UI
+Microsoft YaHei UI Light; Microsoft Yi Baiti; MingLiU-ExtB; MingLiU_HKSCS-ExtB; Modern; Mongolian Baiti; Monospac821 BT
+Monotxt; MS Gothic; MS PGothic; MS Sans Serif; MS Serif; MS Shell Dlg 2; MS UI Gothic
+MV Boli; Myanmar Text; Nirmala UI; Nirmala UI Semilight; NSimSun; Palatino Linotype; PanRoman
+PMingLiU-ExtB; Proxy 1; Proxy 2; Proxy 3; Proxy 4; Proxy 5; Proxy 6
+Proxy 7; Proxy 8; Proxy 9; Roman; RomanC; RomanD; RomanS
+RomanT; Romantic; SansSerif; Script; ScriptC; ScriptS; Segoe MDL2 Assets
+Segoe Print; Segoe Script; Segoe UI; Segoe UI Black; Segoe UI Emoji; Segoe UI Historic; Segoe UI Light
+Segoe UI Semibold; Segoe UI Semilight; Segoe UI Symbol; Simplex; SimSun; SimSun-ExtB; Sitka Banner
+Sitka Display; Sitka Heading; Sitka Small; Sitka Subheading; Sitka Text; Small Fonts; Source Code Pro
+Stylus BT; SuperFrench; Swis721 BdCnOul BT; Swis721 BdOul BT; Swis721 Blk BT; Swis721 BlkCn BT; Swis721 BlkEx BT
+Swis721 BlkOul BT; Swis721 BT; Swis721 Cn BT; Swis721 Ex BT; Swis721 Lt BT; Swis721 LtCn BT; Swis721 LtEx BT
+Syastro; Sylfaen; Symap; Symath; Symbol; Symeteo; Symusic
+System; Tahoma; Technic; TechnicBold; TechnicLite; Terminal; Times New Roman
+Trebuchet MS; Txt; UniversalMath1 BT; Verdana; Vineta BT; Webdings; Wingdings
+Yu Gothic; Yu Gothic Light; Yu Gothic Medium; Yu Gothic UI; Yu Gothic UI Light; Yu Gothic UI Semibold; Yu Gothic UI Semilight
+[INFO][Environment] Current Font: MS Shell Dlg 2,7.8,-1,5,50,0,0,0,0,0
+[INFO][Environment]    Family: MS Shell Dlg 2
+[INFO][Environment]    Default Family: MS Shell Dlg 2
+[INFO][Environment]    Style Name: 
+[INFO][Environment]    RawName: unknown
+[INFO][IPC] Register Instance...
+[INFO][IPC] Create Server (ID:'algipc-0���曅�Ƃ�����-12928')...
+[INFO][IPC] Start Server...
+[INFO][IPC] local Server ID: 'algipc-0���曅�Ƃ�����-12928'
+[INFO][IPC] Save PID: '12928'
+[INFO][Environment] Start Network Service
+[INFO][Translations] Search Paths:
+[INFO][Translations]   
+   ... (repeated 1 more times)
+[INFO][Translations]   C:/Program Files/Allegorithmic/Substance Designer/resources/translations
+[INFO][Translations] Use system locale
+[INFO][Translations] Locale Found: ru_UA
+[INFO][Translations] Locale uiLanguages: ru-RU, en-US
+[INFO][Translations] Loading translation (substance, _, ) Failed
+   ... (repeated 1 more times)
+[INFO][Translations] Loading translation (substance, _, C:/Program Files/Allegorithmic/Substance Designer/resources/translations) Succeed
+[INFO][Translations] Use system locale
+[INFO][Translations] Locale Found: ru_UA
+[INFO][Translations] Locale uiLanguages: ru-RU, en-US
+[INFO][Translations] Loading translation (py_substance, _, ) Failed
+   ... (repeated 1 more times)
+[INFO][Translations] Loading translation (py_substance, _, C:/Program Files/Allegorithmic/Substance Designer/resources/translations) Succeed
+[INFO][Translations] Use system locale
+[INFO][Translations] Locale Found: ru_UA
+[INFO][Translations] Locale uiLanguages: ru-RU, en-US
+[INFO][Translations] Loading translation (qt, _, ) Failed
+   ... (repeated 1 more times)
+[INFO][Translations] Loading translation (qt, _, C:/Program Files/Allegorithmic/Substance Designer/resources/translations) Succeed
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514fix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514fixe.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514fixg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514fixr.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514fixt.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514oem.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514oeme.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514oemg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514oemr.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514oemt.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514sys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514syse.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514sysg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514sysr.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/8514syst.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85775.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85855.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85f1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85f1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85f1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85f874.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85s1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85s1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85s1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/85s874.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/AcadEref.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/AIGDT___.TTF
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/AMDT_Symbols.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/AMGDT___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app775.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app850.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app852.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app855.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app857.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app866.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app932.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app936.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app949.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/app950.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/arial.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/arialbd.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/arialbi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ariali.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ariblk.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Artifakt Element Bold Italic.fot
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Artifakt Element Bold Italic.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Artifakt Element Bold.fot
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Artifakt Element Bold.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Artifakt Element Italic.fot
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Artifakt Element Italic.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Artifakt Element Regular.fot
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Artifakt Element Regular.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/bahnschrift.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/bgothl.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/bgothm.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/c8514fix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/c8514oem.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/c8514sys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/calibri.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/calibrib.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/calibrii.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/calibril.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/calibrili.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/calibriz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cambria.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cambriab.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cambriai.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cambriaz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Candara.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Candarab.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Candarai.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Candaral.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Candarali.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Candaraz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga40737.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga40850.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga40852.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga40857.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga40866.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga40869.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga40woa.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga80737.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga80850.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga80852.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga80857.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga80866.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga80869.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cga80woa.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cityb___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/comic.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/comicbd.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/comici.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/comicz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/compi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/complex_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/comsc.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/consola.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/consolab.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/consolai.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/consolaz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/constan.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/constanb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/constani.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/constanz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/corbel.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/corbelb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/corbeli.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/corbell.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/corbelli.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/corbelz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/coue1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/coue1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/coue1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/couf1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/couf1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/couf1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/counb___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cour.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/courbd.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/courbi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/coure.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/couree.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/coureg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/courer.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/couret.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/courf.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/courfe.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/courfg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/courfr.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/courft.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/couri.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cvgafix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/cvgasys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/desktop.ini
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/dos737.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/dos869.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/dosapp.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/dutch.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/dutchb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/dutchbi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/dutcheb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/dutchi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ebrima.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ebrimabd.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega40737.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega40850.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega40852.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega40857.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega40866.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega40869.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega40woa.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega80737.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega80850.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega80852.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega80857.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega80866.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega80869.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ega80woa.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/eurr____.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/eurro___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/framd.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/framdit.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Gabriola.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/gadugi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/gadugib.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/gdt_____.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/GENISO.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/georgia.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/georgiab.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/georgiai.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/georgiaz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/GlobalMonospace.CompositeFont
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/GlobalSansSerif.CompositeFont
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/GlobalSerif.CompositeFont
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/GlobalUserInterface.CompositeFont
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/GOST Common Italic.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/GOST Common.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/gothice_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/gothicg_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/gothici_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/greekc__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/greeks__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/h8514fix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/h8514oem.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/h8514sys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/himalaya.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/holomdl2.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/hvgafix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/hvgasys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/impact.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Inkfree.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isocp2__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isocp3__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isocp___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isocpeui.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isocpeur.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isoct2__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isoct3__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isoct___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isocteui.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/isocteur.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/italic__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/italicc_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/italict_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/j8514fix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/j8514oem.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/j8514sys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/javatext.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/jsmalle.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/jsmallf.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/jvgafix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/jvgasys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/l_10646.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/LeelaUIb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/LeelawUI.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/LeelUIsl.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/lucon.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/malgun.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/malgunbd.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/malgunsl.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/marlett.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/micross.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mingliub.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mmrtext.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mmrtextb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/modern.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/monbaiti.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/monos.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/monosb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/monosbi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/monosi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/monotxt_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/msgothic.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/msjh.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/msjhbd.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/msjhl.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/msyh.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/msyhbd.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/msyhl.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/msyi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mtproxy1.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mtproxy2.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mtproxy3.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mtproxy4.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mtproxy5.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mtproxy6.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mtproxy7.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mtproxy8.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mtproxy9.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/mvboli.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Nirmala.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/NirmalaB.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/NirmalaS.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ntailu.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ntailub.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/pala.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/palab.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/palabi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/palai.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/panroman.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/phagspa.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/phagspab.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/romab___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/romai___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/roman.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/romanc__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/romand__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/romans__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/romant__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/romantic.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/s8514fix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/s8514oem.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/s8514sys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sanss___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sanssb__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sanssbo_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sansso__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/script.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/scriptc_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/scripts_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segmdl2.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoepr.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoeprb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoesc.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoescb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoeui.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoeuib.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoeuii.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoeuil.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoeuisl.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/segoeuiz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seguibl.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seguibli.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seguiemj.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seguihis.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seguili.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seguisb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seguisbi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seguisli.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seguisym.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sere1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sere1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sere1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/serf1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/serf1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/serf1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/serife.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/serifee.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/serifeg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/serifer.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/serifet.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seriff.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seriffe.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seriffg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/seriffr.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/serifft.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/simplex_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/simsun.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/simsunb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/Sitka.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/SitkaB.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/SitkaI.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/SitkaZ.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smae1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smae1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smae1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smaf1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smaf1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smaf1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smalle.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smallee.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smalleg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smaller.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smallet.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smallf.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smallfe.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smallfg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smallfr.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/smallft.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ssee1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ssee1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ssee1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ssee874.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ssef1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ssef1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ssef1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/ssef874.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sserife.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sserifee.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sserifeg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sserifer.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sserifet.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sseriff.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sseriffe.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sseriffg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sseriffr.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sserifft.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/stylu.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/supef___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/svgafix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/svgasys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swiss.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissbi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissbo.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissc.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swisscb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swisscbi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swisscbo.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissci.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissck.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swisscki.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swisscl.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swisscli.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swisse.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swisseb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissek.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissel.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissk.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swisski.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissko.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissl.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/swissli.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/syastro_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/sylfaen.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/symap___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/symath__.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/symbol.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/symeteo_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/symusic_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/tahoma.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/tahomabd.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/taile.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/taileb.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/techb___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/techl___.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/technic_.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/times.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/timesbd.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/timesbi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/timesi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/trebuc.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/trebucbd.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/trebucbi.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/trebucit.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/txt_____.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/umath.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/verdana.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/verdanab.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/verdanai.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/verdanaz.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga737.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga775.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga850.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga852.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga855.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga857.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga860.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga861.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga863.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga865.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga866.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga869.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga932.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga936.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga949.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vga950.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgaf1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgaf1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgaf1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgaf874.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgafix.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgafixe.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgafixg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgafixr.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgafixt.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgaoem.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgas1255.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgas1256.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgas1257.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgas874.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgasys.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgasyse.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgasysg.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgasysr.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vgasyst.fon
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/vinet.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/webdings.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/wingding.ttf
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/YuGothB.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/YuGothL.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/YuGothM.ttc
+[INFO][FontDatabase] Loading font C:/Windows/Fonts/YuGothR.ttc
+[INFO][GPUInfo] GPU adapters: 
+[INFO][GPUInfo]    GPU 0: NVIDIA GeForce GTX 1650 Ti
+[INFO][GPUInfo]       VendorId: 4318
+[INFO][GPUInfo]       DeviceId: 8085
+[INFO][GPUInfo]       SubsystemId: 339611685
+[INFO][GPUInfo]       RevisionId: 161
+[INFO][GPUInfo]       DedicatedVideoMemory: 4154458112
+[INFO][GPUInfo]       DedicatedSystemMemory: 0
+[INFO][GPUInfo]       SharedSystemMemory: 17091291136
+[INFO][GPUInfo]    GPU 1: Intel(R) UHD Graphics
+[INFO][GPUInfo]       VendorId: 32902
+[INFO][GPUInfo]       DeviceId: 39876
+[INFO][GPUInfo]       SubsystemId: 339546149
+[INFO][GPUInfo]       RevisionId: 5
+[INFO][GPUInfo]       DedicatedVideoMemory: 134217728
+[INFO][GPUInfo]       DedicatedSystemMemory: 0
+[INFO][GPUInfo]       SharedSystemMemory: 17091291136
+[INFO][GPUInfo]    GPU 2: Microsoft Basic Render Driver
+[INFO][GPUInfo]       VendorId: 5140
+[INFO][GPUInfo]       DeviceId: 140
+[INFO][GPUInfo]       SubsystemId: 0
+[INFO][GPUInfo]       RevisionId: 0
+[INFO][GPUInfo]       DedicatedVideoMemory: 0
+[INFO][GPUInfo]       DedicatedSystemMemory: 0
+[INFO][GPUInfo]       SharedSystemMemory: 17091291136
+[INFO][TempFiles] Delete directory 'C:/Users/Екатерина Милованова/AppData/Local/Temp/Allegorithmic/Substance Designer'
+[INFO][TempFiles]    Done.
+[INFO][TempFiles] Set new temporary directory to 'C:/Users/Екатерина Милованова/AppData/Local/Temp/Allegorithmic/Substance Designer'
+[INFO][Settings] Set configuration file: 
+[INFO][SettingsUpdater] Upgrade to format 1
+[INFO][SettingsUpdater] Upgrade to format 2
+[INFO][SettingsUpdater] Upgrade to format 1
+[INFO][SettingsUpdater] Upgrade to format 2
+[INFO][ApplicationPathMgr] setPackagesDir: C:/Program Files/Allegorithmic/Substance Designer/resources/packages
+[INFO][ApplicationPathMgr] DefaultPackagesDir: C:\Program Files\Allegorithmic\Substance Designer\resources\packages
+[INFO][ApplicationPathMgr] PackagesDir: C:\Program Files\Allegorithmic\Substance Designer\resources\packages
+[INFO][ApplicationPathMgr] PlayerPath: 
+[INFO][ApplicationPathMgr] 3DViewMapsPath: C:\Program Files\Allegorithmic\Substance Designer\resources\view3d\maps
+[INFO][ApplicationPathMgr] 3DViewIrayPath: C:\Program Files\Allegorithmic\Substance Designer\resources\view3d\iray
+[INFO][ApplicationPathMgr] 3DView3DShapesPath: C:\Program Files\Allegorithmic\Substance Designer\resources\view3d\shapes
+[INFO][ApplicationPathMgr] 3DView3DShadersPath: C:\Program Files\Allegorithmic\Substance Designer\resources\view3d\shaders
+[INFO][ApplicationPathMgr] 2DViewPath: C:\Program Files\Allegorithmic\Substance Designer\resources\view2d
+[INFO][ApplicationPathMgr] PSDParseAbsPath: C:\Program Files\Allegorithmic\Substance Designer\psdparse.exe
+[INFO][ApplicationPathMgr] DocumentationPath: C:\Program Files\Allegorithmic\Substance Designer\resources\documentation
+[INFO][ApplicationPathMgr] PythonApiIndexUrl: C:\Program Files\Allegorithmic\Substance Designer\resources\documentation\pythonapi\html\index.html
+[INFO][IRay] neuray header  API interface version = 43
+[INFO][IRay] neuray header  API version           = 4.1
+[INFO][IRay] neuray library API interface version = 43
+[INFO][IRay] neuray library build version string  = Iray RTX 2020.1, build 334300.2228, 11 Aug 2020, nt-x86-64
+[INFO][IRay SDK]    0.0   API    db   info : Loaded "C:\Program Files\Allegorithmic\Substance Designer\plugins\iray\libneuray.dll"
+[INFO][IRay SDK]    0.0   API    misc info : Iray RTX 2020.1, build 334300.2228, 11 Aug 2020, nt-x86-64
+[INFO][IRay] Plugin directory set to 'C:/Program Files/Allegorithmic/Substance Designer/plugins/iray'
+[INFO][IRay] Loading plugin 'nv_freeimage'...
+[INFO][IRay]    Plugin successfully loaded.
+[INFO][IRay] Loading plugin 'axf_importer'...
+[INFO][IRay]    Plugin successfully loaded.
+[INFO][IRay] Loading plugin 'mi_exporter'...
+[INFO][IRay]    Plugin successfully loaded.
+[INFO][IRay] Loading plugin 'nvcuvid_video_decoder'...
+[INFO][IRay]    Plugin successfully loaded.
+[INFO][IRay] Loading plugin 'libiray'...
+[INFO][IRay]    Plugin successfully loaded.
+[INFO][IRay] Loading plugin 'iray_bridge_client'...
+[INFO][IRay]    Plugin successfully loaded.
+[INFO][IRay] Starting IRay...
+[INFO][IRay]    Done.
+[INFO][IRay] Hardware detected:
+[INFO][IRay]    Name: CPU
+[INFO][IRay]       ID: 4294967295
+[INFO][IRay]       MemorySize: 0
+[INFO][IRay]       TCCFlag: false
+[INFO][IRay]       CUDA ID: 0
+[INFO][IRay]       CUDA Capability version: 0.0
+[INFO][IRay]       Clock Rate: 0 Hz
+[INFO][IRay]       Multi Processor Count: 0
+[INFO][IRay]       PCI Bus ID: 0
+[INFO][IRay]       PCI Device ID: 0
+[INFO][IRay]       Is Attached To Display: false
+[INFO][IRay]       Is Enabled for 'ogl': false
+[INFO][IRay]       Is Enabled for 'irt': true
+[INFO][IRay]       Is Enabled for 'iray': true
+[INFO][IRay]       Is Enabled for 'blend': false
+[INFO][IRay]       Is Enabled for 'irt_cloud': false
+[INFO][IRay]       Is Enabled for 'iray_cloud': false
+[INFO][IRay]       Is Enabled for 'nitro_cloud': false
+[INFO][IRay]    Name: GeForce GTX 1650 Ti
+[INFO][IRay]       ID: 1
+[INFO][IRay]       MemorySize: 4294639616
+[INFO][IRay]       TCCFlag: false
+[INFO][IRay]       CUDA ID: 0
+[INFO][IRay]       CUDA Capability version: 7.5
+[INFO][IRay]       Clock Rate: 1485000 Hz
+[INFO][IRay]       Multi Processor Count: 16
+[INFO][IRay]       PCI Bus ID: 1
+[INFO][IRay]       PCI Device ID: 0
+[INFO][IRay]       Is Attached To Display: false
+[INFO][IRay]       Is Enabled for 'ogl': false
+[INFO][IRay]       Is Enabled for 'irt': true
+[INFO][IRay]       Is Enabled for 'iray': true
+[INFO][IRay]       Is Enabled for 'blend': false
+[INFO][IRay]       Is Enabled for 'irt_cloud': false
+[INFO][IRay]       Is Enabled for 'iray_cloud': false
+[INFO][IRay]       Is Enabled for 'nitro_cloud': false
+[INFO][IRay] Importing MDL Module '${shader}/base.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/std.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/limits.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/anno.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/state.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/math.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/tex.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/df.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/base/annotations.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/base/core.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/blinn.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/lambert.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/lights.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/physically_metallic_roughness.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/physically_metallic_roughness_coated.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/physically_metallic_roughness_sss.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/physically_specular_glossiness.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/nvidia/core_definitions.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/nvidia/axf_importer/axf_importer.mdl'...
+[INFO][SettingsUpdater] Upgrade to format 1
+   ... (repeated 1 more times)
+[INFO][SettingsUpdater] Upgrade to format 2
+[INFO][SettingsUpdater] Upgrade to format 1
+[INFO][SettingsUpdater] Upgrade to format 2
+[INFO][BIB] Using BIB version 66050.
+[WARNING][ColorManagement] Duplicated profile sRGB IEC61966-2.1 found. Ignoring profile
+   ... (repeated 1 more times)
+[INFO][ColorManagement] Using the legacy color management engine.
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE Color Bridge Coated-V4.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE Color Bridge Uncoated-V4.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE FHI Cotton TCX.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE FHI Metallic Shimmers TPM.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE FHI Nylon Brights TN.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE FHI Paper TPG.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE FHI Polyester TSX.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE Skin Tone Guide.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE solid coated.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE solid uncoated.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE+ Extended Gamut Coated.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE+ Metallic Coated.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE+ Pastels & Neons Coated.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE+ Pastels & Neons Uncoated.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE+ Premium Metallics Coated.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE+ Solid Coated.acb
+[INFO][ColorManagement] Reading color book C:/Program Files/Allegorithmic/Substance Designer/resources/colorbooks\PANTONE+ Solid Uncoated.acb
+[WARNING][IRay] MDL search dir path not found 'C:/ProgramData/NVIDIA Corporation/mdl'
+[WARNING][IRay] Fail to add Path: C:/ProgramData/NVIDIA Corporation/mdl
+[WARNING][IRay] MDL search dir path not found 'C:/ProgramData/NVIDIA Corporation/MDL Material Exchange Package/mdl'
+[WARNING][IRay] Fail to add Path: C:/ProgramData/NVIDIA Corporation/MDL Material Exchange Package/mdl
+[WARNING][IRay] MDL search dir path not found 'C:/Users/ÐÐºÐ°ÑÐµÑÐ¸Ð½Ð° ÐÐ¸Ð»Ð¾Ð²Ð°Ð½Ð¾Ð²Ð°/Documents/mdl'
+[WARNING][IRay] Fail to add Path: C:/Users/ÐÐºÐ°ÑÐµÑÐ¸Ð½Ð° ÐÐ¸Ð»Ð¾Ð²Ð°Ð½Ð¾Ð²Ð°/Documents/mdl
+[INFO][IRay] Importing MDL Module '${shader}/alg/base/annotations.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/base/core.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/blinn.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/lambert.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/lights.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/physically_metallic_roughness.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/physically_metallic_roughness_coated.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/physically_metallic_roughness_sss.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/alg/materials/physically_specular_glossiness.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/nvidia/core_definitions.mdl'...
+[INFO][IRay] Importing MDL Module '${shader}/nvidia/axf_importer/axf_importer.mdl'...
+[INFO][Brushes manager] copying of default brushes database
+[INFO][Brushes manager] Converting Brush database 'C:/Users/Екатерина Милованова/AppData/Local/Allegorithmic/Substance Designer/Brushes/brush.dbr' to 'C:/Users/Екатерина Милованова/AppData/Local/Allegorithmic/Substance Designer/databases/brushes/default.json'
+[INFO][Brushes manager] Brush database 'C:/Users/Екатерина Милованова/AppData/Local/Allegorithmic/Substance Designer/Brushes/brush.dbr' converted to 'C:/Users/Екатерина Милованова/AppData/Local/Allegorithmic/Substance Designer/databases/brushes/default.json'
+[INFO][Brushes manager] Read brush database...
+[INFO][Brushes manager] Read resource database done.
+[INFO][3DView] Set State Save File: C:/Users/Екатерина Милованова/AppData/Local/Allegorithmic/Substance Designer/user_view3d_settings.sbsscn
+[INFO][SettingsUpdater] Upgrade to format 1
+[INFO][SettingsUpdater] Upgrade to format 2
+[INFO][SettingsUpdater] Upgrade to format 1
+[INFO][SettingsUpdater] Upgrade to format 2
+[INFO][Environment] ThreadPool MaxThreadCount: 12
+[INFO][Python] Python SDK Version: 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)]
+[INFO][Python] Python SDK Home: C:/Program Files/Allegorithmic/Substance Designer/plugins/pythonsdk
+[INFO][Python] Loading builtin Python modules.
+[INFO][Python] Add to Python environment PATH: 'C:/Program Files/Allegorithmic/Substance Designer/resources/python/sdplugins/node_align_tools'
+[INFO][ProjectManager] Tangent Space Plugin defined in project 'User project'
+[INFO][ProjectManager]    'file:///C:/Program Files/Allegorithmic/Substance Designer/plugins/tangentspace/mikktspace.dll'
+[INFO][ProjectManager] Checking tangent space plugin:file:///C:/Program Files/Allegorithmic/Substance Designer/plugins/tangentspace/mikktspace.dll
+[INFO][ProjectManager]    file:///C:/Program Files/Allegorithmic/Substance Designer/plugins/tangentspace/mikktspace.dll
+[INFO][ProjectManager]    Plugin is valid
+[INFO][ProjectManager] Set new tangent space plugin:
+[INFO][ProjectManager]    C:/Program Files/Allegorithmic/Substance Designer/plugins/tangentspace/mikktspace.dll
+[INFO][License] License server started on port 55099
+[INFO][License] DELAY SET TO 3600
+[INFO][License] Hardware id = win-865CF3F77B64
+[INFO][License] ProgramData path retrieved: C:\ProgramData
+[INFO][License] License path used: 
+[INFO][ResourceDatabase] Read resource database...
+[INFO][CmdLineArgs] Arguments to parse:
+[INFO][CmdLineArgs]    C:\Program Files\Allegorithmic\Substance Designer\Substance Designer.exe
+[INFO][ApplicationEventFilter] Start Processing FileOpen requests...
+[INFO][Environment] startProcessQueries
+[INFO][Environment] Instance Execute
+[WARNING][News] Fail to load news database (from file)
+[INFO][News] News database loaded (from https)
+[INFO][News] driver:
+[INFO][News]    description=Intel(R) UHD Graphics
+[INFO][News]    date=2020-05-19
+[INFO][News]    version=27.20.100.8280
+[INFO][News]    manufacturer=intel
+[INFO][News] os:
+[INFO][News]    name=win
+[INFO][News]    version=192
+[INFO][News]    kernel_version=10.0.19043
+[INFO][News]    current_cpu_architecture=x86_64
+[INFO][News]    build_abi=x86_64-little_endian-llp64
+[INFO][News]    build_cpu_architecture=x86_64
+[INFO][News]    pretty_product_name=Windows 10 (10.0)
+[INFO][News]    machine_host_name=DESKTOP-JRA93KK
+[INFO][News]    kernel_type=winnt
+[INFO][News]    product_type=windows
+[INFO][News]    product_version=10
+[INFO][News] appInfo:
+[INFO][News]    organization=Allegorithmic
+[INFO][News]    major=11
+[INFO][News]    minor=1
+[INFO][News]    patch=1
+[INFO][News]    revision=4469
+[INFO][News]    version=11.1.1
+[INFO][News]    application=Substance Designer
+[INFO][News] date:
+[INFO][News]    current=2021-08-30
+[WARNING][News] Dictionary variable 'cmdLineArgs[hide_changelog]' not found
+[WARNING][News] Dictionary variable 'license[licenseExpired]' not found
+[WARNING][News] Dictionary variable 'license[maintenanceExpired]' not found
+[WARNING][News] Fail to read dictionary value from 'license[softwareVersion]'
+[INFO][Environment] stopProcessQueries
+[INFO][Python] Unloading builtin Python modules.
+[INFO][Environment] Destroy Main Window
+[INFO][Environment] Destroy Component Manager
+[WARNING][Default] (0): QObject::disconnect: Unexpected null parameter
+[INFO][Python] Unloading builtin Python modules.
+[INFO][IRay] Stoping IRay...
+[INFO][IRay]    Done.
+[INFO][IPC] Unregister Instance...
+[INFO][IPC]    Done.
+[INFO][IPC] Remove PID
+[INFO][Environment] ThumbsManager: Uninit
+[INFO][ThumbsManager] Waiting for thumbs generation finished...
+[INFO][ThumbsManager] Thumbs generation finished.
+[INFO][Environment] Stop Network service
+[INFO][Environment] BackEndSwitcher: unloadLocalDynamicLibrary
+[INFO][Environment] SBSDataControl singletons: destroy
+[INFO][Environment] OutputUsage: destroy
+[INFO][Environment] OutputComponents: destroy
+[INFO][Environment] StaticVariables: destroy
+[INFO][Environment] ApplicationSettings: destroy
+[INFO][Environment] Destroy Application
+[INFO][Environment] Main End
+[INFO][TempFiles] Delete directory 'C:/Users/Екатерина Милованова/AppData/Local/Temp/Allegorithmic/Substance Designer'
+[INFO][TempFiles]    Done.

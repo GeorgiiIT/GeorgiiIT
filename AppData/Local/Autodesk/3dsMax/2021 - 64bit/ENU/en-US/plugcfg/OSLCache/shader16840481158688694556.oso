@@ -1,0 +1,49 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader IdxRndCol	%meta{string,help,"Return a randomized color based on an input integer index"} %meta{string,category,"Math Color"} %meta{string,label,"Random by Index (color)"} %meta{string,version,"2.0"} 
+param	int	Idx	0		%read{1,8} %write{2147483647,-1}
+param	int	Seed	1		%read{3,10} %write{2147483647,-1}
+param	color	Min	0 0 0		%read{7,14} %write{2147483647,-1}
+param	color	Max	1 1 1		%read{7,14} %write{2147483647,-1}
+param	int	PerComponent	0		%meta{string,widget,"checkBox"} %meta{int,connectable,0} %meta{string,label,"Randomize Per Component."} %meta{string,help,"When on, randomizes each R, G and B component individually. When off, interpolates between the Min and Max colors as a whole."}  %read{0,0} %write{2147483647,-1}
+oparam	color	Out	0 0 0		%read{2147483647,-1} %write{7,14}
+local	float	___326_ratio	%read{14,14} %write{13,13}
+temp	color	$tmp1	%read{7,7} %write{6,6}
+const	string	$const1	"cell"		%read{6,13} %write{2147483647,-1}
+temp	vector	$tmp2	%read{6,6} %write{5,5}
+temp	int	$tmp3	%read{2,2} %write{1,1}
+temp	float	$tmp4	%read{5,5} %write{2,2}
+temp	int	$tmp5	%read{4,4} %write{3,3}
+temp	float	$tmp6	%read{5,5} %write{4,4}
+const	float	$const3	10		%read{5,12} %write{2147483647,-1}
+temp	vector	$tmp7	%read{13,13} %write{12,12}
+temp	int	$tmp8	%read{9,9} %write{8,8}
+temp	float	$tmp9	%read{12,12} %write{9,9}
+temp	int	$tmp10	%read{11,11} %write{10,10}
+temp	float	$tmp11	%read{12,12} %write{11,11}
+code ___main___
+# OSL\IdxRndCol.osl:28
+# 	{
+	if		PerComponent 8 15 	%filename{"OSL\IdxRndCol.osl"} %line{28} %argrw{"r"}
+# OSL\IdxRndCol.osl:30
+# 	}
+	abs		$tmp3 Idx 	%line{30} %argrw{"wr"}
+	assign		$tmp4 $tmp3 	%argrw{"wr"}
+	abs		$tmp5 Seed 	%argrw{"wr"}
+	assign		$tmp6 $tmp5 	%argrw{"wr"}
+	vector		$tmp2 $tmp4 $tmp6 $const3 	%argrw{"wrrr"}
+	noise		$tmp1 $const1 $tmp2 	%argrw{"wrr"}
+	mix		Out Min Max $tmp1 	%argrw{"wrrr"}
+# OSL\IdxRndCol.osl:34
+# 		Out = mix(Min, Max, ratio);
+	abs		$tmp8 Idx 	%line{34} %argrw{"wr"}
+	assign		$tmp9 $tmp8 	%argrw{"wr"}
+	abs		$tmp10 Seed 	%argrw{"wr"}
+	assign		$tmp11 $tmp10 	%argrw{"wr"}
+	vector		$tmp7 $tmp9 $tmp11 $const3 	%argrw{"wrrr"}
+	noise		___326_ratio $const1 $tmp7 	%argrw{"wrr"}
+# OSL\IdxRndCol.osl:35
+# 	}
+	mix		Out Min Max ___326_ratio 	%line{35} %argrw{"wrrr"}
+	end

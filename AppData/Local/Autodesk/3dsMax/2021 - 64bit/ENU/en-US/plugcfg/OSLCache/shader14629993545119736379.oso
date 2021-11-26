@@ -1,0 +1,20 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader max_Texmap
+param	string	attrib	""		%read{0,0} %write{2147483647,-1}
+oparam	color	Col	0 0 0		%read{1,1} %write{0,0}
+oparam	float	Flt	0		%read{2,2} %write{1,1}
+oparam	int	Int	0		%read{2147483647,-1} %write{2,2}
+temp	int	$tmp1	%read{2147483647,-1} %write{0,0}
+code ___main___
+# max_Texmap:10
+# <file not found>
+	getattribute	$tmp1 attrib Col 	%filename{"max_Texmap"} %line{10} %argrw{"wrw"}
+# max_Texmap:11
+# <file not found>
+	luminance	Flt Col 	%line{11} %argrw{"wr"}
+# max_Texmap:12
+# <file not found>
+	assign		Int Flt 	%line{12} %argrw{"wr"}
+	end

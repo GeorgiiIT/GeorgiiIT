@@ -1,0 +1,12 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader FloatRecip	%meta{string,help,"Reciprocates a float number (1.0 / Input)"} %meta{string,label,"Reciprocal"} %meta{string,category,"Math Float"} 
+param	float	Input	0		%read{0,0} %write{2147483647,-1}
+oparam	float	Out	0		%read{2147483647,-1} %write{0,0}
+const	float	$const1	1		%read{0,0} %write{2147483647,-1}
+code ___main___
+# OSL\FloatRecip.osl:17
+# }
+	div		Out $const1 Input 	%filename{"OSL\FloatRecip.osl"} %line{17} %argrw{"wrr"}
+	end

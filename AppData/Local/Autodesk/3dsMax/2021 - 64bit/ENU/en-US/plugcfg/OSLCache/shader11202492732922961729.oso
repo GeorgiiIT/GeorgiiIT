@@ -1,0 +1,11 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader SetString	%meta{string,help,"A String value passthrough.<br>Can be used to instance one value in many places."} %meta{string,label,"String Value"} %meta{string,category,"Values"} 
+param	string	In	""		%meta{string,label,"String"}  %read{0,0} %write{2147483647,-1}
+oparam	string	Out	""		%read{2147483647,-1} %write{0,0}
+code ___main___
+# OSL\SetString.osl:17
+# }
+	assign		Out In 	%filename{"OSL\SetString.osl"} %line{17} %argrw{"wr"}
+	end

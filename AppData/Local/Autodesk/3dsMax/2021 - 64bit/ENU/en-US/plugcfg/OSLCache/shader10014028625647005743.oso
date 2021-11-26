@@ -1,0 +1,25 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.10.9
+# options: -IC:/Program Files/Autodesk/3ds Max 2021/OSL/
+shader MixColor	%meta{string,help,"Mix two colors based on a float"} %meta{string,label,"Mix (color)"} %meta{string,category,"Math Color"} 
+param	float	Mix	0		%meta{string,label,"Mix (A to B)"} %meta{float,min,0} %meta{float,max,1}  %read{1,1} %write{2147483647,-1}
+param	color	A	0 0 0		%meta{string,packName,"A / B"}  %read{3,3} %write{2147483647,-1}
+param	color	B	1 1 1		%meta{string,packName,"A / B"}  %read{3,3} %write{2147483647,-1}
+oparam	color	Out	0 0 0		%read{2147483647,-1} %write{3,3}
+temp	float	$tmp1	%read{3,3} %write{2,2}
+const	float	$const1	0		%read{2,2} %write{2147483647,-1}
+const	float	$const2	1		%read{1,1} %write{2147483647,-1}
+const	string	$const3	"clamp"		%read{0,0} %write{2147483647,-1}
+temp	float	$tmp2	%read{2,2} %write{1,1}
+code ___main___
+# OSL\MixColor.osl:19
+# }
+	functioncall	$const3 3 	%filename{"OSL\MixColor.osl"} %line{19} %argrw{"r"}
+# OSL\stdosl.h:163
+# float  clamp (float x, float minval, float maxval) { return max(min(x,maxval),minval); }
+	min		$tmp2 Mix $const2 	%filename{"OSL\stdosl.h"} %line{163} %argrw{"wrr"}
+	max		$tmp1 $tmp2 $const1 	%argrw{"wrr"}
+# OSL\MixColor.osl:19
+# }
+	mix		Out A B $tmp1 	%filename{"OSL\MixColor.osl"} %line{19} %argrw{"wrrr"}
+	end

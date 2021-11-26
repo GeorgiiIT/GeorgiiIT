@@ -1,0 +1,526 @@
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" projectName:  "Substance Painter"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" softwareVersion:  "6.2.1"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" softwareVersionName:  ""
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" buildNumber:  529
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" sourcesVersion:  "70eb1166bc28fdd24dc42f1999f4642a8381737a"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" osVersion:  "Windows 10.0.19043"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" cpuModel:  "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" ram:  "32599 MB"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" swap:  "Not bounded"
+[INFO] <Qt> "[DBG INFO][Main]" Substance Painter launched with the following command line arguments: 
+[INFO] <Qt> "[DBG INFO][Main]" ""
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" glVendor:  "NVIDIA Corporation"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" glRenderer:  "GeForce GTX 1650 Ti/PCIe/SSE2"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" glVersion:  "4.5.0 NVIDIA 451.67"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" glslVersion:  "4.50 NVIDIA"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" vram:  "3962 MB"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" preemption:  Pixel
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Number of detected GPU devices: 1"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Device[0] driver-desc: NVIDIA GeForce GTX 1650 Ti"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Device[0] driver-vendorid: 0x10de"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Device[0] driver-deviceid: 0x1f95"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Device[0] driver-version: 27.21.14.5167"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Device[0] driver-supported: 1"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Device[0] driver-minversion: 26.21.14.4250"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Device[0] driver-minname: 442.50 WHQL"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Device[0] driver-minurl: http://www.geforce.com/drivers"
+[INFO] <Qt> "[DBG INFO][RunTimeInfo]" "Device[0] driver-outdated: 0"
+[INFO] <Qt> "[DBG INFO][OpenGL Helpers]" OpenGL max version  4 . 50
+[INFO] <Qt> "[DBG INFO][OpenGL Helpers]" Max texture image units  32
+[INFO] <Qt> "[DBG INFO][OpenGL Helpers]" GLSL max version  450
+[INFO] <Qt> "[DBG INFO][OpenGL Helpers]" Feature: Bindless textures
+[INFO] <Qt> "[DBG INFO][Iray Service]" Iray dso path:  "C:/Program Files/Allegorithmic/Substance Painter/PlugIns/iray"
+[WARN] <Qt> "[DBG WARNING][Iray Service]" MDL search dir path not found 'c:\ProgramData\NVIDIA Corporation\mdl'
+[WARN] <Qt> "[DBG WARNING][Iray Service]" Fail to add Path: c:\ProgramData\NVIDIA Corporation\mdl
+[WARN] <Qt> "[DBG WARNING][Iray Service]" MDL search dir path not found 'c:\ProgramData\NVIDIA Corporation\MDL Material Exchange Package\mdl'
+[WARN] <Qt> "[DBG WARNING][Iray Service]" Fail to add Path: c:\ProgramData\NVIDIA Corporation\MDL Material Exchange Package\mdl
+[WARN] <Qt> "[DBG WARNING][Iray Service]" MDL search dir path not found 'C:/Users/Екатерина Милованова/Documents/mdl'
+[WARN] <Qt> "[DBG WARNING][Iray Service]" Fail to add Path: C:/Users/Екатерина Милованова/Documents/mdl
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\physically_metallic_roughness.mdl(64,16): unused parameter 'heightScale'
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\physically_metallic_roughness.mdl(64,16): unused parameter 'heightScale'
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\physically_specular_glossiness.mdl(81,19): unused parameter 'displacement'
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\physically_specular_glossiness.mdl(258,8): declaration shadows parameter 'displacement'
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\physically_specular_glossiness.mdl(81,19): unused parameter 'displacement'
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\physically_specular_glossiness.mdl(258,8): declaration shadows parameter 'displacement'
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\skin_metallic_roughness.mdl(58,19): used parameter 'height' marked with anno::unused() annotation
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\skin_metallic_roughness.mdl(58,19): used parameter 'height' marked with anno::unused() annotation
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\skin_metallic_roughness_coated.mdl(61,16): used parameter 'height' marked with anno::unused() annotation
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\skin_metallic_roughness_coated.mdl(61,16): used parameter 'height' marked with anno::unused() annotation
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\skin_specular_glossiness.mdl(99,16): used parameter 'height' marked with anno::unused() annotation
+[WARN] <Qt> "[DBG WARNING][Iray Service]"    1.0   MDLC   comp warn : C:\Program Files\Allegorithmic\Substance Painter\resources\iray-mdl\alg\materials\skin_specular_glossiness.mdl(99,16): used parameter 'height' marked with anno::unused() annotation
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///quad.fbx"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt://'"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Normals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : No Binormals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : No Tangents found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : No Vertex Colors found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : UV found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Entering post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: RemoveVCProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: RemoveVCProcess finished. Data structure cleanup has been done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Removed 2 nodes and 0 animation channels (2 output nodes)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Kept 0 lights and 0 cameras"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Moved 1 meshes to WCS (number of output meshes: 1)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: TriangulateProcess finished. All polygons have been triangulated."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Points: 0X, Lines: 0X, Triangles: 1, Polygons: 0 (Meshes, X = removed)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SplitMeshByUDIMProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SplitMeshByUDIMProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Generate spatially-sorted vertex cache"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Skipping one or more lines with the same contents"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess finished. Normals are already there"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: CalcTangentsProcess finished. Tangents have been calculated"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: JoinVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Mesh 0 (Plane) | Verts in: 6 out: 4 | ~33.3333%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: JoinVerticesProcess finished | Verts in: 6 out: 4 | ~33.3%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Leaving post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///quad.fbx successfully loaded in 13 ms"
+[INFO] <Qt> "[DBG INFO][License]" License server started on port 55099
+[INFO] <Qt> "[DBG INFO][License]" DELAY SET TO 3600
+[INFO] <Qt> "[DBG INFO][License]" Hardware id = win-865CF3F77B64
+[INFO] <Qt> "[DBG INFO][License]" ProgramData path retrieved: C:\ProgramData
+[INFO] <Qt> "[DBG INFO][License]" License path used: 
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_translate.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_translate.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_rotate_quarter.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_rotate_quarter.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_rotate_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_rotate_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_scale.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_scale.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_double_axis_LX.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_double_axis_LX.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_double_axis_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_double_axis_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_double_axis_LY.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_double_axis_LY.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_double_axis_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_double_axis_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_center.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_center.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_projection_surface.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_projection_surface.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_projection_surface_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_projection_surface_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_symmetry.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_symmetry.obj successfully loaded in 1 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_symmetry_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_symmetry_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_translate.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_translate.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_axis_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_axis_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_double_axis_LX.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_double_axis_LX.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_double_axis_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_double_axis_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_double_axis_LY.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_double_axis_LY.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///gizmo/gizmo_double_axis_collision.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt:///gizmo/'"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///gizmo/gizmo_double_axis_collision.obj successfully loaded in 0 ms"
+[INFO] <Qt> "[DBG INFO][Automatic unwrap]" "Automatic UV unwrapping build version: 0.5.0+183.6e279e2b, runtime version: 0.5.0+183.6e279e2b"
+[INFO] <Python> Python environment:
+Version             : 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit (AMD64)]
+API version         : 1013
+Encoding            : utf-8
+File system encoding: utf-8
+Modules search path : ['C:\\Program Files\\Allegorithmic\\Substance Painter', 'C:\\Program Files\\Allegorithmic\\Substance Painter\\resources\\pythonsdk\\python37.zip', 'C:\\Program Files\\Allegorithmic\\Substance Painter\\resources\\pythonsdk\\DLLs', 'C:\\Program Files\\Allegorithmic\\Substance Painter\\resources\\pythonsdk\\lib', 'C:\\Program Files\\Allegorithmic\\Substance Painter\\resources\\pythonsdk', 'C:\\Program Files\\Allegorithmic\\Substance Painter\\resources\\pythonsdk\\lib\\site-packages']
+Directory prefix    : C:/Program Files/Allegorithmic/Substance Painter/resources/pythonsdk
+PATH                : C:/Program Files/Allegorithmic/Substance Painter;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Common Files\Autodesk Shared\;C:\Users\Екатерина Милованова\AppData\Local\Microsoft\WindowsApps;
+
+[INFO] <Python> substance_painter package:
+Version             : 0.0.2
+
+[INFO] <Python> Plugins:
+Version             :0.0.1
+Plugins search path :['C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/python', 'C:/Program Files/Allegorithmic/Substance Painter/resources/python']
+Loaded plugins      :{'painter_plugins_ui': <module 'painter_plugins_ui' from 'C:/Program Files/Allegorithmic/Substance Painter/resources/python\\startup\\painter_plugins_ui.py'>}
+[INFO] <Plugins> Installing plugin autosave 1.0.4
+[INFO] <Plugins> Installing plugin dcc-live-link 1.1.3
+[INFO] <Plugins> Installing plugin photoshop-export 1.1.3
+[INFO] <Plugins> Installing plugin resources-updater 1.0.4
+[INFO] <Qt> "[DBG INFO][Plugins]" "Loading plugin autosave"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Enable plugin autosave located at file:///C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/plugins/autosave/main.qml"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Loading plugin dcc-live-link"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Enable plugin dcc-live-link located at file:///C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/plugins/dcc-live-link/main.qml"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Loading plugin photoshop-export"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Enable plugin photoshop-export located at file:///C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/plugins/photoshop-export/main.qml"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Loading plugin resources-updater"
+[INFO] <Plugin - resources-updater> No project open, resources updater discarded
+[INFO] <Qt> "[DBG INFO][Plugins]" "Enable plugin resources-updater located at file:///C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/plugins/resources-updater/main.qml"
+[INFO] <Qt> "[DBG INFO][Google Analytics]" "Log event Global>Version>Substance Painter.6.2.1>0"
+[INFO] <Qt> "[DBG INFO][Google Analytics]" "Log event Global>Application>Start>0"
+[INFO] <Qt> "[DBG INFO][Google Analytics]" "Log event Global>OSVersion>Windows 10.0.19043>0"
+[INFO] <Qt> "[DBG INFO][Google Analytics]" "Log event Global>LicenceType>>0"
+[INFO] <Qt> "[DBG INFO][Google Analytics]" "Log event GPU>Vendor>NVIDIA Corporation>0"
+[INFO] <Qt> "[DBG INFO][Google Analytics]" "Log event GPU>Renderer>GeForce GTX 1650 Ti/PCIe/SSE2>0"
+[INFO] <Qt> "[DBG INFO][Google Analytics]" "Log event GPU>Memory>>3962"
+[INFO] <Qt> "[DBG INFO][Google Analytics]" "Log event GPU>Memory_String>3962 MB>0"
+[INFO] <Qt> "[DBG INFO][Application Status]" "Global temporary directory set to C:/Users/Екатерина Милованова/AppData/Local/Temp/SubstancePainter-Tmp-wRLWXJ: 78.26 GB/238.46 GB."
+[ ERR] <GPUIssuesCheck> A new driver profile has been created for 'Substance Painter'. Restarting the application now is recommended for improved performances.
+[INFO] <Qt> "[DBG INFO][GPUIssuesCheck]" TDR information:
+[INFO] <Qt> "[DBG INFO][GPUIssuesCheck]" "-Registry TdrDelay key: '8' (int type)"
+[INFO] <Qt> "[DBG INFO][GPUIssuesCheck]" "-Registry TdrDdiDelay key: None"
+[INFO] <Qt> "[DBG INFO][GPUIssuesCheck]" "-Registry TdrLevel key: '3' (int type) - TdrLevelRecover"
+[INFO] <Qt> "[DBG INFO][GPUIssuesCheck]" Current TDR delay set to  5 s
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling started for:  "C:/Program Files/Allegorithmic/Substance Painter/resources/shelf/allegorithmic"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for applicationStarted()"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for projectOpened()"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for statusChanged()"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for ManageLicense()"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for applicationStarted()"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for projectOpened()"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for uiShouldDisplayNodesDialog(QString)"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for uiShouldDisplayLicenseKeyDialog(QString)"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for uiShouldDisplayWarning(QString)"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for uiShouldDisplayLicenseAvailableToInstall(QString)"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for uiShouldDisplayLicenseNeedUpdate(QString)"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for uiShouldQuit(QString)"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for ManageLicense()"
+[WARN] <Qt> QMetaObject::connectSlotsByName: No matching signal for on_mode_currentIndexChanged(int)
+[WARN] <Qt> QMetaObject::connectSlotsByName: No matching signal for on_resetShader_clicked()
+[WARN] <Qt> QMetaObject::connectSlotsByName: No matching signal for on_can_undo_changed(bool)
+[WARN] <Qt> QMetaObject::connectSlotsByName: No matching signal for on_can_redo_changed(bool)
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for set_shader_requested(Object,Object,ResourceShader*)"
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for reset_shader_data_requested(Object)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///half-sphere.obj"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt://'"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Entering post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: RemoveVCProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: RemoveVCProcess finished. Data structure cleanup has been done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess begin"
+[WARN] <Qt> "[DBG WARNING][Assimp]" "Warn,  T8052: Found 56 degenerated primitives"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Removed 2 nodes and 0 animation channels (2 output nodes)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Kept 0 lights and 0 cameras"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Moved 1 meshes to WCS (number of output meshes: 1)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess finished. There was nothing to be done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Points: 0X, Lines: 1X, Triangles: 1, Polygons: 0 (Meshes, X = removed)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SplitMeshByUDIMProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SplitMeshByUDIMProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Generate spatially-sorted vertex cache"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Skipping one or more lines with the same contents"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess finished. Normals are already there"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: CalcTangentsProcess finished. Tangents have been calculated"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: JoinVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Mesh 0 (SurfSphere_Mesh) | Verts in: 3480 out: 668 | ~80.8046%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: JoinVerticesProcess finished | Verts in: 3480 out: 668 | ~80.8%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Leaving post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///half-sphere.obj successfully loaded in 4 ms"
+[INFO] <Qt> "[DBG INFO][SVT pool factory]" Create SVT pool with the following configuration:
+[INFO] <Qt> "[DBG INFO][SVT pool factory]" "- sparse enabled: 1"
+[INFO] <Qt> "[DBG INFO][SVT pool factory]" "- budget: RAM:8149MB, VRAM:990MB"
+[INFO] <Qt> "[DBG INFO][SVT pool factory]" "- location: C:/Users/Екатерина Милованова/AppData/Local/Temp/SubstancePainter-Tmp-wRLWXJ/svt-cache.kkIiWO"
+[WARN] <Qt> QMetaObject::connectSlotsByName: No matching signal for on_stampBlendingComboBox_activated(int)
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///plane_stroke_preview.fbx"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt://'"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Normals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Binormals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Tangents found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : No Vertex Colors found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : UV found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: ScenePreprocessor: Adding default material 'DefaultMaterial'"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Entering post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: RemoveVCProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: RemoveVCProcess finished. Data structure cleanup has been done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Removed 2 nodes and 0 animation channels (2 output nodes)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Kept 0 lights and 0 cameras"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Moved 1 meshes to WCS (number of output meshes: 1)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess finished. There was nothing to be done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Points: 0X, Lines: 0X, Triangles: 1, Polygons: 0 (Meshes, X = removed)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Generate spatially-sorted vertex cache"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Skipping one or more lines with the same contents"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess finished. Normals are already there"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: JoinVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Mesh 0 (plane_preview_stroke) | Verts in: 420 out: 142 | ~66.1905%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: JoinVerticesProcess finished | Verts in: 420 out: 142 | ~66.2%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Leaving post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///plane_stroke_preview.fbx successfully loaded in 11 ms"
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Result surfaces (RAM&VRAM)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Source surfaces (RAM&VRAM)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "VRAM Surfaces (Results&Sources)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "VRAM Mesh buffers"   32 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "RAM Stamps"   16 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Substance Render on the fly"   0 MB
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///sphere_rounded_preview.fbx"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt://'"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Normals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Binormals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Tangents found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : No Vertex Colors found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : UV found"
+[WARN] <Qt> "[DBG WARNING][Assimp]" "Warn,  T8052: ScenePreprocessor: Found space handedness mismatch between UV space and tangent space. Some bitangents have been inverted."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Entering post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: RemoveVCProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: RemoveVCProcess finished. Data structure cleanup has been done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Removed 2 nodes and 0 animation channels (2 output nodes)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Kept 0 lights and 0 cameras"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Moved 1 meshes to WCS (number of output meshes: 1)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess finished. There was nothing to be done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Points: 0X, Lines: 0X, Triangles: 1, Polygons: 0 (Meshes, X = removed)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Generate spatially-sorted vertex cache"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Skipping one or more lines with the same contents"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess finished. Normals are already there"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: JoinVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Mesh 0 (Sphere001) | Verts in: 11904 out: 4036 | ~66.0954%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: JoinVerticesProcess finished | Verts in: 11904 out: 4036 | ~66.1%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Leaving post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///sphere_rounded_preview.fbx successfully loaded in 21 ms"
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Result surfaces (RAM&VRAM)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Source surfaces (RAM&VRAM)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "VRAM Surfaces (Results&Sources)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "VRAM Mesh buffers"   32 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "RAM Stamps"   16 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Substance Render on the fly"   0 MB
+[INFO] <Qt> Unknown property fixed-width
+[INFO] <Qt> Unknown property fixed-height
+[INFO] <Qt> Unknown property fixed-width
+[INFO] <Qt> Unknown property fixed-height
+[INFO] <Qt> Unknown property fixed-width
+[INFO] <Qt> Unknown property fixed-height
+[INFO] <Qt> Unknown property fixed-width
+[INFO] <Qt> Unknown property fixed-height
+[INFO] <Qt> Unknown property fixed-width
+[INFO] <Qt> Unknown property fixed-height
+[INFO] <Qt> Unknown property fixed-width
+[INFO] <Qt> Unknown property fixed-height
+[WARN] <Qt> QMetaObject::connectSlotsByName: No matching signal for on_stampBlendingComboBox_activated(int)
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///plane_stroke_preview.fbx"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt://'"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Normals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Binormals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Tangents found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : No Vertex Colors found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : UV found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: ScenePreprocessor: Adding default material 'DefaultMaterial'"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Entering post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: RemoveVCProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: RemoveVCProcess finished. Data structure cleanup has been done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Removed 2 nodes and 0 animation channels (2 output nodes)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Kept 0 lights and 0 cameras"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Moved 1 meshes to WCS (number of output meshes: 1)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess finished. There was nothing to be done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Points: 0X, Lines: 0X, Triangles: 1, Polygons: 0 (Meshes, X = removed)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Generate spatially-sorted vertex cache"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Skipping one or more lines with the same contents"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess finished. Normals are already there"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: JoinVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Mesh 0 (plane_preview_stroke) | Verts in: 420 out: 142 | ~66.1905%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: JoinVerticesProcess finished | Verts in: 420 out: 142 | ~66.2%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Leaving post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///plane_stroke_preview.fbx successfully loaded in 11 ms"
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Result surfaces (RAM&VRAM)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Source surfaces (RAM&VRAM)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "VRAM Surfaces (Results&Sources)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "VRAM Mesh buffers"   32 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "RAM Stamps"   16 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Substance Render on the fly"   0 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Result surfaces (RAM&VRAM)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Source surfaces (RAM&VRAM)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "VRAM Surfaces (Results&Sources)"   64 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "VRAM Mesh buffers"   32 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "RAM Stamps"   16 MB
+[INFO] <Qt> "[DBG INFO][EngineIntegration]" "Substance Render on the fly"   0 MB
+[WARN] <Qt> "[DBG WARNING][Signal Slot]" "Alg::connectSlotsByName: No matching signal for create_shader_requested(ViewerSettings*,IRayService_*,QVariantMap)"
+[INFO] <Qt> "[DBG INFO][ShadowLightRays]" Finished generating light rays
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling duration: 3433 ms for:  "C:/Program Files/Allegorithmic/Substance Painter/resources/shelf/allegorithmic"
+[INFO] <Qt> "[DBG INFO][Resource Import ]" 
+ Loaded 1503 files in 3104.73ms
+  Alg::ResourceImage (Loaded 1503 files in 3104.73 ms):
+    Mean/Median:     2.06569ms / 0.6618ms
+    Min/Max:          0.1452ms / 355.96ms
+    Samples:
+      0: 0.1452ms    0.111: 0.2074ms    0.222: 0.292ms    0.333: 0.4283ms    0.444: 0.5723ms
+      0.556: 0.6969ms    0.667: 0.7968ms    0.778: 1.9645ms    0.889: 4.6078ms    1: 355.96ms
+
+
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling started for:  "C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/shelf"
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling duration: 17 ms for:  "C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/shelf"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Load qt:///plane_stroke_preview.fbx"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Assimp 3.1.243586452 amd64 msvc shared singlethreaded"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Found a matching importer for this file format"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Import root directory is 'qt://'"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Normals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Binormals found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : Tangents found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : No Vertex Colors found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: [FBX] : UV found"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: ScenePreprocessor: Adding default material 'DefaultMaterial'"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Entering post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: RemoveVCProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: RemoveVCProcess finished. Data structure cleanup has been done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: FindDegeneratesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenUVCoordsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: PretransformVerticesProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Removed 2 nodes and 0 animation channels (2 output nodes)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Kept 0 lights and 0 cameras"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Moved 1 meshes to WCS (number of output meshes: 1)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: TriangulateProcess finished. There was nothing to be done."
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Points: 0X, Lines: 0X, Triangles: 1, Polygons: 0 (Meshes, X = removed)"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: SortByPTypeProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Generate spatially-sorted vertex cache"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Skipping one or more lines with the same contents"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: GenVertexNormalsProcess finished. Normals are already there"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: CalcTangentsProcess finished"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: JoinVerticesProcess begin"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Debug, T8052: Mesh 0 (plane_preview_stroke) | Verts in: 420 out: 142 | ~66.1905%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: JoinVerticesProcess finished | Verts in: 420 out: 142 | ~66.2%"
+[INFO] <Qt> "[DBG INFO][Assimp]" "Info,  T8052: Leaving post processing pipeline"
+[INFO] <Qt> "[DBG INFO][Scene 3D]" "3D scene qt:///plane_stroke_preview.fbx successfully loaded in 11 ms"
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling started for:  "C:/Program Files/Allegorithmic/Substance Painter/resources/shelf/allegorithmic"
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling duration: 149 ms for:  "C:/Program Files/Allegorithmic/Substance Painter/resources/shelf/allegorithmic"
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling started for:  "C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/shelf"
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling duration: 5 ms for:  "C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/shelf"
+[INFO] <Qt> "[DBG INFO][Automatic unwrap]" "Enable automatic UV unwrapping"
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling started for:  "C:/Program Files/Allegorithmic/Substance Painter/resources/shelf/allegorithmic"
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling duration: 142 ms for:  "C:/Program Files/Allegorithmic/Substance Painter/resources/shelf/allegorithmic"
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling started for:  "C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/shelf"
+[INFO] <Qt> "[DBG INFO][Shelf agent]" Resources crawling duration: 5 ms for:  "C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/shelf"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Unloading plugin resources-updater"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Disable plugin resources-updater located at file:///C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/plugins/resources-updater/main.qml"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Unloading plugin photoshop-export"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Disable plugin photoshop-export located at file:///C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/plugins/photoshop-export/main.qml"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Unloading plugin dcc-live-link"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Disable plugin dcc-live-link located at file:///C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/plugins/dcc-live-link/main.qml"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Unloading plugin autosave"
+[INFO] <Qt> "[DBG INFO][Plugins]" "Disable plugin autosave located at file:///C:/Users/Екатерина Милованова/Documents/Allegorithmic/Substance Painter/plugins/autosave/main.qml"
+[INFO] <Qt> "[DBG INFO][Google Analytics]" "Log event Global>Application>Stop>32"
